@@ -1,0 +1,59 @@
+{
+  "id": "typography/typewriter-reveal",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "打字机档案戳",
+  "summary": "逐字符带确定性抖动敲出，句尾光标闪烁并移交下一行",
+  "intents": [
+    "时间地点",
+    "引用",
+    "标题"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 200,
+    "minimumInFrames": 90,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "时间、地点或档案信息需要现场录入感",
+      "纪录片或故事需要克制的打字节奏"
+    ],
+    "avoid": [
+      "长段正文需要快速阅读",
+      "高能量音乐重音需要瞬时冲击"
+    ],
+    "pairsWith": [
+      "camera/slow-pull"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      80,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/typewriter-reveal",
+    "sourcePath": "video-talkcraft/template/cards/typewriter-reveal.tsx",
+    "reference": "video-talkcraft/references/cards/typewriter-reveal.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "id": "commercial/review-card",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "商业镜头 · review-card",
+  "summary": "引用真实顾客评价：只能摘原文，可以删减，不能改写得更夸张。行业规则会核对 text 是不是 brief.reviews 某条原文的子串（reviewVerbatim）。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 90,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "quotes 最多 2 条；不放真人头像，改用首字母圆标；抖音版不写来源平台名，防止被判导流",
+      "教培禁用这个镜头（依据《广告法》第二十四条第（三）项，行业规则里按 industry 禁用）；电商可用，但要求隐去昵称",
+      "evidence 是评价截图的路径，不上屏，只给校验和人看"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      45,
+      76
+    ]
+  },
+  "migration": {
+    "source": "brewreel/reviewCard",
+    "sourcePath": "brewreel/template/src/shots/reviewCard.tsx",
+    "reference": "brewreel/docs/shots/reviewCard.md",
+    "status": "migrating"
+  }
+}

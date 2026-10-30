@@ -1,8 +1,8 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {LightLeakBurn} from '../../_shotcraft_demos/transition/transition-hidden-cut/LightLeakBurn';
-import {VersusSlam} from '../../_shotcraft_demos/transition/transition-hidden-cut/VersusSlam';
-import {InvisibleCut} from '../../_shotcraft_demos/transition/transition-hidden-cut/InvisibleCut';
+import {LightLeakBurn} from './LightLeakBurn';
+import {VersusSlam} from './VersusSlam';
+import {InvisibleCut} from './InvisibleCut';
 import type {Theme} from '../../../core/schema';
 
 export type TransitionHiddenCutStyle = 'light-leak-burn' | 'versus-slam' | 'invisible-cut';

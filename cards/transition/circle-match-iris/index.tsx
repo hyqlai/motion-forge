@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {CircleMatchIris as ShotcraftDemo} from '../../_shotcraft_demos/transition/circle-match-iris/CircleMatchIris';
+import {CircleMatchIris as ShotcraftDemo} from './CircleMatchIris';
 import type {Theme} from '../../../core/schema';
 
 export type CircleMatchIrisProps = {

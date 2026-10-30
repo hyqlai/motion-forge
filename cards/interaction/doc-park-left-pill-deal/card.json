@@ -1,0 +1,85 @@
+{
+  "id": "interaction/doc-park-left-pill-deal",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "文档停泊左侧发牌",
+  "summary": "文档卡从居中向左停泊平移并微缩小，右侧三条分析结论胶囊如发牌般逐条从右滑入，末条染高亮",
+  "intents": [
+    "报告提炼",
+    "审阅意见",
+    "要点提纯",
+    "文档结论"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 222,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "parkDur",
+        "label": "停泊平移时长",
+        "unit": "seconds",
+        "defaultValue": 0.55,
+        "min": 0.3,
+        "max": 1.2,
+        "step": 0.05,
+        "description": "文档向左侧停泊的滑移时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 222,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播念读完这份长文/报告/代码，我记下三条结论的时刻",
+      "左侧是证据主体、右侧是逐条发牌结论"
+    ],
+    "avoid": [
+      "右侧结论超过 4 条",
+      "文档在居中位没停留直接滑走"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/doc-park-left-pill-deal",
+    "sourcePath": "video-talkcraft/template/cards/doc-park-left-pill-deal.tsx",
+    "reference": "video-talkcraft/references/cards/doc-park-left-pill-deal.md",
+    "status": "ready"
+  }
+}

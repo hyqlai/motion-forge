@@ -1,0 +1,58 @@
+{
+  "id": "interaction/avatar-bracket-carousel",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "avatar-bracket-carousel",
+  "summary": "\"Your ___ agent\" 填空排版，四角对焦框钉在句中不动，头像队列在框内垂直 spring 轮换三次，入框放大清晰、出框按距离缩小淡化模糊，角色标签同步更换，切换瞬间对焦框呼吸 7%",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 156,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"一个位置，多种角色\"的能力枚举；团队/身份/预设/人格类产品的核心一句话镜头"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      39,
+      78,
+      132
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/avatar-bracket-carousel",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/avatar-bracket-carousel/AvatarBracketCarousel.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/avatar-bracket-carousel.md",
+    "status": "ready"
+  }
+}

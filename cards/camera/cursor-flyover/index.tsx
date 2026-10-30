@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {CursorFlyover as ShotcraftDemo} from '../../_shotcraft_demos/camera/cursor-flyover/CursorFlyover';
+import {CursorFlyover as ShotcraftDemo} from './CursorFlyover';
 import type {Theme} from '../../../core/schema';
 
 export type CursorFlyoverProps = {

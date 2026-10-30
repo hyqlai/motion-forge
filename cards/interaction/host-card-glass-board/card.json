@@ -1,0 +1,74 @@
+{
+  "id": "interaction/host-card-glass-board",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "透明玻璃板道具",
+  "summary": "一块高通透毛玻璃板横置在主体身前，其上微模块逐个弹出点亮，多步流程连续换板而人物不动",
+  "intents": [
+    "工作流讲解",
+    "工具链展示",
+    "多步教程",
+    "道具交互"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 210,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 210,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "讲工作流、系统架构、多步教程的段落（板上模块按词锚逐个 pop、人不动）",
+      "一块板上连讲几个功能而不换镜"
+    ],
+    "avoid": [
+      "玻璃透明度过低完全遮挡身后背景",
+      "模块过多排版凌乱"
+    ],
+    "pairsWith": [
+      "component/lower-third"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/host-card-glass-board",
+    "sourcePath": "video-talkcraft/template/cards/host-card-glass-board.tsx",
+    "reference": "video-talkcraft/references/cards/host-card-glass-board.md",
+    "status": "ready"
+  }
+}

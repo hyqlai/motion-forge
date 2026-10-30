@@ -1,0 +1,58 @@
+{
+  "id": "typography/vertical-word-roll-blur-cycle",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "vertical-word-roll-blur-cycle",
+  "summary": "句尾词换成竖向滚轮，3 次换词各 0.55s（outQuint 七成 + outBack 三成，前快后极慢带微过冲），相邻行按距离上垂直 blur 与灰度，中心词落定瞬间从灰染成强调色",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"Crafted for ___\" / \"Built for ___\" 这类句干 + 受众/对象列举的一句话卖点；浅底品牌片的干净一拍"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/vertical-word-roll-blur-cycle",
+    "sourcePath": "video-shotcraft/demos/typography/vertical-word-roll-blur-cycle/VerticalWordRollBlurCycle.tsx",
+    "reference": "video-shotcraft/references/shots/typography/vertical-word-roll-blur-cycle.md",
+    "status": "ready"
+  }
+}

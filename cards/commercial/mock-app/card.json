@@ -1,0 +1,66 @@
+{
+  "id": "commercial/mock-app",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "商业镜头 · mock-app",
+  "summary": "没有截图时的模拟产品界面（中性样式、会动）：dashboard 数据面板 / list 列表 / editor 生成文档 / form 填表提交。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 75,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "有真截图就用 phone；没有才用 mockApp",
+      "dashboard：stat 写一个大数字（会从 0 滚上去）+ series 写 5–8 个数（折线/柱子会长出来）+ items 写 2–3 行指标（value 写数值），highlight 点中异常那一行；产品是「问一句就出数」这类，input 写用户问的那句话（先打字提问，再出数）",
+      "list：items 写 3–5 行条目，value 写状态标签（≤4 字最好看，如「待处理」），highlight 点中那一行后标签变完成态；input 可写搜索词",
+      "editor：input 写用户输入的一句需求，button 写按钮（如「生成」），items 写生成出来的 3–5 行文字（第 1 行是标题）；done 写完成提示",
+      "form：items 写 2–5 个表单项（text 字段名，value 填入的值），button 写提交按钮，done 写提交后的提示",
+      "title 写产品里真实的页面名，不写第三方 App 名",
+      "stat/items 里出现「已售」「月售」「%」「好评率」这类数据类说法时，补 source 字段写来源和统计截止日期（不上屏，只过校验）"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "brewreel/mockApp",
+    "sourcePath": "brewreel/template/src/shots/mockApp.tsx",
+    "reference": "brewreel/docs/shots/mockApp.md",
+    "status": "migrating"
+  }
+}

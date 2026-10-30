@@ -2,11 +2,17 @@ import {z} from 'zod';
 
 export const rendererSchema = z.enum(['html', 'svg', 'canvas', 'three', 'mixed']);
 export const cardKindSchema = z.enum([
-  'component',
-  'text',
   'camera',
-  'media',
+  'typography',
+  'text',
+  'data',
+  'interaction',
+  'effects',
+  'rhythm',
   'transition',
+  'commercial',
+  'media',
+  'component',
   'environment',
 ]);
 
@@ -111,7 +117,7 @@ export const timingParamSchema = z.object({
 });
 
 export const motionCardManifestSchema = z.object({
-  id: z.string().regex(/^(component|text|camera|media|transition|environment)\/[a-z0-9-]+$/),
+  id: z.string().regex(/^(camera|typography|text|data|interaction|effects|rhythm|transition|commercial|media|component|environment)\/[a-z0-9-]+$/),
   version: z.string().min(1),
   kind: cardKindSchema,
   title: z.string().min(1),

@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {LineCarryTransition as ShotcraftDemo} from '../../_shotcraft_demos/transition/line-carry-transition/LineCarryTransition';
+import {LineCarryTransition as ShotcraftDemo} from './LineCarryTransition';
 import type {Theme} from '../../../core/schema';
 
 export type LineCarryTransitionProps = {

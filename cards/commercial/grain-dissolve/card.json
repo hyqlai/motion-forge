@@ -1,0 +1,58 @@
+{
+  "id": "commercial/grain-dissolve",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "grain-dissolve",
+  "summary": "整行字爆裂成沸腾颗粒噪点并浮现斜纹选区框，噪点云急速凝聚成更大号发光短字标，位移衰减归零定格",
+  "intents": [
+    "outro",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 60,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "收尾\"XX. Now Live\"式上线宣告；长句信息压缩成品牌短标的能量聚合拍"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      30,
+      51
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/grain-dissolve",
+    "sourcePath": "video-shotcraft/demos/outro/grain-dissolve/GrainDissolve.tsx",
+    "reference": "video-shotcraft/references/shots/outro/grain-dissolve.md",
+    "status": "ready"
+  }
+}

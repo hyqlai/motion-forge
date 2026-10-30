@@ -1,0 +1,58 @@
+{
+  "id": "data/before-after-slider-scrub",
+  "version": "1.0.0",
+  "kind": "data",
+  "title": "before-after-slider-scrub",
+  "summary": "前后对比拉杆——\"处理前/后\"两版叠放，分割杆先猛甩后慢扫，杆过处新版\"显影\"揭出",
+  "intents": [
+    "data",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "AI 增强/优化/重构类功能的效果对比段落（\"用前 vs 用后\"一镜讲清）"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/before-after-slider-scrub",
+    "sourcePath": "video-shotcraft/demos/data/before-after-slider-scrub/BeforeAfterSliderScrub.tsx",
+    "reference": "video-shotcraft/references/shots/data/before-after-slider-scrub.md",
+    "status": "ready"
+  }
+}

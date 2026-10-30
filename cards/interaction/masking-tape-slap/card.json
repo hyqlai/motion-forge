@@ -1,0 +1,63 @@
+{
+  "id": "interaction/masking-tape-slap",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "胶带拍贴固定",
+  "summary": "手工纸张质感：卡片轻飘入位后悬浮微晃，两条半透明纸胶带先后从画外加速拍在对角（大尺度过冲压扁），第二条拍下瞬间卡片晃动归零、投影收紧下沉",
+  "intents": [
+    "ui-entrance",
+    "纸胶带",
+    "手作质感",
+    "重点固定"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 140,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "手帐日常、观点立论、生活方式短片、手工纸艺",
+      "需要手拍固定在墙上的温润手工拟真感"
+    ],
+    "avoid": [
+      "过于刻板冷酷的商务仪表盘",
+      "大面积代码块排版"
+    ],
+    "pairsWith": [
+      "component/hand-drawn-ellipse"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      65,
+      110
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/masking-tape-slap",
+    "sourcePath": "video-shotcraft/demos/_legacy/ui-entrance/paper-craft-moves/MaskingTapeSlap.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/paper-craft-moves.md",
+    "status": "ready"
+  }
+}

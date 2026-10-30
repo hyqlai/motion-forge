@@ -1,0 +1,58 @@
+{
+  "id": "interaction/list-reveal",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "list-reveal",
+  "summary": "垂直菜单 6 项按 10f 的间隔依次 scale 找位、软 back 轻微过冲落定，同时整个列表容器全程匀速上移——逐项入场与整体漂移是两层不相干的运动",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "导航/侧边栏/设置面板的入场；任何\"界面自己长出来\"的 UI 段落，也适合做旁白铺垫时的低能量底"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/list-reveal",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/list-reveal/ListReveal.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/list-reveal.md",
+    "status": "ready"
+  }
+}

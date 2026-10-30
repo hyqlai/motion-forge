@@ -1,0 +1,58 @@
+{
+  "id": "interaction/bezier-source-converge-merge",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "bezier-source-converge-merge",
+  "summary": "左侧四个来源节点各有一条细贝塞尔曲线连向右侧同一汇聚点，曲线先错峰由左向右 draw-on，节点沿自己的曲线滑向汇聚点并三段式加速缩小到消失，强调色数据包全程沿路径滑行，吞并完成后曲线从左端反向擦除只留品牌标志（demo：白瓷圆片托 video-shotcraft 镜刻标志）",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 168,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"多源整合/统一接入/数据汇聚\"的核心机制镜头；集成、聚合、单一入口类产品的说明段落"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      42,
+      84,
+      142
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/bezier-source-converge-merge",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/bezier-source-converge-merge/BezierSourceConvergeMerge.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/bezier-source-converge-merge.md",
+    "status": "ready"
+  }
+}

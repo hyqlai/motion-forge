@@ -1,0 +1,58 @@
+{
+  "id": "commercial/text-as-mask",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "text-as-mask",
+  "summary": "文字视频遮罩——瓷白舞台上切出超粗大标题字，字内部透出缓慢平移的暗色实时产品面板，结尾吸一口气后字形指数冲入放大 46 倍溢出、内部画面接管全屏",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 165,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "品牌词/口号与产品画面二合一的开场或章节卡；字是门、产品在门里"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      41,
+      82,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/text-as-mask",
+    "sourcePath": "video-shotcraft/demos/opening/text-as-mask/TextAsMask.tsx",
+    "reference": "video-shotcraft/references/shots/opening/text-as-mask.md",
+    "status": "ready"
+  }
+}

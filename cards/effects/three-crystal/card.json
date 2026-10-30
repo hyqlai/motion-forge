@@ -1,0 +1,56 @@
+{
+  "id": "effects/three-crystal",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "三维晶体旋转",
+  "summary": "Three.js 晶体与空间灯光围绕中心主体旋转",
+  "intents": [
+    "揭示",
+    "高潮",
+    "产品展示"
+  ],
+  "genres": [
+    "launch",
+    "promo",
+    "music-visual",
+    "music-story"
+  ],
+  "inputs": [
+    "text",
+    "none"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "three",
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 45,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "产品揭示或音乐高潮需要空间质感",
+      "抽象主题需要三维视觉母题"
+    ],
+    "avoid": [
+      "密集信息页",
+      "低端设备上要求快速草稿渲染且没有降级方案"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      45,
+      100
+    ]
+  }
+}

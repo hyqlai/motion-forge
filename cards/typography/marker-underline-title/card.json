@@ -1,0 +1,58 @@
+{
+  "id": "typography/marker-underline-title",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "marker-underline-title",
+  "summary": "大标题落定后，关键词下方马克笔下划线从左到右快速描画——变宽笔形、毛糙边缘、微上斜跟随斜体字势，贴着字底",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 75,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "标题里强调单个关键词（new/free/AI…）；手写感/人味的品牌调性；正文标注式强调"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      18,
+      37,
+      63
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/marker-underline-title",
+    "sourcePath": "video-shotcraft/demos/typography/marker-underline-title/MarkerUnderlineTitle.tsx",
+    "reference": "video-shotcraft/references/shots/typography/marker-underline-title.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "commercial/data-chart",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "商业镜头 · data-chart",
+  "summary": "数据叙事卡：把标题、核心结论、1–3 个 KPI、图表、旁注和来源组织在同一镜，适合有真实数据依据的内容。支持横向条形、趋势折线、点图、构成环图和堆叠条。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 90,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "推荐叙事顺序：hook 提出问题 → dataChart 给结论和证据（标题、结论、KPI、图）→ compare/steps/phone 展开过程 → endCard 收束品牌与 CTA。",
+      "每张图只回答一个问题；标题写指标范围，takeaway 写读图结论，不要把结论藏在图例里。",
+      "bar/dot/line/donut 的 data 是 {label,value,series?} 数组（最多 6 项，label 最多 12 字，画面按这个宽度留白）；stacked 用相同 label 的多条记录表示分段，并给每段写 series，每个类别的段数要一致。",
+      "折线图每条 series 用同一组 label、同一顺序，时间点才能对齐。",
+      "数值、KPI 和旁注都必须来自 meta.facts，至少引用一条真实来源 refs；渲染会把 refs 对应的来源写在卡片底部。",
+      "annotations 最多 2 条，只写读图要点/口径；donut 建议不超过 5 类；趋势图按时间顺序排列。图表配色只代表系列，不代表 good/warn/bad 语义。"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "brewreel/dataChart",
+    "sourcePath": "brewreel/template/src/shots/dataChart.tsx",
+    "reference": "brewreel/docs/shots/dataChart.md",
+    "status": "migrating"
+  }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "typography/alt-block-lines",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "双色块对句",
+  "summary": "两行反色胶囊块横向刷出文字，形成强烈观点对照（不是A / 而是B）",
+  "intents": [
+    "对句",
+    "金句",
+    "观点反转",
+    "对照"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 91,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "lead",
+        "label": "起手等待",
+        "unit": "seconds",
+        "defaultValue": 0.4,
+        "min": 0,
+        "max": 1.5,
+        "step": 0.05,
+        "description": "第1行色块起跑前的等待时长"
+      },
+      {
+        "name": "dur",
+        "label": "展开时长",
+        "unit": "seconds",
+        "defaultValue": 0.26,
+        "min": 0.15,
+        "max": 0.8,
+        "step": 0.02,
+        "description": "单行色块从左到右展开时长"
+      },
+      {
+        "name": "rowStagger",
+        "label": "两行错峰",
+        "unit": "seconds",
+        "defaultValue": 0.12,
+        "min": 0.05,
+        "max": 0.4,
+        "step": 0.01,
+        "description": "第2行相对第1行的启动延迟"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 91,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播出现强烈对照反转句（以前X / 现在Y）",
+      "金句收束强调"
+    ],
+    "avoid": [
+      "超过2行文字",
+      "单行字数超过8个字"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      20,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/alt-block-lines",
+    "sourcePath": "video-talkcraft/template/cards/alt-block-lines.tsx",
+    "reference": "video-talkcraft/references/cards/alt-block-lines.md",
+    "status": "ready"
+  }
+}

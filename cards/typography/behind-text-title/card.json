@@ -1,0 +1,75 @@
+{
+  "id": "typography/behind-text-title",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "大标题穿透置后",
+  "summary": "超大号实心字母/文字穿透放置在主体或人物身后层，产生深邃的前后纵深感与电影感定格",
+  "intents": [
+    "开场题眼",
+    "电影感",
+    "前后层级",
+    "标题置后"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "text",
+    "component"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 95,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 95,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "开场题眼、章节大标题、结尾点题",
+      "电影感调性的出镜口播或三维主体前后分层"
+    ],
+    "avoid": [
+      "文字颜色与背景无对比度",
+      "主体过于庞大完全挡死背景字"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      35,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/behind-text-title",
+    "sourcePath": "video-talkcraft/template/cards/behind-text-title.tsx",
+    "reference": "video-talkcraft/references/cards/behind-text-title.md",
+    "status": "ready"
+  }
+}

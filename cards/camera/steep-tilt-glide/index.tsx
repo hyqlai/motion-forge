@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {SteepTiltGlide as ShotcraftDemo} from '../../_shotcraft_demos/camera/steep-tilt-glide/SteepTiltGlide';
+import {SteepTiltGlide as ShotcraftDemo} from './SteepTiltGlide';
 import type {Theme} from '../../../core/schema';
 
 export type SteepTiltGlideProps = {

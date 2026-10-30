@@ -1,32 +1,32 @@
 {
   "video-talkcraft/quote-card": {
-    "targetId": "text/quote-card",
+    "targetId": "typography/quote-card",
     "approvedAt": "2026-10-28T04:10:12.327Z",
     "evidence": [
-      "output/card-renders/text/quote-card/preview.mp4",
-      "output/card-renders/text/quote-card/frame-0.png",
-      "output/card-renders/text/quote-card/frame-30.png",
-      "output/card-renders/text/quote-card/frame-100.png"
+      "output/card-renders/typography/quote-card/preview.mp4",
+      "output/card-renders/typography/quote-card/frame-0.png",
+      "output/card-renders/typography/quote-card/frame-30.png",
+      "output/card-renders/typography/quote-card/frame-100.png"
     ]
   },
   "video-talkcraft/number-counter": {
-    "targetId": "component/number-counter",
+    "targetId": "data/number-counter",
     "approvedAt": "2026-10-28T04:10:12.328Z",
     "evidence": [
-      "output/card-renders/component/number-counter/preview.mp4",
-      "output/card-renders/component/number-counter/frame-0.png",
-      "output/card-renders/component/number-counter/frame-48.png",
-      "output/card-renders/component/number-counter/frame-80.png"
+      "output/card-renders/data/number-counter/preview.mp4",
+      "output/card-renders/data/number-counter/frame-0.png",
+      "output/card-renders/data/number-counter/frame-48.png",
+      "output/card-renders/data/number-counter/frame-80.png"
     ]
   },
   "video-talkcraft/highlighter-sweep": {
-    "targetId": "text/highlighter-sweep",
+    "targetId": "typography/highlighter-sweep",
     "approvedAt": "2026-10-28T04:10:12.329Z",
     "evidence": [
-      "output/card-renders/text/highlighter-sweep/preview.mp4",
-      "output/card-renders/text/highlighter-sweep/frame-0.png",
-      "output/card-renders/text/highlighter-sweep/frame-32.png",
-      "output/card-renders/text/highlighter-sweep/frame-55.png"
+      "output/card-renders/typography/highlighter-sweep/preview.mp4",
+      "output/card-renders/typography/highlighter-sweep/frame-0.png",
+      "output/card-renders/typography/highlighter-sweep/frame-32.png",
+      "output/card-renders/typography/highlighter-sweep/frame-55.png"
     ]
   },
   "video-talkcraft/media-pop-in": {
@@ -40,13 +40,13 @@
     ]
   },
   "video-shotcraft/flying-words": {
-    "targetId": "environment/flying-words",
+    "targetId": "effects/flying-words",
     "approvedAt": "2026-10-28T04:10:12.330Z",
     "evidence": [
-      "output/card-renders/environment/flying-words/preview.mp4",
-      "output/card-renders/environment/flying-words/frame-0.png",
-      "output/card-renders/environment/flying-words/frame-60.png",
-      "output/card-renders/environment/flying-words/frame-150.png"
+      "output/card-renders/effects/flying-words/preview.mp4",
+      "output/card-renders/effects/flying-words/frame-0.png",
+      "output/card-renders/effects/flying-words/frame-60.png",
+      "output/card-renders/effects/flying-words/frame-150.png"
     ]
   },
   "video-talkcraft/push-through-transition": {
@@ -60,23 +60,23 @@
     ]
   },
   "video-talkcraft/typewriter-reveal": {
-    "targetId": "text/typewriter-reveal",
+    "targetId": "typography/typewriter-reveal",
     "approvedAt": "2026-10-28T05:06:51.700Z",
     "evidence": [
-      "output/card-renders/text/typewriter-reveal/preview.mp4",
-      "output/card-renders/text/typewriter-reveal/frame-0.png",
-      "output/card-renders/text/typewriter-reveal/frame-80.png",
-      "output/card-renders/text/typewriter-reveal/frame-180.png"
+      "output/card-renders/typography/typewriter-reveal/preview.mp4",
+      "output/card-renders/typography/typewriter-reveal/frame-0.png",
+      "output/card-renders/typography/typewriter-reveal/frame-80.png",
+      "output/card-renders/typography/typewriter-reveal/frame-180.png"
     ]
   },
   "video-talkcraft/chart-grow": {
-    "targetId": "component/chart-grow",
+    "targetId": "data/chart-grow",
     "approvedAt": "2026-10-28T05:06:51.702Z",
     "evidence": [
-      "output/card-renders/component/chart-grow/preview.mp4",
-      "output/card-renders/component/chart-grow/frame-0.png",
-      "output/card-renders/component/chart-grow/frame-38.png",
-      "output/card-renders/component/chart-grow/frame-62.png"
+      "output/card-renders/data/chart-grow/preview.mp4",
+      "output/card-renders/data/chart-grow/frame-0.png",
+      "output/card-renders/data/chart-grow/frame-38.png",
+      "output/card-renders/data/chart-grow/frame-62.png"
     ]
   },
   "video-talkcraft/split-compare-slider": {
@@ -100,13 +100,13 @@
     ]
   },
   "video-talkcraft/logo-enter": {
-    "targetId": "component/logo-enter",
+    "targetId": "commercial/logo-enter",
     "approvedAt": "2026-10-28T05:06:51.707Z",
     "evidence": [
-      "output/card-renders/component/logo-enter/preview.mp4",
-      "output/card-renders/component/logo-enter/frame-0.png",
-      "output/card-renders/component/logo-enter/frame-28.png",
-      "output/card-renders/component/logo-enter/frame-80.png"
+      "output/card-renders/commercial/logo-enter/preview.mp4",
+      "output/card-renders/commercial/logo-enter/frame-0.png",
+      "output/card-renders/commercial/logo-enter/frame-28.png",
+      "output/card-renders/commercial/logo-enter/frame-80.png"
     ]
   },
   "video-talkcraft/whip-pan-transition": {
@@ -120,23 +120,23 @@
     ]
   },
   "video-talkcraft/strike-and-replace": {
-    "targetId": "text/strike-replace",
+    "targetId": "typography/strike-replace",
     "approvedAt": "2026-10-28T05:22:55.875Z",
     "evidence": [
-      "output/card-renders/text/strike-replace/preview.mp4",
-      "output/card-renders/text/strike-replace/frame-0.png",
-      "output/card-renders/text/strike-replace/frame-24.png",
-      "output/card-renders/text/strike-replace/frame-80.png"
+      "output/card-renders/typography/strike-replace/preview.mp4",
+      "output/card-renders/typography/strike-replace/frame-0.png",
+      "output/card-renders/typography/strike-replace/frame-24.png",
+      "output/card-renders/typography/strike-replace/frame-80.png"
     ]
   },
   "video-talkcraft/step-timeline-vertical": {
-    "targetId": "component/step-timeline",
+    "targetId": "data/step-timeline",
     "approvedAt": "2026-10-28T05:22:55.876Z",
     "evidence": [
-      "output/card-renders/component/step-timeline/preview.mp4",
-      "output/card-renders/component/step-timeline/frame-0.png",
-      "output/card-renders/component/step-timeline/frame-40.png",
-      "output/card-renders/component/step-timeline/frame-100.png"
+      "output/card-renders/data/step-timeline/preview.mp4",
+      "output/card-renders/data/step-timeline/frame-0.png",
+      "output/card-renders/data/step-timeline/frame-40.png",
+      "output/card-renders/data/step-timeline/frame-100.png"
     ]
   },
   "video-talkcraft/map-route-pin": {
@@ -170,43 +170,43 @@
     ]
   },
   "video-shotcraft/card-stack": {
-    "targetId": "component/card-fan",
+    "targetId": "interaction/card-fan",
     "approvedAt": "2026-10-28T05:22:55.878Z",
     "evidence": [
-      "output/card-renders/component/card-fan/preview.mp4",
-      "output/card-renders/component/card-fan/frame-0.png",
-      "output/card-renders/component/card-fan/frame-75.png",
-      "output/card-renders/component/card-fan/frame-135.png"
+      "output/card-renders/interaction/card-fan/preview.mp4",
+      "output/card-renders/interaction/card-fan/frame-0.png",
+      "output/card-renders/interaction/card-fan/frame-75.png",
+      "output/card-renders/interaction/card-fan/frame-135.png"
     ]
   },
   "video-talkcraft/info-term-card": {
-    "targetId": "component/info-term-card",
+    "targetId": "data/info-term-card",
     "approvedAt": "2026-10-28T05:36:10.672Z",
     "evidence": [
-      "output/card-renders/component/info-term-card/preview.mp4",
-      "output/card-renders/component/info-term-card/frame-0.png",
-      "output/card-renders/component/info-term-card/frame-30.png",
-      "output/card-renders/component/info-term-card/frame-120.png"
+      "output/card-renders/data/info-term-card/preview.mp4",
+      "output/card-renders/data/info-term-card/frame-0.png",
+      "output/card-renders/data/info-term-card/frame-30.png",
+      "output/card-renders/data/info-term-card/frame-120.png"
     ]
   },
   "video-talkcraft/bar-chart-growth": {
-    "targetId": "component/bar-chart-growth",
+    "targetId": "data/bar-chart-growth",
     "approvedAt": "2026-10-28T05:36:10.673Z",
     "evidence": [
-      "output/card-renders/component/bar-chart-growth/preview.mp4",
-      "output/card-renders/component/bar-chart-growth/frame-0.png",
-      "output/card-renders/component/bar-chart-growth/frame-44.png",
-      "output/card-renders/component/bar-chart-growth/frame-90.png"
+      "output/card-renders/data/bar-chart-growth/preview.mp4",
+      "output/card-renders/data/bar-chart-growth/frame-0.png",
+      "output/card-renders/data/bar-chart-growth/frame-44.png",
+      "output/card-renders/data/bar-chart-growth/frame-90.png"
     ]
   },
   "video-talkcraft/numbered-step-stack": {
-    "targetId": "component/step-stack",
+    "targetId": "data/step-stack",
     "approvedAt": "2026-10-28T05:36:10.673Z",
     "evidence": [
-      "output/card-renders/component/step-stack/preview.mp4",
-      "output/card-renders/component/step-stack/frame-0.png",
-      "output/card-renders/component/step-stack/frame-30.png",
-      "output/card-renders/component/step-stack/frame-60.png"
+      "output/card-renders/data/step-stack/preview.mp4",
+      "output/card-renders/data/step-stack/frame-0.png",
+      "output/card-renders/data/step-stack/frame-30.png",
+      "output/card-renders/data/step-stack/frame-60.png"
     ]
   },
   "video-talkcraft/rack-focus-pair": {
@@ -240,53 +240,53 @@
     ]
   },
   "video-talkcraft/chapter-title-card": {
-    "targetId": "component/chapter-title",
+    "targetId": "commercial/chapter-title",
     "approvedAt": "2026-10-29T09:16:45.262Z",
     "evidence": [
-      "output/card-renders/component/chapter-title/preview.mp4",
-      "output/card-renders/component/chapter-title/frame-20.png",
-      "output/card-renders/component/chapter-title/frame-60.png",
-      "output/card-renders/component/chapter-title/frame-150.png"
+      "output/card-renders/commercial/chapter-title/preview.mp4",
+      "output/card-renders/commercial/chapter-title/frame-20.png",
+      "output/card-renders/commercial/chapter-title/frame-60.png",
+      "output/card-renders/commercial/chapter-title/frame-150.png"
     ]
   },
   "video-talkcraft/per-character-rise": {
-    "targetId": "text/char-rise",
+    "targetId": "typography/char-rise",
     "approvedAt": "2026-10-28T05:51:28.549Z",
     "evidence": [
-      "output/card-renders/text/char-rise/preview.mp4",
-      "output/card-renders/text/char-rise/frame-0.png",
-      "output/card-renders/text/char-rise/frame-20.png",
-      "output/card-renders/text/char-rise/frame-60.png"
+      "output/card-renders/typography/char-rise/preview.mp4",
+      "output/card-renders/typography/char-rise/frame-0.png",
+      "output/card-renders/typography/char-rise/frame-20.png",
+      "output/card-renders/typography/char-rise/frame-60.png"
     ]
   },
   "video-talkcraft/line-by-line-slide": {
-    "targetId": "text/line-slide",
+    "targetId": "typography/line-slide",
     "approvedAt": "2026-10-28T05:51:28.550Z",
     "evidence": [
-      "output/card-renders/text/line-slide/preview.mp4",
-      "output/card-renders/text/line-slide/frame-0.png",
-      "output/card-renders/text/line-slide/frame-40.png",
-      "output/card-renders/text/line-slide/frame-80.png"
+      "output/card-renders/typography/line-slide/preview.mp4",
+      "output/card-renders/typography/line-slide/frame-0.png",
+      "output/card-renders/typography/line-slide/frame-40.png",
+      "output/card-renders/typography/line-slide/frame-80.png"
     ]
   },
   "video-talkcraft/metric-with-sparkline": {
-    "targetId": "component/metric-sparkline",
+    "targetId": "data/metric-sparkline",
     "approvedAt": "2026-10-28T05:51:28.550Z",
     "evidence": [
-      "output/card-renders/component/metric-sparkline/preview.mp4",
-      "output/card-renders/component/metric-sparkline/frame-0.png",
-      "output/card-renders/component/metric-sparkline/frame-30.png",
-      "output/card-renders/component/metric-sparkline/frame-60.png"
+      "output/card-renders/data/metric-sparkline/preview.mp4",
+      "output/card-renders/data/metric-sparkline/frame-0.png",
+      "output/card-renders/data/metric-sparkline/frame-30.png",
+      "output/card-renders/data/metric-sparkline/frame-60.png"
     ]
   },
   "video-talkcraft/lower-third-nameplate": {
-    "targetId": "component/lower-third",
+    "targetId": "commercial/lower-third",
     "approvedAt": "2026-10-28T05:51:28.551Z",
     "evidence": [
-      "output/card-renders/component/lower-third/preview.mp4",
-      "output/card-renders/component/lower-third/frame-25.png",
-      "output/card-renders/component/lower-third/frame-70.png",
-      "output/card-renders/component/lower-third/frame-102.png"
+      "output/card-renders/commercial/lower-third/preview.mp4",
+      "output/card-renders/commercial/lower-third/frame-25.png",
+      "output/card-renders/commercial/lower-third/frame-70.png",
+      "output/card-renders/commercial/lower-third/frame-102.png"
     ]
   },
   "video-talkcraft/black-slam-transition": {
@@ -310,33 +310,33 @@
     ]
   },
   "video-talkcraft/alt-block-lines": {
-    "targetId": "text/alt-block-lines",
+    "targetId": "typography/alt-block-lines",
     "approvedAt": "2026-10-28T08:12:51.767Z",
     "evidence": [
-      "output/card-renders/text/alt-block-lines/preview.mp4",
-      "output/card-renders/text/alt-block-lines/frame-0.png",
-      "output/card-renders/text/alt-block-lines/frame-20.png",
-      "output/card-renders/text/alt-block-lines/frame-75.png"
+      "output/card-renders/typography/alt-block-lines/preview.mp4",
+      "output/card-renders/typography/alt-block-lines/frame-0.png",
+      "output/card-renders/typography/alt-block-lines/frame-20.png",
+      "output/card-renders/typography/alt-block-lines/frame-75.png"
     ]
   },
   "video-talkcraft/count-badge-title": {
-    "targetId": "text/count-badge-title",
+    "targetId": "typography/count-badge-title",
     "approvedAt": "2026-10-28T08:12:51.779Z",
     "evidence": [
-      "output/card-renders/text/count-badge-title/preview.mp4",
-      "output/card-renders/text/count-badge-title/frame-0.png",
-      "output/card-renders/text/count-badge-title/frame-25.png",
-      "output/card-renders/text/count-badge-title/frame-90.png"
+      "output/card-renders/typography/count-badge-title/preview.mp4",
+      "output/card-renders/typography/count-badge-title/frame-0.png",
+      "output/card-renders/typography/count-badge-title/frame-25.png",
+      "output/card-renders/typography/count-badge-title/frame-90.png"
     ]
   },
   "video-talkcraft/hand-drawn-ellipse": {
-    "targetId": "component/hand-drawn-ellipse",
+    "targetId": "interaction/hand-drawn-ellipse",
     "approvedAt": "2026-10-28T08:12:51.780Z",
     "evidence": [
-      "output/card-renders/component/hand-drawn-ellipse/preview.mp4",
-      "output/card-renders/component/hand-drawn-ellipse/frame-0.png",
-      "output/card-renders/component/hand-drawn-ellipse/frame-25.png",
-      "output/card-renders/component/hand-drawn-ellipse/frame-80.png"
+      "output/card-renders/interaction/hand-drawn-ellipse/preview.mp4",
+      "output/card-renders/interaction/hand-drawn-ellipse/frame-0.png",
+      "output/card-renders/interaction/hand-drawn-ellipse/frame-25.png",
+      "output/card-renders/interaction/hand-drawn-ellipse/frame-80.png"
     ]
   },
   "video-talkcraft/caret-wipe-transition": {
@@ -370,83 +370,83 @@
     ]
   },
   "video-talkcraft/keyword-pop-highlight": {
-    "targetId": "text/keyword-pop-highlight",
+    "targetId": "typography/keyword-pop-highlight",
     "approvedAt": "2026-10-28T08:56:44.947Z",
     "evidence": [
-      "output/card-renders/text/keyword-pop-highlight/preview.mp4",
-      "output/card-renders/text/keyword-pop-highlight/frame-0.png",
-      "output/card-renders/text/keyword-pop-highlight/frame-18.png",
-      "output/card-renders/text/keyword-pop-highlight/frame-38.png"
+      "output/card-renders/typography/keyword-pop-highlight/preview.mp4",
+      "output/card-renders/typography/keyword-pop-highlight/frame-0.png",
+      "output/card-renders/typography/keyword-pop-highlight/frame-18.png",
+      "output/card-renders/typography/keyword-pop-highlight/frame-38.png"
     ]
   },
   "video-talkcraft/callout-line-label": {
-    "targetId": "component/callout-line-label",
+    "targetId": "interaction/callout-line-label",
     "approvedAt": "2026-10-28T08:56:44.948Z",
     "evidence": [
-      "output/card-renders/component/callout-line-label/preview.mp4",
-      "output/card-renders/component/callout-line-label/frame-20.png",
-      "output/card-renders/component/callout-line-label/frame-65.png",
-      "output/card-renders/component/callout-line-label/frame-120.png"
+      "output/card-renders/interaction/callout-line-label/preview.mp4",
+      "output/card-renders/interaction/callout-line-label/frame-20.png",
+      "output/card-renders/interaction/callout-line-label/frame-65.png",
+      "output/card-renders/interaction/callout-line-label/frame-120.png"
     ]
   },
   "video-talkcraft/focus-dim-spotlight": {
-    "targetId": "component/focus-dim-spotlight",
+    "targetId": "effects/focus-dim-spotlight",
     "approvedAt": "2026-10-28T08:56:44.949Z",
     "evidence": [
-      "output/card-renders/component/focus-dim-spotlight/preview.mp4",
-      "output/card-renders/component/focus-dim-spotlight/frame-20.png",
-      "output/card-renders/component/focus-dim-spotlight/frame-80.png",
-      "output/card-renders/component/focus-dim-spotlight/frame-200.png"
+      "output/card-renders/effects/focus-dim-spotlight/preview.mp4",
+      "output/card-renders/effects/focus-dim-spotlight/frame-20.png",
+      "output/card-renders/effects/focus-dim-spotlight/frame-80.png",
+      "output/card-renders/effects/focus-dim-spotlight/frame-200.png"
     ]
   },
   "video-talkcraft/chat-message-flow": {
-    "targetId": "component/chat-message-flow",
+    "targetId": "interaction/chat-message-flow",
     "approvedAt": "2026-10-28T08:56:44.950Z",
     "evidence": [
-      "output/card-renders/component/chat-message-flow/preview.mp4",
-      "output/card-renders/component/chat-message-flow/frame-20.png",
-      "output/card-renders/component/chat-message-flow/frame-95.png",
-      "output/card-renders/component/chat-message-flow/frame-175.png"
+      "output/card-renders/interaction/chat-message-flow/preview.mp4",
+      "output/card-renders/interaction/chat-message-flow/frame-20.png",
+      "output/card-renders/interaction/chat-message-flow/frame-95.png",
+      "output/card-renders/interaction/chat-message-flow/frame-175.png"
     ]
   },
   "video-talkcraft/terminal-typing-log": {
-    "targetId": "component/terminal-typing-log",
+    "targetId": "interaction/terminal-typing-log",
     "approvedAt": "2026-10-28T08:56:44.951Z",
     "evidence": [
-      "output/card-renders/component/terminal-typing-log/preview.mp4",
-      "output/card-renders/component/terminal-typing-log/frame-20.png",
-      "output/card-renders/component/terminal-typing-log/frame-100.png",
-      "output/card-renders/component/terminal-typing-log/frame-240.png"
+      "output/card-renders/interaction/terminal-typing-log/preview.mp4",
+      "output/card-renders/interaction/terminal-typing-log/frame-20.png",
+      "output/card-renders/interaction/terminal-typing-log/frame-100.png",
+      "output/card-renders/interaction/terminal-typing-log/frame-240.png"
     ]
   },
   "video-talkcraft/color-slam-beat-card": {
-    "targetId": "text/color-slam-beat-card",
+    "targetId": "typography/color-slam-beat-card",
     "approvedAt": "2026-10-28T08:56:44.951Z",
     "evidence": [
-      "output/card-renders/text/color-slam-beat-card/preview.mp4",
-      "output/card-renders/text/color-slam-beat-card/frame-35.png",
-      "output/card-renders/text/color-slam-beat-card/frame-75.png",
-      "output/card-renders/text/color-slam-beat-card/frame-175.png"
+      "output/card-renders/typography/color-slam-beat-card/preview.mp4",
+      "output/card-renders/typography/color-slam-beat-card/frame-35.png",
+      "output/card-renders/typography/color-slam-beat-card/frame-75.png",
+      "output/card-renders/typography/color-slam-beat-card/frame-175.png"
     ]
   },
   "video-talkcraft/quote-bracket-pull": {
-    "targetId": "text/quote-bracket-pull",
+    "targetId": "typography/quote-bracket-pull",
     "approvedAt": "2026-10-28T08:56:44.952Z",
     "evidence": [
-      "output/card-renders/text/quote-bracket-pull/preview.mp4",
-      "output/card-renders/text/quote-bracket-pull/frame-15.png",
-      "output/card-renders/text/quote-bracket-pull/frame-45.png",
-      "output/card-renders/text/quote-bracket-pull/frame-95.png"
+      "output/card-renders/typography/quote-bracket-pull/preview.mp4",
+      "output/card-renders/typography/quote-bracket-pull/frame-15.png",
+      "output/card-renders/typography/quote-bracket-pull/frame-45.png",
+      "output/card-renders/typography/quote-bracket-pull/frame-95.png"
     ]
   },
   "video-talkcraft/reticle-lock-on": {
-    "targetId": "component/reticle-lock-on",
+    "targetId": "effects/reticle-lock-on",
     "approvedAt": "2026-10-28T08:56:44.952Z",
     "evidence": [
-      "output/card-renders/component/reticle-lock-on/preview.mp4",
-      "output/card-renders/component/reticle-lock-on/frame-25.png",
-      "output/card-renders/component/reticle-lock-on/frame-60.png",
-      "output/card-renders/component/reticle-lock-on/frame-140.png"
+      "output/card-renders/effects/reticle-lock-on/preview.mp4",
+      "output/card-renders/effects/reticle-lock-on/frame-25.png",
+      "output/card-renders/effects/reticle-lock-on/frame-60.png",
+      "output/card-renders/effects/reticle-lock-on/frame-140.png"
     ]
   },
   "video-talkcraft/particle-weld-transition": {
@@ -470,23 +470,23 @@
     ]
   },
   "video-talkcraft/glass-code-walk": {
-    "targetId": "component/glass-code-walk",
+    "targetId": "interaction/glass-code-walk",
     "approvedAt": "2026-10-28T09:32:52.134Z",
     "evidence": [
-      "output/card-renders/component/glass-code-walk/preview.mp4",
-      "output/card-renders/component/glass-code-walk/frame-20.png",
-      "output/card-renders/component/glass-code-walk/frame-90.png",
-      "output/card-renders/component/glass-code-walk/frame-220.png"
+      "output/card-renders/interaction/glass-code-walk/preview.mp4",
+      "output/card-renders/interaction/glass-code-walk/frame-20.png",
+      "output/card-renders/interaction/glass-code-walk/frame-90.png",
+      "output/card-renders/interaction/glass-code-walk/frame-220.png"
     ]
   },
   "video-talkcraft/line-chart-story-draw": {
-    "targetId": "component/line-chart-story-draw",
+    "targetId": "data/line-chart-story-draw",
     "approvedAt": "2026-10-28T09:32:52.135Z",
     "evidence": [
-      "output/card-renders/component/line-chart-story-draw/preview.mp4",
-      "output/card-renders/component/line-chart-story-draw/frame-15.png",
-      "output/card-renders/component/line-chart-story-draw/frame-60.png",
-      "output/card-renders/component/line-chart-story-draw/frame-130.png"
+      "output/card-renders/data/line-chart-story-draw/preview.mp4",
+      "output/card-renders/data/line-chart-story-draw/frame-15.png",
+      "output/card-renders/data/line-chart-story-draw/frame-60.png",
+      "output/card-renders/data/line-chart-story-draw/frame-130.png"
     ]
   },
   "video-talkcraft/pencil-sketch-draw": {
@@ -500,203 +500,203 @@
     ]
   },
   "video-talkcraft/error-retype": {
-    "targetId": "text/error-retype",
+    "targetId": "typography/error-retype",
     "approvedAt": "2026-10-28T09:32:52.137Z",
     "evidence": [
-      "output/card-renders/text/error-retype/preview.mp4",
-      "output/card-renders/text/error-retype/frame-25.png",
-      "output/card-renders/text/error-retype/frame-55.png",
-      "output/card-renders/text/error-retype/frame-120.png"
+      "output/card-renders/typography/error-retype/preview.mp4",
+      "output/card-renders/typography/error-retype/frame-25.png",
+      "output/card-renders/typography/error-retype/frame-55.png",
+      "output/card-renders/typography/error-retype/frame-120.png"
     ]
   },
   "video-talkcraft/word-slot-cycle": {
-    "targetId": "text/word-slot-cycle",
+    "targetId": "typography/word-slot-cycle",
     "approvedAt": "2026-10-28T09:32:52.138Z",
     "evidence": [
-      "output/card-renders/text/word-slot-cycle/preview.mp4",
-      "output/card-renders/text/word-slot-cycle/frame-25.png",
-      "output/card-renders/text/word-slot-cycle/frame-75.png",
-      "output/card-renders/text/word-slot-cycle/frame-150.png"
+      "output/card-renders/typography/word-slot-cycle/preview.mp4",
+      "output/card-renders/typography/word-slot-cycle/frame-25.png",
+      "output/card-renders/typography/word-slot-cycle/frame-75.png",
+      "output/card-renders/typography/word-slot-cycle/frame-150.png"
     ]
   },
   "video-talkcraft/slab-punch-title": {
-    "targetId": "text/slab-punch-title",
+    "targetId": "typography/slab-punch-title",
     "approvedAt": "2026-10-28T09:32:52.138Z",
     "evidence": [
-      "output/card-renders/text/slab-punch-title/preview.mp4",
-      "output/card-renders/text/slab-punch-title/frame-15.png",
-      "output/card-renders/text/slab-punch-title/frame-25.png",
-      "output/card-renders/text/slab-punch-title/frame-75.png"
+      "output/card-renders/typography/slab-punch-title/preview.mp4",
+      "output/card-renders/typography/slab-punch-title/frame-15.png",
+      "output/card-renders/typography/slab-punch-title/frame-25.png",
+      "output/card-renders/typography/slab-punch-title/frame-75.png"
     ]
   },
   "video-talkcraft/countdown-arc-scatter": {
-    "targetId": "text/countdown-arc-scatter",
+    "targetId": "typography/countdown-arc-scatter",
     "approvedAt": "2026-10-28T09:32:52.139Z",
     "evidence": [
-      "output/card-renders/text/countdown-arc-scatter/preview.mp4",
-      "output/card-renders/text/countdown-arc-scatter/frame-20.png",
-      "output/card-renders/text/countdown-arc-scatter/frame-45.png",
-      "output/card-renders/text/countdown-arc-scatter/frame-120.png"
+      "output/card-renders/typography/countdown-arc-scatter/preview.mp4",
+      "output/card-renders/typography/countdown-arc-scatter/frame-20.png",
+      "output/card-renders/typography/countdown-arc-scatter/frame-45.png",
+      "output/card-renders/typography/countdown-arc-scatter/frame-120.png"
     ]
   },
   "video-talkcraft/unit-grid-proportion": {
-    "targetId": "component/unit-grid-proportion",
+    "targetId": "data/unit-grid-proportion",
     "approvedAt": "2026-10-28T09:32:52.140Z",
     "evidence": [
-      "output/card-renders/component/unit-grid-proportion/preview.mp4",
-      "output/card-renders/component/unit-grid-proportion/frame-20.png",
-      "output/card-renders/component/unit-grid-proportion/frame-70.png",
-      "output/card-renders/component/unit-grid-proportion/frame-140.png"
+      "output/card-renders/data/unit-grid-proportion/preview.mp4",
+      "output/card-renders/data/unit-grid-proportion/frame-20.png",
+      "output/card-renders/data/unit-grid-proportion/frame-70.png",
+      "output/card-renders/data/unit-grid-proportion/frame-140.png"
     ]
   },
   "video-talkcraft/source-converge": {
-    "targetId": "component/source-converge",
+    "targetId": "data/source-converge",
     "approvedAt": "2026-10-28T09:32:52.140Z",
     "evidence": [
-      "output/card-renders/component/source-converge/preview.mp4",
-      "output/card-renders/component/source-converge/frame-25.png",
-      "output/card-renders/component/source-converge/frame-75.png",
-      "output/card-renders/component/source-converge/frame-140.png"
+      "output/card-renders/data/source-converge/preview.mp4",
+      "output/card-renders/data/source-converge/frame-25.png",
+      "output/card-renders/data/source-converge/frame-75.png",
+      "output/card-renders/data/source-converge/frame-140.png"
     ]
   },
   "video-talkcraft/split-60-40-story": {
-    "targetId": "component/split-60-40-story",
+    "targetId": "interaction/split-60-40-story",
     "approvedAt": "2026-10-28T09:32:52.141Z",
     "evidence": [
-      "output/card-renders/component/split-60-40-story/preview.mp4",
-      "output/card-renders/component/split-60-40-story/frame-20.png",
-      "output/card-renders/component/split-60-40-story/frame-80.png",
-      "output/card-renders/component/split-60-40-story/frame-180.png"
+      "output/card-renders/interaction/split-60-40-story/preview.mp4",
+      "output/card-renders/interaction/split-60-40-story/frame-20.png",
+      "output/card-renders/interaction/split-60-40-story/frame-80.png",
+      "output/card-renders/interaction/split-60-40-story/frame-180.png"
     ]
   },
   "video-talkcraft/number-slab-pop": {
-    "targetId": "component/number-slab-pop",
+    "targetId": "data/number-slab-pop",
     "approvedAt": "2026-10-28T09:52:13.539Z",
     "evidence": [
-      "output/card-renders/component/number-slab-pop/preview.mp4",
-      "output/card-renders/component/number-slab-pop/frame-15.png",
-      "output/card-renders/component/number-slab-pop/frame-35.png",
-      "output/card-renders/component/number-slab-pop/frame-75.png"
+      "output/card-renders/data/number-slab-pop/preview.mp4",
+      "output/card-renders/data/number-slab-pop/frame-15.png",
+      "output/card-renders/data/number-slab-pop/frame-35.png",
+      "output/card-renders/data/number-slab-pop/frame-75.png"
     ]
   },
   "video-talkcraft/outline-box-title": {
-    "targetId": "text/outline-box-title",
+    "targetId": "typography/outline-box-title",
     "approvedAt": "2026-10-28T09:52:13.540Z",
     "evidence": [
-      "output/card-renders/text/outline-box-title/preview.mp4",
-      "output/card-renders/text/outline-box-title/frame-15.png",
-      "output/card-renders/text/outline-box-title/frame-35.png",
-      "output/card-renders/text/outline-box-title/frame-80.png"
+      "output/card-renders/typography/outline-box-title/preview.mp4",
+      "output/card-renders/typography/outline-box-title/frame-15.png",
+      "output/card-renders/typography/outline-box-title/frame-35.png",
+      "output/card-renders/typography/outline-box-title/frame-80.png"
     ]
   },
   "video-talkcraft/split-text-stagger": {
-    "targetId": "text/split-text-stagger",
+    "targetId": "typography/split-text-stagger",
     "approvedAt": "2026-10-28T09:52:13.541Z",
     "evidence": [
-      "output/card-renders/text/split-text-stagger/preview.mp4",
-      "output/card-renders/text/split-text-stagger/frame-15.png",
-      "output/card-renders/text/split-text-stagger/frame-45.png",
-      "output/card-renders/text/split-text-stagger/frame-110.png"
+      "output/card-renders/typography/split-text-stagger/preview.mp4",
+      "output/card-renders/typography/split-text-stagger/frame-15.png",
+      "output/card-renders/typography/split-text-stagger/frame-45.png",
+      "output/card-renders/typography/split-text-stagger/frame-110.png"
     ]
   },
   "video-talkcraft/impact-open-title": {
-    "targetId": "text/impact-open-title",
+    "targetId": "typography/impact-open-title",
     "approvedAt": "2026-10-28T09:52:13.542Z",
     "evidence": [
-      "output/card-renders/text/impact-open-title/preview.mp4",
-      "output/card-renders/text/impact-open-title/frame-10.png",
-      "output/card-renders/text/impact-open-title/frame-25.png",
-      "output/card-renders/text/impact-open-title/frame-75.png"
+      "output/card-renders/typography/impact-open-title/preview.mp4",
+      "output/card-renders/typography/impact-open-title/frame-10.png",
+      "output/card-renders/typography/impact-open-title/frame-25.png",
+      "output/card-renders/typography/impact-open-title/frame-75.png"
     ]
   },
   "video-talkcraft/scribble-annotation": {
-    "targetId": "component/scribble-annotation",
+    "targetId": "interaction/scribble-annotation",
     "approvedAt": "2026-10-28T09:52:13.542Z",
     "evidence": [
-      "output/card-renders/component/scribble-annotation/preview.mp4",
-      "output/card-renders/component/scribble-annotation/frame-15.png",
-      "output/card-renders/component/scribble-annotation/frame-45.png",
-      "output/card-renders/component/scribble-annotation/frame-80.png"
+      "output/card-renders/interaction/scribble-annotation/preview.mp4",
+      "output/card-renders/interaction/scribble-annotation/frame-15.png",
+      "output/card-renders/interaction/scribble-annotation/frame-45.png",
+      "output/card-renders/interaction/scribble-annotation/frame-80.png"
     ]
   },
   "video-talkcraft/type-contrast-emphasis": {
-    "targetId": "text/type-contrast-emphasis",
+    "targetId": "typography/type-contrast-emphasis",
     "approvedAt": "2026-10-28T09:52:13.543Z",
     "evidence": [
-      "output/card-renders/text/type-contrast-emphasis/preview.mp4",
-      "output/card-renders/text/type-contrast-emphasis/frame-10.png",
-      "output/card-renders/text/type-contrast-emphasis/frame-25.png",
-      "output/card-renders/text/type-contrast-emphasis/frame-55.png"
+      "output/card-renders/typography/type-contrast-emphasis/preview.mp4",
+      "output/card-renders/typography/type-contrast-emphasis/frame-10.png",
+      "output/card-renders/typography/type-contrast-emphasis/frame-25.png",
+      "output/card-renders/typography/type-contrast-emphasis/frame-55.png"
     ]
   },
   "video-talkcraft/doc-park-left-pill-deal": {
-    "targetId": "component/doc-park-left-pill-deal",
+    "targetId": "interaction/doc-park-left-pill-deal",
     "approvedAt": "2026-10-28T09:52:13.543Z",
     "evidence": [
-      "output/card-renders/component/doc-park-left-pill-deal/preview.mp4",
-      "output/card-renders/component/doc-park-left-pill-deal/frame-20.png",
-      "output/card-renders/component/doc-park-left-pill-deal/frame-80.png",
-      "output/card-renders/component/doc-park-left-pill-deal/frame-180.png"
+      "output/card-renders/interaction/doc-park-left-pill-deal/preview.mp4",
+      "output/card-renders/interaction/doc-park-left-pill-deal/frame-20.png",
+      "output/card-renders/interaction/doc-park-left-pill-deal/frame-80.png",
+      "output/card-renders/interaction/doc-park-left-pill-deal/frame-180.png"
     ]
   },
   "video-talkcraft/chapter-progress-list": {
-    "targetId": "component/chapter-progress-list",
+    "targetId": "commercial/chapter-progress-list",
     "approvedAt": "2026-10-28T09:52:13.544Z",
     "evidence": [
-      "output/card-renders/component/chapter-progress-list/preview.mp4",
-      "output/card-renders/component/chapter-progress-list/frame-15.png",
-      "output/card-renders/component/chapter-progress-list/frame-45.png",
-      "output/card-renders/component/chapter-progress-list/frame-95.png"
+      "output/card-renders/commercial/chapter-progress-list/preview.mp4",
+      "output/card-renders/commercial/chapter-progress-list/frame-15.png",
+      "output/card-renders/commercial/chapter-progress-list/frame-45.png",
+      "output/card-renders/commercial/chapter-progress-list/frame-95.png"
     ]
   },
   "video-talkcraft/ui-prop-theater": {
-    "targetId": "component/ui-prop-theater",
+    "targetId": "data/ui-prop-theater",
     "approvedAt": "2026-10-28T09:52:13.544Z",
     "evidence": [
-      "output/card-renders/component/ui-prop-theater/preview.mp4",
-      "output/card-renders/component/ui-prop-theater/frame-20.png",
-      "output/card-renders/component/ui-prop-theater/frame-70.png",
-      "output/card-renders/component/ui-prop-theater/frame-140.png"
+      "output/card-renders/data/ui-prop-theater/preview.mp4",
+      "output/card-renders/data/ui-prop-theater/frame-20.png",
+      "output/card-renders/data/ui-prop-theater/frame-70.png",
+      "output/card-renders/data/ui-prop-theater/frame-140.png"
     ]
   },
   "video-talkcraft/lead-word-zoom-assemble": {
-    "targetId": "text/lead-word-zoom-assemble",
+    "targetId": "typography/lead-word-zoom-assemble",
     "approvedAt": "2026-10-28T09:52:13.545Z",
     "evidence": [
-      "output/card-renders/text/lead-word-zoom-assemble/preview.mp4",
-      "output/card-renders/text/lead-word-zoom-assemble/frame-15.png",
-      "output/card-renders/text/lead-word-zoom-assemble/frame-45.png",
-      "output/card-renders/text/lead-word-zoom-assemble/frame-110.png"
+      "output/card-renders/typography/lead-word-zoom-assemble/preview.mp4",
+      "output/card-renders/typography/lead-word-zoom-assemble/frame-15.png",
+      "output/card-renders/typography/lead-word-zoom-assemble/frame-45.png",
+      "output/card-renders/typography/lead-word-zoom-assemble/frame-110.png"
     ]
   },
   "video-talkcraft/tracking-in": {
-    "targetId": "text/tracking-in",
+    "targetId": "typography/tracking-in",
     "approvedAt": "2026-10-28T10:41:43.683Z",
     "evidence": [
-      "output/card-renders/text/tracking-in/preview.mp4",
-      "output/card-renders/text/tracking-in/frame-15.png",
-      "output/card-renders/text/tracking-in/frame-35.png",
-      "output/card-renders/text/tracking-in/frame-75.png"
+      "output/card-renders/typography/tracking-in/preview.mp4",
+      "output/card-renders/typography/tracking-in/frame-15.png",
+      "output/card-renders/typography/tracking-in/frame-35.png",
+      "output/card-renders/typography/tracking-in/frame-75.png"
     ]
   },
   "video-talkcraft/soft-blur-in": {
-    "targetId": "text/soft-blur-in",
+    "targetId": "typography/soft-blur-in",
     "approvedAt": "2026-10-28T10:41:43.684Z",
     "evidence": [
-      "output/card-renders/text/soft-blur-in/preview.mp4",
-      "output/card-renders/text/soft-blur-in/frame-15.png",
-      "output/card-renders/text/soft-blur-in/frame-35.png",
-      "output/card-renders/text/soft-blur-in/frame-75.png"
+      "output/card-renders/typography/soft-blur-in/preview.mp4",
+      "output/card-renders/typography/soft-blur-in/frame-15.png",
+      "output/card-renders/typography/soft-blur-in/frame-35.png",
+      "output/card-renders/typography/soft-blur-in/frame-75.png"
     ]
   },
   "video-talkcraft/speed-slab-title": {
-    "targetId": "text/speed-slab-title",
+    "targetId": "typography/speed-slab-title",
     "approvedAt": "2026-10-28T10:41:43.685Z",
     "evidence": [
-      "output/card-renders/text/speed-slab-title/preview.mp4",
-      "output/card-renders/text/speed-slab-title/frame-15.png",
-      "output/card-renders/text/speed-slab-title/frame-30.png",
-      "output/card-renders/text/speed-slab-title/frame-80.png"
+      "output/card-renders/typography/speed-slab-title/preview.mp4",
+      "output/card-renders/typography/speed-slab-title/frame-15.png",
+      "output/card-renders/typography/speed-slab-title/frame-30.png",
+      "output/card-renders/typography/speed-slab-title/frame-80.png"
     ]
   },
   "video-talkcraft/motion-blur-slam-in": {
@@ -740,13 +740,13 @@
     ]
   },
   "video-talkcraft/gooey-morph": {
-    "targetId": "component/gooey-morph",
+    "targetId": "interaction/gooey-morph",
     "approvedAt": "2026-10-28T10:41:43.687Z",
     "evidence": [
-      "output/card-renders/component/gooey-morph/preview.mp4",
-      "output/card-renders/component/gooey-morph/frame-15.png",
-      "output/card-renders/component/gooey-morph/frame-35.png",
-      "output/card-renders/component/gooey-morph/frame-75.png"
+      "output/card-renders/interaction/gooey-morph/preview.mp4",
+      "output/card-renders/interaction/gooey-morph/frame-15.png",
+      "output/card-renders/interaction/gooey-morph/frame-35.png",
+      "output/card-renders/interaction/gooey-morph/frame-75.png"
     ]
   },
   "video-talkcraft/still-layout-relay": {
@@ -760,73 +760,73 @@
     ]
   },
   "video-talkcraft/claude-code": {
-    "targetId": "component/claude-code",
+    "targetId": "interaction/claude-code",
     "approvedAt": "2026-10-29T09:16:45.263Z",
     "evidence": [
-      "output/card-renders/component/claude-code/preview.mp4",
-      "output/card-renders/component/claude-code/frame-25.png",
-      "output/card-renders/component/claude-code/frame-120.png",
-      "output/card-renders/component/claude-code/frame-260.png"
+      "output/card-renders/interaction/claude-code/preview.mp4",
+      "output/card-renders/interaction/claude-code/frame-25.png",
+      "output/card-renders/interaction/claude-code/frame-120.png",
+      "output/card-renders/interaction/claude-code/frame-260.png"
     ]
   },
   "video-talkcraft/news-card-desk": {
-    "targetId": "component/news-card-desk",
+    "targetId": "interaction/news-card-desk",
     "approvedAt": "2026-10-28T11:01:59.215Z",
     "evidence": [
-      "output/card-renders/component/news-card-desk/preview.mp4",
-      "output/card-renders/component/news-card-desk/frame-25.png",
-      "output/card-renders/component/news-card-desk/frame-110.png",
-      "output/card-renders/component/news-card-desk/frame-260.png"
+      "output/card-renders/interaction/news-card-desk/preview.mp4",
+      "output/card-renders/interaction/news-card-desk/frame-25.png",
+      "output/card-renders/interaction/news-card-desk/frame-110.png",
+      "output/card-renders/interaction/news-card-desk/frame-260.png"
     ]
   },
   "video-talkcraft/info-card-assemble": {
-    "targetId": "component/info-card-assemble",
+    "targetId": "interaction/info-card-assemble",
     "approvedAt": "2026-10-28T11:01:59.216Z",
     "evidence": [
-      "output/card-renders/component/info-card-assemble/preview.mp4",
-      "output/card-renders/component/info-card-assemble/frame-20.png",
-      "output/card-renders/component/info-card-assemble/frame-80.png",
-      "output/card-renders/component/info-card-assemble/frame-180.png"
+      "output/card-renders/interaction/info-card-assemble/preview.mp4",
+      "output/card-renders/interaction/info-card-assemble/frame-20.png",
+      "output/card-renders/interaction/info-card-assemble/frame-80.png",
+      "output/card-renders/interaction/info-card-assemble/frame-180.png"
     ]
   },
   "video-talkcraft/stack-fan-out": {
-    "targetId": "component/stack-fan-out",
+    "targetId": "interaction/stack-fan-out",
     "approvedAt": "2026-10-28T11:01:59.216Z",
     "evidence": [
-      "output/card-renders/component/stack-fan-out/preview.mp4",
-      "output/card-renders/component/stack-fan-out/frame-20.png",
-      "output/card-renders/component/stack-fan-out/frame-80.png",
-      "output/card-renders/component/stack-fan-out/frame-160.png"
+      "output/card-renders/interaction/stack-fan-out/preview.mp4",
+      "output/card-renders/interaction/stack-fan-out/frame-20.png",
+      "output/card-renders/interaction/stack-fan-out/frame-80.png",
+      "output/card-renders/interaction/stack-fan-out/frame-160.png"
     ]
   },
   "video-talkcraft/danmu-bubble-praise": {
-    "targetId": "component/danmu-bubble-praise",
+    "targetId": "interaction/danmu-bubble-praise",
     "approvedAt": "2026-10-28T11:01:59.217Z",
     "evidence": [
-      "output/card-renders/component/danmu-bubble-praise/preview.mp4",
-      "output/card-renders/component/danmu-bubble-praise/frame-15.png",
-      "output/card-renders/component/danmu-bubble-praise/frame-50.png",
-      "output/card-renders/component/danmu-bubble-praise/frame-110.png"
+      "output/card-renders/interaction/danmu-bubble-praise/preview.mp4",
+      "output/card-renders/interaction/danmu-bubble-praise/frame-15.png",
+      "output/card-renders/interaction/danmu-bubble-praise/frame-50.png",
+      "output/card-renders/interaction/danmu-bubble-praise/frame-110.png"
     ]
   },
   "video-talkcraft/title-demote-to-label": {
-    "targetId": "text/title-demote-to-label",
+    "targetId": "typography/title-demote-to-label",
     "approvedAt": "2026-10-28T11:01:59.218Z",
     "evidence": [
-      "output/card-renders/text/title-demote-to-label/preview.mp4",
-      "output/card-renders/text/title-demote-to-label/frame-20.png",
-      "output/card-renders/text/title-demote-to-label/frame-60.png",
-      "output/card-renders/text/title-demote-to-label/frame-140.png"
+      "output/card-renders/typography/title-demote-to-label/preview.mp4",
+      "output/card-renders/typography/title-demote-to-label/frame-20.png",
+      "output/card-renders/typography/title-demote-to-label/frame-60.png",
+      "output/card-renders/typography/title-demote-to-label/frame-140.png"
     ]
   },
   "video-talkcraft/cursor-actor-demo": {
-    "targetId": "component/cursor-actor-demo",
+    "targetId": "interaction/cursor-actor-demo",
     "approvedAt": "2026-10-28T11:01:59.218Z",
     "evidence": [
-      "output/card-renders/component/cursor-actor-demo/preview.mp4",
-      "output/card-renders/component/cursor-actor-demo/frame-15.png",
-      "output/card-renders/component/cursor-actor-demo/frame-50.png",
-      "output/card-renders/component/cursor-actor-demo/frame-100.png"
+      "output/card-renders/interaction/cursor-actor-demo/preview.mp4",
+      "output/card-renders/interaction/cursor-actor-demo/frame-15.png",
+      "output/card-renders/interaction/cursor-actor-demo/frame-50.png",
+      "output/card-renders/interaction/cursor-actor-demo/frame-100.png"
     ]
   },
   "video-talkcraft/crash-zoom-punch": {
@@ -850,13 +850,13 @@
     ]
   },
   "video-talkcraft/subscribe-cta": {
-    "targetId": "component/subscribe-cta",
+    "targetId": "interaction/subscribe-cta",
     "approvedAt": "2026-10-29T09:16:45.264Z",
     "evidence": [
-      "output/card-renders/component/subscribe-cta/preview.mp4",
-      "output/card-renders/component/subscribe-cta/frame-25.png",
-      "output/card-renders/component/subscribe-cta/frame-120.png",
-      "output/card-renders/component/subscribe-cta/frame-250.png"
+      "output/card-renders/interaction/subscribe-cta/preview.mp4",
+      "output/card-renders/interaction/subscribe-cta/frame-25.png",
+      "output/card-renders/interaction/subscribe-cta/frame-120.png",
+      "output/card-renders/interaction/subscribe-cta/frame-250.png"
     ]
   },
   "video-talkcraft/bed-echo-blur": {
@@ -870,33 +870,33 @@
     ]
   },
   "video-talkcraft/ink-underline": {
-    "targetId": "text/ink-underline",
+    "targetId": "typography/ink-underline",
     "approvedAt": "2026-10-28T11:56:18.187Z",
     "evidence": [
-      "output/card-renders/text/ink-underline/preview.mp4",
-      "output/card-renders/text/ink-underline/frame-15.png",
-      "output/card-renders/text/ink-underline/frame-35.png",
-      "output/card-renders/text/ink-underline/frame-80.png"
+      "output/card-renders/typography/ink-underline/preview.mp4",
+      "output/card-renders/typography/ink-underline/frame-15.png",
+      "output/card-renders/typography/ink-underline/frame-35.png",
+      "output/card-renders/typography/ink-underline/frame-80.png"
     ]
   },
   "video-talkcraft/chevron-lower-third": {
-    "targetId": "component/chevron-lower-third",
+    "targetId": "commercial/chevron-lower-third",
     "approvedAt": "2026-10-28T11:56:18.188Z",
     "evidence": [
-      "output/card-renders/component/chevron-lower-third/preview.mp4",
-      "output/card-renders/component/chevron-lower-third/frame-15.png",
-      "output/card-renders/component/chevron-lower-third/frame-45.png",
-      "output/card-renders/component/chevron-lower-third/frame-95.png"
+      "output/card-renders/commercial/chevron-lower-third/preview.mp4",
+      "output/card-renders/commercial/chevron-lower-third/frame-15.png",
+      "output/card-renders/commercial/chevron-lower-third/frame-45.png",
+      "output/card-renders/commercial/chevron-lower-third/frame-95.png"
     ]
   },
   "video-talkcraft/quote-hold-arrow": {
-    "targetId": "text/quote-hold-arrow",
+    "targetId": "typography/quote-hold-arrow",
     "approvedAt": "2026-10-28T11:56:18.188Z",
     "evidence": [
-      "output/card-renders/text/quote-hold-arrow/preview.mp4",
-      "output/card-renders/text/quote-hold-arrow/frame-20.png",
-      "output/card-renders/text/quote-hold-arrow/frame-60.png",
-      "output/card-renders/text/quote-hold-arrow/frame-110.png"
+      "output/card-renders/typography/quote-hold-arrow/preview.mp4",
+      "output/card-renders/typography/quote-hold-arrow/frame-20.png",
+      "output/card-renders/typography/quote-hold-arrow/frame-60.png",
+      "output/card-renders/typography/quote-hold-arrow/frame-110.png"
     ]
   },
   "video-talkcraft/magnifier-detail": {
@@ -920,23 +920,23 @@
     ]
   },
   "video-talkcraft/scanline-annotate": {
-    "targetId": "component/scanline-annotate",
+    "targetId": "interaction/scanline-annotate",
     "approvedAt": "2026-10-28T11:56:18.190Z",
     "evidence": [
-      "output/card-renders/component/scanline-annotate/preview.mp4",
-      "output/card-renders/component/scanline-annotate/frame-20.png",
-      "output/card-renders/component/scanline-annotate/frame-75.png",
-      "output/card-renders/component/scanline-annotate/frame-140.png"
+      "output/card-renders/interaction/scanline-annotate/preview.mp4",
+      "output/card-renders/interaction/scanline-annotate/frame-20.png",
+      "output/card-renders/interaction/scanline-annotate/frame-75.png",
+      "output/card-renders/interaction/scanline-annotate/frame-140.png"
     ]
   },
   "video-talkcraft/chip-grid-single-select": {
-    "targetId": "component/chip-grid-single-select",
+    "targetId": "data/chip-grid-single-select",
     "approvedAt": "2026-10-28T11:56:18.190Z",
     "evidence": [
-      "output/card-renders/component/chip-grid-single-select/preview.mp4",
-      "output/card-renders/component/chip-grid-single-select/frame-20.png",
-      "output/card-renders/component/chip-grid-single-select/frame-80.png",
-      "output/card-renders/component/chip-grid-single-select/frame-180.png"
+      "output/card-renders/data/chip-grid-single-select/preview.mp4",
+      "output/card-renders/data/chip-grid-single-select/frame-20.png",
+      "output/card-renders/data/chip-grid-single-select/frame-80.png",
+      "output/card-renders/data/chip-grid-single-select/frame-180.png"
     ]
   },
   "video-talkcraft/timeline-photo-strip": {
@@ -970,83 +970,83 @@
     ]
   },
   "video-talkcraft/chat-gpt": {
-    "targetId": "component/chat-gpt",
+    "targetId": "interaction/chat-gpt",
     "approvedAt": "2026-10-28T12:16:28.354Z",
     "evidence": [
-      "output/card-renders/component/chat-gpt/preview.mp4",
-      "output/card-renders/component/chat-gpt/frame-20.png",
-      "output/card-renders/component/chat-gpt/frame-80.png",
-      "output/card-renders/component/chat-gpt/frame-160.png"
+      "output/card-renders/interaction/chat-gpt/preview.mp4",
+      "output/card-renders/interaction/chat-gpt/frame-20.png",
+      "output/card-renders/interaction/chat-gpt/frame-80.png",
+      "output/card-renders/interaction/chat-gpt/frame-160.png"
     ]
   },
   "video-talkcraft/behind-text-title": {
-    "targetId": "text/behind-text-title",
+    "targetId": "typography/behind-text-title",
     "approvedAt": "2026-10-28T12:16:28.355Z",
     "evidence": [
-      "output/card-renders/text/behind-text-title/preview.mp4",
-      "output/card-renders/text/behind-text-title/frame-15.png",
-      "output/card-renders/text/behind-text-title/frame-35.png",
-      "output/card-renders/text/behind-text-title/frame-75.png"
+      "output/card-renders/typography/behind-text-title/preview.mp4",
+      "output/card-renders/typography/behind-text-title/frame-15.png",
+      "output/card-renders/typography/behind-text-title/frame-35.png",
+      "output/card-renders/typography/behind-text-title/frame-75.png"
     ]
   },
   "video-talkcraft/converging-arrows": {
-    "targetId": "component/converging-arrows",
+    "targetId": "effects/converging-arrows",
     "approvedAt": "2026-10-28T12:16:28.355Z",
     "evidence": [
-      "output/card-renders/component/converging-arrows/preview.mp4",
-      "output/card-renders/component/converging-arrows/frame-15.png",
-      "output/card-renders/component/converging-arrows/frame-30.png",
-      "output/card-renders/component/converging-arrows/frame-75.png"
+      "output/card-renders/effects/converging-arrows/preview.mp4",
+      "output/card-renders/effects/converging-arrows/frame-15.png",
+      "output/card-renders/effects/converging-arrows/frame-30.png",
+      "output/card-renders/effects/converging-arrows/frame-75.png"
     ]
   },
   "video-talkcraft/corner-bracket-frame": {
-    "targetId": "component/corner-bracket-frame",
+    "targetId": "effects/corner-bracket-frame",
     "approvedAt": "2026-10-28T12:16:28.356Z",
     "evidence": [
-      "output/card-renders/component/corner-bracket-frame/preview.mp4",
-      "output/card-renders/component/corner-bracket-frame/frame-15.png",
-      "output/card-renders/component/corner-bracket-frame/frame-35.png",
-      "output/card-renders/component/corner-bracket-frame/frame-75.png"
+      "output/card-renders/effects/corner-bracket-frame/preview.mp4",
+      "output/card-renders/effects/corner-bracket-frame/frame-15.png",
+      "output/card-renders/effects/corner-bracket-frame/frame-35.png",
+      "output/card-renders/effects/corner-bracket-frame/frame-75.png"
     ]
   },
   "video-talkcraft/douyin-follow-card": {
-    "targetId": "component/douyin-follow-card",
+    "targetId": "commercial/douyin-follow-card",
     "approvedAt": "2026-10-29T09:16:45.265Z",
     "evidence": [
-      "output/card-renders/component/douyin-follow-card/preview.mp4",
-      "output/card-renders/component/douyin-follow-card/frame-20.png",
-      "output/card-renders/component/douyin-follow-card/frame-55.png",
-      "output/card-renders/component/douyin-follow-card/frame-110.png"
+      "output/card-renders/commercial/douyin-follow-card/preview.mp4",
+      "output/card-renders/commercial/douyin-follow-card/frame-20.png",
+      "output/card-renders/commercial/douyin-follow-card/frame-55.png",
+      "output/card-renders/commercial/douyin-follow-card/frame-110.png"
     ]
   },
   "video-talkcraft/x-follow-card": {
-    "targetId": "component/x-follow-card",
+    "targetId": "commercial/x-follow-card",
     "approvedAt": "2026-10-29T09:16:45.266Z",
     "evidence": [
-      "output/card-renders/component/x-follow-card/preview.mp4",
-      "output/card-renders/component/x-follow-card/frame-20.png",
-      "output/card-renders/component/x-follow-card/frame-55.png",
-      "output/card-renders/component/x-follow-card/frame-110.png"
+      "output/card-renders/commercial/x-follow-card/preview.mp4",
+      "output/card-renders/commercial/x-follow-card/frame-20.png",
+      "output/card-renders/commercial/x-follow-card/frame-55.png",
+      "output/card-renders/commercial/x-follow-card/frame-110.png"
     ]
   },
   "video-talkcraft/host-shrink-to-chip": {
-    "targetId": "component/host-shrink-to-chip",
+    "targetId": "interaction/host-shrink-to-chip",
     "approvedAt": "2026-10-28T12:16:28.358Z",
     "evidence": [
-      "output/card-renders/component/host-shrink-to-chip/preview.mp4",
-      "output/card-renders/component/host-shrink-to-chip/frame-15.png",
-      "output/card-renders/component/host-shrink-to-chip/frame-45.png",
-      "output/card-renders/component/host-shrink-to-chip/frame-95.png"
+      "output/card-renders/interaction/host-shrink-to-chip/preview.mp4",
+      "output/card-renders/interaction/host-shrink-to-chip/frame-15.png",
+      "output/card-renders/interaction/host-shrink-to-chip/frame-45.png",
+      "output/card-renders/interaction/host-shrink-to-chip/frame-95.png"
     ]
   },
   "video-talkcraft/parallel-items-with-host": {
-    "targetId": "component/parallel-items-with-host",
+    "targetId": "interaction/parallel-items-with-host",
     "approvedAt": "2026-10-29T09:16:45.267Z",
     "evidence": [
-      "output/card-renders/component/parallel-items-with-host/preview.mp4",
-      "output/card-renders/component/parallel-items-with-host/frame-50.png",
-      "output/card-renders/component/parallel-items-with-host/frame-200.png",
-      "output/card-renders/component/parallel-items-with-host/frame-500.png"
+      "output/card-renders/interaction/parallel-items-with-host/preview.mp4",
+      "output/card-renders/interaction/parallel-items-with-host/frame-50.png",
+      "output/card-renders/interaction/parallel-items-with-host/frame-200.png",
+      "output/card-renders/interaction/parallel-items-with-host/frame-500.png"
     ]
   },
   "video-talkcraft/cursor-locked-zoom": {
@@ -1060,23 +1060,23 @@
     ]
   },
   "video-talkcraft/host-card-glass-board": {
-    "targetId": "component/host-card-glass-board",
+    "targetId": "interaction/host-card-glass-board",
     "approvedAt": "2026-10-28T12:16:28.360Z",
     "evidence": [
-      "output/card-renders/component/host-card-glass-board/preview.mp4",
-      "output/card-renders/component/host-card-glass-board/frame-20.png",
-      "output/card-renders/component/host-card-glass-board/frame-80.png",
-      "output/card-renders/component/host-card-glass-board/frame-160.png"
+      "output/card-renders/interaction/host-card-glass-board/preview.mp4",
+      "output/card-renders/interaction/host-card-glass-board/frame-20.png",
+      "output/card-renders/interaction/host-card-glass-board/frame-80.png",
+      "output/card-renders/interaction/host-card-glass-board/frame-160.png"
     ]
   },
   "video-talkcraft/ui-flow-theater": {
-    "targetId": "component/ui-flow-theater",
+    "targetId": "interaction/ui-flow-theater",
     "approvedAt": "2026-10-28T12:16:28.360Z",
     "evidence": [
-      "output/card-renders/component/ui-flow-theater/preview.mp4",
-      "output/card-renders/component/ui-flow-theater/frame-25.png",
-      "output/card-renders/component/ui-flow-theater/frame-120.png",
-      "output/card-renders/component/ui-flow-theater/frame-240.png"
+      "output/card-renders/interaction/ui-flow-theater/preview.mp4",
+      "output/card-renders/interaction/ui-flow-theater/frame-25.png",
+      "output/card-renders/interaction/ui-flow-theater/frame-120.png",
+      "output/card-renders/interaction/ui-flow-theater/frame-240.png"
     ]
   },
   "video-talkcraft/long-take-world": {
@@ -1090,223 +1090,223 @@
     ]
   },
   "video-talkcraft/flying-words": {
-    "targetId": "environment/flying-words",
+    "targetId": "effects/flying-words",
     "approvedAt": "2026-10-28T04:10:12.330Z",
     "evidence": [
-      "output/card-renders/environment/flying-words/preview.mp4",
-      "output/card-renders/environment/flying-words/frame-0.png",
-      "output/card-renders/environment/flying-words/frame-60.png",
-      "output/card-renders/environment/flying-words/frame-150.png"
+      "output/card-renders/effects/flying-words/preview.mp4",
+      "output/card-renders/effects/flying-words/frame-0.png",
+      "output/card-renders/effects/flying-words/frame-60.png",
+      "output/card-renders/effects/flying-words/frame-150.png"
     ]
   },
   "video-shotcraft/blur-slide": {
-    "targetId": "text/blur-slide",
+    "targetId": "typography/blur-slide",
     "approvedAt": "2026-10-29T01:01:02.234Z",
     "evidence": [
-      "output/card-renders/text/blur-slide/preview.mp4",
-      "output/card-renders/text/blur-slide/frame-20.png",
-      "output/card-renders/text/blur-slide/frame-60.png",
-      "output/card-renders/text/blur-slide/frame-110.png"
+      "output/card-renders/typography/blur-slide/preview.mp4",
+      "output/card-renders/typography/blur-slide/frame-20.png",
+      "output/card-renders/typography/blur-slide/frame-60.png",
+      "output/card-renders/typography/blur-slide/frame-110.png"
     ]
   },
   "video-shotcraft/brace-expand": {
-    "targetId": "text/brace-expand",
+    "targetId": "typography/brace-expand",
     "approvedAt": "2026-10-29T01:09:31.592Z",
     "evidence": [
-      "output/card-renders/text/brace-expand/preview.mp4",
-      "output/card-renders/text/brace-expand/frame-30.png",
-      "output/card-renders/text/brace-expand/frame-60.png",
-      "output/card-renders/text/brace-expand/frame-102.png"
+      "output/card-renders/typography/brace-expand/preview.mp4",
+      "output/card-renders/typography/brace-expand/frame-30.png",
+      "output/card-renders/typography/brace-expand/frame-60.png",
+      "output/card-renders/typography/brace-expand/frame-102.png"
     ]
   },
   "video-shotcraft/paper-title-card": {
-    "targetId": "text/paper-title-card",
+    "targetId": "typography/paper-title-card",
     "approvedAt": "2026-10-29T01:09:31.593Z",
     "evidence": [
-      "output/card-renders/text/paper-title-card/preview.mp4",
-      "output/card-renders/text/paper-title-card/frame-13.png",
-      "output/card-renders/text/paper-title-card/frame-27.png",
-      "output/card-renders/text/paper-title-card/frame-46.png"
+      "output/card-renders/typography/paper-title-card/preview.mp4",
+      "output/card-renders/typography/paper-title-card/frame-13.png",
+      "output/card-renders/typography/paper-title-card/frame-27.png",
+      "output/card-renders/typography/paper-title-card/frame-46.png"
     ]
   },
   "video-shotcraft/marker-underline-title": {
-    "targetId": "text/marker-underline-title",
+    "targetId": "typography/marker-underline-title",
     "approvedAt": "2026-10-29T01:09:31.594Z",
     "evidence": [
-      "output/card-renders/text/marker-underline-title/preview.mp4",
-      "output/card-renders/text/marker-underline-title/frame-18.png",
-      "output/card-renders/text/marker-underline-title/frame-37.png",
-      "output/card-renders/text/marker-underline-title/frame-63.png"
+      "output/card-renders/typography/marker-underline-title/preview.mp4",
+      "output/card-renders/typography/marker-underline-title/frame-18.png",
+      "output/card-renders/typography/marker-underline-title/frame-37.png",
+      "output/card-renders/typography/marker-underline-title/frame-63.png"
     ]
   },
   "video-shotcraft/gradient-word-sweep": {
-    "targetId": "text/gradient-word-sweep",
+    "targetId": "typography/gradient-word-sweep",
     "approvedAt": "2026-10-29T01:09:31.595Z",
     "evidence": [
-      "output/card-renders/text/gradient-word-sweep/preview.mp4",
-      "output/card-renders/text/gradient-word-sweep/frame-26.png",
-      "output/card-renders/text/gradient-word-sweep/frame-52.png",
-      "output/card-renders/text/gradient-word-sweep/frame-89.png"
+      "output/card-renders/typography/gradient-word-sweep/preview.mp4",
+      "output/card-renders/typography/gradient-word-sweep/frame-26.png",
+      "output/card-renders/typography/gradient-word-sweep/frame-52.png",
+      "output/card-renders/typography/gradient-word-sweep/frame-89.png"
     ]
   },
   "video-shotcraft/outline-word-fill": {
-    "targetId": "text/outline-word-fill",
+    "targetId": "typography/outline-word-fill",
     "approvedAt": "2026-10-29T01:09:31.596Z",
     "evidence": [
-      "output/card-renders/text/outline-word-fill/preview.mp4",
-      "output/card-renders/text/outline-word-fill/frame-22.png",
-      "output/card-renders/text/outline-word-fill/frame-45.png",
-      "output/card-renders/text/outline-word-fill/frame-76.png"
+      "output/card-renders/typography/outline-word-fill/preview.mp4",
+      "output/card-renders/typography/outline-word-fill/frame-22.png",
+      "output/card-renders/typography/outline-word-fill/frame-45.png",
+      "output/card-renders/typography/outline-word-fill/frame-76.png"
     ]
   },
   "video-shotcraft/glitch-cycle": {
-    "targetId": "text/glitch-cycle",
+    "targetId": "typography/glitch-cycle",
     "approvedAt": "2026-10-29T01:09:31.597Z",
     "evidence": [
-      "output/card-renders/text/glitch-cycle/preview.mp4",
-      "output/card-renders/text/glitch-cycle/frame-42.png",
-      "output/card-renders/text/glitch-cycle/frame-84.png",
-      "output/card-renders/text/glitch-cycle/frame-142.png"
+      "output/card-renders/typography/glitch-cycle/preview.mp4",
+      "output/card-renders/typography/glitch-cycle/frame-42.png",
+      "output/card-renders/typography/glitch-cycle/frame-84.png",
+      "output/card-renders/typography/glitch-cycle/frame-142.png"
     ]
   },
   "video-shotcraft/pill-slot-cycle": {
-    "targetId": "text/pill-slot-cycle",
+    "targetId": "typography/pill-slot-cycle",
     "approvedAt": "2026-10-29T01:09:31.598Z",
     "evidence": [
-      "output/card-renders/text/pill-slot-cycle/preview.mp4",
-      "output/card-renders/text/pill-slot-cycle/frame-50.png",
-      "output/card-renders/text/pill-slot-cycle/frame-100.png",
-      "output/card-renders/text/pill-slot-cycle/frame-170.png"
+      "output/card-renders/typography/pill-slot-cycle/preview.mp4",
+      "output/card-renders/typography/pill-slot-cycle/frame-50.png",
+      "output/card-renders/typography/pill-slot-cycle/frame-100.png",
+      "output/card-renders/typography/pill-slot-cycle/frame-170.png"
     ]
   },
   "video-shotcraft/text-column-converge": {
-    "targetId": "text/text-column-converge",
+    "targetId": "typography/text-column-converge",
     "approvedAt": "2026-10-29T01:09:31.599Z",
     "evidence": [
-      "output/card-renders/text/text-column-converge/preview.mp4",
-      "output/card-renders/text/text-column-converge/frame-45.png",
-      "output/card-renders/text/text-column-converge/frame-90.png",
-      "output/card-renders/text/text-column-converge/frame-153.png"
+      "output/card-renders/typography/text-column-converge/preview.mp4",
+      "output/card-renders/typography/text-column-converge/frame-45.png",
+      "output/card-renders/typography/text-column-converge/frame-90.png",
+      "output/card-renders/typography/text-column-converge/frame-153.png"
     ]
   },
   "video-shotcraft/type-rhythm-sync": {
-    "targetId": "text/type-rhythm-sync",
+    "targetId": "typography/type-rhythm-sync",
     "approvedAt": "2026-10-29T08:47:04.926Z",
     "evidence": [
-      "output/card-renders/text/type-rhythm-sync/preview.mp4",
-      "output/card-renders/text/type-rhythm-sync/frame-37.png",
-      "output/card-renders/text/type-rhythm-sync/frame-75.png",
-      "output/card-renders/text/type-rhythm-sync/frame-127.png"
+      "output/card-renders/typography/type-rhythm-sync/preview.mp4",
+      "output/card-renders/typography/type-rhythm-sync/frame-37.png",
+      "output/card-renders/typography/type-rhythm-sync/frame-75.png",
+      "output/card-renders/typography/type-rhythm-sync/frame-127.png"
     ]
   },
   "video-shotcraft/countdown-arc-scatter": {
-    "targetId": "text/shot-countdown-arc-scatter",
+    "targetId": "typography/shot-countdown-arc-scatter",
     "approvedAt": "2026-10-29T01:20:11.476Z",
     "evidence": [
-      "output/card-renders/text/shot-countdown-arc-scatter/preview.mp4",
-      "output/card-renders/text/shot-countdown-arc-scatter/frame-25.png",
-      "output/card-renders/text/shot-countdown-arc-scatter/frame-50.png",
-      "output/card-renders/text/shot-countdown-arc-scatter/frame-85.png"
+      "output/card-renders/typography/shot-countdown-arc-scatter/preview.mp4",
+      "output/card-renders/typography/shot-countdown-arc-scatter/frame-25.png",
+      "output/card-renders/typography/shot-countdown-arc-scatter/frame-50.png",
+      "output/card-renders/typography/shot-countdown-arc-scatter/frame-85.png"
     ]
   },
   "video-shotcraft/document-typewriter-reveal": {
-    "targetId": "text/document-typewriter-reveal",
+    "targetId": "typography/document-typewriter-reveal",
     "approvedAt": "2026-10-29T01:20:11.477Z",
     "evidence": [
-      "output/card-renders/text/document-typewriter-reveal/preview.mp4",
-      "output/card-renders/text/document-typewriter-reveal/frame-37.png",
-      "output/card-renders/text/document-typewriter-reveal/frame-75.png",
-      "output/card-renders/text/document-typewriter-reveal/frame-127.png"
+      "output/card-renders/typography/document-typewriter-reveal/preview.mp4",
+      "output/card-renders/typography/document-typewriter-reveal/frame-37.png",
+      "output/card-renders/typography/document-typewriter-reveal/frame-75.png",
+      "output/card-renders/typography/document-typewriter-reveal/frame-127.png"
     ]
   },
   "video-shotcraft/lead-word-zoom-assemble": {
-    "targetId": "text/shot-lead-word-zoom-assemble",
+    "targetId": "typography/shot-lead-word-zoom-assemble",
     "approvedAt": "2026-10-29T01:20:11.478Z",
     "evidence": [
-      "output/card-renders/text/shot-lead-word-zoom-assemble/preview.mp4",
-      "output/card-renders/text/shot-lead-word-zoom-assemble/frame-21.png",
-      "output/card-renders/text/shot-lead-word-zoom-assemble/frame-42.png",
-      "output/card-renders/text/shot-lead-word-zoom-assemble/frame-71.png"
+      "output/card-renders/typography/shot-lead-word-zoom-assemble/preview.mp4",
+      "output/card-renders/typography/shot-lead-word-zoom-assemble/frame-21.png",
+      "output/card-renders/typography/shot-lead-word-zoom-assemble/frame-42.png",
+      "output/card-renders/typography/shot-lead-word-zoom-assemble/frame-71.png"
     ]
   },
   "video-shotcraft/pill-chip-slot-cycle-handled": {
-    "targetId": "text/pill-chip-slot-cycle-handled",
+    "targetId": "typography/pill-chip-slot-cycle-handled",
     "approvedAt": "2026-10-29T01:20:11.478Z",
     "evidence": [
-      "output/card-renders/text/pill-chip-slot-cycle-handled/preview.mp4",
-      "output/card-renders/text/pill-chip-slot-cycle-handled/frame-37.png",
-      "output/card-renders/text/pill-chip-slot-cycle-handled/frame-75.png",
-      "output/card-renders/text/pill-chip-slot-cycle-handled/frame-127.png"
+      "output/card-renders/typography/pill-chip-slot-cycle-handled/preview.mp4",
+      "output/card-renders/typography/pill-chip-slot-cycle-handled/frame-37.png",
+      "output/card-renders/typography/pill-chip-slot-cycle-handled/frame-75.png",
+      "output/card-renders/typography/pill-chip-slot-cycle-handled/frame-127.png"
     ]
   },
   "video-shotcraft/title-demote-to-label": {
-    "targetId": "text/shot-title-demote-to-label",
+    "targetId": "typography/shot-title-demote-to-label",
     "approvedAt": "2026-10-29T01:20:11.479Z",
     "evidence": [
-      "output/card-renders/text/shot-title-demote-to-label/preview.mp4",
-      "output/card-renders/text/shot-title-demote-to-label/frame-61.png",
-      "output/card-renders/text/shot-title-demote-to-label/frame-123.png",
-      "output/card-renders/text/shot-title-demote-to-label/frame-209.png"
+      "output/card-renders/typography/shot-title-demote-to-label/preview.mp4",
+      "output/card-renders/typography/shot-title-demote-to-label/frame-61.png",
+      "output/card-renders/typography/shot-title-demote-to-label/frame-123.png",
+      "output/card-renders/typography/shot-title-demote-to-label/frame-209.png"
     ]
   },
   "video-shotcraft/type-assembly-moves": {
-    "targetId": "text/type-assembly-moves",
+    "targetId": "typography/type-assembly-moves",
     "approvedAt": "2026-10-29T08:47:04.927Z",
     "evidence": [
-      "output/card-renders/text/type-assembly-moves/preview.mp4",
-      "output/card-renders/text/type-assembly-moves/frame-35.png",
-      "output/card-renders/text/type-assembly-moves/frame-70.png",
-      "output/card-renders/text/type-assembly-moves/frame-119.png"
+      "output/card-renders/typography/type-assembly-moves/preview.mp4",
+      "output/card-renders/typography/type-assembly-moves/frame-35.png",
+      "output/card-renders/typography/type-assembly-moves/frame-70.png",
+      "output/card-renders/typography/type-assembly-moves/frame-119.png"
     ]
   },
   "video-shotcraft/type-entrance-moves": {
-    "targetId": "text/type-entrance-moves",
+    "targetId": "typography/type-entrance-moves",
     "approvedAt": "2026-10-29T01:20:11.480Z",
     "evidence": [
-      "output/card-renders/text/type-entrance-moves/preview.mp4",
-      "output/card-renders/text/type-entrance-moves/frame-37.png",
-      "output/card-renders/text/type-entrance-moves/frame-75.png",
-      "output/card-renders/text/type-entrance-moves/frame-127.png"
+      "output/card-renders/typography/type-entrance-moves/preview.mp4",
+      "output/card-renders/typography/type-entrance-moves/frame-37.png",
+      "output/card-renders/typography/type-entrance-moves/frame-75.png",
+      "output/card-renders/typography/type-entrance-moves/frame-127.png"
     ]
   },
   "video-shotcraft/typewriter-moves": {
-    "targetId": "text/typewriter-moves",
+    "targetId": "typography/typewriter-moves",
     "approvedAt": "2026-10-29T01:20:11.480Z",
     "evidence": [
-      "output/card-renders/text/typewriter-moves/preview.mp4",
-      "output/card-renders/text/typewriter-moves/frame-40.png",
-      "output/card-renders/text/typewriter-moves/frame-80.png",
-      "output/card-renders/text/typewriter-moves/frame-136.png"
+      "output/card-renders/typography/typewriter-moves/preview.mp4",
+      "output/card-renders/typography/typewriter-moves/frame-40.png",
+      "output/card-renders/typography/typewriter-moves/frame-80.png",
+      "output/card-renders/typography/typewriter-moves/frame-136.png"
     ]
   },
   "video-shotcraft/vertical-word-roll-blur-cycle": {
-    "targetId": "text/vertical-word-roll-blur-cycle",
+    "targetId": "typography/vertical-word-roll-blur-cycle",
     "approvedAt": "2026-10-29T01:20:11.481Z",
     "evidence": [
-      "output/card-renders/text/vertical-word-roll-blur-cycle/preview.mp4",
-      "output/card-renders/text/vertical-word-roll-blur-cycle/frame-37.png",
-      "output/card-renders/text/vertical-word-roll-blur-cycle/frame-75.png",
-      "output/card-renders/text/vertical-word-roll-blur-cycle/frame-127.png"
+      "output/card-renders/typography/vertical-word-roll-blur-cycle/preview.mp4",
+      "output/card-renders/typography/vertical-word-roll-blur-cycle/frame-37.png",
+      "output/card-renders/typography/vertical-word-roll-blur-cycle/frame-75.png",
+      "output/card-renders/typography/vertical-word-roll-blur-cycle/frame-127.png"
     ]
   },
   "video-shotcraft/word-relay-filmstrip": {
-    "targetId": "text/word-relay-filmstrip",
+    "targetId": "typography/word-relay-filmstrip",
     "approvedAt": "2026-10-29T01:20:11.481Z",
     "evidence": [
-      "output/card-renders/text/word-relay-filmstrip/preview.mp4",
-      "output/card-renders/text/word-relay-filmstrip/frame-45.png",
-      "output/card-renders/text/word-relay-filmstrip/frame-90.png",
-      "output/card-renders/text/word-relay-filmstrip/frame-153.png"
+      "output/card-renders/typography/word-relay-filmstrip/preview.mp4",
+      "output/card-renders/typography/word-relay-filmstrip/frame-45.png",
+      "output/card-renders/typography/word-relay-filmstrip/frame-90.png",
+      "output/card-renders/typography/word-relay-filmstrip/frame-153.png"
     ]
   },
   "video-shotcraft/word-relay-geometry": {
-    "targetId": "text/word-relay-geometry",
+    "targetId": "typography/word-relay-geometry",
     "approvedAt": "2026-10-29T01:20:11.482Z",
     "evidence": [
-      "output/card-renders/text/word-relay-geometry/preview.mp4",
-      "output/card-renders/text/word-relay-geometry/frame-45.png",
-      "output/card-renders/text/word-relay-geometry/frame-90.png",
-      "output/card-renders/text/word-relay-geometry/frame-153.png"
+      "output/card-renders/typography/word-relay-geometry/preview.mp4",
+      "output/card-renders/typography/word-relay-geometry/frame-45.png",
+      "output/card-renders/typography/word-relay-geometry/frame-90.png",
+      "output/card-renders/typography/word-relay-geometry/frame-153.png"
     ]
   },
   "video-shotcraft/basic-3d-scene": {
@@ -1410,783 +1410,783 @@
     ]
   },
   "video-shotcraft/before-after-slider-scrub": {
-    "targetId": "component/before-after-slider-scrub",
+    "targetId": "data/before-after-slider-scrub",
     "approvedAt": "2026-10-29T01:35:53.843Z",
     "evidence": [
-      "output/card-renders/component/before-after-slider-scrub/preview.mp4",
-      "output/card-renders/component/before-after-slider-scrub/frame-37.png",
-      "output/card-renders/component/before-after-slider-scrub/frame-75.png",
-      "output/card-renders/component/before-after-slider-scrub/frame-127.png"
+      "output/card-renders/data/before-after-slider-scrub/preview.mp4",
+      "output/card-renders/data/before-after-slider-scrub/frame-37.png",
+      "output/card-renders/data/before-after-slider-scrub/frame-75.png",
+      "output/card-renders/data/before-after-slider-scrub/frame-127.png"
     ]
   },
   "video-shotcraft/chart-live-moves": {
-    "targetId": "component/chart-live-moves",
+    "targetId": "data/chart-live-moves",
     "approvedAt": "2026-10-29T08:47:04.930Z",
     "evidence": [
-      "output/card-renders/component/chart-live-moves/preview.mp4",
-      "output/card-renders/component/chart-live-moves/frame-42.png",
-      "output/card-renders/component/chart-live-moves/frame-85.png",
-      "output/card-renders/component/chart-live-moves/frame-144.png"
+      "output/card-renders/data/chart-live-moves/preview.mp4",
+      "output/card-renders/data/chart-live-moves/frame-42.png",
+      "output/card-renders/data/chart-live-moves/frame-85.png",
+      "output/card-renders/data/chart-live-moves/frame-144.png"
     ]
   },
   "video-shotcraft/gauge-readout-moves": {
-    "targetId": "component/gauge-readout-moves",
+    "targetId": "data/gauge-readout-moves",
     "approvedAt": "2026-10-29T08:47:04.931Z",
     "evidence": [
-      "output/card-renders/component/gauge-readout-moves/preview.mp4",
-      "output/card-renders/component/gauge-readout-moves/frame-30.png",
-      "output/card-renders/component/gauge-readout-moves/frame-60.png",
-      "output/card-renders/component/gauge-readout-moves/frame-102.png"
+      "output/card-renders/data/gauge-readout-moves/preview.mp4",
+      "output/card-renders/data/gauge-readout-moves/frame-30.png",
+      "output/card-renders/data/gauge-readout-moves/frame-60.png",
+      "output/card-renders/data/gauge-readout-moves/frame-102.png"
     ]
   },
   "video-shotcraft/scroll-brake-moves": {
-    "targetId": "component/scroll-brake-moves",
+    "targetId": "data/scroll-brake-moves",
     "approvedAt": "2026-10-29T08:47:04.931Z",
     "evidence": [
-      "output/card-renders/component/scroll-brake-moves/preview.mp4",
-      "output/card-renders/component/scroll-brake-moves/frame-30.png",
-      "output/card-renders/component/scroll-brake-moves/frame-60.png",
-      "output/card-renders/component/scroll-brake-moves/frame-102.png"
+      "output/card-renders/data/scroll-brake-moves/preview.mp4",
+      "output/card-renders/data/scroll-brake-moves/frame-30.png",
+      "output/card-renders/data/scroll-brake-moves/frame-60.png",
+      "output/card-renders/data/scroll-brake-moves/frame-102.png"
     ]
   },
   "video-shotcraft/timeline-travel": {
-    "targetId": "component/timeline-travel",
+    "targetId": "data/timeline-travel",
     "approvedAt": "2026-10-29T01:35:53.845Z",
     "evidence": [
-      "output/card-renders/component/timeline-travel/preview.mp4",
-      "output/card-renders/component/timeline-travel/frame-40.png",
-      "output/card-renders/component/timeline-travel/frame-80.png",
-      "output/card-renders/component/timeline-travel/frame-136.png"
+      "output/card-renders/data/timeline-travel/preview.mp4",
+      "output/card-renders/data/timeline-travel/frame-40.png",
+      "output/card-renders/data/timeline-travel/frame-80.png",
+      "output/card-renders/data/timeline-travel/frame-136.png"
     ]
   },
   "video-shotcraft/autolayout-gap-dial": {
-    "targetId": "component/autolayout-gap-dial",
+    "targetId": "interaction/autolayout-gap-dial",
     "approvedAt": "2026-10-29T02:25:29.167Z",
     "evidence": [
-      "output/card-renders/component/autolayout-gap-dial/preview.mp4",
-      "output/card-renders/component/autolayout-gap-dial/frame-37.png",
-      "output/card-renders/component/autolayout-gap-dial/frame-75.png",
-      "output/card-renders/component/autolayout-gap-dial/frame-127.png"
+      "output/card-renders/interaction/autolayout-gap-dial/preview.mp4",
+      "output/card-renders/interaction/autolayout-gap-dial/frame-37.png",
+      "output/card-renders/interaction/autolayout-gap-dial/frame-75.png",
+      "output/card-renders/interaction/autolayout-gap-dial/frame-127.png"
     ]
   },
   "video-shotcraft/avatar-bracket-carousel": {
-    "targetId": "component/avatar-bracket-carousel",
+    "targetId": "interaction/avatar-bracket-carousel",
     "approvedAt": "2026-10-29T02:25:29.169Z",
     "evidence": [
-      "output/card-renders/component/avatar-bracket-carousel/preview.mp4",
-      "output/card-renders/component/avatar-bracket-carousel/frame-39.png",
-      "output/card-renders/component/avatar-bracket-carousel/frame-78.png",
-      "output/card-renders/component/avatar-bracket-carousel/frame-132.png"
+      "output/card-renders/interaction/avatar-bracket-carousel/preview.mp4",
+      "output/card-renders/interaction/avatar-bracket-carousel/frame-39.png",
+      "output/card-renders/interaction/avatar-bracket-carousel/frame-78.png",
+      "output/card-renders/interaction/avatar-bracket-carousel/frame-132.png"
     ]
   },
   "video-shotcraft/bezier-source-converge-merge": {
-    "targetId": "component/bezier-source-converge-merge",
+    "targetId": "interaction/bezier-source-converge-merge",
     "approvedAt": "2026-10-29T02:25:29.169Z",
     "evidence": [
-      "output/card-renders/component/bezier-source-converge-merge/preview.mp4",
-      "output/card-renders/component/bezier-source-converge-merge/frame-42.png",
-      "output/card-renders/component/bezier-source-converge-merge/frame-84.png",
-      "output/card-renders/component/bezier-source-converge-merge/frame-142.png"
+      "output/card-renders/interaction/bezier-source-converge-merge/preview.mp4",
+      "output/card-renders/interaction/bezier-source-converge-merge/frame-42.png",
+      "output/card-renders/interaction/bezier-source-converge-merge/frame-84.png",
+      "output/card-renders/interaction/bezier-source-converge-merge/frame-142.png"
     ]
   },
   "video-shotcraft/canvas-materialize-moves": {
-    "targetId": "component/canvas-materialize-moves",
+    "targetId": "interaction/canvas-materialize-moves",
     "approvedAt": "2026-10-29T08:47:04.932Z",
     "evidence": [
-      "output/card-renders/component/canvas-materialize-moves/preview.mp4",
-      "output/card-renders/component/canvas-materialize-moves/frame-37.png",
-      "output/card-renders/component/canvas-materialize-moves/frame-75.png",
-      "output/card-renders/component/canvas-materialize-moves/frame-127.png"
+      "output/card-renders/interaction/canvas-materialize-moves/preview.mp4",
+      "output/card-renders/interaction/canvas-materialize-moves/frame-37.png",
+      "output/card-renders/interaction/canvas-materialize-moves/frame-75.png",
+      "output/card-renders/interaction/canvas-materialize-moves/frame-127.png"
     ]
   },
   "video-shotcraft/carousel-3d": {
-    "targetId": "component/carousel-3d",
+    "targetId": "interaction/carousel-3d",
     "approvedAt": "2026-10-29T02:25:29.170Z",
     "evidence": [
-      "output/card-renders/component/carousel-3d/preview.mp4",
-      "output/card-renders/component/carousel-3d/frame-42.png",
-      "output/card-renders/component/carousel-3d/frame-84.png",
-      "output/card-renders/component/carousel-3d/frame-142.png"
+      "output/card-renders/interaction/carousel-3d/preview.mp4",
+      "output/card-renders/interaction/carousel-3d/frame-42.png",
+      "output/card-renders/interaction/carousel-3d/frame-84.png",
+      "output/card-renders/interaction/carousel-3d/frame-142.png"
     ]
   },
   "video-shotcraft/chip-grid-single-select-blackout": {
-    "targetId": "component/chip-grid-single-select-blackout",
+    "targetId": "interaction/chip-grid-single-select-blackout",
     "approvedAt": "2026-10-29T02:25:29.172Z",
     "evidence": [
-      "output/card-renders/component/chip-grid-single-select-blackout/preview.mp4",
-      "output/card-renders/component/chip-grid-single-select-blackout/frame-41.png",
-      "output/card-renders/component/chip-grid-single-select-blackout/frame-82.png",
-      "output/card-renders/component/chip-grid-single-select-blackout/frame-140.png"
+      "output/card-renders/interaction/chip-grid-single-select-blackout/preview.mp4",
+      "output/card-renders/interaction/chip-grid-single-select-blackout/frame-41.png",
+      "output/card-renders/interaction/chip-grid-single-select-blackout/frame-82.png",
+      "output/card-renders/interaction/chip-grid-single-select-blackout/frame-140.png"
     ]
   },
   "video-shotcraft/cloner-depth-echo": {
-    "targetId": "component/cloner-depth-echo",
+    "targetId": "interaction/cloner-depth-echo",
     "approvedAt": "2026-10-29T02:25:29.172Z",
     "evidence": [
-      "output/card-renders/component/cloner-depth-echo/preview.mp4",
-      "output/card-renders/component/cloner-depth-echo/frame-34.png",
-      "output/card-renders/component/cloner-depth-echo/frame-69.png",
-      "output/card-renders/component/cloner-depth-echo/frame-117.png"
+      "output/card-renders/interaction/cloner-depth-echo/preview.mp4",
+      "output/card-renders/interaction/cloner-depth-echo/frame-34.png",
+      "output/card-renders/interaction/cloner-depth-echo/frame-69.png",
+      "output/card-renders/interaction/cloner-depth-echo/frame-117.png"
     ]
   },
   "video-shotcraft/collab-cursor-moves": {
-    "targetId": "component/collab-cursor-moves",
+    "targetId": "interaction/collab-cursor-moves",
     "approvedAt": "2026-10-29T02:25:29.173Z",
     "evidence": [
-      "output/card-renders/component/collab-cursor-moves/preview.mp4",
-      "output/card-renders/component/collab-cursor-moves/frame-39.png",
-      "output/card-renders/component/collab-cursor-moves/frame-78.png",
-      "output/card-renders/component/collab-cursor-moves/frame-132.png"
+      "output/card-renders/interaction/collab-cursor-moves/preview.mp4",
+      "output/card-renders/interaction/collab-cursor-moves/frame-39.png",
+      "output/card-renders/interaction/collab-cursor-moves/frame-78.png",
+      "output/card-renders/interaction/collab-cursor-moves/frame-132.png"
     ]
   },
   "video-shotcraft/deck-deal-flyin": {
-    "targetId": "component/deck-deal-flyin",
+    "targetId": "interaction/deck-deal-flyin",
     "approvedAt": "2026-10-29T02:25:29.174Z",
     "evidence": [
-      "output/card-renders/component/deck-deal-flyin/preview.mp4",
-      "output/card-renders/component/deck-deal-flyin/frame-37.png",
-      "output/card-renders/component/deck-deal-flyin/frame-75.png",
-      "output/card-renders/component/deck-deal-flyin/frame-127.png"
+      "output/card-renders/interaction/deck-deal-flyin/preview.mp4",
+      "output/card-renders/interaction/deck-deal-flyin/frame-37.png",
+      "output/card-renders/interaction/deck-deal-flyin/frame-75.png",
+      "output/card-renders/interaction/deck-deal-flyin/frame-127.png"
     ]
   },
   "video-shotcraft/doc-park-left-pill-deal": {
-    "targetId": "component/shot-doc-park-left-pill-deal",
+    "targetId": "interaction/shot-doc-park-left-pill-deal",
     "approvedAt": "2026-10-29T02:25:29.174Z",
     "evidence": [
-      "output/card-renders/component/shot-doc-park-left-pill-deal/preview.mp4",
-      "output/card-renders/component/shot-doc-park-left-pill-deal/frame-43.png",
-      "output/card-renders/component/shot-doc-park-left-pill-deal/frame-87.png",
-      "output/card-renders/component/shot-doc-park-left-pill-deal/frame-147.png"
+      "output/card-renders/interaction/shot-doc-park-left-pill-deal/preview.mp4",
+      "output/card-renders/interaction/shot-doc-park-left-pill-deal/frame-43.png",
+      "output/card-renders/interaction/shot-doc-park-left-pill-deal/frame-87.png",
+      "output/card-renders/interaction/shot-doc-park-left-pill-deal/frame-147.png"
     ]
   },
   "video-shotcraft/draw-svg-trace": {
-    "targetId": "component/draw-svg-trace",
+    "targetId": "interaction/draw-svg-trace",
     "approvedAt": "2026-10-29T02:25:29.174Z",
     "evidence": [
-      "output/card-renders/component/draw-svg-trace/preview.mp4",
-      "output/card-renders/component/draw-svg-trace/frame-33.png",
-      "output/card-renders/component/draw-svg-trace/frame-66.png",
-      "output/card-renders/component/draw-svg-trace/frame-112.png"
+      "output/card-renders/interaction/draw-svg-trace/preview.mp4",
+      "output/card-renders/interaction/draw-svg-trace/frame-33.png",
+      "output/card-renders/interaction/draw-svg-trace/frame-66.png",
+      "output/card-renders/interaction/draw-svg-trace/frame-112.png"
     ]
   },
   "video-shotcraft/element-body-moves": {
-    "targetId": "component/element-body-moves",
+    "targetId": "interaction/element-body-moves",
     "approvedAt": "2026-10-29T02:25:29.175Z",
     "evidence": [
-      "output/card-renders/component/element-body-moves/preview.mp4",
-      "output/card-renders/component/element-body-moves/frame-37.png",
-      "output/card-renders/component/element-body-moves/frame-75.png",
-      "output/card-renders/component/element-body-moves/frame-127.png"
+      "output/card-renders/interaction/element-body-moves/preview.mp4",
+      "output/card-renders/interaction/element-body-moves/frame-37.png",
+      "output/card-renders/interaction/element-body-moves/frame-75.png",
+      "output/card-renders/interaction/element-body-moves/frame-127.png"
     ]
   },
   "video-shotcraft/glass-pill-dictation-typing": {
-    "targetId": "component/glass-pill-dictation-typing",
+    "targetId": "interaction/glass-pill-dictation-typing",
     "approvedAt": "2026-10-29T02:25:29.175Z",
     "evidence": [
-      "output/card-renders/component/glass-pill-dictation-typing/preview.mp4",
-      "output/card-renders/component/glass-pill-dictation-typing/frame-25.png",
-      "output/card-renders/component/glass-pill-dictation-typing/frame-50.png",
-      "output/card-renders/component/glass-pill-dictation-typing/frame-85.png"
+      "output/card-renders/interaction/glass-pill-dictation-typing/preview.mp4",
+      "output/card-renders/interaction/glass-pill-dictation-typing/frame-25.png",
+      "output/card-renders/interaction/glass-pill-dictation-typing/frame-50.png",
+      "output/card-renders/interaction/glass-pill-dictation-typing/frame-85.png"
     ]
   },
   "video-shotcraft/hashtag-to-pill-materialize": {
-    "targetId": "component/hashtag-to-pill-materialize",
+    "targetId": "interaction/hashtag-to-pill-materialize",
     "approvedAt": "2026-10-29T02:25:29.176Z",
     "evidence": [
-      "output/card-renders/component/hashtag-to-pill-materialize/preview.mp4",
-      "output/card-renders/component/hashtag-to-pill-materialize/frame-30.png",
-      "output/card-renders/component/hashtag-to-pill-materialize/frame-60.png",
-      "output/card-renders/component/hashtag-to-pill-materialize/frame-102.png"
+      "output/card-renders/interaction/hashtag-to-pill-materialize/preview.mp4",
+      "output/card-renders/interaction/hashtag-to-pill-materialize/frame-30.png",
+      "output/card-renders/interaction/hashtag-to-pill-materialize/frame-60.png",
+      "output/card-renders/interaction/hashtag-to-pill-materialize/frame-102.png"
     ]
   },
   "video-shotcraft/integration-hub-map": {
-    "targetId": "component/integration-hub-map",
+    "targetId": "interaction/integration-hub-map",
     "approvedAt": "2026-10-29T02:25:29.177Z",
     "evidence": [
-      "output/card-renders/component/integration-hub-map/preview.mp4",
-      "output/card-renders/component/integration-hub-map/frame-37.png",
-      "output/card-renders/component/integration-hub-map/frame-75.png",
-      "output/card-renders/component/integration-hub-map/frame-127.png"
+      "output/card-renders/interaction/integration-hub-map/preview.mp4",
+      "output/card-renders/interaction/integration-hub-map/frame-37.png",
+      "output/card-renders/interaction/integration-hub-map/frame-75.png",
+      "output/card-renders/interaction/integration-hub-map/frame-127.png"
     ]
   },
   "video-shotcraft/list-reveal": {
-    "targetId": "component/list-reveal",
+    "targetId": "interaction/list-reveal",
     "approvedAt": "2026-10-29T02:25:29.177Z",
     "evidence": [
-      "output/card-renders/component/list-reveal/preview.mp4",
-      "output/card-renders/component/list-reveal/frame-30.png",
-      "output/card-renders/component/list-reveal/frame-60.png",
-      "output/card-renders/component/list-reveal/frame-102.png"
+      "output/card-renders/interaction/list-reveal/preview.mp4",
+      "output/card-renders/interaction/list-reveal/frame-30.png",
+      "output/card-renders/interaction/list-reveal/frame-60.png",
+      "output/card-renders/interaction/list-reveal/frame-102.png"
     ]
   },
   "video-shotcraft/list-stack-press": {
-    "targetId": "component/list-stack-press",
+    "targetId": "interaction/list-stack-press",
     "approvedAt": "2026-10-29T02:25:29.178Z",
     "evidence": [
-      "output/card-renders/component/list-stack-press/preview.mp4",
-      "output/card-renders/component/list-stack-press/frame-22.png",
-      "output/card-renders/component/list-stack-press/frame-44.png",
-      "output/card-renders/component/list-stack-press/frame-74.png"
+      "output/card-renders/interaction/list-stack-press/preview.mp4",
+      "output/card-renders/interaction/list-stack-press/frame-22.png",
+      "output/card-renders/interaction/list-stack-press/frame-44.png",
+      "output/card-renders/interaction/list-stack-press/frame-74.png"
     ]
   },
   "video-shotcraft/neon-frame-forerun": {
-    "targetId": "component/neon-frame-forerun",
+    "targetId": "interaction/neon-frame-forerun",
     "approvedAt": "2026-10-29T02:25:29.178Z",
     "evidence": [
-      "output/card-renders/component/neon-frame-forerun/preview.mp4",
-      "output/card-renders/component/neon-frame-forerun/frame-35.png",
-      "output/card-renders/component/neon-frame-forerun/frame-70.png",
-      "output/card-renders/component/neon-frame-forerun/frame-119.png"
+      "output/card-renders/interaction/neon-frame-forerun/preview.mp4",
+      "output/card-renders/interaction/neon-frame-forerun/frame-35.png",
+      "output/card-renders/interaction/neon-frame-forerun/frame-70.png",
+      "output/card-renders/interaction/neon-frame-forerun/frame-119.png"
     ]
   },
   "video-shotcraft/neon-frame-orbit-drop": {
-    "targetId": "component/neon-frame-orbit-drop",
+    "targetId": "interaction/neon-frame-orbit-drop",
     "approvedAt": "2026-10-29T02:25:29.179Z",
     "evidence": [
-      "output/card-renders/component/neon-frame-orbit-drop/preview.mp4",
-      "output/card-renders/component/neon-frame-orbit-drop/frame-35.png",
-      "output/card-renders/component/neon-frame-orbit-drop/frame-70.png",
-      "output/card-renders/component/neon-frame-orbit-drop/frame-119.png"
+      "output/card-renders/interaction/neon-frame-orbit-drop/preview.mp4",
+      "output/card-renders/interaction/neon-frame-orbit-drop/frame-35.png",
+      "output/card-renders/interaction/neon-frame-orbit-drop/frame-70.png",
+      "output/card-renders/interaction/neon-frame-orbit-drop/frame-119.png"
     ]
   },
   "video-shotcraft/page-waterfall-wall": {
-    "targetId": "component/page-waterfall-wall",
+    "targetId": "interaction/page-waterfall-wall",
     "approvedAt": "2026-10-29T02:25:29.179Z",
     "evidence": [
-      "output/card-renders/component/page-waterfall-wall/preview.mp4",
-      "output/card-renders/component/page-waterfall-wall/frame-37.png",
-      "output/card-renders/component/page-waterfall-wall/frame-75.png",
-      "output/card-renders/component/page-waterfall-wall/frame-127.png"
+      "output/card-renders/interaction/page-waterfall-wall/preview.mp4",
+      "output/card-renders/interaction/page-waterfall-wall/frame-37.png",
+      "output/card-renders/interaction/page-waterfall-wall/frame-75.png",
+      "output/card-renders/interaction/page-waterfall-wall/frame-127.png"
     ]
   },
   "video-shotcraft/picker-carousel-feature-cycle": {
-    "targetId": "component/picker-carousel-feature-cycle",
+    "targetId": "interaction/picker-carousel-feature-cycle",
     "approvedAt": "2026-10-29T02:25:29.180Z",
     "evidence": [
-      "output/card-renders/component/picker-carousel-feature-cycle/preview.mp4",
-      "output/card-renders/component/picker-carousel-feature-cycle/frame-27.png",
-      "output/card-renders/component/picker-carousel-feature-cycle/frame-54.png",
-      "output/card-renders/component/picker-carousel-feature-cycle/frame-91.png"
+      "output/card-renders/interaction/picker-carousel-feature-cycle/preview.mp4",
+      "output/card-renders/interaction/picker-carousel-feature-cycle/frame-27.png",
+      "output/card-renders/interaction/picker-carousel-feature-cycle/frame-54.png",
+      "output/card-renders/interaction/picker-carousel-feature-cycle/frame-91.png"
     ]
   },
   "video-shotcraft/product-card-progressive-assemble": {
-    "targetId": "component/product-card-progressive-assemble",
+    "targetId": "interaction/product-card-progressive-assemble",
     "approvedAt": "2026-10-29T02:25:29.180Z",
     "evidence": [
-      "output/card-renders/component/product-card-progressive-assemble/preview.mp4",
-      "output/card-renders/component/product-card-progressive-assemble/frame-43.png",
-      "output/card-renders/component/product-card-progressive-assemble/frame-86.png",
-      "output/card-renders/component/product-card-progressive-assemble/frame-146.png"
+      "output/card-renders/interaction/product-card-progressive-assemble/preview.mp4",
+      "output/card-renders/interaction/product-card-progressive-assemble/frame-43.png",
+      "output/card-renders/interaction/product-card-progressive-assemble/frame-86.png",
+      "output/card-renders/interaction/product-card-progressive-assemble/frame-146.png"
     ]
   },
   "video-shotcraft/radial-wave": {
-    "targetId": "component/radial-wave",
+    "targetId": "interaction/radial-wave",
     "approvedAt": "2026-10-29T02:25:29.180Z",
     "evidence": [
-      "output/card-renders/component/radial-wave/preview.mp4",
-      "output/card-renders/component/radial-wave/frame-28.png",
-      "output/card-renders/component/radial-wave/frame-57.png",
-      "output/card-renders/component/radial-wave/frame-96.png"
+      "output/card-renders/interaction/radial-wave/preview.mp4",
+      "output/card-renders/interaction/radial-wave/frame-28.png",
+      "output/card-renders/interaction/radial-wave/frame-57.png",
+      "output/card-renders/interaction/radial-wave/frame-96.png"
     ]
   },
   "video-shotcraft/research-card-stack-scroll": {
-    "targetId": "component/research-card-stack-scroll",
+    "targetId": "interaction/research-card-stack-scroll",
     "approvedAt": "2026-10-29T02:25:29.181Z",
     "evidence": [
-      "output/card-renders/component/research-card-stack-scroll/preview.mp4",
-      "output/card-renders/component/research-card-stack-scroll/frame-36.png",
-      "output/card-renders/component/research-card-stack-scroll/frame-72.png",
-      "output/card-renders/component/research-card-stack-scroll/frame-122.png"
+      "output/card-renders/interaction/research-card-stack-scroll/preview.mp4",
+      "output/card-renders/interaction/research-card-stack-scroll/frame-36.png",
+      "output/card-renders/interaction/research-card-stack-scroll/frame-72.png",
+      "output/card-renders/interaction/research-card-stack-scroll/frame-122.png"
     ]
   },
   "video-shotcraft/row-embed": {
-    "targetId": "component/row-embed",
+    "targetId": "interaction/row-embed",
     "approvedAt": "2026-10-29T02:25:29.181Z",
     "evidence": [
-      "output/card-renders/component/row-embed/preview.mp4",
-      "output/card-renders/component/row-embed/frame-17.png",
-      "output/card-renders/component/row-embed/frame-34.png",
-      "output/card-renders/component/row-embed/frame-57.png"
+      "output/card-renders/interaction/row-embed/preview.mp4",
+      "output/card-renders/interaction/row-embed/frame-17.png",
+      "output/card-renders/interaction/row-embed/frame-34.png",
+      "output/card-renders/interaction/row-embed/frame-57.png"
     ]
   },
   "video-shotcraft/segmented-thumb-hero": {
-    "targetId": "component/segmented-thumb-hero",
+    "targetId": "interaction/segmented-thumb-hero",
     "approvedAt": "2026-10-29T02:25:29.182Z",
     "evidence": [
-      "output/card-renders/component/segmented-thumb-hero/preview.mp4",
-      "output/card-renders/component/segmented-thumb-hero/frame-27.png",
-      "output/card-renders/component/segmented-thumb-hero/frame-55.png",
-      "output/card-renders/component/segmented-thumb-hero/frame-93.png"
+      "output/card-renders/interaction/segmented-thumb-hero/preview.mp4",
+      "output/card-renders/interaction/segmented-thumb-hero/frame-27.png",
+      "output/card-renders/interaction/segmented-thumb-hero/frame-55.png",
+      "output/card-renders/interaction/segmented-thumb-hero/frame-93.png"
     ]
   },
   "video-shotcraft/theme-switch-moves": {
-    "targetId": "component/theme-switch-moves",
+    "targetId": "interaction/theme-switch-moves",
     "approvedAt": "2026-10-29T08:47:04.933Z",
     "evidence": [
-      "output/card-renders/component/theme-switch-moves/preview.mp4",
-      "output/card-renders/component/theme-switch-moves/frame-35.png",
-      "output/card-renders/component/theme-switch-moves/frame-70.png",
-      "output/card-renders/component/theme-switch-moves/frame-119.png"
+      "output/card-renders/interaction/theme-switch-moves/preview.mp4",
+      "output/card-renders/interaction/theme-switch-moves/frame-35.png",
+      "output/card-renders/interaction/theme-switch-moves/frame-70.png",
+      "output/card-renders/interaction/theme-switch-moves/frame-119.png"
     ]
   },
   "video-shotcraft/type-and-filter": {
-    "targetId": "component/type-and-filter",
+    "targetId": "interaction/type-and-filter",
     "approvedAt": "2026-10-29T02:25:29.182Z",
     "evidence": [
-      "output/card-renders/component/type-and-filter/preview.mp4",
-      "output/card-renders/component/type-and-filter/frame-18.png",
-      "output/card-renders/component/type-and-filter/frame-36.png",
-      "output/card-renders/component/type-and-filter/frame-62.png"
+      "output/card-renders/interaction/type-and-filter/preview.mp4",
+      "output/card-renders/interaction/type-and-filter/frame-18.png",
+      "output/card-renders/interaction/type-and-filter/frame-36.png",
+      "output/card-renders/interaction/type-and-filter/frame-62.png"
     ]
   },
   "video-shotcraft/value-stagger-gradient": {
-    "targetId": "component/value-stagger-gradient",
+    "targetId": "interaction/value-stagger-gradient",
     "approvedAt": "2026-10-29T02:25:29.183Z",
     "evidence": [
-      "output/card-renders/component/value-stagger-gradient/preview.mp4",
-      "output/card-renders/component/value-stagger-gradient/frame-37.png",
-      "output/card-renders/component/value-stagger-gradient/frame-75.png",
-      "output/card-renders/component/value-stagger-gradient/frame-127.png"
+      "output/card-renders/interaction/value-stagger-gradient/preview.mp4",
+      "output/card-renders/interaction/value-stagger-gradient/frame-37.png",
+      "output/card-renders/interaction/value-stagger-gradient/frame-75.png",
+      "output/card-renders/interaction/value-stagger-gradient/frame-127.png"
     ]
   },
   "video-shotcraft/voice-waveform-live": {
-    "targetId": "component/voice-waveform-live",
+    "targetId": "interaction/voice-waveform-live",
     "approvedAt": "2026-10-29T02:25:29.183Z",
     "evidence": [
-      "output/card-renders/component/voice-waveform-live/preview.mp4",
-      "output/card-renders/component/voice-waveform-live/frame-43.png",
-      "output/card-renders/component/voice-waveform-live/frame-86.png",
-      "output/card-renders/component/voice-waveform-live/frame-146.png"
+      "output/card-renders/interaction/voice-waveform-live/preview.mp4",
+      "output/card-renders/interaction/voice-waveform-live/frame-43.png",
+      "output/card-renders/interaction/voice-waveform-live/frame-86.png",
+      "output/card-renders/interaction/voice-waveform-live/frame-146.png"
     ]
   },
   "video-shotcraft/wall-reveal-moves": {
-    "targetId": "component/wall-reveal-moves",
+    "targetId": "interaction/wall-reveal-moves",
     "approvedAt": "2026-10-29T08:47:04.933Z",
     "evidence": [
-      "output/card-renders/component/wall-reveal-moves/preview.mp4",
-      "output/card-renders/component/wall-reveal-moves/frame-37.png",
-      "output/card-renders/component/wall-reveal-moves/frame-75.png",
-      "output/card-renders/component/wall-reveal-moves/frame-127.png"
+      "output/card-renders/interaction/wall-reveal-moves/preview.mp4",
+      "output/card-renders/interaction/wall-reveal-moves/frame-37.png",
+      "output/card-renders/interaction/wall-reveal-moves/frame-75.png",
+      "output/card-renders/interaction/wall-reveal-moves/frame-127.png"
     ]
   },
   "brewreel/hook": {
-    "targetId": "component/hook",
+    "targetId": "commercial/hook",
     "approvedAt": "2026-10-29T02:53:10.275Z",
     "evidence": [
-      "output/card-renders/component/hook/preview.mp4",
-      "output/card-renders/component/hook/frame-18.png",
-      "output/card-renders/component/hook/frame-37.png",
-      "output/card-renders/component/hook/frame-63.png"
+      "output/card-renders/commercial/hook/preview.mp4",
+      "output/card-renders/commercial/hook/frame-18.png",
+      "output/card-renders/commercial/hook/frame-37.png",
+      "output/card-renders/commercial/hook/frame-63.png"
     ]
   },
   "brewreel/chat": {
-    "targetId": "component/chat",
+    "targetId": "commercial/chat",
     "approvedAt": "2026-10-29T02:53:10.276Z",
     "evidence": [
-      "output/card-renders/component/chat/preview.mp4",
-      "output/card-renders/component/chat/frame-45.png",
-      "output/card-renders/component/chat/frame-90.png",
-      "output/card-renders/component/chat/frame-153.png"
+      "output/card-renders/commercial/chat/preview.mp4",
+      "output/card-renders/commercial/chat/frame-45.png",
+      "output/card-renders/commercial/chat/frame-90.png",
+      "output/card-renders/commercial/chat/frame-153.png"
     ]
   },
   "brewreel/phone": {
-    "targetId": "component/phone",
+    "targetId": "commercial/phone",
     "approvedAt": "2026-10-29T02:53:10.277Z",
     "evidence": [
-      "output/card-renders/component/phone/preview.mp4",
-      "output/card-renders/component/phone/frame-30.png",
-      "output/card-renders/component/phone/frame-60.png",
-      "output/card-renders/component/phone/frame-102.png"
+      "output/card-renders/commercial/phone/preview.mp4",
+      "output/card-renders/commercial/phone/frame-30.png",
+      "output/card-renders/commercial/phone/frame-60.png",
+      "output/card-renders/commercial/phone/frame-102.png"
     ]
   },
   "brewreel/mockApp": {
-    "targetId": "component/mock-app",
+    "targetId": "commercial/mock-app",
     "approvedAt": "2026-10-29T02:53:10.277Z",
     "evidence": [
-      "output/card-renders/component/mock-app/preview.mp4",
-      "output/card-renders/component/mock-app/frame-30.png",
-      "output/card-renders/component/mock-app/frame-60.png",
-      "output/card-renders/component/mock-app/frame-102.png"
+      "output/card-renders/commercial/mock-app/preview.mp4",
+      "output/card-renders/commercial/mock-app/frame-30.png",
+      "output/card-renders/commercial/mock-app/frame-60.png",
+      "output/card-renders/commercial/mock-app/frame-102.png"
     ]
   },
   "brewreel/meter": {
-    "targetId": "component/meter",
+    "targetId": "commercial/meter",
     "approvedAt": "2026-10-29T02:53:10.278Z",
     "evidence": [
-      "output/card-renders/component/meter/preview.mp4",
-      "output/card-renders/component/meter/frame-22.png",
-      "output/card-renders/component/meter/frame-45.png",
-      "output/card-renders/component/meter/frame-76.png"
+      "output/card-renders/commercial/meter/preview.mp4",
+      "output/card-renders/commercial/meter/frame-22.png",
+      "output/card-renders/commercial/meter/frame-45.png",
+      "output/card-renders/commercial/meter/frame-76.png"
     ]
   },
   "brewreel/compare": {
-    "targetId": "component/compare",
+    "targetId": "commercial/compare",
     "approvedAt": "2026-10-29T02:53:10.278Z",
     "evidence": [
-      "output/card-renders/component/compare/preview.mp4",
-      "output/card-renders/component/compare/frame-30.png",
-      "output/card-renders/component/compare/frame-60.png",
-      "output/card-renders/component/compare/frame-102.png"
+      "output/card-renders/commercial/compare/preview.mp4",
+      "output/card-renders/commercial/compare/frame-30.png",
+      "output/card-renders/commercial/compare/frame-60.png",
+      "output/card-renders/commercial/compare/frame-102.png"
     ]
   },
   "brewreel/counter": {
-    "targetId": "component/counter",
+    "targetId": "commercial/counter",
     "approvedAt": "2026-10-29T02:53:10.279Z",
     "evidence": [
-      "output/card-renders/component/counter/preview.mp4",
-      "output/card-renders/component/counter/frame-22.png",
-      "output/card-renders/component/counter/frame-45.png",
-      "output/card-renders/component/counter/frame-76.png"
+      "output/card-renders/commercial/counter/preview.mp4",
+      "output/card-renders/commercial/counter/frame-22.png",
+      "output/card-renders/commercial/counter/frame-45.png",
+      "output/card-renders/commercial/counter/frame-76.png"
     ]
   },
   "brewreel/dataChart": {
-    "targetId": "component/data-chart",
+    "targetId": "commercial/data-chart",
     "approvedAt": "2026-10-29T02:53:10.279Z",
     "evidence": [
-      "output/card-renders/component/data-chart/preview.mp4",
-      "output/card-renders/component/data-chart/frame-30.png",
-      "output/card-renders/component/data-chart/frame-60.png",
-      "output/card-renders/component/data-chart/frame-102.png"
+      "output/card-renders/commercial/data-chart/preview.mp4",
+      "output/card-renders/commercial/data-chart/frame-30.png",
+      "output/card-renders/commercial/data-chart/frame-60.png",
+      "output/card-renders/commercial/data-chart/frame-102.png"
     ]
   },
   "brewreel/features": {
-    "targetId": "component/features",
+    "targetId": "commercial/features",
     "approvedAt": "2026-10-29T02:53:10.280Z",
     "evidence": [
-      "output/card-renders/component/features/preview.mp4",
-      "output/card-renders/component/features/frame-30.png",
-      "output/card-renders/component/features/frame-60.png",
-      "output/card-renders/component/features/frame-102.png"
+      "output/card-renders/commercial/features/preview.mp4",
+      "output/card-renders/commercial/features/frame-30.png",
+      "output/card-renders/commercial/features/frame-60.png",
+      "output/card-renders/commercial/features/frame-102.png"
     ]
   },
   "brewreel/steps": {
-    "targetId": "component/steps",
+    "targetId": "commercial/steps",
     "approvedAt": "2026-10-29T02:53:10.281Z",
     "evidence": [
-      "output/card-renders/component/steps/preview.mp4",
-      "output/card-renders/component/steps/frame-30.png",
-      "output/card-renders/component/steps/frame-60.png",
-      "output/card-renders/component/steps/frame-102.png"
+      "output/card-renders/commercial/steps/preview.mp4",
+      "output/card-renders/commercial/steps/frame-30.png",
+      "output/card-renders/commercial/steps/frame-60.png",
+      "output/card-renders/commercial/steps/frame-102.png"
     ]
   },
   "brewreel/quickList": {
-    "targetId": "component/quick-list",
+    "targetId": "commercial/quick-list",
     "approvedAt": "2026-10-29T02:53:10.281Z",
     "evidence": [
-      "output/card-renders/component/quick-list/preview.mp4",
-      "output/card-renders/component/quick-list/frame-22.png",
-      "output/card-renders/component/quick-list/frame-45.png",
-      "output/card-renders/component/quick-list/frame-76.png"
+      "output/card-renders/commercial/quick-list/preview.mp4",
+      "output/card-renders/commercial/quick-list/frame-22.png",
+      "output/card-renders/commercial/quick-list/frame-45.png",
+      "output/card-renders/commercial/quick-list/frame-76.png"
     ]
   },
   "brewreel/endCard": {
-    "targetId": "component/end-card",
+    "targetId": "commercial/end-card",
     "approvedAt": "2026-10-29T02:53:10.282Z",
     "evidence": [
-      "output/card-renders/component/end-card/preview.mp4",
-      "output/card-renders/component/end-card/frame-30.png",
-      "output/card-renders/component/end-card/frame-60.png",
-      "output/card-renders/component/end-card/frame-102.png"
+      "output/card-renders/commercial/end-card/preview.mp4",
+      "output/card-renders/commercial/end-card/frame-30.png",
+      "output/card-renders/commercial/end-card/frame-60.png",
+      "output/card-renders/commercial/end-card/frame-102.png"
     ]
   },
   "brewreel/photoShot": {
-    "targetId": "component/photo-shot",
+    "targetId": "commercial/photo-shot",
     "approvedAt": "2026-10-29T02:53:10.282Z",
     "evidence": [
-      "output/card-renders/component/photo-shot/preview.mp4",
-      "output/card-renders/component/photo-shot/frame-18.png",
-      "output/card-renders/component/photo-shot/frame-37.png",
-      "output/card-renders/component/photo-shot/frame-63.png"
+      "output/card-renders/commercial/photo-shot/preview.mp4",
+      "output/card-renders/commercial/photo-shot/frame-18.png",
+      "output/card-renders/commercial/photo-shot/frame-37.png",
+      "output/card-renders/commercial/photo-shot/frame-63.png"
     ]
   },
   "brewreel/priceCard": {
-    "targetId": "component/price-card",
+    "targetId": "commercial/price-card",
     "approvedAt": "2026-10-29T02:53:10.283Z",
     "evidence": [
-      "output/card-renders/component/price-card/preview.mp4",
-      "output/card-renders/component/price-card/frame-22.png",
-      "output/card-renders/component/price-card/frame-45.png",
-      "output/card-renders/component/price-card/frame-76.png"
+      "output/card-renders/commercial/price-card/preview.mp4",
+      "output/card-renders/commercial/price-card/frame-22.png",
+      "output/card-renders/commercial/price-card/frame-45.png",
+      "output/card-renders/commercial/price-card/frame-76.png"
     ]
   },
   "brewreel/storeCard": {
-    "targetId": "component/store-card",
+    "targetId": "commercial/store-card",
     "approvedAt": "2026-10-29T02:53:10.283Z",
     "evidence": [
-      "output/card-renders/component/store-card/preview.mp4",
-      "output/card-renders/component/store-card/frame-22.png",
-      "output/card-renders/component/store-card/frame-45.png",
-      "output/card-renders/component/store-card/frame-76.png"
+      "output/card-renders/commercial/store-card/preview.mp4",
+      "output/card-renders/commercial/store-card/frame-22.png",
+      "output/card-renders/commercial/store-card/frame-45.png",
+      "output/card-renders/commercial/store-card/frame-76.png"
     ]
   },
   "brewreel/reviewCard": {
-    "targetId": "component/review-card",
+    "targetId": "commercial/review-card",
     "approvedAt": "2026-10-29T02:53:10.283Z",
     "evidence": [
-      "output/card-renders/component/review-card/preview.mp4",
-      "output/card-renders/component/review-card/frame-22.png",
-      "output/card-renders/component/review-card/frame-45.png",
-      "output/card-renders/component/review-card/frame-76.png"
+      "output/card-renders/commercial/review-card/preview.mp4",
+      "output/card-renders/commercial/review-card/frame-22.png",
+      "output/card-renders/commercial/review-card/frame-45.png",
+      "output/card-renders/commercial/review-card/frame-76.png"
     ]
   },
   "brewreel/factSheet": {
-    "targetId": "component/fact-sheet",
+    "targetId": "commercial/fact-sheet",
     "approvedAt": "2026-10-29T02:53:10.284Z",
     "evidence": [
-      "output/card-renders/component/fact-sheet/preview.mp4",
-      "output/card-renders/component/fact-sheet/frame-30.png",
-      "output/card-renders/component/fact-sheet/frame-60.png",
-      "output/card-renders/component/fact-sheet/frame-102.png"
+      "output/card-renders/commercial/fact-sheet/preview.mp4",
+      "output/card-renders/commercial/fact-sheet/frame-30.png",
+      "output/card-renders/commercial/fact-sheet/frame-60.png",
+      "output/card-renders/commercial/fact-sheet/frame-102.png"
     ]
   },
   "brewreel/credCard": {
-    "targetId": "component/cred-card",
+    "targetId": "commercial/cred-card",
     "approvedAt": "2026-10-29T02:53:10.284Z",
     "evidence": [
-      "output/card-renders/component/cred-card/preview.mp4",
-      "output/card-renders/component/cred-card/frame-22.png",
-      "output/card-renders/component/cred-card/frame-45.png",
-      "output/card-renders/component/cred-card/frame-76.png"
+      "output/card-renders/commercial/cred-card/preview.mp4",
+      "output/card-renders/commercial/cred-card/frame-22.png",
+      "output/card-renders/commercial/cred-card/frame-45.png",
+      "output/card-renders/commercial/cred-card/frame-76.png"
     ]
   },
   "brewreel/beforeAfter": {
-    "targetId": "component/before-after",
+    "targetId": "commercial/before-after",
     "approvedAt": "2026-10-29T02:53:10.284Z",
     "evidence": [
-      "output/card-renders/component/before-after/preview.mp4",
-      "output/card-renders/component/before-after/frame-22.png",
-      "output/card-renders/component/before-after/frame-45.png",
-      "output/card-renders/component/before-after/frame-76.png"
+      "output/card-renders/commercial/before-after/preview.mp4",
+      "output/card-renders/commercial/before-after/frame-22.png",
+      "output/card-renders/commercial/before-after/frame-45.png",
+      "output/card-renders/commercial/before-after/frame-76.png"
     ]
   },
   "video-shotcraft/assemble-then-type-flyin": {
-    "targetId": "component/assemble-then-type-flyin",
+    "targetId": "effects/assemble-then-type-flyin",
     "approvedAt": "2026-10-29T03:21:08.468Z",
     "evidence": [
-      "output/card-renders/component/assemble-then-type-flyin/preview.mp4",
-      "output/card-renders/component/assemble-then-type-flyin/frame-42.png",
-      "output/card-renders/component/assemble-then-type-flyin/frame-84.png",
-      "output/card-renders/component/assemble-then-type-flyin/frame-142.png"
+      "output/card-renders/effects/assemble-then-type-flyin/preview.mp4",
+      "output/card-renders/effects/assemble-then-type-flyin/frame-42.png",
+      "output/card-renders/effects/assemble-then-type-flyin/frame-84.png",
+      "output/card-renders/effects/assemble-then-type-flyin/frame-142.png"
     ]
   },
   "video-shotcraft/aurora-bloom-bg-flip": {
-    "targetId": "component/aurora-bloom-bg-flip",
+    "targetId": "effects/aurora-bloom-bg-flip",
     "approvedAt": "2026-10-29T03:21:08.474Z",
     "evidence": [
-      "output/card-renders/component/aurora-bloom-bg-flip/preview.mp4",
-      "output/card-renders/component/aurora-bloom-bg-flip/frame-39.png",
-      "output/card-renders/component/aurora-bloom-bg-flip/frame-78.png",
-      "output/card-renders/component/aurora-bloom-bg-flip/frame-132.png"
+      "output/card-renders/effects/aurora-bloom-bg-flip/preview.mp4",
+      "output/card-renders/effects/aurora-bloom-bg-flip/frame-39.png",
+      "output/card-renders/effects/aurora-bloom-bg-flip/frame-78.png",
+      "output/card-renders/effects/aurora-bloom-bg-flip/frame-132.png"
     ]
   },
   "video-shotcraft/brand-frame-snap": {
-    "targetId": "component/brand-frame-snap",
+    "targetId": "effects/brand-frame-snap",
     "approvedAt": "2026-10-29T03:21:08.476Z",
     "evidence": [
-      "output/card-renders/component/brand-frame-snap/preview.mp4",
-      "output/card-renders/component/brand-frame-snap/frame-35.png",
-      "output/card-renders/component/brand-frame-snap/frame-70.png",
-      "output/card-renders/component/brand-frame-snap/frame-119.png"
+      "output/card-renders/effects/brand-frame-snap/preview.mp4",
+      "output/card-renders/effects/brand-frame-snap/frame-35.png",
+      "output/card-renders/effects/brand-frame-snap/frame-70.png",
+      "output/card-renders/effects/brand-frame-snap/frame-119.png"
     ]
   },
   "video-shotcraft/fui-hud-moves": {
-    "targetId": "component/fui-hud-moves",
+    "targetId": "effects/fui-hud-moves",
     "approvedAt": "2026-10-29T03:21:08.477Z",
     "evidence": [
-      "output/card-renders/component/fui-hud-moves/preview.mp4",
-      "output/card-renders/component/fui-hud-moves/frame-22.png",
-      "output/card-renders/component/fui-hud-moves/frame-45.png",
-      "output/card-renders/component/fui-hud-moves/frame-76.png"
+      "output/card-renders/effects/fui-hud-moves/preview.mp4",
+      "output/card-renders/effects/fui-hud-moves/frame-22.png",
+      "output/card-renders/effects/fui-hud-moves/frame-45.png",
+      "output/card-renders/effects/fui-hud-moves/frame-76.png"
     ]
   },
   "video-shotcraft/glow-flyline-moves": {
-    "targetId": "component/glow-flyline-moves",
+    "targetId": "effects/glow-flyline-moves",
     "approvedAt": "2026-10-29T08:47:04.934Z",
     "evidence": [
-      "output/card-renders/component/glow-flyline-moves/preview.mp4",
-      "output/card-renders/component/glow-flyline-moves/frame-35.png",
-      "output/card-renders/component/glow-flyline-moves/frame-70.png",
-      "output/card-renders/component/glow-flyline-moves/frame-119.png"
+      "output/card-renders/effects/glow-flyline-moves/preview.mp4",
+      "output/card-renders/effects/glow-flyline-moves/frame-35.png",
+      "output/card-renders/effects/glow-flyline-moves/frame-70.png",
+      "output/card-renders/effects/glow-flyline-moves/frame-119.png"
     ]
   },
   "video-shotcraft/icon-performance-moves": {
-    "targetId": "component/icon-performance-moves",
+    "targetId": "effects/icon-performance-moves",
     "approvedAt": "2026-10-29T03:21:08.480Z",
     "evidence": [
-      "output/card-renders/component/icon-performance-moves/preview.mp4",
-      "output/card-renders/component/icon-performance-moves/frame-39.png",
-      "output/card-renders/component/icon-performance-moves/frame-78.png",
-      "output/card-renders/component/icon-performance-moves/frame-132.png"
+      "output/card-renders/effects/icon-performance-moves/preview.mp4",
+      "output/card-renders/effects/icon-performance-moves/frame-39.png",
+      "output/card-renders/effects/icon-performance-moves/frame-78.png",
+      "output/card-renders/effects/icon-performance-moves/frame-132.png"
     ]
   },
   "video-shotcraft/impact-feedback": {
-    "targetId": "component/impact-feedback",
+    "targetId": "effects/impact-feedback",
     "approvedAt": "2026-10-29T08:47:04.934Z",
     "evidence": [
-      "output/card-renders/component/impact-feedback/preview.mp4",
-      "output/card-renders/component/impact-feedback/frame-30.png",
-      "output/card-renders/component/impact-feedback/frame-60.png",
-      "output/card-renders/component/impact-feedback/frame-102.png"
+      "output/card-renders/effects/impact-feedback/preview.mp4",
+      "output/card-renders/effects/impact-feedback/frame-30.png",
+      "output/card-renders/effects/impact-feedback/frame-60.png",
+      "output/card-renders/effects/impact-feedback/frame-102.png"
     ]
   },
   "video-shotcraft/light-play-moves": {
-    "targetId": "component/light-play-moves",
+    "targetId": "effects/light-play-moves",
     "approvedAt": "2026-10-29T08:47:04.935Z",
     "evidence": [
-      "output/card-renders/component/light-play-moves/preview.mp4",
-      "output/card-renders/component/light-play-moves/frame-42.png",
-      "output/card-renders/component/light-play-moves/frame-85.png",
-      "output/card-renders/component/light-play-moves/frame-144.png"
+      "output/card-renders/effects/light-play-moves/preview.mp4",
+      "output/card-renders/effects/light-play-moves/frame-42.png",
+      "output/card-renders/effects/light-play-moves/frame-85.png",
+      "output/card-renders/effects/light-play-moves/frame-144.png"
     ]
   },
   "video-shotcraft/radial-ripple-phone-chips": {
-    "targetId": "component/radial-ripple-phone-chips",
+    "targetId": "effects/radial-ripple-phone-chips",
     "approvedAt": "2026-10-29T03:21:08.483Z",
     "evidence": [
-      "output/card-renders/component/radial-ripple-phone-chips/preview.mp4",
-      "output/card-renders/component/radial-ripple-phone-chips/frame-42.png",
-      "output/card-renders/component/radial-ripple-phone-chips/frame-84.png",
-      "output/card-renders/component/radial-ripple-phone-chips/frame-142.png"
+      "output/card-renders/effects/radial-ripple-phone-chips/preview.mp4",
+      "output/card-renders/effects/radial-ripple-phone-chips/frame-42.png",
+      "output/card-renders/effects/radial-ripple-phone-chips/frame-84.png",
+      "output/card-renders/effects/radial-ripple-phone-chips/frame-142.png"
     ]
   },
   "video-shotcraft/riso-print-hits": {
-    "targetId": "component/riso-print-hits",
+    "targetId": "effects/riso-print-hits",
     "approvedAt": "2026-10-29T03:21:08.484Z",
     "evidence": [
-      "output/card-renders/component/riso-print-hits/preview.mp4",
-      "output/card-renders/component/riso-print-hits/frame-30.png",
-      "output/card-renders/component/riso-print-hits/frame-60.png",
-      "output/card-renders/component/riso-print-hits/frame-102.png"
+      "output/card-renders/effects/riso-print-hits/preview.mp4",
+      "output/card-renders/effects/riso-print-hits/frame-30.png",
+      "output/card-renders/effects/riso-print-hits/frame-60.png",
+      "output/card-renders/effects/riso-print-hits/frame-102.png"
     ]
   },
   "video-shotcraft/scan-bracket-sweep": {
-    "targetId": "component/scan-bracket-sweep",
+    "targetId": "effects/scan-bracket-sweep",
     "approvedAt": "2026-10-29T03:21:08.485Z",
     "evidence": [
-      "output/card-renders/component/scan-bracket-sweep/preview.mp4",
-      "output/card-renders/component/scan-bracket-sweep/frame-37.png",
-      "output/card-renders/component/scan-bracket-sweep/frame-75.png",
-      "output/card-renders/component/scan-bracket-sweep/frame-127.png"
+      "output/card-renders/effects/scan-bracket-sweep/preview.mp4",
+      "output/card-renders/effects/scan-bracket-sweep/frame-37.png",
+      "output/card-renders/effects/scan-bracket-sweep/frame-75.png",
+      "output/card-renders/effects/scan-bracket-sweep/frame-127.png"
     ]
   },
   "video-shotcraft/scanline-annotate-focus": {
-    "targetId": "component/scanline-annotate-focus",
+    "targetId": "effects/scanline-annotate-focus",
     "approvedAt": "2026-10-29T03:21:08.486Z",
     "evidence": [
-      "output/card-renders/component/scanline-annotate-focus/preview.mp4",
-      "output/card-renders/component/scanline-annotate-focus/frame-37.png",
-      "output/card-renders/component/scanline-annotate-focus/frame-75.png",
-      "output/card-renders/component/scanline-annotate-focus/frame-127.png"
+      "output/card-renders/effects/scanline-annotate-focus/preview.mp4",
+      "output/card-renders/effects/scanline-annotate-focus/frame-37.png",
+      "output/card-renders/effects/scanline-annotate-focus/frame-75.png",
+      "output/card-renders/effects/scanline-annotate-focus/frame-127.png"
     ]
   },
   "video-shotcraft/scanline-assemble-flyin": {
-    "targetId": "component/scanline-assemble-flyin",
+    "targetId": "effects/scanline-assemble-flyin",
     "approvedAt": "2026-10-29T03:21:08.488Z",
     "evidence": [
-      "output/card-renders/component/scanline-assemble-flyin/preview.mp4",
-      "output/card-renders/component/scanline-assemble-flyin/frame-39.png",
-      "output/card-renders/component/scanline-assemble-flyin/frame-78.png",
-      "output/card-renders/component/scanline-assemble-flyin/frame-132.png"
+      "output/card-renders/effects/scanline-assemble-flyin/preview.mp4",
+      "output/card-renders/effects/scanline-assemble-flyin/frame-39.png",
+      "output/card-renders/effects/scanline-assemble-flyin/frame-78.png",
+      "output/card-renders/effects/scanline-assemble-flyin/frame-132.png"
     ]
   },
   "video-shotcraft/slam-entrance-moves": {
-    "targetId": "component/slam-entrance-moves",
+    "targetId": "effects/slam-entrance-moves",
     "approvedAt": "2026-10-29T08:47:04.935Z",
     "evidence": [
-      "output/card-renders/component/slam-entrance-moves/preview.mp4",
-      "output/card-renders/component/slam-entrance-moves/frame-37.png",
-      "output/card-renders/component/slam-entrance-moves/frame-75.png",
-      "output/card-renders/component/slam-entrance-moves/frame-127.png"
+      "output/card-renders/effects/slam-entrance-moves/preview.mp4",
+      "output/card-renders/effects/slam-entrance-moves/frame-37.png",
+      "output/card-renders/effects/slam-entrance-moves/frame-75.png",
+      "output/card-renders/effects/slam-entrance-moves/frame-127.png"
     ]
   },
   "video-shotcraft/spotlight-sweep-moves": {
-    "targetId": "component/spotlight-sweep-moves",
+    "targetId": "effects/spotlight-sweep-moves",
     "approvedAt": "2026-10-29T08:47:04.936Z",
     "evidence": [
-      "output/card-renders/component/spotlight-sweep-moves/preview.mp4",
-      "output/card-renders/component/spotlight-sweep-moves/frame-37.png",
-      "output/card-renders/component/spotlight-sweep-moves/frame-75.png",
-      "output/card-renders/component/spotlight-sweep-moves/frame-127.png"
+      "output/card-renders/effects/spotlight-sweep-moves/preview.mp4",
+      "output/card-renders/effects/spotlight-sweep-moves/frame-37.png",
+      "output/card-renders/effects/spotlight-sweep-moves/frame-75.png",
+      "output/card-renders/effects/spotlight-sweep-moves/frame-127.png"
     ]
   },
   "video-shotcraft/beat-cut-moves": {
-    "targetId": "component/beat-cut-moves",
+    "targetId": "rhythm/beat-cut-moves",
     "approvedAt": "2026-10-29T03:21:08.489Z",
     "evidence": [
-      "output/card-renders/component/beat-cut-moves/preview.mp4",
-      "output/card-renders/component/beat-cut-moves/frame-35.png",
-      "output/card-renders/component/beat-cut-moves/frame-70.png",
-      "output/card-renders/component/beat-cut-moves/frame-119.png"
+      "output/card-renders/rhythm/beat-cut-moves/preview.mp4",
+      "output/card-renders/rhythm/beat-cut-moves/frame-35.png",
+      "output/card-renders/rhythm/beat-cut-moves/frame-70.png",
+      "output/card-renders/rhythm/beat-cut-moves/frame-119.png"
     ]
   },
   "video-shotcraft/beat-step-list-theme-cycle": {
-    "targetId": "component/beat-step-list-theme-cycle",
+    "targetId": "rhythm/beat-step-list-theme-cycle",
     "approvedAt": "2026-10-29T03:21:08.490Z",
     "evidence": [
-      "output/card-renders/component/beat-step-list-theme-cycle/preview.mp4",
-      "output/card-renders/component/beat-step-list-theme-cycle/frame-35.png",
-      "output/card-renders/component/beat-step-list-theme-cycle/frame-70.png",
-      "output/card-renders/component/beat-step-list-theme-cycle/frame-119.png"
+      "output/card-renders/rhythm/beat-step-list-theme-cycle/preview.mp4",
+      "output/card-renders/rhythm/beat-step-list-theme-cycle/frame-35.png",
+      "output/card-renders/rhythm/beat-step-list-theme-cycle/frame-70.png",
+      "output/card-renders/rhythm/beat-step-list-theme-cycle/frame-119.png"
     ]
   },
   "video-shotcraft/panel-grid-moves": {
-    "targetId": "component/panel-grid-moves",
+    "targetId": "rhythm/panel-grid-moves",
     "approvedAt": "2026-10-29T03:21:08.491Z",
     "evidence": [
-      "output/card-renders/component/panel-grid-moves/preview.mp4",
-      "output/card-renders/component/panel-grid-moves/frame-39.png",
-      "output/card-renders/component/panel-grid-moves/frame-78.png",
-      "output/card-renders/component/panel-grid-moves/frame-132.png"
+      "output/card-renders/rhythm/panel-grid-moves/preview.mp4",
+      "output/card-renders/rhythm/panel-grid-moves/frame-39.png",
+      "output/card-renders/rhythm/panel-grid-moves/frame-78.png",
+      "output/card-renders/rhythm/panel-grid-moves/frame-132.png"
     ]
   },
   "video-shotcraft/quad-split-parallel-scenes": {
-    "targetId": "component/quad-split-parallel-scenes",
+    "targetId": "rhythm/quad-split-parallel-scenes",
     "approvedAt": "2026-10-29T03:21:08.491Z",
     "evidence": [
-      "output/card-renders/component/quad-split-parallel-scenes/preview.mp4",
-      "output/card-renders/component/quad-split-parallel-scenes/frame-22.png",
-      "output/card-renders/component/quad-split-parallel-scenes/frame-45.png",
-      "output/card-renders/component/quad-split-parallel-scenes/frame-76.png"
+      "output/card-renders/rhythm/quad-split-parallel-scenes/preview.mp4",
+      "output/card-renders/rhythm/quad-split-parallel-scenes/frame-22.png",
+      "output/card-renders/rhythm/quad-split-parallel-scenes/frame-45.png",
+      "output/card-renders/rhythm/quad-split-parallel-scenes/frame-76.png"
     ]
   },
   "video-shotcraft/rhythm-interrupt-moves": {
-    "targetId": "component/rhythm-interrupt-moves",
+    "targetId": "rhythm/rhythm-interrupt-moves",
     "approvedAt": "2026-10-29T03:21:08.492Z",
     "evidence": [
-      "output/card-renders/component/rhythm-interrupt-moves/preview.mp4",
-      "output/card-renders/component/rhythm-interrupt-moves/frame-33.png",
-      "output/card-renders/component/rhythm-interrupt-moves/frame-67.png",
-      "output/card-renders/component/rhythm-interrupt-moves/frame-114.png"
+      "output/card-renders/rhythm/rhythm-interrupt-moves/preview.mp4",
+      "output/card-renders/rhythm/rhythm-interrupt-moves/frame-33.png",
+      "output/card-renders/rhythm/rhythm-interrupt-moves/frame-67.png",
+      "output/card-renders/rhythm/rhythm-interrupt-moves/frame-114.png"
     ]
   },
   "video-shotcraft/sakuga-timing-shift": {
-    "targetId": "component/sakuga-timing-shift",
+    "targetId": "rhythm/sakuga-timing-shift",
     "approvedAt": "2026-10-29T03:21:08.492Z",
     "evidence": [
-      "output/card-renders/component/sakuga-timing-shift/preview.mp4",
-      "output/card-renders/component/sakuga-timing-shift/frame-37.png",
-      "output/card-renders/component/sakuga-timing-shift/frame-75.png",
-      "output/card-renders/component/sakuga-timing-shift/frame-127.png"
+      "output/card-renders/rhythm/sakuga-timing-shift/preview.mp4",
+      "output/card-renders/rhythm/sakuga-timing-shift/frame-37.png",
+      "output/card-renders/rhythm/sakuga-timing-shift/frame-75.png",
+      "output/card-renders/rhythm/sakuga-timing-shift/frame-127.png"
     ]
   },
   "video-shotcraft/speed-ramp-freeze": {
-    "targetId": "component/speed-ramp-freeze",
+    "targetId": "rhythm/speed-ramp-freeze",
     "approvedAt": "2026-10-29T03:21:08.493Z",
     "evidence": [
-      "output/card-renders/component/speed-ramp-freeze/preview.mp4",
-      "output/card-renders/component/speed-ramp-freeze/frame-39.png",
-      "output/card-renders/component/speed-ramp-freeze/frame-79.png",
-      "output/card-renders/component/speed-ramp-freeze/frame-134.png"
+      "output/card-renders/rhythm/speed-ramp-freeze/preview.mp4",
+      "output/card-renders/rhythm/speed-ramp-freeze/frame-39.png",
+      "output/card-renders/rhythm/speed-ramp-freeze/frame-79.png",
+      "output/card-renders/rhythm/speed-ramp-freeze/frame-134.png"
     ]
   },
   "video-shotcraft/trailer-grammar-moves": {
-    "targetId": "component/trailer-grammar-moves",
+    "targetId": "rhythm/trailer-grammar-moves",
     "approvedAt": "2026-10-29T03:21:08.494Z",
     "evidence": [
-      "output/card-renders/component/trailer-grammar-moves/preview.mp4",
-      "output/card-renders/component/trailer-grammar-moves/frame-35.png",
-      "output/card-renders/component/trailer-grammar-moves/frame-70.png",
-      "output/card-renders/component/trailer-grammar-moves/frame-119.png"
+      "output/card-renders/rhythm/trailer-grammar-moves/preview.mp4",
+      "output/card-renders/rhythm/trailer-grammar-moves/frame-35.png",
+      "output/card-renders/rhythm/trailer-grammar-moves/frame-70.png",
+      "output/card-renders/rhythm/trailer-grammar-moves/frame-119.png"
     ]
   },
   "video-shotcraft/bottom-push-stack-wipe": {
@@ -2340,173 +2340,173 @@
     ]
   },
   "video-shotcraft/brand-ink-open": {
-    "targetId": "component/brand-ink-open",
+    "targetId": "commercial/brand-ink-open",
     "approvedAt": "2026-10-29T03:21:08.514Z",
     "evidence": [
-      "output/card-renders/component/brand-ink-open/preview.mp4",
-      "output/card-renders/component/brand-ink-open/frame-26.png",
-      "output/card-renders/component/brand-ink-open/frame-52.png",
-      "output/card-renders/component/brand-ink-open/frame-88.png"
+      "output/card-renders/commercial/brand-ink-open/preview.mp4",
+      "output/card-renders/commercial/brand-ink-open/frame-26.png",
+      "output/card-renders/commercial/brand-ink-open/frame-52.png",
+      "output/card-renders/commercial/brand-ink-open/frame-88.png"
     ]
   },
   "video-shotcraft/crane-rise-reveal": {
-    "targetId": "component/crane-rise-reveal",
+    "targetId": "commercial/crane-rise-reveal",
     "approvedAt": "2026-10-29T03:21:08.514Z",
     "evidence": [
-      "output/card-renders/component/crane-rise-reveal/preview.mp4",
-      "output/card-renders/component/crane-rise-reveal/frame-41.png",
-      "output/card-renders/component/crane-rise-reveal/frame-82.png",
-      "output/card-renders/component/crane-rise-reveal/frame-140.png"
+      "output/card-renders/commercial/crane-rise-reveal/preview.mp4",
+      "output/card-renders/commercial/crane-rise-reveal/frame-41.png",
+      "output/card-renders/commercial/crane-rise-reveal/frame-82.png",
+      "output/card-renders/commercial/crane-rise-reveal/frame-140.png"
     ]
   },
   "video-shotcraft/dataviz-landscape-open": {
-    "targetId": "component/dataviz-landscape-open",
+    "targetId": "commercial/dataviz-landscape-open",
     "approvedAt": "2026-10-29T03:21:08.515Z",
     "evidence": [
-      "output/card-renders/component/dataviz-landscape-open/preview.mp4",
-      "output/card-renders/component/dataviz-landscape-open/frame-45.png",
-      "output/card-renders/component/dataviz-landscape-open/frame-90.png",
-      "output/card-renders/component/dataviz-landscape-open/frame-153.png"
+      "output/card-renders/commercial/dataviz-landscape-open/preview.mp4",
+      "output/card-renders/commercial/dataviz-landscape-open/frame-45.png",
+      "output/card-renders/commercial/dataviz-landscape-open/frame-90.png",
+      "output/card-renders/commercial/dataviz-landscape-open/frame-153.png"
     ]
   },
   "video-shotcraft/fracture": {
-    "targetId": "component/fracture",
+    "targetId": "commercial/fracture",
     "approvedAt": "2026-10-29T03:21:08.515Z",
     "evidence": [
-      "output/card-renders/component/fracture/preview.mp4",
-      "output/card-renders/component/fracture/frame-39.png",
-      "output/card-renders/component/fracture/frame-78.png",
-      "output/card-renders/component/fracture/frame-132.png"
+      "output/card-renders/commercial/fracture/preview.mp4",
+      "output/card-renders/commercial/fracture/frame-39.png",
+      "output/card-renders/commercial/fracture/frame-78.png",
+      "output/card-renders/commercial/fracture/frame-132.png"
     ]
   },
   "video-shotcraft/icon-field-colorize": {
-    "targetId": "component/icon-field-colorize",
+    "targetId": "commercial/icon-field-colorize",
     "approvedAt": "2026-10-29T03:21:08.515Z",
     "evidence": [
-      "output/card-renders/component/icon-field-colorize/preview.mp4",
-      "output/card-renders/component/icon-field-colorize/frame-42.png",
-      "output/card-renders/component/icon-field-colorize/frame-85.png",
-      "output/card-renders/component/icon-field-colorize/frame-144.png"
+      "output/card-renders/commercial/icon-field-colorize/preview.mp4",
+      "output/card-renders/commercial/icon-field-colorize/frame-42.png",
+      "output/card-renders/commercial/icon-field-colorize/frame-85.png",
+      "output/card-renders/commercial/icon-field-colorize/frame-144.png"
     ]
   },
   "video-shotcraft/letterspace-materialize": {
-    "targetId": "component/letterspace-materialize",
+    "targetId": "commercial/letterspace-materialize",
     "approvedAt": "2026-10-29T03:21:08.517Z",
     "evidence": [
-      "output/card-renders/component/letterspace-materialize/preview.mp4",
-      "output/card-renders/component/letterspace-materialize/frame-26.png",
-      "output/card-renders/component/letterspace-materialize/frame-52.png",
-      "output/card-renders/component/letterspace-materialize/frame-89.png"
+      "output/card-renders/commercial/letterspace-materialize/preview.mp4",
+      "output/card-renders/commercial/letterspace-materialize/frame-26.png",
+      "output/card-renders/commercial/letterspace-materialize/frame-52.png",
+      "output/card-renders/commercial/letterspace-materialize/frame-89.png"
     ]
   },
   "video-shotcraft/magician-card-flourish": {
-    "targetId": "component/magician-card-flourish",
+    "targetId": "commercial/magician-card-flourish",
     "approvedAt": "2026-10-29T03:21:08.518Z",
     "evidence": [
-      "output/card-renders/component/magician-card-flourish/preview.mp4",
-      "output/card-renders/component/magician-card-flourish/frame-39.png",
-      "output/card-renders/component/magician-card-flourish/frame-78.png",
-      "output/card-renders/component/magician-card-flourish/frame-132.png"
+      "output/card-renders/commercial/magician-card-flourish/preview.mp4",
+      "output/card-renders/commercial/magician-card-flourish/frame-39.png",
+      "output/card-renders/commercial/magician-card-flourish/frame-78.png",
+      "output/card-renders/commercial/magician-card-flourish/frame-132.png"
     ]
   },
   "video-shotcraft/orbit-ring-title-open": {
-    "targetId": "component/orbit-ring-title-open",
+    "targetId": "commercial/orbit-ring-title-open",
     "approvedAt": "2026-10-29T03:21:08.518Z",
     "evidence": [
-      "output/card-renders/component/orbit-ring-title-open/preview.mp4",
-      "output/card-renders/component/orbit-ring-title-open/frame-37.png",
-      "output/card-renders/component/orbit-ring-title-open/frame-75.png",
-      "output/card-renders/component/orbit-ring-title-open/frame-127.png"
+      "output/card-renders/commercial/orbit-ring-title-open/preview.mp4",
+      "output/card-renders/commercial/orbit-ring-title-open/frame-37.png",
+      "output/card-renders/commercial/orbit-ring-title-open/frame-75.png",
+      "output/card-renders/commercial/orbit-ring-title-open/frame-127.png"
     ]
   },
   "video-shotcraft/spotlight-hero-card": {
-    "targetId": "component/spotlight-hero-card",
+    "targetId": "commercial/spotlight-hero-card",
     "approvedAt": "2026-10-29T03:21:08.519Z",
     "evidence": [
-      "output/card-renders/component/spotlight-hero-card/preview.mp4",
-      "output/card-renders/component/spotlight-hero-card/frame-43.png",
-      "output/card-renders/component/spotlight-hero-card/frame-86.png",
-      "output/card-renders/component/spotlight-hero-card/frame-146.png"
+      "output/card-renders/commercial/spotlight-hero-card/preview.mp4",
+      "output/card-renders/commercial/spotlight-hero-card/frame-43.png",
+      "output/card-renders/commercial/spotlight-hero-card/frame-86.png",
+      "output/card-renders/commercial/spotlight-hero-card/frame-146.png"
     ]
   },
   "video-shotcraft/stroke-segment-build": {
-    "targetId": "component/stroke-segment-build",
+    "targetId": "commercial/stroke-segment-build",
     "approvedAt": "2026-10-29T03:21:08.519Z",
     "evidence": [
-      "output/card-renders/component/stroke-segment-build/preview.mp4",
-      "output/card-renders/component/stroke-segment-build/frame-41.png",
-      "output/card-renders/component/stroke-segment-build/frame-82.png",
-      "output/card-renders/component/stroke-segment-build/frame-140.png"
+      "output/card-renders/commercial/stroke-segment-build/preview.mp4",
+      "output/card-renders/commercial/stroke-segment-build/frame-41.png",
+      "output/card-renders/commercial/stroke-segment-build/frame-82.png",
+      "output/card-renders/commercial/stroke-segment-build/frame-140.png"
     ]
   },
   "video-shotcraft/text-as-mask": {
-    "targetId": "component/text-as-mask",
+    "targetId": "commercial/text-as-mask",
     "approvedAt": "2026-10-29T03:21:08.519Z",
     "evidence": [
-      "output/card-renders/component/text-as-mask/preview.mp4",
-      "output/card-renders/component/text-as-mask/frame-41.png",
-      "output/card-renders/component/text-as-mask/frame-82.png",
-      "output/card-renders/component/text-as-mask/frame-140.png"
+      "output/card-renders/commercial/text-as-mask/preview.mp4",
+      "output/card-renders/commercial/text-as-mask/frame-41.png",
+      "output/card-renders/commercial/text-as-mask/frame-82.png",
+      "output/card-renders/commercial/text-as-mask/frame-140.png"
     ]
   },
   "video-shotcraft/grain-dissolve": {
-    "targetId": "component/grain-dissolve",
+    "targetId": "commercial/grain-dissolve",
     "approvedAt": "2026-10-29T03:21:08.520Z",
     "evidence": [
-      "output/card-renders/component/grain-dissolve/preview.mp4",
-      "output/card-renders/component/grain-dissolve/frame-15.png",
-      "output/card-renders/component/grain-dissolve/frame-30.png",
-      "output/card-renders/component/grain-dissolve/frame-51.png"
+      "output/card-renders/commercial/grain-dissolve/preview.mp4",
+      "output/card-renders/commercial/grain-dissolve/frame-15.png",
+      "output/card-renders/commercial/grain-dissolve/frame-30.png",
+      "output/card-renders/commercial/grain-dissolve/frame-51.png"
     ]
   },
   "video-shotcraft/logo-shrink-wordmark-lockup": {
-    "targetId": "component/logo-shrink-wordmark-lockup",
+    "targetId": "commercial/logo-shrink-wordmark-lockup",
     "approvedAt": "2026-10-29T03:21:08.520Z",
     "evidence": [
-      "output/card-renders/component/logo-shrink-wordmark-lockup/preview.mp4",
-      "output/card-renders/component/logo-shrink-wordmark-lockup/frame-33.png",
-      "output/card-renders/component/logo-shrink-wordmark-lockup/frame-66.png",
-      "output/card-renders/component/logo-shrink-wordmark-lockup/frame-112.png"
+      "output/card-renders/commercial/logo-shrink-wordmark-lockup/preview.mp4",
+      "output/card-renders/commercial/logo-shrink-wordmark-lockup/frame-33.png",
+      "output/card-renders/commercial/logo-shrink-wordmark-lockup/frame-66.png",
+      "output/card-renders/commercial/logo-shrink-wordmark-lockup/frame-112.png"
     ]
   },
   "video-shotcraft/neon-triple-marquee": {
-    "targetId": "component/neon-triple-marquee",
+    "targetId": "commercial/neon-triple-marquee",
     "approvedAt": "2026-10-29T03:21:08.521Z",
     "evidence": [
-      "output/card-renders/component/neon-triple-marquee/preview.mp4",
-      "output/card-renders/component/neon-triple-marquee/frame-37.png",
-      "output/card-renders/component/neon-triple-marquee/frame-75.png",
-      "output/card-renders/component/neon-triple-marquee/frame-127.png"
+      "output/card-renders/commercial/neon-triple-marquee/preview.mp4",
+      "output/card-renders/commercial/neon-triple-marquee/frame-37.png",
+      "output/card-renders/commercial/neon-triple-marquee/frame-75.png",
+      "output/card-renders/commercial/neon-triple-marquee/frame-127.png"
     ]
   },
   "video-shotcraft/outro-group-photo-launch": {
-    "targetId": "component/outro-group-photo-launch",
+    "targetId": "commercial/outro-group-photo-launch",
     "approvedAt": "2026-10-29T03:21:08.521Z",
     "evidence": [
-      "output/card-renders/component/outro-group-photo-launch/preview.mp4",
-      "output/card-renders/component/outro-group-photo-launch/frame-36.png",
-      "output/card-renders/component/outro-group-photo-launch/frame-72.png",
-      "output/card-renders/component/outro-group-photo-launch/frame-123.png"
+      "output/card-renders/commercial/outro-group-photo-launch/preview.mp4",
+      "output/card-renders/commercial/outro-group-photo-launch/frame-36.png",
+      "output/card-renders/commercial/outro-group-photo-launch/frame-72.png",
+      "output/card-renders/commercial/outro-group-photo-launch/frame-123.png"
     ]
   },
   "video-shotcraft/ui-strip-away-outro": {
-    "targetId": "component/ui-strip-away-outro",
+    "targetId": "commercial/ui-strip-away-outro",
     "approvedAt": "2026-10-29T03:21:08.521Z",
     "evidence": [
-      "output/card-renders/component/ui-strip-away-outro/preview.mp4",
-      "output/card-renders/component/ui-strip-away-outro/frame-36.png",
-      "output/card-renders/component/ui-strip-away-outro/frame-72.png",
-      "output/card-renders/component/ui-strip-away-outro/frame-122.png"
+      "output/card-renders/commercial/ui-strip-away-outro/preview.mp4",
+      "output/card-renders/commercial/ui-strip-away-outro/frame-36.png",
+      "output/card-renders/commercial/ui-strip-away-outro/frame-72.png",
+      "output/card-renders/commercial/ui-strip-away-outro/frame-122.png"
     ]
   },
   "video-shotcraft/ui-to-brand-morph": {
-    "targetId": "component/ui-to-brand-morph",
+    "targetId": "commercial/ui-to-brand-morph",
     "approvedAt": "2026-10-29T08:47:04.950Z",
     "evidence": [
-      "output/card-renders/component/ui-to-brand-morph/preview.mp4",
-      "output/card-renders/component/ui-to-brand-morph/frame-35.png",
-      "output/card-renders/component/ui-to-brand-morph/frame-71.png",
-      "output/card-renders/component/ui-to-brand-morph/frame-120.png"
+      "output/card-renders/commercial/ui-to-brand-morph/preview.mp4",
+      "output/card-renders/commercial/ui-to-brand-morph/frame-35.png",
+      "output/card-renders/commercial/ui-to-brand-morph/frame-71.png",
+      "output/card-renders/commercial/ui-to-brand-morph/frame-120.png"
     ]
   },
   "video-shotcraft/dolly-zoom": {
@@ -2520,43 +2520,43 @@
     ]
   },
   "video-shotcraft/particle-sand-fill": {
-    "targetId": "component/particle-sand-fill",
+    "targetId": "data/particle-sand-fill",
     "approvedAt": "2026-10-29T11:51:10.716Z",
     "evidence": [
-      "output/card-renders/component/particle-sand-fill/preview.mp4",
-      "output/card-renders/component/particle-sand-fill/frame-25.png",
-      "output/card-renders/component/particle-sand-fill/frame-75.png",
-      "output/card-renders/component/particle-sand-fill/frame-130.png"
+      "output/card-renders/data/particle-sand-fill/preview.mp4",
+      "output/card-renders/data/particle-sand-fill/frame-25.png",
+      "output/card-renders/data/particle-sand-fill/frame-75.png",
+      "output/card-renders/data/particle-sand-fill/frame-130.png"
     ]
   },
   "video-shotcraft/split-flap-flip": {
-    "targetId": "text/split-flap-flip",
+    "targetId": "typography/split-flap-flip",
     "approvedAt": "2026-10-29T11:51:10.717Z",
     "evidence": [
-      "output/card-renders/text/split-flap-flip/preview.mp4",
-      "output/card-renders/text/split-flap-flip/frame-20.png",
-      "output/card-renders/text/split-flap-flip/frame-60.png",
-      "output/card-renders/text/split-flap-flip/frame-110.png"
+      "output/card-renders/typography/split-flap-flip/preview.mp4",
+      "output/card-renders/typography/split-flap-flip/frame-20.png",
+      "output/card-renders/typography/split-flap-flip/frame-60.png",
+      "output/card-renders/typography/split-flap-flip/frame-110.png"
     ]
   },
   "video-shotcraft/counter-confetti": {
-    "targetId": "component/counter-confetti",
+    "targetId": "data/counter-confetti",
     "approvedAt": "2026-10-29T11:51:10.717Z",
     "evidence": [
-      "output/card-renders/component/counter-confetti/preview.mp4",
-      "output/card-renders/component/counter-confetti/frame-20.png",
-      "output/card-renders/component/counter-confetti/frame-75.png",
-      "output/card-renders/component/counter-confetti/frame-120.png"
+      "output/card-renders/data/counter-confetti/preview.mp4",
+      "output/card-renders/data/counter-confetti/frame-20.png",
+      "output/card-renders/data/counter-confetti/frame-75.png",
+      "output/card-renders/data/counter-confetti/frame-120.png"
     ]
   },
   "video-shotcraft/scramble-decode": {
-    "targetId": "text/scramble-decode",
+    "targetId": "typography/scramble-decode",
     "approvedAt": "2026-10-29T11:51:10.718Z",
     "evidence": [
-      "output/card-renders/text/scramble-decode/preview.mp4",
-      "output/card-renders/text/scramble-decode/frame-15.png",
-      "output/card-renders/text/scramble-decode/frame-50.png",
-      "output/card-renders/text/scramble-decode/frame-100.png"
+      "output/card-renders/typography/scramble-decode/preview.mp4",
+      "output/card-renders/typography/scramble-decode/frame-15.png",
+      "output/card-renders/typography/scramble-decode/frame-50.png",
+      "output/card-renders/typography/scramble-decode/frame-100.png"
     ]
   },
   "video-shotcraft/cube-rotate": {
@@ -2570,43 +2570,43 @@
     ]
   },
   "video-shotcraft/popup-book-rise": {
-    "targetId": "component/popup-book-rise",
+    "targetId": "interaction/popup-book-rise",
     "approvedAt": "2026-10-29T11:51:10.719Z",
     "evidence": [
-      "output/card-renders/component/popup-book-rise/preview.mp4",
-      "output/card-renders/component/popup-book-rise/frame-20.png",
-      "output/card-renders/component/popup-book-rise/frame-60.png",
-      "output/card-renders/component/popup-book-rise/frame-110.png"
+      "output/card-renders/interaction/popup-book-rise/preview.mp4",
+      "output/card-renders/interaction/popup-book-rise/frame-20.png",
+      "output/card-renders/interaction/popup-book-rise/frame-60.png",
+      "output/card-renders/interaction/popup-book-rise/frame-110.png"
     ]
   },
   "video-shotcraft/masking-tape-slap": {
-    "targetId": "component/masking-tape-slap",
+    "targetId": "interaction/masking-tape-slap",
     "approvedAt": "2026-10-29T11:51:10.720Z",
     "evidence": [
-      "output/card-renders/component/masking-tape-slap/preview.mp4",
-      "output/card-renders/component/masking-tape-slap/frame-25.png",
-      "output/card-renders/component/masking-tape-slap/frame-65.png",
-      "output/card-renders/component/masking-tape-slap/frame-110.png"
+      "output/card-renders/interaction/masking-tape-slap/preview.mp4",
+      "output/card-renders/interaction/masking-tape-slap/frame-25.png",
+      "output/card-renders/interaction/masking-tape-slap/frame-65.png",
+      "output/card-renders/interaction/masking-tape-slap/frame-110.png"
     ]
   },
   "video-shotcraft/command-palette-summon": {
-    "targetId": "component/command-palette-summon",
+    "targetId": "interaction/command-palette-summon",
     "approvedAt": "2026-10-29T11:51:10.720Z",
     "evidence": [
-      "output/card-renders/component/command-palette-summon/preview.mp4",
-      "output/card-renders/component/command-palette-summon/frame-20.png",
-      "output/card-renders/component/command-palette-summon/frame-60.png",
-      "output/card-renders/component/command-palette-summon/frame-105.png"
+      "output/card-renders/interaction/command-palette-summon/preview.mp4",
+      "output/card-renders/interaction/command-palette-summon/frame-20.png",
+      "output/card-renders/interaction/command-palette-summon/frame-60.png",
+      "output/card-renders/interaction/command-palette-summon/frame-105.png"
     ]
   },
   "video-shotcraft/halation-bloom": {
-    "targetId": "text/halation-bloom",
+    "targetId": "typography/halation-bloom",
     "approvedAt": "2026-10-29T11:51:10.721Z",
     "evidence": [
-      "output/card-renders/text/halation-bloom/preview.mp4",
-      "output/card-renders/text/halation-bloom/frame-12.png",
-      "output/card-renders/text/halation-bloom/frame-22.png",
-      "output/card-renders/text/halation-bloom/frame-60.png"
+      "output/card-renders/typography/halation-bloom/preview.mp4",
+      "output/card-renders/typography/halation-bloom/frame-12.png",
+      "output/card-renders/typography/halation-bloom/frame-22.png",
+      "output/card-renders/typography/halation-bloom/frame-60.png"
     ]
   }
 }

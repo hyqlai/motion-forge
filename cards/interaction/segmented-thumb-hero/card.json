@@ -1,0 +1,58 @@
+{
+  "id": "interaction/segmented-thumb-hero",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "segmented-thumb-hero",
+  "summary": "分段控件 thumb 位移当主角特写——超大胶囊 segmented control 弹簧浮入，描边箭头光标画外滑入按下，白 thumb 8f ease-out 滑到另一段，到位瞬间新图标 spring 弹出、旧图标收起",
+  "intents": [
+    "interaction",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 110,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"模式切换/二选一\"功能的宣告镜头（demo 的 video-shotcraft Prompt→Film、Chat→Agent 式）；一个 UI 微交互撑一整镜的特写拍法"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      27,
+      55,
+      93
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/segmented-thumb-hero",
+    "sourcePath": "video-shotcraft/demos/interaction/segmented-thumb-hero/SegmentedThumbHero.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/segmented-thumb-hero.md",
+    "status": "ready"
+  }
+}

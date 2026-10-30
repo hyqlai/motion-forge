@@ -1,0 +1,74 @@
+{
+  "id": "interaction/ui-flow-theater",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "全套操作流程剧场",
+  "summary": "进设置、开关打开、滑杆拖满、多步骤联动与保存成功提示，将真实录屏脱敏还原为高保真 UI 剧场",
+  "intents": [
+    "全流程演示",
+    "交互剧场",
+    "产品引导",
+    "SaaS操作"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 281,
+    "minimumInFrames": 120,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 281,
+        "min": 120,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播讲这个产品怎么用的完整操作段落（真录屏拿不到或脱敏时的最佳替代）",
+      "SaaS / AI 产品全套上手教程"
+    ],
+    "avoid": [
+      "操作步骤过于琐碎超过5步",
+      "步骤之间无呼吸停顿"
+    ],
+    "pairsWith": [
+      "component/ui-prop-theater"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      120,
+      240
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/ui-flow-theater",
+    "sourcePath": "video-talkcraft/template/cards/ui-flow-theater.tsx",
+    "reference": "video-talkcraft/references/cards/ui-flow-theater.md",
+    "status": "ready"
+  }
+}

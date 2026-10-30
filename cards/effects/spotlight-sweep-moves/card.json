@@ -1,0 +1,77 @@
+{
+  "id": "effects/spotlight-sweep-moves",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "spotlight-sweep-moves",
+  "summary": "暗场聚光显影三式——A 醒睡扫过（光到即亮光走即暗）、B 贴边泛光横摇（紫光贴 UI 边缘渗入+聚光匀速右移）、C 角落匀速显影（径向聚光从角落匀速扩张点亮全屏）；黑场里\"光即叙事\"的 UI 展示",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "暗色调品牌片里逐个介绍 UI 面板/功能区；黑场开场把界面\"点亮\"登场；段落间光转场"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "glow-wake-sleep-panel: 科技面板光效唤醒 (默认)",
+      "slide-spotlight-pan: 滑动聚光平移 (SlideSpotlightPan)",
+      "corner-spotlight-reveal: 角部聚光揭示 (CornerSpotlightReveal)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/spotlight-sweep-moves",
+    "sourcePath": "video-shotcraft/demos/effects/spotlight-sweep-moves/GlowWakeSleepPanel.tsx",
+    "reference": "video-shotcraft/references/shots/effects/spotlight-sweep-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "glow-wake-sleep-panel",
+      "label": "科技面板光效唤醒 (默认)"
+    },
+    {
+      "key": "slide-spotlight-pan",
+      "label": "滑动聚光平移 (SlideSpotlightPan)"
+    },
+    {
+      "key": "corner-spotlight-reveal",
+      "label": "角部聚光揭示 (CornerSpotlightReveal)"
+    }
+  ]
+}

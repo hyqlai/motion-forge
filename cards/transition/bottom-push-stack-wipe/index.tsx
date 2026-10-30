@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {BottomPushStackWipe as ShotcraftDemo} from '../../_shotcraft_demos/transition/bottom-push-stack-wipe/BottomPushStackWipe';
+import {BottomPushStackWipe as ShotcraftDemo} from './BottomPushStackWipe';
 import type {Theme} from '../../../core/schema';
 
 export type BottomPushStackWipeProps = {

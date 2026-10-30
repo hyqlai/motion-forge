@@ -1,0 +1,74 @@
+{
+  "id": "interaction/subscribe-cta",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "一键三连关注引导",
+  "summary": "片尾价值兑现点：点赞、投币、收藏徽标依次弹性点亮充能，关注胶囊按压反馈，带细腻光晕",
+  "intents": [
+    "片尾引导",
+    "求关注",
+    "一键三连",
+    "价值收尾"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 304,
+    "minimumInFrames": 120,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 304,
+        "min": 120,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播收尾或价值兑现点（觉得有用点个关注）",
+      "全片只在最后出现一次"
+    ],
+    "avoid": [
+      "片头或正片中段滥用",
+      "三连动作过快没有充能感"
+    ],
+    "pairsWith": [
+      "component/logo-enter"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      120,
+      250
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/subscribe-cta",
+    "sourcePath": "video-talkcraft/template/cards/subscribe-cta.tsx",
+    "reference": "video-talkcraft/references/cards/subscribe-cta.md",
+    "status": "ready"
+  }
+}

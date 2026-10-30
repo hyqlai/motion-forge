@@ -1,0 +1,58 @@
+{
+  "id": "effects/fui-hud-moves",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "fui-hud-moves",
+  "summary": "FUI/HUD 准星咬合——reticle-lock-on 四个 L 形角标组成的取景框从画外飞入、超调回弹后咬合锁定目标",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 90,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "任何\"看这里\"的目标点名（替代箭头圈红，画面不冻结）"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      45,
+      76
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/fui-hud-moves",
+    "sourcePath": "video-shotcraft/demos/effects/fui-hud-moves/ReticleLockOn.tsx",
+    "reference": "video-shotcraft/references/shots/effects/fui-hud-moves.md",
+    "status": "ready"
+  }
+}

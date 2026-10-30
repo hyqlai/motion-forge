@@ -1,0 +1,95 @@
+{
+  "id": "effects/reticle-lock-on",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "准星咬合",
+  "summary": "四个 L 角从画外大行程扑向目标（2.2倍），随后收缩过头至 0.94 强回弹到 1 形成咬合，目标白闪与标签弹出同帧触发",
+  "intents": [
+    "精准锁定",
+    "目标点名",
+    "参数咬合",
+    "科技感"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html",
+    "svg"
+  ],
+  "timing": {
+    "defaultInFrames": 192,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "at",
+        "label": "扑入时刻",
+        "unit": "seconds",
+        "defaultValue": 1.3,
+        "min": 0.3,
+        "max": 3,
+        "step": 0.1,
+        "description": "四角从画外起跳的时刻"
+      },
+      {
+        "name": "fly",
+        "label": "飞入时长",
+        "unit": "seconds",
+        "defaultValue": 0.33,
+        "min": 0.15,
+        "max": 0.8,
+        "step": 0.02,
+        "description": "四角飞入到 2.2 倍大框时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 192,
+        "min": 90,
+        "max": 400,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播念到就是这个按钮、这个数字、这一行的重音点名时刻",
+      "评测锁定关键参数，踩重音节拍"
+    ],
+    "avoid": [
+      "行程过短（读作角标出现而不是扑过来）",
+      "咬合帧与目标白闪不同步"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      60,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/reticle-lock-on",
+    "sourcePath": "video-talkcraft/template/cards/reticle-lock-on.tsx",
+    "reference": "video-talkcraft/references/cards/reticle-lock-on.md",
+    "status": "ready"
+  }
+}

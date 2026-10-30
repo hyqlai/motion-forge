@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {CardFlockTumble as ShotcraftDemo} from '../../_shotcraft_demos/transition/card-flock-tumble/CardFlockTumble';
+import {CardFlockTumble as ShotcraftDemo} from './CardFlockTumble';
 import type {Theme} from '../../../core/schema';
 
 export type CardFlockTumbleProps = {

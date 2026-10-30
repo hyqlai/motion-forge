@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {BulletTimeFreezeOrbit} from '../../_shotcraft_demos/camera/tension-camera-moves/BulletTimeFreezeOrbit';
-import {PullBackIsolation} from '../../_shotcraft_demos/camera/tension-camera-moves/PullBackIsolation';
+import {BulletTimeFreezeOrbit} from './BulletTimeFreezeOrbit';
+import {PullBackIsolation} from './PullBackIsolation';
 import type {Theme} from '../../../core/schema';
 
 export type TensionCameraMovesStyle = 'bullet-time-freeze-orbit' | 'pull-back-isolation';

@@ -1,0 +1,58 @@
+{
+  "id": "effects/scan-bracket-sweep",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "scan-bracket-sweep",
+  "summary": "文档弹到中央，四角落下 L 形取景括号，一条扫描光带拖着渐变尾迹在文档上往复扫 5 趟——文档全程静止，只有光在读它",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"正在解析/校验这份内容\"的过程镜头；文档类产品的能力演示；上传→分析链路的中段"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/scan-bracket-sweep",
+    "sourcePath": "video-shotcraft/demos/effects/scan-bracket-sweep/ScanBracketSweep.tsx",
+    "reference": "video-shotcraft/references/shots/effects/scan-bracket-sweep.md",
+    "status": "ready"
+  }
+}

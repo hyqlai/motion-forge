@@ -1,0 +1,58 @@
+{
+  "id": "commercial/logo-shrink-wordmark-lockup",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "logo-shrink-wordmark-lockup",
+  "summary": "霓虹切口大环快速收束成中央实心小白 O、过冲刹车时换成 video-shotcraft 标志，图标左移让位，字标字母逐个滑入完成 lockup，强调色标语收尾",
+  "intents": [
+    "outro",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 132,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "片尾品牌定妆：从满屏图形能量收束到\"图标+字标+标语\"的标准 lockup"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      33,
+      66,
+      112
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/logo-shrink-wordmark-lockup",
+    "sourcePath": "video-shotcraft/demos/outro/logo-shrink-wordmark-lockup/LogoShrinkWordmarkLockup.tsx",
+    "reference": "video-shotcraft/references/shots/outro/logo-shrink-wordmark-lockup.md",
+    "status": "ready"
+  }
+}

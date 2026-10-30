@@ -1,0 +1,74 @@
+{
+  "id": "typography/title-demote-to-label",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "标题降格为标签",
+  "summary": "大号标题先当绝对主角居中，随后平滑缩小并滑至左上角降格为小胶囊标签，为主内容展开留出舞台",
+  "intents": [
+    "章节小节交接",
+    "主角让位",
+    "标签降格",
+    "版面留白"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "text",
+    "component"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 189,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 189,
+        "min": 90,
+        "max": 400,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "教程/方法论口播的小节交接（标题先当主角，再让位给正文）",
+      "每点标题降格后留在左上角当路标"
+    ],
+    "avoid": [
+      "标题内容超过 12 个字",
+      "缩放与平移分为两段动作破坏连贯性"
+    ],
+    "pairsWith": [
+      "component/stack-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      60,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/title-demote-to-label",
+    "sourcePath": "video-talkcraft/template/cards/title-demote-to-label.tsx",
+    "reference": "video-talkcraft/references/cards/title-demote-to-label.md",
+    "status": "ready"
+  }
+}

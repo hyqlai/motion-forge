@@ -1,0 +1,73 @@
+{
+  "id": "typography/outline-box-title",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "框选定论标题",
+  "summary": "虚线框从中心展开闭合为实线框，文字从框内弹性浮现，右上角带专属角标定论",
+  "intents": [
+    "立论点",
+    "下定义",
+    "术语圈定",
+    "结论加框"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 103,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 103,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播里我的核心观点是这类给结论加框的时刻",
+      "理性、条理、有条款感的知识区段落"
+    ],
+    "avoid": [
+      "情绪爆点或高能轰炸",
+      "标题文字超过 14 个字"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      35,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/outline-box-title",
+    "sourcePath": "video-talkcraft/template/cards/outline-box-title.tsx",
+    "reference": "video-talkcraft/references/cards/outline-box-title.md",
+    "status": "ready"
+  }
+}

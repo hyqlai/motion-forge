@@ -1,0 +1,58 @@
+{
+  "id": "commercial/stroke-segment-build",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "stroke-segment-build",
+  "summary": "断笔成字——标题拆成十几段互不相连的笔画乱序逐段点亮，前 70% 不可读，末段落位瞬间语义\"啪\"地成立",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 165,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "开场吊悬念的产品名/大数字揭晓；一支片 ≤1 次；与 type-assembly/draw-svg-trace 分工：那些是\"看着字被组装/描画\"，本卡是\"意义延迟揭晓\""
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      41,
+      82,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/stroke-segment-build",
+    "sourcePath": "video-shotcraft/demos/opening/stroke-segment-build/StrokeSegmentBuild.tsx",
+    "reference": "video-shotcraft/references/shots/opening/stroke-segment-build.md",
+    "status": "ready"
+  }
+}

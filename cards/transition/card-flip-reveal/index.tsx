@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {CardFlipReveal as ShotcraftDemo} from '../../_shotcraft_demos/transition/card-flip-reveal/CardFlipReveal';
+import {CardFlipReveal as ShotcraftDemo} from './CardFlipReveal';
 import type {Theme} from '../../../core/schema';
 
 export type CardFlipRevealProps = {

@@ -1,0 +1,77 @@
+{
+  "id": "effects/slam-entrance-moves",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "slam-entrance-moves",
+  "summary": "高能砸入三式——kanada-perspective-snap 金田透视急停、score-slam 比分砸落、impact-burst-kit 落点冲击套件（波及邻卡）",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "主角卡/KPI 卡的重拳入场；impact-feedback 管落位后的反馈，本卡管入场本身就是冲击"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "impact-burst-kit: 日漫透视破框入场 (默认)",
+      "score-slam: 比分牌下砸震颤 (ScoreSlam)",
+      "kanada-perspective-snap: 金田系透视抓拍 (KanadaPerspectiveSnap)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/slam-entrance-moves",
+    "sourcePath": "video-shotcraft/demos/effects/slam-entrance-moves/ImpactBurstKit.tsx",
+    "reference": "video-shotcraft/references/shots/effects/slam-entrance-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "impact-burst-kit",
+      "label": "日漫透视破框入场 (默认)"
+    },
+    {
+      "key": "score-slam",
+      "label": "比分牌下砸震颤 (ScoreSlam)"
+    },
+    {
+      "key": "kanada-perspective-snap",
+      "label": "金田系透视抓拍 (KanadaPerspectiveSnap)"
+    }
+  ]
+}

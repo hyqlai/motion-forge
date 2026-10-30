@@ -1,0 +1,58 @@
+{
+  "id": "interaction/neon-frame-orbit-drop",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "neon-frame-orbit-drop",
+  "summary": "霓虹框先行描框后，镜头绕页面左→右弧线旋转，页面全部组件/文字**同帧**从空中往下贴合（同形软影同步收敛）——整体登场式的框内安放",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 140,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "单页 UI 的一次性隆重登场（与巡礼/逐区亮相相对）；暗场霓虹调性段落的主视觉揭幕；neon-frame-forerun 的姊妹镜"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      35,
+      70,
+      119
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/neon-frame-orbit-drop",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/neon-frame-orbit-drop/NeonFrameForerunOrbit.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/neon-frame-orbit-drop.md",
+    "status": "ready"
+  }
+}

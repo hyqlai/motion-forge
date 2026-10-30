@@ -1,0 +1,93 @@
+{
+  "id": "typography/error-retype",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "打字改口",
+  "summary": "句干先在，以打字机节奏打出错句，光标犹豫闪烁两下后快速退格删除，零犹豫重打对句",
+  "intents": [
+    "否定式文案",
+    "认知纠错",
+    "金句反转",
+    "开场钩子修正"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 177,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "type",
+        "label": "打字速率",
+        "unit": "seconds",
+        "defaultValue": 0.09,
+        "min": 0.04,
+        "max": 0.2,
+        "step": 0.01,
+        "description": "初始错句每字敲入秒数"
+      },
+      {
+        "name": "del",
+        "label": "退格删除速率",
+        "unit": "seconds",
+        "defaultValue": 0.06,
+        "min": 0.03,
+        "max": 0.15,
+        "step": 0.01,
+        "description": "果断退格每字删除秒数"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 177,
+        "min": 90,
+        "max": 360,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "否定式文案（靠的不是 X，是 Y）",
+      "纠正常见误解或金句反转"
+    ],
+    "avoid": [
+      "三档速度等速（打、删、重打等速会读作 bug 失去戏感）",
+      "完稿后光标残留在屏幕上破坏静止"
+    ],
+    "pairsWith": [
+      "text/strike-replace"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      55,
+      120
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/error-retype",
+    "sourcePath": "video-talkcraft/template/cards/error-retype.tsx",
+    "reference": "video-talkcraft/references/cards/error-retype.md",
+    "status": "ready"
+  }
+}

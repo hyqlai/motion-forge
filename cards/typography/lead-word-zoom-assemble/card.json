@@ -1,0 +1,73 @@
+{
+  "id": "typography/lead-word-zoom-assemble",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "主词放大集结",
+  "summary": "核心主语超大号满屏居中砸落立住，随后平滑缩小退让到行首，整句其余文字向右展开集结成句",
+  "intents": [
+    "品牌推出",
+    "主词宣告",
+    "金句集结",
+    "产品命名"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 156,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 156,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "一句话主张先让主语立住（效率 才是唯一的护城河）",
+      "产品名/品牌名 Introducing 字卡，发布会式开场"
+    ],
+    "avoid": [
+      "首词超过 4 个字（过长无法满屏居中）",
+      "主语缩小让位没有停顿直接滑走"
+    ],
+    "pairsWith": [
+      "component/logo-enter"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      45,
+      110
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/lead-word-zoom-assemble",
+    "sourcePath": "video-talkcraft/template/cards/lead-word-zoom-assemble.tsx",
+    "reference": "video-talkcraft/references/cards/lead-word-zoom-assemble.md",
+    "status": "ready"
+  }
+}

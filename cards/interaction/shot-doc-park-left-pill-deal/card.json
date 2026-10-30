@@ -1,0 +1,58 @@
+{
+  "id": "interaction/shot-doc-park-left-pill-deal",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "doc-park-left-pill-deal",
+  "summary": "文档不淡出而是向左滑出只露约 35% 宽并微缩到 0.92，右侧按旁白节奏慢速发牌三张白底描边药丸（outBack 弹入），每张落定后其下方字幕逐词加深、下一张到来前整句淡出，左侧文档全程极缓慢自动滚动保持\"正在被读\"",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 174,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "旁白驱动的\"分析结论逐条给出\"段落；文档理解、推荐理由、审阅意见类产品的核心说明镜头"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      43,
+      87,
+      147
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/doc-park-left-pill-deal",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/doc-park-left-pill-deal/DocParkLeftPillDeal.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/doc-park-left-pill-deal.md",
+    "status": "ready"
+  }
+}

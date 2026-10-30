@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {Basic3DScene as ShotcraftDemo} from '../../_shotcraft_demos/camera/basic-3d-scene/Basic3DScene';
+import {Basic3DScene as ShotcraftDemo} from './Basic3DScene';
 import type {Theme} from '../../../core/schema';
 
 export type Basic3dSceneProps = {

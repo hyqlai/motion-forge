@@ -1,0 +1,58 @@
+{
+  "id": "typography/shot-lead-word-zoom-assemble",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "lead-word-zoom-assemble",
+  "summary": "首词以 2.3 倍字号占据画面中央、hold 期间继续推近 6%，随后一条曲线同时完成「缩回终字号」与「整行左滑归位」，后续词各自从槽位右侧 0.5em 被推进来；支点横向钉首词中心、纵向钉基线（挂载时实测），整行上移的同一时窗副行浮出，停一拍后整幕 crash-zoom 推近失焦交棒",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 84,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "品牌名/产品名的 Introducing 字卡；发布会式开场第二镜；一句话主张需要\"先让一个词占满画面、再把整句补齐\"的场合"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      21,
+      42,
+      71
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/lead-word-zoom-assemble",
+    "sourcePath": "video-shotcraft/demos/typography/lead-word-zoom-assemble/LeadWordZoomAssemble.tsx",
+    "reference": "video-shotcraft/references/shots/typography/lead-word-zoom-assemble.md",
+    "status": "ready"
+  }
+}

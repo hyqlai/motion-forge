@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {OverheadTabletopDrop} from '../../_shotcraft_demos/camera/overhead-camera-moves/OverheadTabletopDrop';
-import {TiltReveal} from '../../_shotcraft_demos/camera/overhead-camera-moves/TiltReveal';
+import {OverheadTabletopDrop} from './OverheadTabletopDrop';
+import {TiltReveal} from './TiltReveal';
 import type {Theme} from '../../../core/schema';
 
 export type OverheadCameraMovesStyle = 'overhead-tabletop-drop' | 'tilt-reveal';

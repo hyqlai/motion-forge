@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {InkBleedReveal as ShotcraftDemo} from '../../_shotcraft_demos/transition/print-texture-transitions/InkBleedReveal';
+import {InkBleedReveal as ShotcraftDemo} from './InkBleedReveal';
 import type {Theme} from '../../../core/schema';
 
 export type PrintTextureTransitionsProps = {

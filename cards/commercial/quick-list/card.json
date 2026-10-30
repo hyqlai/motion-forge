@@ -1,0 +1,64 @@
+{
+  "id": "commercial/quick-list",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "商业镜头 · quick-list",
+  "summary": "快切列表：3–6 行白卡按拍左右交替飞入，每行右边「盖章」出判定：分数滚动落定（可带判词），或一个彩色标签砸下来；左边色条按语气色长满。适合「这些场景都能用 / 这些话都能看懂」。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 90,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "text ≤10 字，写用户熟悉的具体场景或原话，越短越有冲击力",
+      "每行右边二选一：score（数字，配合顶层 max 显示成「8/9」，tag 写在数字下面当判词）或只写 tag（≤4 字彩色标签）",
+      "tone 决定颜色：bad 红 / warn 橙 / good 绿 / neutral 灰；不写 = 品牌色。好坏混着排更有节奏",
+      "列举「别人说的话」时设 quote: true，每行画成头像 + 灰气泡；列举功能/场景时不设，每行画成图标 + 粗字",
+      "3–4 行 3 秒；5–6 行给 4 秒"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      45,
+      76
+    ]
+  },
+  "migration": {
+    "source": "brewreel/quickList",
+    "sourcePath": "brewreel/template/src/shots/quickList.tsx",
+    "reference": "brewreel/docs/shots/quickList.md",
+    "status": "migrating"
+  }
+}

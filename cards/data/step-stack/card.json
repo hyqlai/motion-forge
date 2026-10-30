@@ -1,0 +1,60 @@
+{
+  "id": "data/step-stack",
+  "version": "1.0.0",
+  "kind": "data",
+  "title": "编号步骤堆入",
+  "summary": "编号横条从右侧均匀堆入，每枚落地时编号块 punch 一拍，落定后整组上浮收束",
+  "intents": [
+    "步骤",
+    "清单",
+    "行动"
+  ],
+  "genres": [
+    "explainer",
+    "story",
+    "philosophy"
+  ],
+  "inputs": [
+    "steps"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 107,
+    "minimumInFrames": 70,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "三到五条可执行的行动清单",
+      "每一步需要被单独确认再收成一组"
+    ],
+    "avoid": [
+      "有先后因果依赖的流程（用 step-timeline）",
+      "条目过多导致堆叠过高"
+    ],
+    "pairsWith": [
+      "component/step-timeline",
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      30,
+      60
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/numbered-step-stack",
+    "sourcePath": "video-talkcraft/template/cards/numbered-step-stack.tsx",
+    "reference": "video-talkcraft/references/cards/numbered-step-stack.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "data/step-timeline",
+  "version": "1.0.0",
+  "kind": "data",
+  "title": "竖向步骤线",
+  "summary": "竖线向下推进，节点依次点亮，当前节点升级为空心环",
+  "intents": [
+    "步骤",
+    "流程",
+    "列举"
+  ],
+  "genres": [
+    "explainer",
+    "promo"
+  ],
+  "inputs": [
+    "steps"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 118,
+    "minimumInFrames": 80,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "有明确先后依赖的流程",
+      "当前步骤需要被单独强调"
+    ],
+    "avoid": [
+      "无顺序并列清单",
+      "步骤过多导致纵向拥挤"
+    ],
+    "pairsWith": [
+      "media/svg-path"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      40,
+      100
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/step-timeline-vertical",
+    "sourcePath": "video-talkcraft/template/cards/step-timeline-vertical.tsx",
+    "reference": "video-talkcraft/references/cards/step-timeline-vertical.md",
+    "status": "ready"
+  }
+}

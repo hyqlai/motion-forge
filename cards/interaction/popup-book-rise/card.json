@@ -1,0 +1,63 @@
+{
+  "id": "interaction/popup-book-rise",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "纸艺立体书升起",
+  "summary": "纯正纸艺与折纸美学：场景在透视俯视下打平，多张网格卡片沿底边错峰立起（90度弹簧翻折带物理过冲回弹），根部阴影随站立角度收窄变实",
+  "intents": [
+    "ui-entrance",
+    "纸艺折纸",
+    "创意陈列",
+    "趣味展开"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 134,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "手绘风故事短片、童话与绘本感叙事、轻松产品陈列、生活方式展示",
+      "需要跳脱出死板科技风、增加人味与手工温润感的入场"
+    ],
+    "avoid": [
+      "极其严肃冷酷的数据报告",
+      "纯文字大段阅读"
+    ],
+    "pairsWith": [
+      "component/masking-tape-slap"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      60,
+      110
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/popup-book-rise",
+    "sourcePath": "video-shotcraft/demos/_legacy/ui-entrance/paper-craft-moves/PopupBookRise.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/paper-craft-moves.md",
+    "status": "ready"
+  }
+}

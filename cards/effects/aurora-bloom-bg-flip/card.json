@@ -1,0 +1,58 @@
+{
+  "id": "effects/aurora-bloom-bg-flip",
+  "version": "1.0.0",
+  "kind": "effects",
+  "title": "aurora-bloom-bg-flip",
+  "summary": "浅灰底从底部升起紫橙柔焦 blob，随后整个底色在约 0.36s 内压暗到近黑、blob 压成余晖；文案同步 blur-out 换句 blur-in，换句间留空档不 cross-fade",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 156,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "叙事转折点（\"多年以来…→一切都变了\"）；品牌片从铺垫拉到重音的那一拍；深浅色系之间的段落切换"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      39,
+      78,
+      132
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/aurora-bloom-bg-flip",
+    "sourcePath": "video-shotcraft/demos/effects/aurora-bloom-bg-flip/AuroraBloomBgFlip.tsx",
+    "reference": "video-shotcraft/references/shots/effects/aurora-bloom-bg-flip.md",
+    "status": "ready"
+  }
+}

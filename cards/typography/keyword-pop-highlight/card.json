@@ -1,0 +1,93 @@
+{
+  "id": "typography/keyword-pop-highlight",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "关键词弹出强调",
+  "summary": "整句先读半拍，关键词突然以 1.65 倍放大带整屏轻震砸出，再回弹到 1.15 倍高亮常驻",
+  "intents": [
+    "重点词",
+    "反转词",
+    "砸重音",
+    "信息峰值"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "promo",
+    "launch"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 42,
+    "minimumInFrames": 30,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "delay",
+        "label": "前置延迟",
+        "unit": "seconds",
+        "defaultValue": 0.55,
+        "min": 0.1,
+        "max": 1.2,
+        "step": 0.05,
+        "description": "正文先读一拍，关键词晚半句出现的秒数"
+      },
+      {
+        "name": "popScale",
+        "label": "弹出倍率",
+        "unit": "frames",
+        "defaultValue": 1.65,
+        "min": 1.3,
+        "max": 2.2,
+        "step": 0.05,
+        "description": "关键词冲刺峰值缩放"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 42,
+        "min": 30,
+        "max": 120,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播每段的信息峰值（数字、暴论、反转词）",
+      "全片第一默认重音动作"
+    ],
+    "avoid": [
+      "整屏全部关键词都在弹出",
+      "震屏幅度超过15px"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      18,
+      38
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/keyword-pop-highlight",
+    "sourcePath": "video-talkcraft/template/cards/keyword-pop-highlight.tsx",
+    "reference": "video-talkcraft/references/cards/keyword-pop-highlight.md",
+    "status": "ready"
+  }
+}

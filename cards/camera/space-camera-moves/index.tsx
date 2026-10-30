@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {DroneDiveLanding} from '../../_shotcraft_demos/camera/space-camera-moves/DroneDiveLanding';
-import {ExplodedView} from '../../_shotcraft_demos/camera/space-camera-moves/ExplodedView';
+import {DroneDiveLanding} from './DroneDiveLanding';
+import {ExplodedView} from './ExplodedView';
 import type {Theme} from '../../../core/schema';
 
 export type SpaceCameraMovesStyle = 'drone-dive-landing' | 'exploded-view';

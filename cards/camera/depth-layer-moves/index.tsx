@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {MultiplaneReal as ShotcraftDemo} from '../../_shotcraft_demos/camera/depth-layer-moves/MultiplaneReal';
+import {MultiplaneReal as ShotcraftDemo} from './MultiplaneReal';
 import type {Theme} from '../../../core/schema';
 
 export type DepthLayerMovesProps = {

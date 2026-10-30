@@ -1,0 +1,58 @@
+{
+  "id": "typography/shot-title-demote-to-label",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "title-demote-to-label",
+  "summary": "大标题降格为节标签两式——A 大标题居中显影站稳一拍后连续缩小 0.3x 平移到左上角落成小节标签、内容区在其下生长；B 同套路但登场时带文本选中态高亮块扫入再撤掉",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 246,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "章节开场（标题先当主角再让位给内容）；教程/功能演示片的小节交接；B 式给\"文字/编辑\"类产品加身份暗示"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      61,
+      123,
+      209
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/title-demote-to-label",
+    "sourcePath": "video-shotcraft/demos/typography/title-demote-to-label/TitleDemoteToLabel.tsx",
+    "reference": "video-shotcraft/references/shots/typography/title-demote-to-label.md",
+    "status": "ready"
+  }
+}

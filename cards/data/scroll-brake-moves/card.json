@@ -1,0 +1,72 @@
+{
+  "id": "data/scroll-brake-moves",
+  "version": "1.0.0",
+  "kind": "data",
+  "title": "scroll-brake-moves",
+  "summary": "长卷急刹两式——changelog-scroll-brake 基本款（高速长卷指数减速精准停位+目标抬升）与 brake-reticle-lock 组合款（急刹帧同帧准星咬合）",
+  "intents": [
+    "data",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "changelog/发布史/长列表段落：\"一直在发货，今天这条最大\"；要给停点更强打击感用 B"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "changelog-scroll-brake: 长文档高速滚动急刹 (默认)",
+      "brake-reticle-lock: 准星锁定回弹急刹 (BrakeReticleLock)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/scroll-brake-moves",
+    "sourcePath": "video-shotcraft/demos/data/scroll-brake-moves/ChangelogScrollBrake.tsx",
+    "reference": "video-shotcraft/references/shots/data/scroll-brake-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "changelog-scroll-brake",
+      "label": "长文档高速滚动急刹 (默认)"
+    },
+    {
+      "key": "brake-reticle-lock",
+      "label": "准星锁定回弹急刹 (BrakeReticleLock)"
+    }
+  ]
+}

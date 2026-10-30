@@ -1,0 +1,72 @@
+{
+  "id": "commercial/ui-to-brand-morph",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "ui-to-brand-morph",
+  "summary": "UI 变品牌两式——icon-flip-bloom 图标 Y 轴翻扁成竖线、从竖线撑开成品牌标志（琥珀斜切随后划入）+ wordmark 逐字落定，与 input-morph-assemble 输入框收缩成取景框竖笔、三块图元落进构造槽位拼成完整标志",
+  "intents": [
+    "outro",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 142,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "品牌收尾/outro 前最后一拍；\"你每天用的那个 UI 就是这个品牌\"的视觉论证"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "icon-flip-bloom: 图标3D翻转聚合成Logo (默认)",
+      "input-morph-assemble: 输入框变形收拢Logo (InputMorphsIntoLogo)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      35,
+      71,
+      120
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/ui-to-brand-morph",
+    "sourcePath": "video-shotcraft/demos/outro/ui-to-brand-morph/IconFlipBloomLogo.tsx",
+    "reference": "video-shotcraft/references/shots/outro/ui-to-brand-morph.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "icon-flip-bloom",
+      "label": "图标3D翻转聚合成Logo (默认)"
+    },
+    {
+      "key": "input-morph-assemble",
+      "label": "输入框变形收拢Logo (InputMorphsIntoLogo)"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "typography/word-relay-filmstrip",
+  "version": "1.0.0",
+  "kind": "typography",
+  "title": "word-relay-filmstrip",
+  "summary": "左列黑白相间等高页面卡步进滚动（焦点卡全亮、邻卡离焦压暗）、右侧衬线大词原位接力（名词恒定+动词轮换）——切词瞬间才滚动一格，词块垂直中心与当前页面卡中点精确对齐",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 180,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"一个主体 × 多种能力\"的枚举段（Shotcraft frames/builds/ships…）；作品集/案例流展示；产品多场景巡礼"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      45,
+      90,
+      153
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/word-relay-filmstrip",
+    "sourcePath": "video-shotcraft/demos/typography/word-relay-filmstrip/WordRelayFilmstrip.tsx",
+    "reference": "video-shotcraft/references/shots/typography/word-relay-filmstrip.md",
+    "status": "ready"
+  }
+}

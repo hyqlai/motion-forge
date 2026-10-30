@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {GradientTransition as ShotcraftDemo} from '../../_shotcraft_demos/transition/gradient-transition/GradientTransition';
+import {GradientTransition as ShotcraftDemo} from './GradientTransition';
 import type {Theme} from '../../../core/schema';
 
 export type GradientTransitionProps = {

@@ -1,0 +1,72 @@
+{
+  "id": "interaction/wall-reveal-moves",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "wall-reveal-moves",
+  "summary": "整墙批量入场两式——bento 逐格点亮、蓝图描线成形，全部原位显形不位移，与 deck-deal-flyin 的飞入位移型互补成品类矩阵",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "功能墙/卡片墙/整页界面的整体亮相；内容已在原位、要\"显形\"而非\"涌入\"的段落"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "bento-light-up: Bento网格点亮流光 (默认)",
+      "wireframe-draw-on: 蓝图线框绘制 (WireframeDrawOn)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/wall-reveal-moves",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/wall-reveal-moves/BentoLightUp.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/wall-reveal-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "bento-light-up",
+      "label": "Bento网格点亮流光 (默认)"
+    },
+    {
+      "key": "wireframe-draw-on",
+      "label": "蓝图线框绘制 (WireframeDrawOn)"
+    }
+  ]
+}

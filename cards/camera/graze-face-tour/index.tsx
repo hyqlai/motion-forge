@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {GrazeFaceTour as ShotcraftDemo} from '../../_shotcraft_demos/camera/graze-face-tour/GrazeFaceTour';
+import {GrazeFaceTour as ShotcraftDemo} from './GrazeFaceTour';
 import type {Theme} from '../../../core/schema';
 
 export type GrazeFaceTourProps = {

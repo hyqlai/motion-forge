@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {GlitchDisplace as ShotcraftDemo} from '../../_shotcraft_demos/transition/tear-streak-transitions/GlitchDisplace';
+import {GlitchDisplace as ShotcraftDemo} from './GlitchDisplace';
 import type {Theme} from '../../../core/schema';
 
 export type TearStreakTransitionsProps = {

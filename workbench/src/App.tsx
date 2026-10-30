@@ -194,12 +194,15 @@ export const App: React.FC = () => {
             <div className="gallery-filter-chips">
               {[
                 {label: '全部 ALL', value: 'all'},
-                {label: '文字 TEXT', value: 'text'},
-                {label: '组件 COMPONENT', value: 'component'},
                 {label: '运镜 CAMERA', value: 'camera'},
-                {label: '媒体 MEDIA', value: 'media'},
+                {label: '排印 TYPOGRAPHY', value: 'typography'},
+                {label: '交互 INTERACTION', value: 'interaction'},
+                {label: '数据 DATA', value: 'data'},
+                {label: '特效 EFFECTS', value: 'effects'},
+                {label: '节奏 RHYTHM', value: 'rhythm'},
+                {label: '商业 COMMERCIAL', value: 'commercial'},
                 {label: '转场 TRANSITION', value: 'transition'},
-                {label: '氛围 ENVIRONMENT', value: 'environment'},
+                {label: '媒体 MEDIA', value: 'media'},
               ].map((item) => (
                 <button
                   key={item.value}
@@ -386,12 +389,15 @@ export const App: React.FC = () => {
             <div className="panel-heading library-heading">动效卡库</div>
             <select value={kind} onChange={(event) => setKind(event.target.value)} className="kind-filter">
               <option value="all">全部类型 ({cardDefinitions.length})</option>
-              <option value="text">文字效果</option>
-              <option value="component">组件动效</option>
               <option value="camera">运镜效果</option>
-              <option value="media">素材动效</option>
+              <option value="typography">文字排印</option>
+              <option value="interaction">组件交互</option>
+              <option value="data">数据图表</option>
+              <option value="effects">光影特效</option>
+              <option value="rhythm">剪辑节奏</option>
+              <option value="commercial">商业镜头</option>
               <option value="transition">转场效果</option>
-              <option value="environment">环境效果</option>
+              <option value="media">媒体素材</option>
             </select>
             {visibleCards.map((card) => (
               <button

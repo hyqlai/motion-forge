@@ -1,0 +1,58 @@
+{
+  "id": "interaction/voice-waveform-live",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "voice-waveform-live",
+  "summary": "录音胶囊实时声纹——64 根细竖条随\"说话\"起伏，说话时中部高耸、停顿缩成点线，波形从右往左滚动；说→停→说→提交塌缩的完整表演",
+  "intents": [
+    "interaction",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 172,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "语音输入/AI 助手\"正在听你说\"的功能镜头；无 UI 内容可展示但需要持续活性撑画面的段落"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      43,
+      86,
+      146
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/voice-waveform-live",
+    "sourcePath": "video-shotcraft/demos/interaction/voice-waveform-live/VoiceWaveformLive.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/voice-waveform-live.md",
+    "status": "ready"
+  }
+}

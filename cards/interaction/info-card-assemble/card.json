@@ -1,0 +1,75 @@
+{
+  "id": "interaction/info-card-assemble",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "信息卡结构集结",
+  "summary": "书籍/课程/项目介绍卡：封面率先落位，标题与作者错峰浮现，核心指标与标签结构化抽取长出",
+  "intents": [
+    "图书推荐",
+    "课程介绍",
+    "结构化展示",
+    "人物名片"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 216,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 216,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播介绍一本书、一个工具、一个人、一门课的信息卡",
+      "结构化抽取、自动填充、数据自己长出来的 AI 话题演示"
+    ],
+    "avoid": [
+      "整卡所有字段同时淡入（失去结构化集结次序感）",
+      "字段超过 6 项"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/info-card-assemble",
+    "sourcePath": "video-talkcraft/template/cards/info-card-assemble.tsx",
+    "reference": "video-talkcraft/references/cards/info-card-assemble.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,72 @@
+{
+  "id": "data/gauge-readout-moves",
+  "version": "1.0.0",
+  "kind": "data",
+  "title": "gauge-readout-moves",
+  "summary": "仪表读数两式——needle-sweep-selftest 满弧扫针（点火自检指针甩满全弧再回落真值）与 tape-scroll-fixed-pointer 滚带定针（针不动刻度带滚过+冲刺刹车）",
+  "intents": [
+    "data",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "dashboard 开场仪式/性能指标揭晓；A 多表盘开机感，B 单指标大跳变"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "tape-scroll-fixed-pointer: 精密卷尺固定读数 (默认)",
+      "needle-sweep-selftest: 指针自检扫针测试 (NeedleSweepSelftest)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/gauge-readout-moves",
+    "sourcePath": "video-shotcraft/demos/data/gauge-readout-moves/TapeScrollFixedPointer.tsx",
+    "reference": "video-shotcraft/references/shots/data/gauge-readout-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "tape-scroll-fixed-pointer",
+      "label": "精密卷尺固定读数 (默认)"
+    },
+    {
+      "key": "needle-sweep-selftest",
+      "label": "指针自检扫针测试 (NeedleSweepSelftest)"
+    }
+  ]
+}

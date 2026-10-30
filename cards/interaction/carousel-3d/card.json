@@ -1,0 +1,58 @@
+{
+  "id": "interaction/carousel-3d",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "carousel-3d",
+  "summary": "8 张卡排成圆环整环自转一圈（匀速底 + 每 45° 一次停靠的分步），每卡只绕 Y 公转、自身 billboard 朝外，正反两层同向贴图配 backface-visibility:hidden 保证任何时刻都正立不倒置，正前方卡被点亮、环下字幕随之换字，相机全程钉在浅俯角",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 168,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "作品集/模板库/集成清单的循环展示；需要无缝 loop 的背景拍或落地页 hero"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      42,
+      84,
+      142
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/carousel-3d",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/carousel-3d/Carousel3D.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/carousel-3d.md",
+    "status": "ready"
+  }
+}

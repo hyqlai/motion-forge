@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {WhiteFlashLogoSimplifyCut as ShotcraftDemo} from '../../_shotcraft_demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut';
+import {WhiteFlashLogoSimplifyCut as ShotcraftDemo} from './WhiteFlashLogoSimplifyCut';
 import type {Theme} from '../../../core/schema';
 
 export type WhiteFlashLogoSimplifyCutProps = {

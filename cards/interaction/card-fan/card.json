@@ -1,0 +1,61 @@
+{
+  "id": "interaction/card-fan",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "卡片扇形展开",
+  "summary": "卡片依次弹入成摞，随后扇形展开并抽出中心主角",
+  "intents": [
+    "列举",
+    "产品展示",
+    "高潮"
+  ],
+  "genres": [
+    "launch",
+    "promo",
+    "explainer"
+  ],
+  "inputs": [
+    "cards",
+    "items"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html",
+    "svg"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 110,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "模板、功能或作品需要集合成组展示",
+      "发布段需要从合集抽出核心主角"
+    ],
+    "avoid": [
+      "卡片文字需要逐张长读",
+      "只有两项内容无法形成扇面"
+    ],
+    "pairsWith": [
+      "component/logo-enter"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      75,
+      135
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/card-stack",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/card-stack/CardStack.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/card-stack.md",
+    "status": "ready"
+  }
+}

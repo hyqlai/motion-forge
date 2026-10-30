@@ -1,0 +1,58 @@
+{
+  "id": "interaction/list-stack-press",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "list-stack-press",
+  "summary": "列表卡从画面底部逐张飞上摞起，每张落地压弹整摞、计数器同步跳一格",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 88,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "feed/雷达/收件箱类\"每天有新东西\"的镜头；强调持续积累的资产列表"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      44,
+      74
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/list-stack-press",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/list-stack-press/ListStackPress.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/list-stack-press.md",
+    "status": "ready"
+  }
+}

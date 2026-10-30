@@ -1,0 +1,58 @@
+{
+  "id": "interaction/product-card-progressive-assemble",
+  "version": "1.0.0",
+  "kind": "interaction",
+  "title": "product-card-progressive-assemble",
+  "summary": "详情卡像被逐字段抓取般自建——一枚\"填充光标\"领先跳格，图→标题→分类 pill 依次 pop→原价出现后被划线降级、强调色新价 spring 跳出→正文逐行揭示且高亮块由左向右刷过→色卡点亮→按钮填满，整卡全程极慢 scale 前推",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 172,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "商品/条目详情页的能力展示；\"结构化抽取\"\"自动填充\"\"数据自己长出来\"类叙事的主镜头"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      43,
+      86,
+      146
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/product-card-progressive-assemble",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/product-card-progressive-assemble/ProductCardProgressiveAssemble.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/product-card-progressive-assemble.md",
+    "status": "ready"
+  }
+}

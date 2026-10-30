@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {BlindsSlice as ShotcraftDemo} from '../../_shotcraft_demos/transition/wipe-transitions/BlindsSlice';
+import {BlindsSlice as ShotcraftDemo} from './BlindsSlice';
 import type {Theme} from '../../../core/schema';
 
 export type WipeTransitionsProps = {

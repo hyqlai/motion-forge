@@ -1,6 +1,6 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {LetterformZoom as ShotcraftDemo} from '../../_shotcraft_demos/transition/transition-travel/LetterformZoom';
+import {LetterformZoom as ShotcraftDemo} from './LetterformZoom';
 import type {Theme} from '../../../core/schema';
 
 export type TransitionTravelProps = {

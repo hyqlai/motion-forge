@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useVideoConfig} from 'remotion';
-import {CrashImpactReal} from '../../_shotcraft_demos/camera/crash-zoom-punch/CrashImpactReal';
-import {CrashZoomReal} from '../../_shotcraft_demos/camera/crash-zoom-punch/CrashZoomReal';
+import {CrashImpactReal} from './CrashImpactReal';
+import {CrashZoomReal} from './CrashZoomReal';
 import type {Theme} from '../../../core/schema';
 
 export type ShotCrashZoomPunchStyle = 'crash-impact' | 'crash-zoom-smooth';

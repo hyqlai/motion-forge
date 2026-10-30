@@ -1,0 +1,58 @@
+{
+  "id": "commercial/orbit-ring-title-open",
+  "version": "1.0.0",
+  "kind": "commercial",
+  "title": "orbit-ring-title-open",
+  "summary": "石墨暗场上八张 16:9 暗色内容卡按 45° 均布在 720×380 椭圆上匀速公转（卡身永不倾斜，纵深只由 sin θ 给出 ±12% 缩放、z 序与远处压暗失焦），环撑开期间卡内容冻结首帧、f24 之后八张一起开播；居中两级标题逐字解糊下沉落定，关键词到位那一刻荧光马克块自左横扫铺满、扫过处字反白为墨，mono 副行随后浮出；可选末段整行失焦淡出、环继续转着交棒下一镜",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "开场第一镜 = 「这个产品有一整套东西」；素材库/模板库/功能矩阵/案例集的门面拍；需要用真实运动的产品画面托住一句主张，而不是把截图摆成静态九宫格"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/orbit-ring-title-open",
+    "sourcePath": "video-shotcraft/demos/opening/orbit-ring-title-open/OrbitRingTitleOpen.tsx",
+    "reference": "video-shotcraft/references/shots/opening/orbit-ring-title-open.md",
+    "status": "ready"
+  }
+}
