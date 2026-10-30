@@ -1,3 +1,4 @@
+import {existsSync} from 'node:fs';
 import {mkdir, readFile, readdir, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -73,6 +74,9 @@ const frontmatter = (source: string): Record<string, string> => {
 };
 
 const readSource = async (source: Source): Promise<InventoryCard[]> => {
+  if (!existsSync(source.directory)) {
+    return [];
+  }
   const files = (await walk(source.directory)).filter((file) => {
     return file.endsWith('.md') && !file.endsWith('.en.md') && !file.endsWith('README.md') && !file.endsWith('ATTRIBUTION.md');
   });
