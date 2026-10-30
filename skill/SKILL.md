@@ -135,18 +135,21 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
 
 ---
 
-### 2. 八大动效分类资产全景
+### 2. 九大领域动效分类资产全景
 
-所有 261 张卡片已完成规范化封装，支持横竖屏双模自适应：
+所有 265 张卡片已完成规范化封装，支持横竖屏双模自适应，按领域完全内聚解耦：
 
-| 类别 (Kind) | 卡片总数 | 核心视觉职能 | 代表性卡片资产 (可在代码中直接引用) |
+| 类别 (Kind) | 目录与卡片总数 | 核心视觉职能 | 代表性卡片资产 (可在代码中直接引用) |
 | :--- | :--- | :--- | :--- |
-| **`camera` (运镜类)** | 23 张 | 空间推拉摇移、镜头焦段、透视畸变，为扁平画面建立纵深空间 | `dolly-zoom` (希区柯克滑动变焦), `slow-push` (深沉慢推), `slow-pull` (渐远拉出), `shot-crash-zoom-punch` (重击冲击变焦), `space-camera-moves` (三维空间翻滚), `tension-camera-moves` (地平线倾斜张力), `overhead-camera-moves` (俯视大跨度摇移), `whip-pan` (甩镜), `orbit-drift` (环绕漂移) |
-| **`text` (文字排印类)** | 54 张 | 标题入场、字幕律动、金句强化、代码终端、字符解码 | `split-flap-flip` (机场复古机械翻牌), `scramble-decode` (乱码矩阵解码), `halation-bloom` (胶卷红晕过曝冲光), `type-rhythm-sync` (节拍字幕对齐), `tracking-expand-reveal` (字距扩散展开), `terminal-typewriter` (黑客终端打字), `keyword-reveal` (关键词渐显), `quote-card` (典雅名言卡), `highlighter-sweep` (荧光笔划线标记), `cel-flash-stomp` (定格重击频闪) |
-| **`component` (组件与交互类)** | 151 张 | 拟物实体、交互部件、动态图表、物理粒子、彩带纸屑 | `particle-sand-fill` (重力落砂沉降), `counter-confetti` (数字冲刺狂飙+彩带纸屑), `popup-book-rise` (纸艺立体书挺立), `masking-tape-slap` (美纹胶带拍贴), `command-palette-summon` (Cmd+K 悬浮召唤), `stack-reveal` (卡片折叠展开), `three-crystal` (Three.js 三维自转晶体), `number-counter` (翻滚计数), `chart-grow` (柱状折线生长), `chart-live-moves` (实时数据流), `glassmorphism-card` (毛玻璃面板) |
-| **`transition` (转场类)** | 28 张 | 两个镜头边界处的时空变换与视线过渡，消除生硬跳切 | `cube-rotate` (3D 立方体多维翻转), `clock-wipe` (时钟指针擦除), `bubble-swarm-takeover` (气泡群聚遮罩), `color-block-step-wipe` (色块步进擦除), `paper-plane-messenger` (纸飞机穿梭), `push-through` (穿透推进), `whip-pan` (高速甩镜头模糊), `dark-tunnel` (暗调隧道穿梭) |
-| **`media` (多媒体展示类)** | 15 张 | 外部图片、视频片段的入场构图与画中画对比 | `media-pop-in` (轻快弹入), `split-compare` (左右分屏滑块对比), `svg-path` (矢量路径延展), `video-pip-float` (悬浮画中画), `photo-polaroid-scatter` (拍立得照片散落) |
-| **`environment` (环境氛围类)** | 2 张 | 空间氛围粒子场、流动星空背景 | `canvas-particles` (数万流动微粒), `flying-words` (词云穿梭) |
+| **`camera` (运镜)** | `cards/camera/` (21张) | 空间推拉摇移、镜头焦段、透视畸变，为扁平画面建立纵深空间 | `dolly-zoom` (希区柯克滑动变焦), `slow-push` (深沉慢推), `slow-pull` (渐远拉出), `shot-crash-zoom-punch` (重击冲击变焦), `space-camera-moves` (三维空间翻滚), `tension-camera-moves` (地平线倾斜张力), `overhead-camera-moves` (俯视大跨度摇移), `whip-pan` (甩镜), `orbit-drift` (环绕漂移) |
+| **`typography` (文字排印)** | `cards/typography/` (52张) | 标题入场、字幕律动、金句强化、代码终端、字符解码 | `split-flap-flip` (机场复古机械翻牌), `scramble-decode` (乱码矩阵解码), `halation-bloom` (胶卷红晕过曝冲光), `type-rhythm-sync` (节拍字幕对齐), `tracking-expand-reveal` (字距扩散展开), `terminal-typewriter` (黑客终端打字), `keyword-reveal` (关键词渐显), `quote-card` (典雅名言卡), `highlighter-sweep` (荧光笔划线标记), `cel-flash-stomp` (定格重击频闪) |
+| **`interaction` (组件与交互)** | `cards/interaction/` (58张) | 拟物实体、交互部件、悬浮卡片、弹窗与光标协作 | `command-palette-summon` (Cmd+K 悬浮召唤), `stack-reveal` (卡片折叠展开), `popup-book-rise` (纸艺立体书挺立), `masking-tape-slap` (美纹胶带拍贴), `autolayout-gap-dial` (自动布局拨盘), `carousel-3d` (3D 轮播图), `theme-switch-moves` (主题切换涟漪), `collab-cursor-moves` (多光标协奏), `type-and-filter` (输入过滤), `glassmorphism-card` (毛玻璃面板) |
+| **`data` (数据与图表)** | `cards/data/` (20张) | 物理粒子沉降、动态折线柱状、仪表盘、数字狂飙冲刺 | `particle-sand-fill` (重力落砂沉降), `counter-confetti` (数字冲刺狂飙+彩带纸屑), `number-counter` (翻滚计数), `chart-grow` (柱状折线生长), `chart-live-moves` (实时数据流), `gauge-readout-moves` (仪表指针跳跃), `before-after-slider-scrub` (前后对比滑杆), `scroll-brake-moves` (滚动刹车定格) |
+| **`effects` (特效与光影)** | `cards/effects/` (22张) | 光晕扫光、HUD 扫描准星、三维自转晶体、氛围微粒场 | `three-crystal` (Three.js 三维自转晶体), `light-play-moves` (扫光漫射), `spotlight-sweep-moves` (探照灯掠影), `glow-flyline-moves` (发光飞线轨迹), `fui-hud-moves` (科技线框展开), `impact-feedback` (动漫重击冲击波), `canvas-particles` (数万流动微粒), `flying-words` (词云穿梭) |
+| **`rhythm` (剪辑与节奏)** | `cards/rhythm/` (8张) | 节奏抽帧、快闪打断、分屏对决、蒙太奇切镜 | `beat-cut-moves` (节拍闪光快切), `speed-ramp-freeze` (变速定格批注), `quad-split-parallel-scenes` (四分屏平行视线), `panel-grid-moves` (漫画分镜格重排), `rhythm-interrupt-moves` (跳切重击推进), `trailer-grammar-moves` (预告片重击黑场) |
+| **`commercial` (商业镜头)** | `cards/commercial/` (43张) | 产品宣讲镜头、品牌片头片尾、开场引题、最终落版 | `hook` (痛点钩子镜头), `price-card` (定价与方案卡), `features` (特性清单流), `store-card` (门店与位置指引), `fact-sheet` (事实说明清单), `brand-ink-open` (墨水扩散片头), `logo-shrink-wordmark-lockup` (Logo 收缩落版), `ui-to-brand-morph` (界面变异为品牌标志) |
+| **`transition` (镜头转场)** | `cards/transition/` (26张) | 镜头边界处的时空变换与视线过渡，消除生硬跳切 | `cube-rotate` (3D 立方体多维翻转), `clock-wipe` (时钟指针擦除), `bubble-swarm-takeover` (气泡群聚遮罩), `color-block-step-wipe` (色块步进擦除), `paper-plane-messenger` (纸飞机穿梭), `push-through` (穿透推进), `whip-pan` (高速甩镜头模糊), `dark-tunnel` (暗调隧道穿梭) |
+| **`media` (多媒体展示)** | `cards/media/` (15张) | 外部图片、视频片段的入场构图与画中画对比 | `media-pop-in` (轻快弹入), `split-compare` (左右分屏滑块对比), `svg-path` (矢量路径延展), `video-pip-float` (悬浮画中画), `photo-polaroid-scatter` (拍立得照片散落) |
 
 ---
 
@@ -155,17 +158,17 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
 以下仅为常见风格的灵感搭配参考，**并非死板规则**。Agent 完全可以根据实际创意进行混搭：
 
 - **科普与硬核通识 (Science Explainer)**：
-  - *灵感搭配*：`text/scramble-decode`（字符解码破局） + `component/particle-sand-fill`（物理落砂演示量级） + `media/svg-path`（概念连线） + `transition/color-block-step-wipe`。
+  - *灵感搭配*：`typography/scramble-decode`（字符解码破局） + `data/particle-sand-fill`（物理落砂演示量级） + `media/svg-path`（概念连线） + `transition/color-block-step-wipe`。
 - **哲学思辨与深度散文 (Philosophical Essay)**：
-  - *灵感搭配*：`text/halation-bloom`（高光胶片冲光） + `camera/dolly-zoom`（空间纵深抽离） + `text/quote-card`（典雅引用） + `environment/canvas-particles`（微弱浮尘）。
+  - *灵感搭配*：`typography/halation-bloom`（高光胶片冲光） + `camera/dolly-zoom`（空间纵深抽离） + `typography/quote-card`（典雅引用） + `effects/canvas-particles`（微弱浮尘）。
 - **科技产品与功能发布 (Product Promo)**：
-  - *灵感搭配*：`component/three-crystal`（三维构件亮相） + `component/command-palette-summon`（生产力呼出） + `component/counter-confetti`（性能破纪录） + `transition/cube-rotate`。
+  - *灵感搭配*：`effects/three-crystal`（三维构件亮相） + `interaction/command-palette-summon`（生产力呼出） + `data/counter-confetti`（性能破纪录） + `transition/cube-rotate`。
 - **商业战略与数据看板 (Business & Strategy)**：
-  - *灵感搭配*：`component/gauge-readout-moves`（仪表指针） + `component/chart-live-moves`（曲线生长） + `text/highlighter-sweep`（数据标记） + `transition/clock-wipe`。
+  - *灵感搭配*：`data/gauge-readout-moves`（仪表指针） + `data/chart-live-moves`（曲线生长） + `typography/highlighter-sweep`（数据标记） + `transition/clock-wipe`。
 - **音乐情绪与动态 MV (Music Story & Lyrics)**：
-  - *灵感搭配*：`text/type-rhythm-sync`（主歌节拍字条） + `text/cel-flash-stomp`（副歌定格重音） + `camera/shot-crash-zoom-punch`（重击冲撞） + `transition/whip-pan`。
+  - *灵感搭配*：`typography/type-rhythm-sync`（主歌节拍字条） + `typography/cel-flash-stomp`（副歌定格重音） + `camera/shot-crash-zoom-punch`（重击冲撞） + `transition/whip-pan`。
 - **复古手作与剪贴簿 (Scrapbook & Handcrafted)**：
-  - *灵感搭配*：`component/masking-tape-slap`（胶带拍贴） + `component/popup-book-rise`（立体书升起） + `text/split-flap-flip`（机械翻牌） + `transition/paper-plane-messenger`。
+  - *灵感搭配*：`interaction/masking-tape-slap`（胶带拍贴） + `interaction/popup-book-rise`（立体书升起） + `typography/split-flap-flip`（机械翻牌） + `transition/paper-plane-messenger`。
 
 ---
 
