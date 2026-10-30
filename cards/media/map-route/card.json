@@ -1,0 +1,61 @@
+{
+  "id": "media/map-route",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "地图路线图钉",
+  "summary": "路线逐段生长，城市图钉加速落下并回弹，地名标签侧滑出现",
+  "intents": [
+    "空间叙事",
+    "步骤",
+    "时间地点"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "promo"
+  ],
+  "inputs": [
+    "cities",
+    "map"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "svg",
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 155,
+    "minimumInFrames": 100,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "旅程、供应链或地域扩张需要顺序表达",
+      "城市之间需要明确路线关系"
+    ],
+    "avoid": [
+      "城市数量过多导致路线无法辨认",
+      "没有空间关系的纯时间流程"
+    ],
+    "pairsWith": [
+      "camera/sway-parallax"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      65,
+      130
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/map-route-pin",
+    "sourcePath": "video-talkcraft/template/cards/map-route-pin.tsx",
+    "reference": "video-talkcraft/references/cards/map-route-pin.md",
+    "status": "ready"
+  }
+}

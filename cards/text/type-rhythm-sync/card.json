@@ -1,0 +1,72 @@
+{
+  "id": "text/type-rhythm-sync",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "type-rhythm-sync",
+  "summary": "文字随声同步两式——font-weight-pump 字重脉冲（笔画随鼓点变粗弹回）与 karaoke-fill-sync 卡拉OK填色（词随旁白逐个点亮）",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "标题/标语与音轨强绑定的段落；A 绑节拍（鼓点），B 绑语音（旁白逐词）"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "karaoke-fill-sync: 卡拉OK逐字填亮 (默认)",
+      "font-weight-pump: 字重按节拍跳动 (FontWeightPump)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/type-rhythm-sync",
+    "sourcePath": "video-shotcraft/demos/typography/type-rhythm-sync/KaraokeFillSync.tsx",
+    "reference": "video-shotcraft/references/shots/typography/type-rhythm-sync.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "karaoke-fill-sync",
+      "label": "卡拉OK逐字填亮 (默认)"
+    },
+    {
+      "key": "font-weight-pump",
+      "label": "字重按节拍跳动 (FontWeightPump)"
+    }
+  ]
+}

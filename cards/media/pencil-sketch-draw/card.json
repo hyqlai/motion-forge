@@ -1,0 +1,75 @@
+{
+  "id": "media/pencil-sketch-draw",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "铅笔手绘揭示",
+  "summary": "三笔手绘路径（卡片框、主体轮廓、重点下划线）通过 dashoffset 顺畅生长，纯矢量铅笔骑在路径笔尖描画，画完抬笔淡出",
+  "intents": [
+    "现场手作",
+    "概念手绘",
+    "亲和低科技",
+    "流程示意"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "svg",
+    "component"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "svg",
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 134,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 134,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "讲概念、产品草图或底层架构时现场画给你看",
+      "亲和、手作感强、非冰冷科技调性的口播段落"
+    ],
+    "avoid": [
+      "笔尖与路径脱节",
+      "画完做高频定格抖动（破坏干净阅读感）"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      60,
+      110
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/pencil-sketch-draw",
+    "sourcePath": "video-talkcraft/template/cards/pencil-sketch-draw.tsx",
+    "reference": "video-talkcraft/references/cards/pencil-sketch-draw.md",
+    "status": "ready"
+  }
+}

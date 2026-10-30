@@ -1,0 +1,72 @@
+{
+  "id": "camera/space-camera-moves",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "space-camera-moves",
+  "summary": "3D 空间化运镜两式——exploded-view 爆炸分解（构件沿 Z 炸开再合体）、drone-dive-landing 无人机俯冲降落",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 105,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "把平面页面当 3D 实体拍的高光段落；两式都是\"大动作\"，一支片合计 ≤2 次"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "drone-dive-landing: 无人机上帝俯冲 (默认)",
+      "exploded-view: 3D零件爆炸图 (ExplodedView)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      26,
+      52,
+      89
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/space-camera-moves",
+    "sourcePath": "video-shotcraft/demos/camera/space-camera-moves/DroneDiveLanding.tsx",
+    "reference": "video-shotcraft/references/shots/camera/space-camera-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "drone-dive-landing",
+      "label": "无人机上帝俯冲 (默认)"
+    },
+    {
+      "key": "exploded-view",
+      "label": "3D零件爆炸图 (ExplodedView)"
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "id": "component/command-palette-summon",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "命令面板呼出",
+  "summary": "Raycast 与 Spotlight 级极客交互：背景压暗失焦，⌘K 命令浮窗从上方轻快弹落，快捷行错峰浮现，模拟打字实时收窄候选列表并高亮命中首条",
+  "intents": [
+    "interaction",
+    "SaaS软件",
+    "极客工具",
+    "快捷调用"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "开发者工具发布、SaaS 效率软件宣传、快捷键与自动化能力演示",
+      "需要现代桌面端生产力软件交互质感的场景"
+    ],
+    "avoid": [
+      "纯故事向或非现代科技场景",
+      "文字内容与软件快捷操作无关"
+    ],
+    "pairsWith": [
+      "component/claude-code"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      60,
+      105
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/command-palette-summon",
+    "sourcePath": "video-shotcraft/demos/_legacy/interaction/command-palette-summon/CommandPaletteSummon.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/command-palette-summon.md",
+    "status": "ready"
+  }
+}

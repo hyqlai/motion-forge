@@ -1,0 +1,95 @@
+{
+  "id": "camera/pip-zoom-box",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "画中画局部特写框",
+  "summary": "取景框在画面关键细节浮现，框带内容平移放大（zoom 2.2倍）至右侧定居，箭头指出，保留全景与局部特写共存",
+  "intents": [
+    "局部特写",
+    "画中画",
+    "重点提示",
+    "双层视野"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 112,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "zoom",
+        "label": "放大倍率",
+        "unit": "frames",
+        "defaultValue": 2.2,
+        "min": 1.5,
+        "max": 3,
+        "step": 0.1,
+        "description": "画中画内部放大倍率"
+      },
+      {
+        "name": "flyDur",
+        "label": "平移放大时长",
+        "unit": "seconds",
+        "defaultValue": 0.5,
+        "min": 0.2,
+        "max": 1.2,
+        "step": 0.05,
+        "description": "取景框带内容飞到侧边定居的时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 112,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播说到把这一块单独拎出来看，在保留全景的同时长期展示某个局部细节",
+      "产品界面局部与全局共存"
+    ],
+    "avoid": [
+      "素材分辨率不足导致放大后发虚",
+      "框与框内画面缓动不同步导致内容滑出"
+    ],
+    "pairsWith": [
+      "component/lower-third"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      35,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/pip-zoom-box",
+    "sourcePath": "video-talkcraft/template/cards/pip-zoom-box.tsx",
+    "reference": "video-talkcraft/references/cards/pip-zoom-box.md",
+    "status": "ready"
+  }
+}

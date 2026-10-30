@@ -1,0 +1,58 @@
+{
+  "id": "camera/basic-3d-scene",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "basic-3d-scene",
+  "summary": "impress.js 式空间演示：卡片以不同位置/旋转/缩放散布 3D 空间，相机取各步姿态之逆依次飞行对齐，末步拉到 OVERVIEW 总览",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 225,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "概念/路线图/三步法的空间化讲述；替代平面 slides 的\"每一步都换个空间视角\""
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      56,
+      112,
+      191
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/basic-3d-scene",
+    "sourcePath": "video-shotcraft/demos/camera/basic-3d-scene/Basic3DScene.tsx",
+    "reference": "video-shotcraft/references/shots/camera/basic-3d-scene.md",
+    "status": "ready"
+  }
+}

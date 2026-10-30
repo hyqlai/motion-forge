@@ -1,0 +1,77 @@
+{
+  "id": "component/chart-live-moves",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "chart-live-moves",
+  "summary": "活体图表三式——oscilloscope-stream 示波流线（曲线右端实时写入+突发尖峰）、unit-dot-swarm-regroup 点阵重组（点群三幕迁徙聚成数字）、axis-rescale-shock 轴爆表重标（新值冲出画框逼 y 轴重标）",
+  "intents": [
+    "data",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 170,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "数据叙事段落；分别讲\"实时性\"、\"每个数字是一个人\"、\"增长装不下\""
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "unit-dot-swarm-regroup: 散点聚拢直方图 (默认)",
+      "axis-rescale-shock: 坐标轴缩放震动 (AxisRescaleShockV2)",
+      "oscilloscope-stream: 示波器数据流 (OscilloscopeStreamV2)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      42,
+      85,
+      144
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/chart-live-moves",
+    "sourcePath": "video-shotcraft/demos/data/chart-live-moves/UnitDotSwarmRegroupV2.tsx",
+    "reference": "video-shotcraft/references/shots/data/chart-live-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "unit-dot-swarm-regroup",
+      "label": "散点聚拢直方图 (默认)"
+    },
+    {
+      "key": "axis-rescale-shock",
+      "label": "坐标轴缩放震动 (AxisRescaleShockV2)"
+    },
+    {
+      "key": "oscilloscope-stream",
+      "label": "示波器数据流 (OscilloscopeStreamV2)"
+    }
+  ]
+}

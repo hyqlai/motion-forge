@@ -1,0 +1,58 @@
+{
+  "id": "transition/mosaic-reframe",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "mosaic-reframe",
+  "summary": "12 张瓦片在规则网格、feature mosaic、对角瀑布串三种排版间连续变形，位置宽高各自插值、逐片微错峰，段间留 hold",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 214,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"同一批内容多种看法\"的陈列转场：作品集/模板库/相册产品的布局能力展示"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      53,
+      107,
+      181
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/mosaic-reframe",
+    "sourcePath": "video-shotcraft/demos/transition/mosaic-reframe/MosaicReframe.tsx",
+    "reference": "video-shotcraft/references/shots/transition/mosaic-reframe.md",
+    "status": "ready"
+  }
+}

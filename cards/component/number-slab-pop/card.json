@@ -1,0 +1,74 @@
+{
+  "id": "component/number-slab-pop",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "数字石碑弹出",
+  "summary": "深色石碑卡从下方弹入立住，大号定论数字带重音变色，双层副句相继升起，结尾微收束",
+  "intents": [
+    "关键结论",
+    "定锤数字",
+    "封面数",
+    "单点论断"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 101,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 101,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播抛出一个定论数字（23.6%，这是去年的增幅、只要 3 步）",
+      "一句话就要立住的钩子数字"
+    ],
+    "avoid": [
+      "需要展示计算过程的数（应改用 number-counter）",
+      "数字超过6位"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      35,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/number-slab-pop",
+    "sourcePath": "video-talkcraft/template/cards/number-slab-pop.tsx",
+    "reference": "video-talkcraft/references/cards/number-slab-pop.md",
+    "status": "ready"
+  }
+}

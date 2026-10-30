@@ -1,0 +1,58 @@
+{
+  "id": "component/autolayout-gap-dial",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "autolayout-gap-dial",
+  "summary": "间距拨盘驱动布局——一排链接块带框选描边+缝隙间距标注，徽章数字逐格跳动、块被参数实时推开再弹簧回弹归位；\"参数驱动布局\"的可视化",
+  "intents": [
+    "interaction",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "设计工具/低代码产品的\"改一个数、界面跟着动\"卖点镜头；\"用设计工具语义做包装\"的品类语言"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/autolayout-gap-dial",
+    "sourcePath": "video-shotcraft/demos/interaction/autolayout-gap-dial/AutolayoutGapDial.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/autolayout-gap-dial.md",
+    "status": "ready"
+  }
+}

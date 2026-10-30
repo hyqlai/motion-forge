@@ -1,0 +1,60 @@
+{
+  "id": "component/bar-chart-growth",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "柱状增长",
+  "summary": "基线先画出，柱组密集错峰逐根升起，最后一根到顶时结论 chip 弹出",
+  "intents": [
+    "数据",
+    "对比",
+    "增长"
+  ],
+  "genres": [
+    "explainer",
+    "promo"
+  ],
+  "inputs": [
+    "bars",
+    "chip"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 110,
+    "minimumInFrames": 70,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "一组随时间增长的数据需要被读作一次连续升起",
+      "最后要落一个可量化的结论"
+    ],
+    "avoid": [
+      "量程中途缩放（对比失真）",
+      "柱数过多导致错峰拖长"
+    ],
+    "pairsWith": [
+      "component/number-counter",
+      "component/chart-grow"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      44,
+      90
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/bar-chart-growth",
+    "sourcePath": "video-talkcraft/template/cards/bar-chart-growth.tsx",
+    "reference": "video-talkcraft/references/cards/bar-chart-growth.md",
+    "status": "ready"
+  }
+}

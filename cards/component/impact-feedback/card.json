@@ -1,0 +1,72 @@
+{
+  "id": "component/impact-feedback",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "impact-feedback",
+  "summary": "命中反馈两式——hit-counter 连招计数（顿帧+伤害数字+combo 跳字）、anime-impact 动漫打击帧（负片+集中线+色散）",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "元素落位/撞击的\"命中一瞬\"——给砸入、撞停加游戏级手感；按强度阶梯选式"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "anime-impact: 日漫黑白冲击波 (默认)",
+      "hit-counter: 连击跳动计数器 (HitCounter)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/impact-feedback",
+    "sourcePath": "video-shotcraft/demos/effects/impact-feedback/AnimeImpact.tsx",
+    "reference": "video-shotcraft/references/shots/effects/impact-feedback.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "anime-impact",
+      "label": "日漫黑白冲击波 (默认)"
+    },
+    {
+      "key": "hit-counter",
+      "label": "连击跳动计数器 (HitCounter)"
+    }
+  ]
+}

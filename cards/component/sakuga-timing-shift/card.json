@@ -1,0 +1,58 @@
+{
+  "id": "component/sakuga-timing-shift",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "sakuga-timing-shift",
+  "summary": "一拍三转一拍一——元素先以每 3 帧一步的手翻书顿挫移动，高潮瞬间切成逐帧丝滑冲刺，帧率量化的突变本身就是看点",
+  "intents": [
+    "rhythm",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "单元素的强调性位移（卡片入场、指标冲线）；需要\"手工感→高潮爆发\"反差的段落"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/sakuga-timing-shift",
+    "sourcePath": "video-shotcraft/demos/rhythm/sakuga-timing-shift/SakugaTimingShift.tsx",
+    "reference": "video-shotcraft/references/shots/rhythm/sakuga-timing-shift.md",
+    "status": "ready"
+  }
+}

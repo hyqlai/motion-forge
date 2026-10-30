@@ -1,0 +1,58 @@
+{
+  "id": "text/gradient-word-sweep",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "gradient-word-sweep",
+  "summary": "黑底标语里关键词被渐变彩光从左到右快速扫过\"充能\"——波前字符辉光最强向后衰减，填满后字符间勾连细紫红闪电、整词稳态泛光呼吸",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 105,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "标语里给单个动词/卖点词充能（Supercharged/faster/AI…）；能量高潮段的文字戏；黑场品牌片的口号帧"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      26,
+      52,
+      89
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/gradient-word-sweep",
+    "sourcePath": "video-shotcraft/demos/typography/gradient-word-sweep/GradientWordSweep.tsx",
+    "reference": "video-shotcraft/references/shots/typography/gradient-word-sweep.md",
+    "status": "ready"
+  }
+}

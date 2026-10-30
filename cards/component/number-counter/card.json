@@ -1,0 +1,60 @@
+{
+  "id": "component/number-counter",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "数字滚动计数",
+  "summary": "数字先快后慢滚到目标并弹一拍，支持逐位滚轮变体",
+  "intents": [
+    "数据",
+    "钩子",
+    "例证"
+  ],
+  "genres": [
+    "explainer",
+    "promo",
+    "launch"
+  ],
+  "inputs": [
+    "number",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 86,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "营收、销量、比例等关键数字需要量级感",
+      "科普或产品片需要强调单一指标"
+    ],
+    "avoid": [
+      "目标值很小且滚动显得做作",
+      "同屏需要并列多个同等权重的大数字"
+    ],
+    "pairsWith": [
+      "text/highlighter-sweep"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      48,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/number-counter",
+    "sourcePath": "video-talkcraft/template/cards/number-counter.tsx",
+    "reference": "video-talkcraft/references/cards/number-counter.md",
+    "status": "ready"
+  }
+}

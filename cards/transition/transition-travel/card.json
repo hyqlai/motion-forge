@@ -1,0 +1,58 @@
+{
+  "id": "transition/transition-travel",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "transition-travel",
+  "summary": "穿越式转场——字腔穿越：巨型章节标题的字形就是一扇窗，镜头钻进字形笔画完成换景",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "前后两镜存在\"元素/容器\"级空间关系的接缝（技法卡，与 shot-transitions 三式互补选用）"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/transition-travel",
+    "sourcePath": "video-shotcraft/demos/transition/transition-travel/LetterformZoom.tsx",
+    "reference": "video-shotcraft/references/shots/transition/transition-travel.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "name": "motion-forge",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "studio": "remotion studio core/index.ts",
+    "render": "remotion render core/index.ts Film output/film.mp4 --concurrency=2",
+    "render:sample": "remotion render core/index.ts SampleScene output/sample.mp4 --concurrency=2",
+    "still": "remotion still core/index.ts Film output/film.png --frame=60",
+    "workbench": "vite --config workbench/vite.config.ts",
+    "workbench:build": "vite build --config workbench/vite.config.ts",
+    "build": "tsc --noEmit && npm run workbench:build",
+    "cards:inventory": "tsx scripts/inventory-cards.ts",
+    "cards:validate": "tsx scripts/validate-cards.ts",
+    "cards:render": "tsx scripts/render-cards.ts",
+    "cards:docs": "tsx scripts/enrich-card-docs.ts",
+    "cards:approve": "tsx scripts/approve-cards.ts",
+    "cards:compare": "tsx scripts/compare-cards.ts",
+    "validate": "npm run cards:validate && tsx scripts/validate-project.ts",
+    "forge": "tsx scripts/motion-forge.ts"
+  },
+  "dependencies": {
+    "@react-three/fiber": "9.8.2",
+    "@remotion/cli": "4.0.539",
+    "@remotion/motion-blur": "^4.0.539",
+    "@remotion/player": "4.0.539",
+    "@remotion/three": "4.0.539",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "remotion": "4.0.539",
+    "three": "0.186.1",
+    "zod": "4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "26.6.5",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@types/three": "0.186.0",
+    "@vitejs/plugin-react": "6.1.2",
+    "tsx": "4.23.15",
+    "typescript": "7.0.2",
+    "vite": "8.3.5"
+  }
+}

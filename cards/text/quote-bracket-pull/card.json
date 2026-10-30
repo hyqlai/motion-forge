@@ -1,0 +1,94 @@
+{
+  "id": "text/quote-bracket-pull",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "引号夹句",
+  "summary": "两枚大号引号同帧反向向内夹住金句，多行文字错峰上浮，末尾荧光笔精确扫过关键短语",
+  "intents": [
+    "金句",
+    "引述",
+    "观点总结",
+    "高光台词"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 119,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "lead",
+        "label": "起手静置",
+        "unit": "seconds",
+        "defaultValue": 0.35,
+        "min": 0.1,
+        "max": 1.2,
+        "step": 0.05,
+        "description": "引号推入前的静止秒数"
+      },
+      {
+        "name": "markDur",
+        "label": "引号推入",
+        "unit": "seconds",
+        "defaultValue": 0.32,
+        "min": 0.15,
+        "max": 0.8,
+        "step": 0.02,
+        "description": "两枚引号向内夹入时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 119,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "金句要被引用的时刻（引用他人名言、复述关键主张）",
+      "不想盖住背景素材的金句"
+    ],
+    "avoid": [
+      "行数超过4行",
+      "引号颜色与正文完全一样（引号应是辅助符号而不是主角）"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      45,
+      95
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/quote-bracket-pull",
+    "sourcePath": "video-talkcraft/template/cards/quote-bracket-pull.tsx",
+    "reference": "video-talkcraft/references/cards/quote-bracket-pull.md",
+    "status": "ready"
+  }
+}

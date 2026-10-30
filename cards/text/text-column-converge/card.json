@@ -1,0 +1,58 @@
+{
+  "id": "text/text-column-converge",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "text-column-converge",
+  "summary": "双词对峙合拢——左\"NEW\"右特性词钉死在等屏边距两侧硬切轮换、全程零收缩，换到最后一词才唯一一次 ease-in-out 滑到居中咬合成短语，下方小字近乎硬切浮现；收尾揭晓型文字卡",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 180,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "特性清单收束到产品名/口号的段落（\"NEW × 一串特性 → NEW <产品名>\"式）；发布会式 recap、版本号揭晓"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      45,
+      90,
+      153
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/text-column-converge",
+    "sourcePath": "video-shotcraft/demos/typography/text-column-converge/TextColumnConverge.tsx",
+    "reference": "video-shotcraft/references/shots/typography/text-column-converge.md",
+    "status": "ready"
+  }
+}

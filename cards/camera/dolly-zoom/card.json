@@ -1,0 +1,64 @@
+{
+  "id": "camera/dolly-zoom",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "希区柯克滑动变焦",
+  "summary": "主体目标在画心尺寸恒定锁定，背景以对数曲线向镜头反向膨胀逼近并逐渐失焦，落影渐深，营造电影《迷魂记》般的强烈心理眩晕张力",
+  "intents": [
+    "camera",
+    "心理聚焦",
+    "反转高潮",
+    "顿悟时刻"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 135,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "悬念揭晓、故事反转、顿悟时刻、核心概念冲击登场",
+      "需要主体不动而整个世界被压缩逼近的电影级视差"
+    ],
+    "avoid": [
+      "背景没有元素（纯平色底无法展现反向膨胀视差）",
+      "全片频繁连续使用（易造成眩晕疲劳）"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal",
+      "component/stack-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      60,
+      115
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/dolly-zoom",
+    "sourcePath": "video-shotcraft/demos/_legacy/camera/depth-layer-moves/DollyZoomReal.tsx",
+    "reference": "video-shotcraft/references/shots/camera/depth-layer-moves.md",
+    "status": "ready"
+  }
+}

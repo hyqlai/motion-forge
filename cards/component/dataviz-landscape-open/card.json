@@ -1,0 +1,58 @@
+{
+  "id": "component/dataviz-landscape-open",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "dataviz-landscape-open",
+  "summary": "暗场支流线束地景开场——多条流线汇入主干、虚构 ID 标签浮在线上、相机重景深低速飞越",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 180,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "品牌级抽象开场（\"数据宇宙\"隐喻），接亮场产品段或字标；与 glow-flyline-moves 分工：那卡是段落内卡片之间的连线叙事，本卡是开场专用的全画幅地景"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      45,
+      90,
+      153
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/dataviz-landscape-open",
+    "sourcePath": "video-shotcraft/demos/opening/dataviz-landscape-open/DatavizLandscapeOpen.tsx",
+    "reference": "video-shotcraft/references/shots/opening/dataviz-landscape-open.md",
+    "status": "ready"
+  }
+}

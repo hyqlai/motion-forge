@@ -1,0 +1,58 @@
+{
+  "id": "component/type-and-filter",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "type-and-filter",
+  "summary": "真实 UI 上打字搜索、网格自己收敛成一张卡、点击穿透进详情页",
+  "intents": [
+    "interaction",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 73,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "功能演示的\"操作叙事\"段；搜索/筛选/进入详情的任何交互链路"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      18,
+      36,
+      62
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/type-and-filter",
+    "sourcePath": "video-shotcraft/demos/interaction/type-and-filter/TypeAndFilter.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/type-and-filter.md",
+    "status": "ready"
+  }
+}

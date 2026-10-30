@@ -1,0 +1,98 @@
+{
+  "id": "camera/orbit-drift",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "环绕微漂",
+  "summary": "3D 空间里绕静态内容做小幅椭圆环绕（相位差90°），带独立前后呼吸与投影反向位移，永不停死",
+  "intents": [
+    "空间感",
+    "底噪运镜",
+    "长讲解",
+    "高级氛围"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video",
+    "webpage"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 180,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "orbit",
+        "label": "一圈时长",
+        "unit": "seconds",
+        "defaultValue": 5.6,
+        "min": 2,
+        "max": 15,
+        "step": 0.2,
+        "description": "3D 空间环绕一周所需的秒数"
+      },
+      {
+        "name": "ampRotY",
+        "label": "横向幅度 (度)",
+        "unit": "frames",
+        "defaultValue": 6,
+        "min": 2,
+        "max": 12,
+        "step": 1,
+        "description": "水平方向微转幅度角度"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 180,
+        "min": 60,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "静态界面或卡片需要在屏幕上停留很久，需要持续的镜头生命力",
+      "讲长段落，避免画面呆滞死板"
+    ],
+    "avoid": [
+      "幅度过大（>10度）导致正文无法阅读",
+      "相位差设为0导致变成单摆"
+    ],
+    "pairsWith": [
+      "component/stack-reveal",
+      "component/step-timeline"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      90,
+      179
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/orbit-drift",
+    "sourcePath": "video-talkcraft/template/cards/orbit-drift.tsx",
+    "reference": "video-talkcraft/references/cards/orbit-drift.md",
+    "status": "ready"
+  }
+}

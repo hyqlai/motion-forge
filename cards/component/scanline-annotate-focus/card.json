@@ -1,0 +1,58 @@
+{
+  "id": "component/scanline-annotate-focus",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "scanline-annotate-focus",
+  "summary": "一条扫描线自上而下匀速掠过已存在的页面，越过哪块区块的下缘，哪块就被四角取景框从外扩处弹簧收拢对准（一次过冲），随后贴出一枚逐字打出的机器标签，顶部状态行同步计数 00/06→06/06",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"AI 正在读你的页面/品牌\"的分析镜头；设计系统/品牌规范的拆解介绍；产品能力的自我说明段"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/scanline-annotate-focus",
+    "sourcePath": "video-shotcraft/demos/effects/scanline-annotate-focus/ScanlineAnnotateFocus.tsx",
+    "reference": "video-shotcraft/references/shots/effects/scanline-annotate-focus.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "media/motion-blur-slam-in",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "运动模糊重砸入场",
+  "summary": "主体卡片自画外高速砸入（power4In），中途带重度方向运动模糊，砸中瞬间全屏轻震并伴随冲击波扩散，干净立住",
+  "intents": [
+    "甩证据",
+    "高能硬砸",
+    "爆点展示",
+    "冲击力"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 45,
+    "minimumInFrames": 30,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 45,
+        "min": 30,
+        "max": 120,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播直接甩给你看的压上时刻（数据卡、关键产品截图）",
+      "凌厉、有攻击性的高能爆点段落"
+    ],
+    "avoid": [
+      "用于平缓文艺解说",
+      "全片出现超过 2 次"
+    ],
+    "pairsWith": [
+      "text/keyword-pop-highlight"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      8,
+      15,
+      35
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/motion-blur-slam-in",
+    "sourcePath": "video-talkcraft/template/cards/motion-blur-slam-in.tsx",
+    "reference": "video-talkcraft/references/cards/motion-blur-slam-in.md",
+    "status": "ready"
+  }
+}

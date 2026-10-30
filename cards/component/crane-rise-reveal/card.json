@@ -1,0 +1,58 @@
+{
+  "id": "component/crane-rise-reveal",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "crane-rise-reveal",
+  "summary": "升降臂拉升揭示——开场怼在一行数据特写，相机沿 Y 轴减速升起后拉，行行涌入直到整面 dashboard 铺满全幅",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 165,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"从细节到全局\"的开场定场；与 drone-dive-landing（全局→单点俯冲）互为反向"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      41,
+      82,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/crane-rise-reveal",
+    "sourcePath": "video-shotcraft/demos/opening/crane-rise-reveal/CraneRiseReveal.tsx",
+    "reference": "video-shotcraft/references/shots/opening/crane-rise-reveal.md",
+    "status": "ready"
+  }
+}

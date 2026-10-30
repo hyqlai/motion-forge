@@ -1,0 +1,58 @@
+{
+  "id": "transition/wipe-transitions",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "wipe-transitions",
+  "summary": "几何擦除转场——blinds-slice 百叶窗切条（12 根 3D 叶片错峰翻面成波，波扫过后整页由 A 换成 B）",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 132,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "新旧页都不动、一条几何边界扫过完成交接的通用转场；不依赖构图里有合适元素，哪儿都能用"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      33,
+      66,
+      112
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/wipe-transitions",
+    "sourcePath": "video-shotcraft/demos/transition/wipe-transitions/BlindsSlice.tsx",
+    "reference": "video-shotcraft/references/shots/transition/wipe-transitions.md",
+    "status": "ready"
+  }
+}

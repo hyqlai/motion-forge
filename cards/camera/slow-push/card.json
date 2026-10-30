@@ -1,0 +1,96 @@
+{
+  "id": "camera/slow-push",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "缓慢推进",
+  "summary": "以连续末速缓慢推进外部内容，不改变内容本身",
+  "intents": [
+    "例证",
+    "氛围",
+    "金句"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video",
+    "webpage"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 186,
+    "minimumInFrames": 30,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "pushDur",
+        "label": "主推时长",
+        "unit": "seconds",
+        "defaultValue": 4.2,
+        "min": 1.5,
+        "max": 12,
+        "step": 0.1,
+        "description": "镜头从满画幅推向兴趣点的主行程时长"
+      },
+      {
+        "name": "holdDur",
+        "label": "余量续推",
+        "unit": "seconds",
+        "defaultValue": 1.6,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1,
+        "description": "主推到位后按末端速度继续匀速推完的时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 240,
+        "min": 60,
+        "max": 480,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "静态主体需要克制的持续运动",
+      "镜头需要缓慢收拢注意力"
+    ],
+    "avoid": [
+      "需要突然冲击的重音",
+      "低分辨率位图需要大幅推进"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal",
+      "component/stack-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      90,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/slow-push-in",
+    "sourcePath": "video-talkcraft/template/cards/slow-push-in.tsx",
+    "reference": "video-talkcraft/references/cards/slow-push-in.md",
+    "status": "ready"
+  }
+}

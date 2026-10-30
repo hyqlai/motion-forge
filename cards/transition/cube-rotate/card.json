@@ -1,0 +1,63 @@
+{
+  "id": "transition/cube-rotate",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "3D立方体翻转",
+  "summary": "真实3D立体空间转场：前后两幕映射为三维实体立方体的两个正交相邻面，90度三维回旋旋转入场，伴随深度接缝阴影与中间段虚化，实现强烈的空间换维感",
+  "intents": [
+    "transition",
+    "3D立方体",
+    "空间多面",
+    "维度跃迁"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "从一个业务维度翻转到另一个维度、对比分析、分屏章节切换",
+      "需要厚重实体三维体积感、非平面擦除的转场过渡"
+    ],
+    "avoid": [
+      "连续极短时间内多次翻转（产生眩晕）",
+      "两面内容色调极度冲突且无暗角缓冲"
+    ],
+    "pairsWith": [
+      "component/card-fan"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      50,
+      100
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/cube-rotate",
+    "sourcePath": "video-shotcraft/demos/_legacy/transition/page-turn-transitions/CubeRotate.tsx",
+    "reference": "video-shotcraft/references/shots/transition/page-turn-transitions.md",
+    "status": "ready"
+  }
+}

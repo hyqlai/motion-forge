@@ -1,0 +1,65 @@
+{
+  "id": "component/compare",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "商业镜头 · compare",
+  "summary": "对比：左右两栏（lr）或前后滑杆揭晓（beforeAfter）。左/之前 = 痛点，右/之后 = 用了产品；每栏可带一个大数字和一条 0–10 刻度条，右栏最后「胜出」发光打勾，底部一句结论。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 75,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "left 写「没用产品 / 以前」，right 写「用了产品 / 现在」；两栏 items 最好一一对应（同一件事的前后）",
+      "每栏 1–3 条，每条 ≤10 字，写具体差别（时间、步骤、结果），不要写极限词",
+      "stat 是每栏最醒目的一个数（如「2 小时」「3 分钟」），两栏都写才有对比感",
+      "level 是 0–10 的刻度条，两栏用同一把尺子；meterLabel 写这把尺子量什么（如「麻烦程度」）",
+      "lr：并排，差异一眼看全（默认）；beforeAfter：先演之前，再用滑杆揭晓之后，适合「改造前后」",
+      "verdict 是一句收口的结论（≤12 字），可不写"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "brewreel/compare",
+    "sourcePath": "brewreel/template/src/shots/compare.tsx",
+    "reference": "brewreel/docs/shots/compare.md",
+    "status": "migrating"
+  }
+}

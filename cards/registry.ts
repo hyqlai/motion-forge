@@ -1,0 +1,800 @@
+import type {MotionCardDefinition} from '../core/card';
+import {motionCardManifestSchema} from '../core/schema';
+import keywordManifest from './text/keyword-reveal/card.json';
+import {KeywordReveal} from './text/keyword-reveal';
+import stackManifest from './component/stack-reveal/card.json';
+import {StackReveal} from './component/stack-reveal';
+import cameraManifest from './camera/slow-push/card.json';
+import {SlowPush} from './camera/slow-push';
+import svgManifest from './media/svg-path/card.json';
+import {SvgPath} from './media/svg-path';
+import canvasManifest from './environment/canvas-particles/card.json';
+import {CanvasParticles} from './environment/canvas-particles';
+import threeManifest from './component/three-crystal/card.json';
+import {ThreeCrystal} from './component/three-crystal';
+import quoteManifest from './text/quote-card/card.json';
+import {QuoteCard} from './text/quote-card';
+import {NumberCounter} from './component/number-counter';
+import highlighterManifest from './text/highlighter-sweep/card.json';
+import {HighlighterSweep} from './text/highlighter-sweep';
+import popInManifest from './media/pop-in/card.json';
+import {MediaPopIn} from './media/pop-in';
+import flyingManifest from './environment/flying-words/card.json';
+import {FlyingWords} from './environment/flying-words';
+import pushThroughManifest from './transition/push-through/card.json';
+import {PushThrough} from './transition/push-through';
+import typewriterManifest from './text/typewriter-reveal/card.json';
+import {TypewriterReveal} from './text/typewriter-reveal';
+import chartManifest from './component/chart-grow/card.json';
+import {ChartGrow} from './component/chart-grow';
+import {SplitCompare} from './media/split-compare';
+import slowPullManifest from './camera/slow-pull/card.json';
+import {SlowPull} from './camera/slow-pull';
+import logoManifest from './component/logo-enter/card.json';
+import {LogoEnter} from './component/logo-enter';
+import whipManifest from './transition/whip-pan/card.json';
+import {WhipPan} from './transition/whip-pan';
+import strikeManifest from './text/strike-replace/card.json';
+import {StrikeReplace} from './text/strike-replace';
+import stepManifest from './component/step-timeline/card.json';
+import {StepTimeline} from './component/step-timeline';
+import mapManifest from './media/map-route/card.json';
+import {MapRoute} from './media/map-route';
+import swayManifest from './camera/sway-parallax/card.json';
+import {SwayParallax} from './camera/sway-parallax';
+import overexposeManifest from './transition/overexpose-flip/card.json';
+import {OverexposeFlip} from './transition/overexpose-flip';
+import fanManifest from './component/card-fan/card.json';
+import {CardFan} from './component/card-fan';
+import infoTermManifest from './component/info-term-card/card.json';
+import {InfoTermCard} from './component/info-term-card';
+import barGrowthManifest from './component/bar-chart-growth/card.json';
+import {BarChartGrowth} from './component/bar-chart-growth';
+import stepStackManifest from './component/step-stack/card.json';
+import {StepStack} from './component/step-stack';
+import rackFocusManifest from './media/rack-focus/card.json';
+import {RackFocus} from './media/rack-focus';
+import pullbackCoolManifest from './transition/pullback-cool/card.json';
+import {PullbackCool} from './transition/pullback-cool';
+import gridHeroManifest from './media/grid-to-hero/card.json';
+import {GridToHero} from './media/grid-to-hero';
+import chapterTitleManifest from './component/chapter-title/card.json';
+import {ChapterTitle} from './component/chapter-title';
+import charRiseManifest from './text/char-rise/card.json';
+import {CharRise} from './text/char-rise';
+import lineSlideManifest from './text/line-slide/card.json';
+import {LineSlide} from './text/line-slide';
+import metricSparklineManifest from './component/metric-sparkline/card.json';
+import {MetricSparkline} from './component/metric-sparkline';
+import lowerThirdManifest from './component/lower-third/card.json';
+import {LowerThird} from './component/lower-third';
+import blackSlamManifest from './transition/black-slam/card.json';
+import {BlackSlam} from './transition/black-slam';
+import altBlockManifest from './text/alt-block-lines/card.json';
+import {AltBlockLines} from './text/alt-block-lines';
+import countBadgeManifest from './text/count-badge-title/card.json';
+import {CountBadgeTitle} from './text/count-badge-title';
+import handEllipseManifest from './component/hand-drawn-ellipse/card.json';
+import {HandDrawnEllipse} from './component/hand-drawn-ellipse';
+import caretWipeManifest from './transition/caret-wipe/card.json';
+import {CaretWipe} from './transition/caret-wipe';
+import orbitDriftManifest from './camera/orbit-drift/card.json';
+import {OrbitDrift} from './camera/orbit-drift';
+import shapeWipeManifest from './transition/shape-wipe/card.json';
+import {ShapeWipe} from './transition/shape-wipe';
+import kwPopManifest from './text/keyword-pop-highlight/card.json';
+import {KeywordPopHighlight} from './text/keyword-pop-highlight';
+import calloutLabelManifest from './component/callout-line-label/card.json';
+import {CalloutLineLabel} from './component/callout-line-label';
+import focusDimManifest from './component/focus-dim-spotlight/card.json';
+import {FocusDimSpotlight} from './component/focus-dim-spotlight';
+import termLogManifest from './component/terminal-typing-log/card.json';
+import {TerminalTypingLog} from './component/terminal-typing-log';
+import colorSlamManifest from './text/color-slam-beat-card/card.json';
+import {ColorSlamBeatCard} from './text/color-slam-beat-card';
+import quoteBracketManifest from './text/quote-bracket-pull/card.json';
+import {QuoteBracketPull} from './text/quote-bracket-pull';
+import reticleManifest from './component/reticle-lock-on/card.json';
+import {ReticleLockOn} from './component/reticle-lock-on';
+import particleWeldManifest from './transition/particle-weld/card.json';
+import {ParticleWeld} from './transition/particle-weld';
+import pipZoomManifest from './camera/pip-zoom-box/card.json';
+import {PipZoomBox} from './camera/pip-zoom-box';
+import glassCodeManifest from './component/glass-code-walk/card.json';
+import {GlassCodeWalk} from './component/glass-code-walk';
+import lineChartStoryManifest from './component/line-chart-story-draw/card.json';
+import {LineChartStoryDraw} from './component/line-chart-story-draw';
+import pencilSketchManifest from './media/pencil-sketch-draw/card.json';
+import {PencilSketchDraw} from './media/pencil-sketch-draw';
+import errorRetypeManifest from './text/error-retype/card.json';
+import {ErrorRetype} from './text/error-retype';
+import wordSlotManifest from './text/word-slot-cycle/card.json';
+import {WordSlotCycle} from './text/word-slot-cycle';
+import slabPunchManifest from './text/slab-punch-title/card.json';
+import {SlabPunchTitle} from './text/slab-punch-title';
+import countArcManifest from './text/countdown-arc-scatter/card.json';
+import {CountdownArcScatter} from './text/countdown-arc-scatter';
+import unitGridManifest from './component/unit-grid-proportion/card.json';
+import {UnitGridProportion} from './component/unit-grid-proportion';
+import sourceConvergeManifest from './component/source-converge/card.json';
+import {SourceConverge} from './component/source-converge';
+import split6040Manifest from './component/split-60-40-story/card.json';
+import {Split6040Story} from './component/split-60-40-story';
+import numberSlabManifest from './component/number-slab-pop/card.json';
+import {NumberSlabPop} from './component/number-slab-pop';
+import outlineBoxManifest from './text/outline-box-title/card.json';
+import {OutlineBoxTitle} from './text/outline-box-title';
+import splitTextManifest from './text/split-text-stagger/card.json';
+import {SplitTextStagger} from './text/split-text-stagger';
+import impactTitleManifest from './text/impact-open-title/card.json';
+import {ImpactOpenTitle} from './text/impact-open-title';
+import scribbleManifest from './component/scribble-annotation/card.json';
+import {ScribbleAnnotation} from './component/scribble-annotation';
+import typeContrastManifest from './text/type-contrast-emphasis/card.json';
+import {TypeContrastEmphasis} from './text/type-contrast-emphasis';
+import docParkManifest from './component/doc-park-left-pill-deal/card.json';
+import {DocParkLeftPillDeal} from './component/doc-park-left-pill-deal';
+import chapterProgressManifest from './component/chapter-progress-list/card.json';
+import {ChapterProgressList} from './component/chapter-progress-list';
+import uiPropManifest from './component/ui-prop-theater/card.json';
+import {UiPropTheater} from './component/ui-prop-theater';
+import leadWordManifest from './text/lead-word-zoom-assemble/card.json';
+import {LeadWordZoomAssemble} from './text/lead-word-zoom-assemble';
+import trackingInManifest from './text/tracking-in/card.json';
+import {TrackingIn} from './text/tracking-in';
+import softBlurManifest from './text/soft-blur-in/card.json';
+import {SoftBlurIn} from './text/soft-blur-in';
+import speedSlabManifest from './text/speed-slab-title/card.json';
+import {SpeedSlabTitle} from './text/speed-slab-title';
+import motionSlamManifest from './media/motion-blur-slam-in/card.json';
+import {MotionBlurSlamIn} from './media/motion-blur-slam-in';
+import evidenceTourManifest from './media/evidence-scroll-tour/card.json';
+import {EvidenceScrollTour} from './media/evidence-scroll-tour';
+import galleryDollyManifest from './media/gallery-wall-dolly/card.json';
+import {GalleryWallDolly} from './media/gallery-wall-dolly';
+import tilt3dManifest from './camera/tilt-3d-page/card.json';
+import {Tilt3dPage} from './camera/tilt-3d-page';
+import gooeyMorphManifest from './component/gooey-morph/card.json';
+import {GooeyMorph} from './component/gooey-morph';
+import stillRelayManifest from './media/still-layout-relay/card.json';
+import {StillLayoutRelay} from './media/still-layout-relay';
+import claudeCodeManifest from './component/claude-code/card.json';
+import {ClaudeCode} from './component/claude-code';
+import newsCardManifest from './component/news-card-desk/card.json';
+import {NewsCardDesk} from './component/news-card-desk';
+import infoAssembleManifest from './component/info-card-assemble/card.json';
+import {InfoCardAssemble} from './component/info-card-assemble';
+import stackFanManifest from './component/stack-fan-out/card.json';
+import {StackFanOut} from './component/stack-fan-out';
+import danmuManifest from './component/danmu-bubble-praise/card.json';
+import {DanmuBubblePraise} from './component/danmu-bubble-praise';
+import titleDemoteManifest from './text/title-demote-to-label/card.json';
+import {TitleDemoteToLabel} from './text/title-demote-to-label';
+import cursorActorManifest from './component/cursor-actor-demo/card.json';
+import {CursorActorDemo} from './component/cursor-actor-demo';
+import crashZoomManifest from './camera/crash-zoom-punch/card.json';
+import {CrashZoomPunch} from './camera/crash-zoom-punch';
+import wordFilmstripManifest from './media/word-relay-filmstrip/card.json';
+import {WordRelayFilmstrip} from './media/word-relay-filmstrip';
+import subscribeCtaManifest from './component/subscribe-cta/card.json';
+import {SubscribeCta} from './component/subscribe-cta';
+import bedEchoManifest from './media/bed-echo-blur/card.json';
+import {BedEchoBlur} from './media/bed-echo-blur';
+import inkUnderlineManifest from './text/ink-underline/card.json';
+import {InkUnderline} from './text/ink-underline';
+import chevLowerManifest from './component/chevron-lower-third/card.json';
+import {ChevronLowerThird} from './component/chevron-lower-third';
+import quoteHoldArrowManifest from './text/quote-hold-arrow/card.json';
+import {QuoteHoldArrow} from './text/quote-hold-arrow';
+import magDetailManifest from './camera/magnifier-detail/card.json';
+import {MagnifierDetail} from './camera/magnifier-detail';
+import lineCarryManifest from './transition/line-carry/card.json';
+import {LineCarry} from './transition/line-carry';
+import scanlineAnnoManifest from './component/scanline-annotate/card.json';
+import {ScanlineAnnotate} from './component/scanline-annotate';
+import chipGridManifest from './component/chip-grid-single-select/card.json';
+import {ChipGridSingleSelect} from './component/chip-grid-single-select';
+import timelineStripManifest from './media/timeline-photo-strip/card.json';
+import {TimelinePhotoStrip} from './media/timeline-photo-strip';
+import filmConveyorManifest from './media/filmstrip-conveyor/card.json';
+import {FilmstripConveyor} from './media/filmstrip-conveyor';
+import stageTourManifest from './camera/stage-keyframe-tour/card.json';
+import {StageKeyframeTour} from './camera/stage-keyframe-tour';
+import behindTitleManifest from './text/behind-text-title/card.json';
+import {BehindTextTitle} from './text/behind-text-title';
+import convArrowsManifest from './component/converging-arrows/card.json';
+import {ConvergingArrows} from './component/converging-arrows';
+import cornerFrameManifest from './component/corner-bracket-frame/card.json';
+import {CornerBracketFrame} from './component/corner-bracket-frame';
+import douyinFollowManifest from './component/douyin-follow-card/card.json';
+import {DouyinFollowCard} from './component/douyin-follow-card';
+import xFollowManifest from './component/x-follow-card/card.json';
+import {XFollowCard} from './component/x-follow-card';
+import hostShrinkManifest from './component/host-shrink-to-chip/card.json';
+import {HostShrinkToChip} from './component/host-shrink-to-chip';
+import parallelItemsManifest from './component/parallel-items-with-host/card.json';
+import {ParallelItemsWithHost} from './component/parallel-items-with-host';
+import cursorLockManifest from './camera/cursor-locked-zoom/card.json';
+import {CursorLockedZoom} from './camera/cursor-locked-zoom';
+import glassBoardManifest from './component/host-card-glass-board/card.json';
+import {HostCardGlassBoard} from './component/host-card-glass-board';
+import uiFlowManifest from './component/ui-flow-theater/card.json';
+import {UiFlowTheater} from './component/ui-flow-theater';
+import longTakeManifest from './transition/long-take-world/card.json';
+import {LongTakeWorld} from './transition/long-take-world';
+
+import blurSlideManifest from './text/blur-slide/card.json';
+import {BlurSlide} from './text/blur-slide';
+import braceExpandManifest from './text/brace-expand/card.json';
+import {BraceExpand} from './text/brace-expand';
+import paperTitleCardManifest from './text/paper-title-card/card.json';
+import {PaperTitleCard} from './text/paper-title-card';
+import markerUnderlineTitleManifest from './text/marker-underline-title/card.json';
+import {MarkerUnderlineTitle} from './text/marker-underline-title';
+import gradientWordSweepManifest from './text/gradient-word-sweep/card.json';
+import {GradientWordSweep} from './text/gradient-word-sweep';
+import outlineWordFillManifest from './text/outline-word-fill/card.json';
+import {OutlineWordFill} from './text/outline-word-fill';
+import glitchCycleManifest from './text/glitch-cycle/card.json';
+import {GlitchCycle} from './text/glitch-cycle';
+import pillSlotCycleManifest from './text/pill-slot-cycle/card.json';
+import {PillSlotCycle} from './text/pill-slot-cycle';
+import textColumnConvergeManifest from './text/text-column-converge/card.json';
+import {TextColumnConverge} from './text/text-column-converge';
+import typeRhythmSyncManifest from './text/type-rhythm-sync/card.json';
+import {TypeRhythmSync} from './text/type-rhythm-sync';
+
+import shotCountdownArcScatterManifest from './text/shot-countdown-arc-scatter/card.json';
+import {ShotCountdownArcScatter} from './text/shot-countdown-arc-scatter';
+import documentTypewriterRevealManifest from './text/document-typewriter-reveal/card.json';
+import {DocumentTypewriterReveal} from './text/document-typewriter-reveal';
+import shotLeadWordZoomAssembleManifest from './text/shot-lead-word-zoom-assemble/card.json';
+import {ShotLeadWordZoomAssemble} from './text/shot-lead-word-zoom-assemble';
+import pillChipSlotCycleHandledManifest from './text/pill-chip-slot-cycle-handled/card.json';
+import {PillChipSlotCycleHandled} from './text/pill-chip-slot-cycle-handled';
+import shotTitleDemoteToLabelManifest from './text/shot-title-demote-to-label/card.json';
+import {ShotTitleDemoteToLabel} from './text/shot-title-demote-to-label';
+import typeAssemblyMovesManifest from './text/type-assembly-moves/card.json';
+import {TypeAssemblyMoves} from './text/type-assembly-moves';
+import typeEntranceMovesManifest from './text/type-entrance-moves/card.json';
+import {TypeEntranceMoves} from './text/type-entrance-moves';
+import typewriterMovesManifest from './text/typewriter-moves/card.json';
+import {TypewriterMoves} from './text/typewriter-moves';
+import verticalWordRollBlurCycleManifest from './text/vertical-word-roll-blur-cycle/card.json';
+import {VerticalWordRollBlurCycle} from './text/vertical-word-roll-blur-cycle';
+import wordRelayFilmstripManifest from './text/word-relay-filmstrip/card.json';
+import {WordRelayFilmstrip as ShotTextWordRelayFilmstrip} from './text/word-relay-filmstrip';
+import wordRelayGeometryManifest from './text/word-relay-geometry/card.json';
+import {WordRelayGeometry} from './text/word-relay-geometry';
+
+import basic3dSceneManifest from './camera/basic-3d-scene/card.json';
+import {Basic3dScene} from './camera/basic-3d-scene';
+import shotCrashZoomPunchManifest from './camera/shot-crash-zoom-punch/card.json';
+import {ShotCrashZoomPunch} from './camera/shot-crash-zoom-punch';
+import cursorFlyoverManifest from './camera/cursor-flyover/card.json';
+import {CursorFlyover} from './camera/cursor-flyover';
+import depthLayerMovesManifest from './camera/depth-layer-moves/card.json';
+import {DepthLayerMoves} from './camera/depth-layer-moves';
+import grazeFaceTourManifest from './camera/graze-face-tour/card.json';
+import {GrazeFaceTour} from './camera/graze-face-tour';
+import overheadCameraMovesManifest from './camera/overhead-camera-moves/card.json';
+import {OverheadCameraMoves} from './camera/overhead-camera-moves';
+import spaceCameraMovesManifest from './camera/space-camera-moves/card.json';
+import {SpaceCameraMoves} from './camera/space-camera-moves';
+import steepTiltGlideManifest from './camera/steep-tilt-glide/card.json';
+import {SteepTiltGlide} from './camera/steep-tilt-glide';
+import tensionCameraMovesManifest from './camera/tension-camera-moves/card.json';
+import {TensionCameraMoves} from './camera/tension-camera-moves';
+import terminal3dManifest from './camera/terminal-3d/card.json';
+import {Terminal3d} from './camera/terminal-3d';
+import beforeAfterSliderScrubManifest from './component/before-after-slider-scrub/card.json';
+import {BeforeAfterSliderScrub} from './component/before-after-slider-scrub';
+import chartLiveMovesManifest from './component/chart-live-moves/card.json';
+import {ChartLiveMoves} from './component/chart-live-moves';
+import gaugeReadoutMovesManifest from './component/gauge-readout-moves/card.json';
+import {GaugeReadoutMoves} from './component/gauge-readout-moves';
+import scrollBrakeMovesManifest from './component/scroll-brake-moves/card.json';
+import {ScrollBrakeMoves} from './component/scroll-brake-moves';
+import timelineTravelManifest from './component/timeline-travel/card.json';
+import {TimelineTravel} from './component/timeline-travel';
+
+import autolayoutGapDialManifest from './component/autolayout-gap-dial/card.json';
+import {AutolayoutGapDial} from './component/autolayout-gap-dial';
+import avatarBracketCarouselManifest from './component/avatar-bracket-carousel/card.json';
+import {AvatarBracketCarousel} from './component/avatar-bracket-carousel';
+import bezierSourceConvergeMergeManifest from './component/bezier-source-converge-merge/card.json';
+import {BezierSourceConvergeMerge} from './component/bezier-source-converge-merge';
+import canvasMaterializeMovesManifest from './component/canvas-materialize-moves/card.json';
+import {CanvasMaterializeMoves} from './component/canvas-materialize-moves';
+import carousel3dManifest from './component/carousel-3d/card.json';
+import {Carousel3d} from './component/carousel-3d';
+import chipGridSingleSelectBlackoutManifest from './component/chip-grid-single-select-blackout/card.json';
+import {ChipGridSingleSelectBlackout} from './component/chip-grid-single-select-blackout';
+import clonerDepthEchoManifest from './component/cloner-depth-echo/card.json';
+import {ClonerDepthEcho} from './component/cloner-depth-echo';
+import collabCursorMovesManifest from './component/collab-cursor-moves/card.json';
+import {CollabCursorMoves} from './component/collab-cursor-moves';
+import deckDealFlyinManifest from './component/deck-deal-flyin/card.json';
+import {DeckDealFlyin} from './component/deck-deal-flyin';
+import shotDocParkLeftPillDealManifest from './component/shot-doc-park-left-pill-deal/card.json';
+import {ShotDocParkLeftPillDeal} from './component/shot-doc-park-left-pill-deal';
+import drawSvgTraceManifest from './component/draw-svg-trace/card.json';
+import {DrawSvgTrace} from './component/draw-svg-trace';
+import elementBodyMovesManifest from './component/element-body-moves/card.json';
+import {ElementBodyMoves} from './component/element-body-moves';
+import glassPillDictationTypingManifest from './component/glass-pill-dictation-typing/card.json';
+import {GlassPillDictationTyping} from './component/glass-pill-dictation-typing';
+import hashtagToPillMaterializeManifest from './component/hashtag-to-pill-materialize/card.json';
+import {HashtagToPillMaterialize} from './component/hashtag-to-pill-materialize';
+import integrationHubMapManifest from './component/integration-hub-map/card.json';
+import {IntegrationHubMap} from './component/integration-hub-map';
+import listRevealManifest from './component/list-reveal/card.json';
+import {ListReveal} from './component/list-reveal';
+import listStackPressManifest from './component/list-stack-press/card.json';
+import {ListStackPress} from './component/list-stack-press';
+import neonFrameForerunManifest from './component/neon-frame-forerun/card.json';
+import {NeonFrameForerun} from './component/neon-frame-forerun';
+import neonFrameOrbitDropManifest from './component/neon-frame-orbit-drop/card.json';
+import {NeonFrameOrbitDrop} from './component/neon-frame-orbit-drop';
+import pageWaterfallWallManifest from './component/page-waterfall-wall/card.json';
+import {PageWaterfallWall} from './component/page-waterfall-wall';
+import pickerCarouselFeatureCycleManifest from './component/picker-carousel-feature-cycle/card.json';
+import {PickerCarouselFeatureCycle} from './component/picker-carousel-feature-cycle';
+import productCardProgressiveAssembleManifest from './component/product-card-progressive-assemble/card.json';
+import {ProductCardProgressiveAssemble} from './component/product-card-progressive-assemble';
+import radialWaveManifest from './component/radial-wave/card.json';
+import {RadialWave} from './component/radial-wave';
+import researchCardStackScrollManifest from './component/research-card-stack-scroll/card.json';
+import {ResearchCardStackScroll} from './component/research-card-stack-scroll';
+import rowEmbedManifest from './component/row-embed/card.json';
+import {RowEmbed} from './component/row-embed';
+import segmentedThumbHeroManifest from './component/segmented-thumb-hero/card.json';
+import {SegmentedThumbHero} from './component/segmented-thumb-hero';
+import themeSwitchMovesManifest from './component/theme-switch-moves/card.json';
+import {ThemeSwitchMoves} from './component/theme-switch-moves';
+import typeAndFilterManifest from './component/type-and-filter/card.json';
+import {TypeAndFilter} from './component/type-and-filter';
+import valueStaggerGradientManifest from './component/value-stagger-gradient/card.json';
+import {ValueStaggerGradient} from './component/value-stagger-gradient';
+import voiceWaveformLiveManifest from './component/voice-waveform-live/card.json';
+import {VoiceWaveformLive} from './component/voice-waveform-live';
+import wallRevealMovesManifest from './component/wall-reveal-moves/card.json';
+import {WallRevealMoves} from './component/wall-reveal-moves';
+
+import assembleThenTypeFlyinManifest from './component/assemble-then-type-flyin/card.json';
+import {AssembleThenTypeFlyin} from './component/assemble-then-type-flyin';
+import auroraBloomBgFlipManifest from './component/aurora-bloom-bg-flip/card.json';
+import {AuroraBloomBgFlip} from './component/aurora-bloom-bg-flip';
+import brandFrameSnapManifest from './component/brand-frame-snap/card.json';
+import {BrandFrameSnap} from './component/brand-frame-snap';
+import fuiHudMovesManifest from './component/fui-hud-moves/card.json';
+import {FuiHudMoves} from './component/fui-hud-moves';
+import glowFlylineMovesManifest from './component/glow-flyline-moves/card.json';
+import {GlowFlylineMoves} from './component/glow-flyline-moves';
+import iconPerformanceMovesManifest from './component/icon-performance-moves/card.json';
+import {IconPerformanceMoves} from './component/icon-performance-moves';
+import impactFeedbackManifest from './component/impact-feedback/card.json';
+import {ImpactFeedback} from './component/impact-feedback';
+import lightPlayMovesManifest from './component/light-play-moves/card.json';
+import {LightPlayMoves} from './component/light-play-moves';
+import radialRipplePhoneChipsManifest from './component/radial-ripple-phone-chips/card.json';
+import {RadialRipplePhoneChips} from './component/radial-ripple-phone-chips';
+import risoPrintHitsManifest from './component/riso-print-hits/card.json';
+import {RisoPrintHits} from './component/riso-print-hits';
+import scanBracketSweepManifest from './component/scan-bracket-sweep/card.json';
+import {ScanBracketSweep} from './component/scan-bracket-sweep';
+import scanlineAnnotateFocusManifest from './component/scanline-annotate-focus/card.json';
+import {ScanlineAnnotateFocus} from './component/scanline-annotate-focus';
+import scanlineAssembleFlyinManifest from './component/scanline-assemble-flyin/card.json';
+import {ScanlineAssembleFlyin} from './component/scanline-assemble-flyin';
+import slamEntranceMovesManifest from './component/slam-entrance-moves/card.json';
+import {SlamEntranceMoves} from './component/slam-entrance-moves';
+import spotlightSweepMovesManifest from './component/spotlight-sweep-moves/card.json';
+import {SpotlightSweepMoves} from './component/spotlight-sweep-moves';
+import beatCutMovesManifest from './component/beat-cut-moves/card.json';
+import {BeatCutMoves} from './component/beat-cut-moves';
+import beatStepListThemeCycleManifest from './component/beat-step-list-theme-cycle/card.json';
+import {BeatStepListThemeCycle} from './component/beat-step-list-theme-cycle';
+import panelGridMovesManifest from './component/panel-grid-moves/card.json';
+import {PanelGridMoves} from './component/panel-grid-moves';
+import quadSplitParallelScenesManifest from './component/quad-split-parallel-scenes/card.json';
+import {QuadSplitParallelScenes} from './component/quad-split-parallel-scenes';
+import rhythmInterruptMovesManifest from './component/rhythm-interrupt-moves/card.json';
+import {RhythmInterruptMoves} from './component/rhythm-interrupt-moves';
+import sakugaTimingShiftManifest from './component/sakuga-timing-shift/card.json';
+import {SakugaTimingShift} from './component/sakuga-timing-shift';
+import speedRampFreezeManifest from './component/speed-ramp-freeze/card.json';
+import {SpeedRampFreeze} from './component/speed-ramp-freeze';
+import trailerGrammarMovesManifest from './component/trailer-grammar-moves/card.json';
+import {TrailerGrammarMoves} from './component/trailer-grammar-moves';
+import bottomPushStackWipeManifest from './transition/bottom-push-stack-wipe/card.json';
+import {BottomPushStackWipe} from './transition/bottom-push-stack-wipe';
+import cardFlipRevealManifest from './transition/card-flip-reveal/card.json';
+import {CardFlipReveal} from './transition/card-flip-reveal';
+import cardFlockTumbleManifest from './transition/card-flock-tumble/card.json';
+import {CardFlockTumble} from './transition/card-flock-tumble';
+import circleMatchIrisManifest from './transition/circle-match-iris/card.json';
+import {CircleMatchIris} from './transition/circle-match-iris';
+import gradientTransitionManifest from './transition/gradient-transition/card.json';
+import {GradientTransition} from './transition/gradient-transition';
+import lineCarryTransitionManifest from './transition/line-carry-transition/card.json';
+import {LineCarryTransition} from './transition/line-carry-transition';
+import mosaicReframeManifest from './transition/mosaic-reframe/card.json';
+import {MosaicReframe} from './transition/mosaic-reframe';
+import pageTurnTransitionsManifest from './transition/page-turn-transitions/card.json';
+import {PageTurnTransitions} from './transition/page-turn-transitions';
+import printTextureTransitionsManifest from './transition/print-texture-transitions/card.json';
+import {PrintTextureTransitions} from './transition/print-texture-transitions';
+import shotTransitionsManifest from './transition/shot-transitions/card.json';
+import {ShotTransitions} from './transition/shot-transitions';
+import tearStreakTransitionsManifest from './transition/tear-streak-transitions/card.json';
+import {TearStreakTransitions} from './transition/tear-streak-transitions';
+import transitionHiddenCutManifest from './transition/transition-hidden-cut/card.json';
+import {TransitionHiddenCut} from './transition/transition-hidden-cut';
+import transitionTravelManifest from './transition/transition-travel/card.json';
+import {TransitionTravel} from './transition/transition-travel';
+import whiteFlashLogoSimplifyCutManifest from './transition/white-flash-logo-simplify-cut/card.json';
+import {WhiteFlashLogoSimplifyCut} from './transition/white-flash-logo-simplify-cut';
+import wipeTransitionsManifest from './transition/wipe-transitions/card.json';
+import {WipeTransitions} from './transition/wipe-transitions';
+import brandInkOpenManifest from './component/brand-ink-open/card.json';
+import {BrandInkOpen} from './component/brand-ink-open';
+import craneRiseRevealManifest from './component/crane-rise-reveal/card.json';
+import {CraneRiseReveal} from './component/crane-rise-reveal';
+import datavizLandscapeOpenManifest from './component/dataviz-landscape-open/card.json';
+import {DatavizLandscapeOpen} from './component/dataviz-landscape-open';
+import fractureManifest from './component/fracture/card.json';
+import {Fracture} from './component/fracture';
+import iconFieldColorizeManifest from './component/icon-field-colorize/card.json';
+import {IconFieldColorize} from './component/icon-field-colorize';
+import letterspaceMaterializeManifest from './component/letterspace-materialize/card.json';
+import {LetterspaceMaterialize} from './component/letterspace-materialize';
+import magicianCardFlourishManifest from './component/magician-card-flourish/card.json';
+import {MagicianCardFlourish} from './component/magician-card-flourish';
+import orbitRingTitleOpenManifest from './component/orbit-ring-title-open/card.json';
+import {OrbitRingTitleOpen} from './component/orbit-ring-title-open';
+import spotlightHeroCardManifest from './component/spotlight-hero-card/card.json';
+import {SpotlightHeroCard} from './component/spotlight-hero-card';
+import strokeSegmentBuildManifest from './component/stroke-segment-build/card.json';
+import {StrokeSegmentBuild} from './component/stroke-segment-build';
+import textAsMaskManifest from './component/text-as-mask/card.json';
+import {TextAsMask} from './component/text-as-mask';
+import grainDissolveManifest from './component/grain-dissolve/card.json';
+import {GrainDissolve} from './component/grain-dissolve';
+import logoShrinkWordmarkLockupManifest from './component/logo-shrink-wordmark-lockup/card.json';
+import {LogoShrinkWordmarkLockup} from './component/logo-shrink-wordmark-lockup';
+import neonTripleMarqueeManifest from './component/neon-triple-marquee/card.json';
+import {NeonTripleMarquee} from './component/neon-triple-marquee';
+import outroGroupPhotoLaunchManifest from './component/outro-group-photo-launch/card.json';
+import {OutroGroupPhotoLaunch} from './component/outro-group-photo-launch';
+import uiStripAwayOutroManifest from './component/ui-strip-away-outro/card.json';
+import {UiStripAwayOutro} from './component/ui-strip-away-outro';
+import uiToBrandMorphManifest from './component/ui-to-brand-morph/card.json';
+import {UiToBrandMorph} from './component/ui-to-brand-morph';
+
+
+import hookManifest from './component/hook/card.json';
+import {Hook} from './component/hook';
+import chatManifest from './component/chat/card.json';
+import {Chat} from './component/chat';
+import phoneManifest from './component/phone/card.json';
+import {Phone} from './component/phone';
+import mockAppManifest from './component/mock-app/card.json';
+import {MockApp} from './component/mock-app';
+import meterManifest from './component/meter/card.json';
+import {Meter} from './component/meter';
+import compareManifest from './component/compare/card.json';
+import {Compare} from './component/compare';
+import counterManifest from './component/counter/card.json';
+import {Counter} from './component/counter';
+import dataChartManifest from './component/data-chart/card.json';
+import {DataChart} from './component/data-chart';
+import featuresManifest from './component/features/card.json';
+import {Features} from './component/features';
+import stepsManifest from './component/steps/card.json';
+import {Steps} from './component/steps';
+import quickListManifest from './component/quick-list/card.json';
+import {QuickList} from './component/quick-list';
+import endCardManifest from './component/end-card/card.json';
+import {EndCard} from './component/end-card';
+import photoShotManifest from './component/photo-shot/card.json';
+import {PhotoShot} from './component/photo-shot';
+import priceCardManifest from './component/price-card/card.json';
+import {PriceCard} from './component/price-card';
+import storeCardManifest from './component/store-card/card.json';
+import {StoreCard} from './component/store-card';
+import reviewCardManifest from './component/review-card/card.json';
+import {ReviewCard} from './component/review-card';
+import factSheetManifest from './component/fact-sheet/card.json';
+import {FactSheet} from './component/fact-sheet';
+import credCardManifest from './component/cred-card/card.json';
+import {CredCard} from './component/cred-card';
+import beforeAfterManifest from './component/before-after/card.json';
+import {BeforeAfter} from './component/before-after';
+
+import dollyZoomManifest from './camera/dolly-zoom/card.json';
+import {DollyZoom} from './camera/dolly-zoom';
+import particleSandFillManifest from './component/particle-sand-fill/card.json';
+import {ParticleSandFill} from './component/particle-sand-fill';
+import splitFlapFlipManifest from './text/split-flap-flip/card.json';
+import {SplitFlapFlip} from './text/split-flap-flip';
+import counterConfettiManifest from './component/counter-confetti/card.json';
+import {CounterConfetti} from './component/counter-confetti';
+import scrambleDecodeManifest from './text/scramble-decode/card.json';
+import {ScrambleDecode} from './text/scramble-decode';
+import cubeRotateManifest from './transition/cube-rotate/card.json';
+import {CubeRotate} from './transition/cube-rotate';
+import popupBookRiseManifest from './component/popup-book-rise/card.json';
+import {PopupBookRise} from './component/popup-book-rise';
+import maskingTapeSlapManifest from './component/masking-tape-slap/card.json';
+import {MaskingTapeSlap} from './component/masking-tape-slap';
+import commandPaletteSummonManifest from './component/command-palette-summon/card.json';
+import {CommandPaletteSummon} from './component/command-palette-summon';
+import halationBloomManifest from './text/halation-bloom/card.json';
+import {HalationBloom} from './text/halation-bloom';
+
+export const cardDefinitions: MotionCardDefinition[] = [
+  {manifest: motionCardManifestSchema.parse(keywordManifest), Component: KeywordReveal},
+  {manifest: motionCardManifestSchema.parse(stackManifest), Component: StackReveal},
+  {manifest: motionCardManifestSchema.parse(cameraManifest), Component: SlowPush},
+  {manifest: motionCardManifestSchema.parse(svgManifest), Component: SvgPath},
+  {manifest: motionCardManifestSchema.parse(canvasManifest), Component: CanvasParticles},
+  {manifest: motionCardManifestSchema.parse(threeManifest), Component: ThreeCrystal},
+  {manifest: motionCardManifestSchema.parse(quoteManifest), Component: QuoteCard},
+  {manifest: motionCardManifestSchema.parse(highlighterManifest), Component: HighlighterSweep},
+  {manifest: motionCardManifestSchema.parse(popInManifest), Component: MediaPopIn},
+  {manifest: motionCardManifestSchema.parse(flyingManifest), Component: FlyingWords},
+  {manifest: motionCardManifestSchema.parse(pushThroughManifest), Component: PushThrough},
+  {manifest: motionCardManifestSchema.parse(typewriterManifest), Component: TypewriterReveal},
+  {manifest: motionCardManifestSchema.parse(chartManifest), Component: ChartGrow},
+  {manifest: motionCardManifestSchema.parse(slowPullManifest), Component: SlowPull},
+  {manifest: motionCardManifestSchema.parse(logoManifest), Component: LogoEnter},
+  {manifest: motionCardManifestSchema.parse(whipManifest), Component: WhipPan},
+  {manifest: motionCardManifestSchema.parse(strikeManifest), Component: StrikeReplace},
+  {manifest: motionCardManifestSchema.parse(stepManifest), Component: StepTimeline},
+  {manifest: motionCardManifestSchema.parse(mapManifest), Component: MapRoute},
+  {manifest: motionCardManifestSchema.parse(swayManifest), Component: SwayParallax},
+  {manifest: motionCardManifestSchema.parse(overexposeManifest), Component: OverexposeFlip},
+  {manifest: motionCardManifestSchema.parse(fanManifest), Component: CardFan},
+  {manifest: motionCardManifestSchema.parse(infoTermManifest), Component: InfoTermCard},
+  {manifest: motionCardManifestSchema.parse(barGrowthManifest), Component: BarChartGrowth},
+  {manifest: motionCardManifestSchema.parse(stepStackManifest), Component: StepStack},
+  {manifest: motionCardManifestSchema.parse(rackFocusManifest), Component: RackFocus},
+  {manifest: motionCardManifestSchema.parse(pullbackCoolManifest), Component: PullbackCool},
+  {manifest: motionCardManifestSchema.parse(gridHeroManifest), Component: GridToHero},
+  {manifest: motionCardManifestSchema.parse(chapterTitleManifest), Component: ChapterTitle},
+  {manifest: motionCardManifestSchema.parse(charRiseManifest), Component: CharRise},
+  {manifest: motionCardManifestSchema.parse(lineSlideManifest), Component: LineSlide},
+  {manifest: motionCardManifestSchema.parse(metricSparklineManifest), Component: MetricSparkline},
+  {manifest: motionCardManifestSchema.parse(lowerThirdManifest), Component: LowerThird},
+  {manifest: motionCardManifestSchema.parse(blackSlamManifest), Component: BlackSlam},
+  {manifest: motionCardManifestSchema.parse(altBlockManifest), Component: AltBlockLines},
+  {manifest: motionCardManifestSchema.parse(countBadgeManifest), Component: CountBadgeTitle},
+  {manifest: motionCardManifestSchema.parse(handEllipseManifest), Component: HandDrawnEllipse},
+  {manifest: motionCardManifestSchema.parse(caretWipeManifest), Component: CaretWipe},
+  {manifest: motionCardManifestSchema.parse(orbitDriftManifest), Component: OrbitDrift},
+  {manifest: motionCardManifestSchema.parse(shapeWipeManifest), Component: ShapeWipe},
+  {manifest: motionCardManifestSchema.parse(kwPopManifest), Component: KeywordPopHighlight},
+  {manifest: motionCardManifestSchema.parse(calloutLabelManifest), Component: CalloutLineLabel},
+  {manifest: motionCardManifestSchema.parse(focusDimManifest), Component: FocusDimSpotlight},
+  {manifest: motionCardManifestSchema.parse(termLogManifest), Component: TerminalTypingLog},
+  {manifest: motionCardManifestSchema.parse(colorSlamManifest), Component: ColorSlamBeatCard},
+  {manifest: motionCardManifestSchema.parse(quoteBracketManifest), Component: QuoteBracketPull},
+  {manifest: motionCardManifestSchema.parse(reticleManifest), Component: ReticleLockOn},
+  {manifest: motionCardManifestSchema.parse(particleWeldManifest), Component: ParticleWeld},
+  {manifest: motionCardManifestSchema.parse(pipZoomManifest), Component: PipZoomBox},
+  {manifest: motionCardManifestSchema.parse(glassCodeManifest), Component: GlassCodeWalk},
+  {manifest: motionCardManifestSchema.parse(lineChartStoryManifest), Component: LineChartStoryDraw},
+  {manifest: motionCardManifestSchema.parse(pencilSketchManifest), Component: PencilSketchDraw},
+  {manifest: motionCardManifestSchema.parse(errorRetypeManifest), Component: ErrorRetype},
+  {manifest: motionCardManifestSchema.parse(wordSlotManifest), Component: WordSlotCycle},
+  {manifest: motionCardManifestSchema.parse(slabPunchManifest), Component: SlabPunchTitle},
+  {manifest: motionCardManifestSchema.parse(countArcManifest), Component: CountdownArcScatter},
+  {manifest: motionCardManifestSchema.parse(unitGridManifest), Component: UnitGridProportion},
+  {manifest: motionCardManifestSchema.parse(sourceConvergeManifest), Component: SourceConverge},
+  {manifest: motionCardManifestSchema.parse(split6040Manifest), Component: Split6040Story},
+  {manifest: motionCardManifestSchema.parse(numberSlabManifest), Component: NumberSlabPop},
+  {manifest: motionCardManifestSchema.parse(outlineBoxManifest), Component: OutlineBoxTitle},
+  {manifest: motionCardManifestSchema.parse(splitTextManifest), Component: SplitTextStagger},
+  {manifest: motionCardManifestSchema.parse(impactTitleManifest), Component: ImpactOpenTitle},
+  {manifest: motionCardManifestSchema.parse(scribbleManifest), Component: ScribbleAnnotation},
+  {manifest: motionCardManifestSchema.parse(typeContrastManifest), Component: TypeContrastEmphasis},
+  {manifest: motionCardManifestSchema.parse(docParkManifest), Component: DocParkLeftPillDeal},
+  {manifest: motionCardManifestSchema.parse(chapterProgressManifest), Component: ChapterProgressList},
+  {manifest: motionCardManifestSchema.parse(uiPropManifest), Component: UiPropTheater},
+  {manifest: motionCardManifestSchema.parse(leadWordManifest), Component: LeadWordZoomAssemble},
+  {manifest: motionCardManifestSchema.parse(trackingInManifest), Component: TrackingIn},
+  {manifest: motionCardManifestSchema.parse(softBlurManifest), Component: SoftBlurIn},
+  {manifest: motionCardManifestSchema.parse(speedSlabManifest), Component: SpeedSlabTitle},
+  {manifest: motionCardManifestSchema.parse(motionSlamManifest), Component: MotionBlurSlamIn},
+  {manifest: motionCardManifestSchema.parse(evidenceTourManifest), Component: EvidenceScrollTour},
+  {manifest: motionCardManifestSchema.parse(galleryDollyManifest), Component: GalleryWallDolly},
+  {manifest: motionCardManifestSchema.parse(tilt3dManifest), Component: Tilt3dPage},
+  {manifest: motionCardManifestSchema.parse(gooeyMorphManifest), Component: GooeyMorph},
+  {manifest: motionCardManifestSchema.parse(stillRelayManifest), Component: StillLayoutRelay},
+  {manifest: motionCardManifestSchema.parse(claudeCodeManifest), Component: ClaudeCode},
+  {manifest: motionCardManifestSchema.parse(newsCardManifest), Component: NewsCardDesk},
+  {manifest: motionCardManifestSchema.parse(infoAssembleManifest), Component: InfoCardAssemble},
+  {manifest: motionCardManifestSchema.parse(stackFanManifest), Component: StackFanOut},
+  {manifest: motionCardManifestSchema.parse(danmuManifest), Component: DanmuBubblePraise},
+  {manifest: motionCardManifestSchema.parse(titleDemoteManifest), Component: TitleDemoteToLabel},
+  {manifest: motionCardManifestSchema.parse(cursorActorManifest), Component: CursorActorDemo},
+  {manifest: motionCardManifestSchema.parse(crashZoomManifest), Component: CrashZoomPunch},
+  {manifest: motionCardManifestSchema.parse(wordFilmstripManifest), Component: WordRelayFilmstrip},
+  {manifest: motionCardManifestSchema.parse(subscribeCtaManifest), Component: SubscribeCta},
+  {manifest: motionCardManifestSchema.parse(bedEchoManifest), Component: BedEchoBlur},
+  {manifest: motionCardManifestSchema.parse(inkUnderlineManifest), Component: InkUnderline},
+  {manifest: motionCardManifestSchema.parse(chevLowerManifest), Component: ChevronLowerThird},
+  {manifest: motionCardManifestSchema.parse(quoteHoldArrowManifest), Component: QuoteHoldArrow},
+  {manifest: motionCardManifestSchema.parse(magDetailManifest), Component: MagnifierDetail},
+  {manifest: motionCardManifestSchema.parse(lineCarryManifest), Component: LineCarry},
+  {manifest: motionCardManifestSchema.parse(scanlineAnnoManifest), Component: ScanlineAnnotate},
+  {manifest: motionCardManifestSchema.parse(chipGridManifest), Component: ChipGridSingleSelect},
+  {manifest: motionCardManifestSchema.parse(timelineStripManifest), Component: TimelinePhotoStrip},
+  {manifest: motionCardManifestSchema.parse(filmConveyorManifest), Component: FilmstripConveyor},
+  {manifest: motionCardManifestSchema.parse(stageTourManifest), Component: StageKeyframeTour},
+  {manifest: motionCardManifestSchema.parse(behindTitleManifest), Component: BehindTextTitle},
+  {manifest: motionCardManifestSchema.parse(convArrowsManifest), Component: ConvergingArrows},
+  {manifest: motionCardManifestSchema.parse(cornerFrameManifest), Component: CornerBracketFrame},
+  {manifest: motionCardManifestSchema.parse(douyinFollowManifest), Component: DouyinFollowCard},
+  {manifest: motionCardManifestSchema.parse(xFollowManifest), Component: XFollowCard},
+  {manifest: motionCardManifestSchema.parse(hostShrinkManifest), Component: HostShrinkToChip},
+  {manifest: motionCardManifestSchema.parse(parallelItemsManifest), Component: ParallelItemsWithHost},
+  {manifest: motionCardManifestSchema.parse(cursorLockManifest), Component: CursorLockedZoom},
+  {manifest: motionCardManifestSchema.parse(glassBoardManifest), Component: HostCardGlassBoard},
+  {manifest: motionCardManifestSchema.parse(uiFlowManifest), Component: UiFlowTheater},
+  {manifest: motionCardManifestSchema.parse(longTakeManifest), Component: LongTakeWorld},
+  {manifest: motionCardManifestSchema.parse(blurSlideManifest), Component: BlurSlide},
+  {manifest: motionCardManifestSchema.parse(braceExpandManifest), Component: BraceExpand},
+  {manifest: motionCardManifestSchema.parse(paperTitleCardManifest), Component: PaperTitleCard},
+  {manifest: motionCardManifestSchema.parse(markerUnderlineTitleManifest), Component: MarkerUnderlineTitle},
+  {manifest: motionCardManifestSchema.parse(gradientWordSweepManifest), Component: GradientWordSweep},
+  {manifest: motionCardManifestSchema.parse(outlineWordFillManifest), Component: OutlineWordFill},
+  {manifest: motionCardManifestSchema.parse(glitchCycleManifest), Component: GlitchCycle},
+  {manifest: motionCardManifestSchema.parse(pillSlotCycleManifest), Component: PillSlotCycle},
+  {manifest: motionCardManifestSchema.parse(textColumnConvergeManifest), Component: TextColumnConverge},
+  {manifest: motionCardManifestSchema.parse(typeRhythmSyncManifest), Component: TypeRhythmSync},
+  {manifest: motionCardManifestSchema.parse(shotCountdownArcScatterManifest), Component: ShotCountdownArcScatter},
+  {manifest: motionCardManifestSchema.parse(documentTypewriterRevealManifest), Component: DocumentTypewriterReveal},
+  {manifest: motionCardManifestSchema.parse(shotLeadWordZoomAssembleManifest), Component: ShotLeadWordZoomAssemble},
+  {manifest: motionCardManifestSchema.parse(pillChipSlotCycleHandledManifest), Component: PillChipSlotCycleHandled},
+  {manifest: motionCardManifestSchema.parse(shotTitleDemoteToLabelManifest), Component: ShotTitleDemoteToLabel},
+  {manifest: motionCardManifestSchema.parse(typeAssemblyMovesManifest), Component: TypeAssemblyMoves},
+  {manifest: motionCardManifestSchema.parse(typeEntranceMovesManifest), Component: TypeEntranceMoves},
+  {manifest: motionCardManifestSchema.parse(typewriterMovesManifest), Component: TypewriterMoves},
+  {manifest: motionCardManifestSchema.parse(verticalWordRollBlurCycleManifest), Component: VerticalWordRollBlurCycle},
+  {manifest: motionCardManifestSchema.parse(wordRelayFilmstripManifest), Component: ShotTextWordRelayFilmstrip},
+  {manifest: motionCardManifestSchema.parse(wordRelayGeometryManifest), Component: WordRelayGeometry},
+  {manifest: motionCardManifestSchema.parse(basic3dSceneManifest), Component: Basic3dScene},
+  {manifest: motionCardManifestSchema.parse(shotCrashZoomPunchManifest), Component: ShotCrashZoomPunch},
+  {manifest: motionCardManifestSchema.parse(cursorFlyoverManifest), Component: CursorFlyover},
+  {manifest: motionCardManifestSchema.parse(depthLayerMovesManifest), Component: DepthLayerMoves},
+  {manifest: motionCardManifestSchema.parse(grazeFaceTourManifest), Component: GrazeFaceTour},
+  {manifest: motionCardManifestSchema.parse(overheadCameraMovesManifest), Component: OverheadCameraMoves},
+  {manifest: motionCardManifestSchema.parse(spaceCameraMovesManifest), Component: SpaceCameraMoves},
+  {manifest: motionCardManifestSchema.parse(steepTiltGlideManifest), Component: SteepTiltGlide},
+  {manifest: motionCardManifestSchema.parse(tensionCameraMovesManifest), Component: TensionCameraMoves},
+  {manifest: motionCardManifestSchema.parse(terminal3dManifest), Component: Terminal3d},
+  {manifest: motionCardManifestSchema.parse(beforeAfterSliderScrubManifest), Component: BeforeAfterSliderScrub},
+  {manifest: motionCardManifestSchema.parse(chartLiveMovesManifest), Component: ChartLiveMoves},
+  {manifest: motionCardManifestSchema.parse(gaugeReadoutMovesManifest), Component: GaugeReadoutMoves},
+  {manifest: motionCardManifestSchema.parse(scrollBrakeMovesManifest), Component: ScrollBrakeMoves},
+  {manifest: motionCardManifestSchema.parse(timelineTravelManifest), Component: TimelineTravel},
+  {manifest: motionCardManifestSchema.parse(autolayoutGapDialManifest), Component: AutolayoutGapDial},
+  {manifest: motionCardManifestSchema.parse(avatarBracketCarouselManifest), Component: AvatarBracketCarousel},
+  {manifest: motionCardManifestSchema.parse(bezierSourceConvergeMergeManifest), Component: BezierSourceConvergeMerge},
+  {manifest: motionCardManifestSchema.parse(canvasMaterializeMovesManifest), Component: CanvasMaterializeMoves},
+  {manifest: motionCardManifestSchema.parse(carousel3dManifest), Component: Carousel3d},
+  {manifest: motionCardManifestSchema.parse(chipGridSingleSelectBlackoutManifest), Component: ChipGridSingleSelectBlackout},
+  {manifest: motionCardManifestSchema.parse(clonerDepthEchoManifest), Component: ClonerDepthEcho},
+  {manifest: motionCardManifestSchema.parse(collabCursorMovesManifest), Component: CollabCursorMoves},
+  {manifest: motionCardManifestSchema.parse(deckDealFlyinManifest), Component: DeckDealFlyin},
+  {manifest: motionCardManifestSchema.parse(shotDocParkLeftPillDealManifest), Component: ShotDocParkLeftPillDeal},
+  {manifest: motionCardManifestSchema.parse(drawSvgTraceManifest), Component: DrawSvgTrace},
+  {manifest: motionCardManifestSchema.parse(elementBodyMovesManifest), Component: ElementBodyMoves},
+  {manifest: motionCardManifestSchema.parse(glassPillDictationTypingManifest), Component: GlassPillDictationTyping},
+  {manifest: motionCardManifestSchema.parse(hashtagToPillMaterializeManifest), Component: HashtagToPillMaterialize},
+  {manifest: motionCardManifestSchema.parse(integrationHubMapManifest), Component: IntegrationHubMap},
+  {manifest: motionCardManifestSchema.parse(listRevealManifest), Component: ListReveal},
+  {manifest: motionCardManifestSchema.parse(listStackPressManifest), Component: ListStackPress},
+  {manifest: motionCardManifestSchema.parse(neonFrameForerunManifest), Component: NeonFrameForerun},
+  {manifest: motionCardManifestSchema.parse(neonFrameOrbitDropManifest), Component: NeonFrameOrbitDrop},
+  {manifest: motionCardManifestSchema.parse(pageWaterfallWallManifest), Component: PageWaterfallWall},
+  {manifest: motionCardManifestSchema.parse(pickerCarouselFeatureCycleManifest), Component: PickerCarouselFeatureCycle},
+  {manifest: motionCardManifestSchema.parse(productCardProgressiveAssembleManifest), Component: ProductCardProgressiveAssemble},
+  {manifest: motionCardManifestSchema.parse(radialWaveManifest), Component: RadialWave},
+  {manifest: motionCardManifestSchema.parse(researchCardStackScrollManifest), Component: ResearchCardStackScroll},
+  {manifest: motionCardManifestSchema.parse(rowEmbedManifest), Component: RowEmbed},
+  {manifest: motionCardManifestSchema.parse(segmentedThumbHeroManifest), Component: SegmentedThumbHero},
+  {manifest: motionCardManifestSchema.parse(themeSwitchMovesManifest), Component: ThemeSwitchMoves},
+  {manifest: motionCardManifestSchema.parse(typeAndFilterManifest), Component: TypeAndFilter},
+  {manifest: motionCardManifestSchema.parse(valueStaggerGradientManifest), Component: ValueStaggerGradient},
+  {manifest: motionCardManifestSchema.parse(voiceWaveformLiveManifest), Component: VoiceWaveformLive},
+  {manifest: motionCardManifestSchema.parse(wallRevealMovesManifest), Component: WallRevealMoves},
+  {manifest: motionCardManifestSchema.parse(assembleThenTypeFlyinManifest), Component: AssembleThenTypeFlyin},
+  {manifest: motionCardManifestSchema.parse(auroraBloomBgFlipManifest), Component: AuroraBloomBgFlip},
+  {manifest: motionCardManifestSchema.parse(brandFrameSnapManifest), Component: BrandFrameSnap},
+  {manifest: motionCardManifestSchema.parse(fuiHudMovesManifest), Component: FuiHudMoves},
+  {manifest: motionCardManifestSchema.parse(glowFlylineMovesManifest), Component: GlowFlylineMoves},
+  {manifest: motionCardManifestSchema.parse(iconPerformanceMovesManifest), Component: IconPerformanceMoves},
+  {manifest: motionCardManifestSchema.parse(impactFeedbackManifest), Component: ImpactFeedback},
+  {manifest: motionCardManifestSchema.parse(lightPlayMovesManifest), Component: LightPlayMoves},
+  {manifest: motionCardManifestSchema.parse(radialRipplePhoneChipsManifest), Component: RadialRipplePhoneChips},
+  {manifest: motionCardManifestSchema.parse(risoPrintHitsManifest), Component: RisoPrintHits},
+  {manifest: motionCardManifestSchema.parse(scanBracketSweepManifest), Component: ScanBracketSweep},
+  {manifest: motionCardManifestSchema.parse(scanlineAnnotateFocusManifest), Component: ScanlineAnnotateFocus},
+  {manifest: motionCardManifestSchema.parse(scanlineAssembleFlyinManifest), Component: ScanlineAssembleFlyin},
+  {manifest: motionCardManifestSchema.parse(slamEntranceMovesManifest), Component: SlamEntranceMoves},
+  {manifest: motionCardManifestSchema.parse(spotlightSweepMovesManifest), Component: SpotlightSweepMoves},
+  {manifest: motionCardManifestSchema.parse(beatCutMovesManifest), Component: BeatCutMoves},
+  {manifest: motionCardManifestSchema.parse(beatStepListThemeCycleManifest), Component: BeatStepListThemeCycle},
+  {manifest: motionCardManifestSchema.parse(panelGridMovesManifest), Component: PanelGridMoves},
+  {manifest: motionCardManifestSchema.parse(quadSplitParallelScenesManifest), Component: QuadSplitParallelScenes},
+  {manifest: motionCardManifestSchema.parse(rhythmInterruptMovesManifest), Component: RhythmInterruptMoves},
+  {manifest: motionCardManifestSchema.parse(sakugaTimingShiftManifest), Component: SakugaTimingShift},
+  {manifest: motionCardManifestSchema.parse(speedRampFreezeManifest), Component: SpeedRampFreeze},
+  {manifest: motionCardManifestSchema.parse(trailerGrammarMovesManifest), Component: TrailerGrammarMoves},
+  {manifest: motionCardManifestSchema.parse(bottomPushStackWipeManifest), Component: BottomPushStackWipe},
+  {manifest: motionCardManifestSchema.parse(cardFlipRevealManifest), Component: CardFlipReveal},
+  {manifest: motionCardManifestSchema.parse(cardFlockTumbleManifest), Component: CardFlockTumble},
+  {manifest: motionCardManifestSchema.parse(circleMatchIrisManifest), Component: CircleMatchIris},
+  {manifest: motionCardManifestSchema.parse(gradientTransitionManifest), Component: GradientTransition},
+  {manifest: motionCardManifestSchema.parse(lineCarryTransitionManifest), Component: LineCarryTransition},
+  {manifest: motionCardManifestSchema.parse(mosaicReframeManifest), Component: MosaicReframe},
+  {manifest: motionCardManifestSchema.parse(pageTurnTransitionsManifest), Component: PageTurnTransitions},
+  {manifest: motionCardManifestSchema.parse(printTextureTransitionsManifest), Component: PrintTextureTransitions},
+  {manifest: motionCardManifestSchema.parse(shotTransitionsManifest), Component: ShotTransitions},
+  {manifest: motionCardManifestSchema.parse(tearStreakTransitionsManifest), Component: TearStreakTransitions},
+  {manifest: motionCardManifestSchema.parse(transitionHiddenCutManifest), Component: TransitionHiddenCut},
+  {manifest: motionCardManifestSchema.parse(transitionTravelManifest), Component: TransitionTravel},
+  {manifest: motionCardManifestSchema.parse(whiteFlashLogoSimplifyCutManifest), Component: WhiteFlashLogoSimplifyCut},
+  {manifest: motionCardManifestSchema.parse(wipeTransitionsManifest), Component: WipeTransitions},
+  {manifest: motionCardManifestSchema.parse(brandInkOpenManifest), Component: BrandInkOpen},
+  {manifest: motionCardManifestSchema.parse(craneRiseRevealManifest), Component: CraneRiseReveal},
+  {manifest: motionCardManifestSchema.parse(datavizLandscapeOpenManifest), Component: DatavizLandscapeOpen},
+  {manifest: motionCardManifestSchema.parse(fractureManifest), Component: Fracture},
+  {manifest: motionCardManifestSchema.parse(iconFieldColorizeManifest), Component: IconFieldColorize},
+  {manifest: motionCardManifestSchema.parse(letterspaceMaterializeManifest), Component: LetterspaceMaterialize},
+  {manifest: motionCardManifestSchema.parse(magicianCardFlourishManifest), Component: MagicianCardFlourish},
+  {manifest: motionCardManifestSchema.parse(orbitRingTitleOpenManifest), Component: OrbitRingTitleOpen},
+  {manifest: motionCardManifestSchema.parse(spotlightHeroCardManifest), Component: SpotlightHeroCard},
+  {manifest: motionCardManifestSchema.parse(strokeSegmentBuildManifest), Component: StrokeSegmentBuild},
+  {manifest: motionCardManifestSchema.parse(textAsMaskManifest), Component: TextAsMask},
+  {manifest: motionCardManifestSchema.parse(grainDissolveManifest), Component: GrainDissolve},
+  {manifest: motionCardManifestSchema.parse(logoShrinkWordmarkLockupManifest), Component: LogoShrinkWordmarkLockup},
+  {manifest: motionCardManifestSchema.parse(neonTripleMarqueeManifest), Component: NeonTripleMarquee},
+  {manifest: motionCardManifestSchema.parse(outroGroupPhotoLaunchManifest), Component: OutroGroupPhotoLaunch},
+  {manifest: motionCardManifestSchema.parse(uiStripAwayOutroManifest), Component: UiStripAwayOutro},
+  {manifest: motionCardManifestSchema.parse(uiToBrandMorphManifest), Component: UiToBrandMorph},
+  {manifest: motionCardManifestSchema.parse(hookManifest), Component: Hook},
+  {manifest: motionCardManifestSchema.parse(chatManifest), Component: Chat},
+  {manifest: motionCardManifestSchema.parse(phoneManifest), Component: Phone},
+  {manifest: motionCardManifestSchema.parse(mockAppManifest), Component: MockApp},
+  {manifest: motionCardManifestSchema.parse(meterManifest), Component: Meter},
+  {manifest: motionCardManifestSchema.parse(compareManifest), Component: Compare},
+  {manifest: motionCardManifestSchema.parse(counterManifest), Component: Counter},
+  {manifest: motionCardManifestSchema.parse(dataChartManifest), Component: DataChart},
+  {manifest: motionCardManifestSchema.parse(featuresManifest), Component: Features},
+  {manifest: motionCardManifestSchema.parse(stepsManifest), Component: Steps},
+  {manifest: motionCardManifestSchema.parse(quickListManifest), Component: QuickList},
+  {manifest: motionCardManifestSchema.parse(endCardManifest), Component: EndCard},
+  {manifest: motionCardManifestSchema.parse(photoShotManifest), Component: PhotoShot},
+  {manifest: motionCardManifestSchema.parse(priceCardManifest), Component: PriceCard},
+  {manifest: motionCardManifestSchema.parse(storeCardManifest), Component: StoreCard},
+  {manifest: motionCardManifestSchema.parse(reviewCardManifest), Component: ReviewCard},
+  {manifest: motionCardManifestSchema.parse(factSheetManifest), Component: FactSheet},
+  {manifest: motionCardManifestSchema.parse(credCardManifest), Component: CredCard},
+  {manifest: motionCardManifestSchema.parse(beforeAfterManifest), Component: BeforeAfter},
+  {manifest: motionCardManifestSchema.parse(dollyZoomManifest), Component: DollyZoom},
+  {manifest: motionCardManifestSchema.parse(particleSandFillManifest), Component: ParticleSandFill},
+  {manifest: motionCardManifestSchema.parse(splitFlapFlipManifest), Component: SplitFlapFlip},
+  {manifest: motionCardManifestSchema.parse(counterConfettiManifest), Component: CounterConfetti},
+  {manifest: motionCardManifestSchema.parse(scrambleDecodeManifest), Component: ScrambleDecode},
+  {manifest: motionCardManifestSchema.parse(cubeRotateManifest), Component: CubeRotate},
+  {manifest: motionCardManifestSchema.parse(popupBookRiseManifest), Component: PopupBookRise},
+  {manifest: motionCardManifestSchema.parse(maskingTapeSlapManifest), Component: MaskingTapeSlap},
+  {manifest: motionCardManifestSchema.parse(commandPaletteSummonManifest), Component: CommandPaletteSummon},
+  {manifest: motionCardManifestSchema.parse(halationBloomManifest), Component: HalationBloom},
+];
+
+export const cardRegistry = new Map(cardDefinitions.map((card) => [card.manifest.id, card]));

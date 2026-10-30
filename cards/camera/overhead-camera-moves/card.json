@@ -1,0 +1,72 @@
+{
+  "id": "camera/overhead-camera-moves",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "overhead-camera-moves",
+  "summary": "俯拍揭示两式——tilt-reveal 俯仰抬正揭示、overhead-tabletop-drop 桌面卡阵横滑骤降扎入",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 140,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "用\"俯仰角\"讲故事的开场/转场：单页 establishing 用 A，多页巡视择一扎入用 B"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "overhead-tabletop-drop: 桌面俯拍卡片坠落 (默认)",
+      "tilt-reveal: 倾斜透视揭示 (TiltReveal)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      35,
+      70,
+      119
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/overhead-camera-moves",
+    "sourcePath": "video-shotcraft/demos/camera/overhead-camera-moves/OverheadTabletopDrop.tsx",
+    "reference": "video-shotcraft/references/shots/camera/overhead-camera-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "overhead-tabletop-drop",
+      "label": "桌面俯拍卡片坠落 (默认)"
+    },
+    {
+      "key": "tilt-reveal",
+      "label": "倾斜透视揭示 (TiltReveal)"
+    }
+  ]
+}

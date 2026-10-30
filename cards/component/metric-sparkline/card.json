@@ -1,0 +1,63 @@
+{
+  "id": "component/metric-sparkline",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "数字带趋势",
+  "summary": "大数字滚动计数与折线同刻起跑，计数落定那一刻单位淡入、涨跌箭头弹入",
+  "intents": [
+    "数据",
+    "指标",
+    "趋势"
+  ],
+  "genres": [
+    "explainer",
+    "promo",
+    "launch"
+  ],
+  "inputs": [
+    "label",
+    "target",
+    "values"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html",
+    "svg"
+  ],
+  "timing": {
+    "defaultInFrames": 114,
+    "minimumInFrames": 80,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "一个关键指标需要连同趋势一起讲",
+      "结论数字值得等它算完再亮单位"
+    ],
+    "avoid": [
+      "多指标并列（用 bar-chart-growth 或 chart-grow）",
+      "没有趋势数据的孤立数字（用 number-counter）"
+    ],
+    "pairsWith": [
+      "component/number-counter",
+      "component/bar-chart-growth"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      30,
+      60
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/metric-with-sparkline",
+    "sourcePath": "video-talkcraft/template/cards/metric-with-sparkline.tsx",
+    "reference": "video-talkcraft/references/cards/metric-with-sparkline.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "camera/depth-layer-moves",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "depth-layer-moves",
+  "summary": "分层深度运镜——多层视差滑轨：3 层速度梯度横移出纵深，滑轨落定时主角浮起",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 165,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "平面截图要\"有厚度\"的段落：卡组 / 列表 / 整页的横向巡览"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      41,
+      82,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/depth-layer-moves",
+    "sourcePath": "video-shotcraft/demos/camera/depth-layer-moves/MultiplaneReal.tsx",
+    "reference": "video-shotcraft/references/shots/camera/depth-layer-moves.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "id": "transition/black-slam",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "黑震切转场",
+  "summary": "出场镜头定格一拍 + 重音冲顶，零交叠硬切，入场满亮直切且自带三段震位与后拉刹住",
+  "intents": [
+    "转场",
+    "转折",
+    "揭示"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "promo"
+  ],
+  "inputs": [
+    "scene"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 82,
+    "minimumInFrames": 70,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "全片最大的一次反转或揭示：前一句是悬念或结论前的停顿，后一句是答案",
+      "必须压在句末或停顿处，语音连续时不能用"
+    ],
+    "avoid": [
+      "一部片使用超过一次，第一次的分量会当场蒸发",
+      "想要冲击但不想断裂时（改用 transition/overexpose-flip）",
+      "任何非零交叠的诉求，零交叠是本式的定义"
+    ],
+    "pairsWith": [
+      "component/chapter-title",
+      "text/char-rise"
+    ],
+    "conflictsWith": [
+      "transition/overexpose-flip"
+    ]
+  },
+  "qa": {
+    "frames": [
+      24,
+      28,
+      45
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/black-slam-transition",
+    "sourcePath": "video-talkcraft/template/cards/black-slam-transition.tsx",
+    "reference": "video-talkcraft/references/cards/black-slam-transition.md",
+    "status": "ready"
+  }
+}

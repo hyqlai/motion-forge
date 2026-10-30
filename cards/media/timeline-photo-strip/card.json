@@ -1,0 +1,74 @@
+{
+  "id": "media/timeline-photo-strip",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "时间轴照片胶卷",
+  "summary": "水平时间轴上串联多张历史里程碑照片，相机按时间次序逐站横移推近巡礼并点亮年份，最后拉回看全貌",
+  "intents": [
+    "里程碑",
+    "发展史",
+    "时间轴",
+    "演进脉络"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 309,
+    "minimumInFrames": 150,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 309,
+        "min": 150,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "成长史、版本演进、四个关键时间点、事件梳理等有先后因果的段落",
+      "逐站讲、讲完还要看全景的时间线"
+    ],
+    "avoid": [
+      "平级无先后顺序的事物（应改用 gallery-wall-dolly）",
+      "时间点超过 5 个"
+    ],
+    "pairsWith": [
+      "component/step-timeline"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      120,
+      260
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/timeline-photo-strip",
+    "sourcePath": "video-talkcraft/template/cards/timeline-photo-strip.tsx",
+    "reference": "video-talkcraft/references/cards/timeline-photo-strip.md",
+    "status": "ready"
+  }
+}

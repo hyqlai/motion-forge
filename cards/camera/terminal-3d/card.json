@@ -1,0 +1,58 @@
+{
+  "id": "camera/terminal-3d",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "terminal-3d",
+  "summary": "三个终端窗散布 3D 空间，相机窗间飞行、途中正弦拉远，每到一窗打字机敲命令、结果逐行滑出——命令执行的空间叙事流",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 246,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "开发者产品的 CLI/工作流演示：把\"三步命令\"拍成三站空间旅程"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      61,
+      123,
+      209
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/terminal-3d",
+    "sourcePath": "video-shotcraft/demos/camera/terminal-3d/Terminal3D.tsx",
+    "reference": "video-shotcraft/references/shots/camera/terminal-3d.md",
+    "status": "ready"
+  }
+}

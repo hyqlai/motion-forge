@@ -1,0 +1,58 @@
+{
+  "id": "text/outline-word-fill",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "outline-word-fill",
+  "summary": "空心词（细暖灰描边、500 字重）从 3.2 倍急缓收缩落位，虚线大圆随后从 2.8 倍收到字周围并缓慢自转，左右水平虚线从画框边缘内伸；描边先微微增亮，实心白热字在一帧内硬切点亮，一闪辉光即定格",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 90,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "单词式利益点/口号的重锤一拍；节奏卡点上的\"钉子\"镜；深底品牌片的强调帧"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      45,
+      76
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/outline-word-fill",
+    "sourcePath": "video-shotcraft/demos/typography/outline-word-fill/OutlineWordFill.tsx",
+    "reference": "video-shotcraft/references/shots/typography/outline-word-fill.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "camera/steep-tilt-glide",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "steep-tilt-glide",
+  "summary": "固定镜头下直立页面以 60° 强透视侧立（右近左远），页面自身沿其 3D 横面方向滑移掠过镜头（物动镜不动），滑移带速度重影、文字组件悬空贴落、由暗揭亮",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "长页面/多区块 UI 的炫技巡览（内容依次滑过固定机位）；暗场霓虹调性；与贴面运镜卡互补的\"侧掠\"机位"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/steep-tilt-glide",
+    "sourcePath": "video-shotcraft/demos/camera/steep-tilt-glide/SteepTiltGlide.tsx",
+    "reference": "video-shotcraft/references/shots/camera/steep-tilt-glide.md",
+    "status": "ready"
+  }
+}

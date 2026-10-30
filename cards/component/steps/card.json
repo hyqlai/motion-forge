@@ -1,0 +1,64 @@
+{
+  "id": "component/steps",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "商业镜头 · steps",
+  "summary": "1-2-3 流程：一张流程卡，左边节点竖排、连线上的光点一步步跑下去，每到一步节点点亮、文字滑入，全部走完每个节点打 ✓。表现「上手很简单」。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 75,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "用在卖点之后、片尾之前，讲「怎么用」",
+      "title ≤8 字，动词开头（如「打开聊天」「点悬浮球」「挑一条填入」）；desc ≤14 字补充结果",
+      "icon 可选：写了就在节点里画图标（序号变成角标），不写就在节点里画大号序号",
+      "3 步最好看，最多 4 步；时长约「步数 × 1 秒 + 1.5 秒」",
+      "标题里别写「第一步」「步骤1」：序号会自动画，且「第一」会被广告法检查拦下"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "brewreel/steps",
+    "sourcePath": "brewreel/template/src/shots/steps.tsx",
+    "reference": "brewreel/docs/shots/steps.md",
+    "status": "migrating"
+  }
+}

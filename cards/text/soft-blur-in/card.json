@@ -1,0 +1,74 @@
+{
+  "id": "text/soft-blur-in",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "柔和解糊浮现",
+  "summary": "文字从深层模糊（blur 16px）与微下沉位移中柔和浮现解糊，无弹跳冲击，适合冷静金句或章节小标题",
+  "intents": [
+    "柔和字卡",
+    "沉思金句",
+    "章节导语",
+    "轻盈入场"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 92,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 92,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "需要轻盈、克制、沉静的字幕或论断入场",
+      "访谈、知识区金句、素材切换后的第一句上屏字"
+    ],
+    "avoid": [
+      "高能爆点或快节奏剪辑段落",
+      "模糊参数过大导致前几秒完全看不清"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      35,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/soft-blur-in",
+    "sourcePath": "video-talkcraft/template/cards/soft-blur-in.tsx",
+    "reference": "video-talkcraft/references/cards/soft-blur-in.md",
+    "status": "ready"
+  }
+}

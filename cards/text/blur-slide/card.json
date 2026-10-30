@@ -1,0 +1,58 @@
+{
+  "id": "text/blur-slide",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "blur-slide",
+  "summary": "标题逐词入场，y 0.38em→0 + blur 18→0 + opacity 0→1 三通道走同一条 ease-out 同步收敛，词间隔约 4f；副标题在标题收完前就错峰跟进",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "几乎所有标题/副标题成对出现的场合；产品页首屏文案、章节小标题；需要\"专业但不抢戏\"的默认文字 reveal"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      60,
+      110
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/blur-slide",
+    "sourcePath": "video-shotcraft/demos/typography/blur-slide/BlurSlide.tsx",
+    "reference": "video-shotcraft/references/shots/typography/blur-slide.md",
+    "status": "ready"
+  }
+}

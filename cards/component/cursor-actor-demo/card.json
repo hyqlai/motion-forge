@@ -1,0 +1,74 @@
+{
+  "id": "component/cursor-actor-demo",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "光标点击操作演示",
+  "summary": "模拟真实操作系统鼠标光标从画外滑入、悬停提示、点击按压反馈与控件响应联动",
+  "intents": [
+    "工具演示",
+    "软件测评",
+    "操作教学",
+    "交互复现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 135,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 135,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播演示工具怎么用（点这里、把图拖进来、打开这个开关）",
+      "SaaS / AI 产品交互教程"
+    ],
+    "avoid": [
+      "光标移动走僵硬折线",
+      "点击无任何视觉反馈"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      50,
+      100
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/cursor-actor-demo",
+    "sourcePath": "video-talkcraft/template/cards/cursor-actor-demo.tsx",
+    "reference": "video-talkcraft/references/cards/cursor-actor-demo.md",
+    "status": "ready"
+  }
+}

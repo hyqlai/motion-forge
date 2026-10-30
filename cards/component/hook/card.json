@@ -1,0 +1,66 @@
+{
+  "id": "component/hook",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "商业镜头 · hook",
+  "summary": "第 0 帧的封面钩子：大标题（caption）+ 一句产品高亮胶囊 + 一个主视觉，第 0 帧就完整、不留空帧。必须是第 1 镜。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 75,
+    "minimumInFrames": 45,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "caption 就是封面大标题：写用户的痛点或反常识问题，{} 里放最扎心的 2–5 个字",
+      "visual 先按内容类型选：bubble = 一条扎心消息 + 警示卡（情绪/社交/客服类）；stat = 一个大数字圆环（text 必须带数字；弧长 = pct 或 text 里的百分数，没有就不画弧）；icon = 一个大图标（要环绕小图标就用 orbit 自己选 3–6 个和产品有关的，不写就不环绕）；illust = 一张行业插画（画面说的是一样东西/一处场景，如窗外竹林、一碗面）；phone = 手机里一张真截图（有截图时）",
+      "visual 再看构图要不要换一换：split = 左右分屏「痛点 vs 产品」，中间一支箭头；statBar = 大数字 + 一整条通栏刻度条（条长只来自 level 或百分数，没有就只画刻度槽）。同一批素材里多支视频别总用同一个 visual，首帧才不会看着像同一个模板换皮",
+      "text 没有数字就别用 stat（组件会退成一张大字卡）：说一处风景/一样东西用 illust，说一个功能用 icon",
+      "badge 写产品一句话卖点（≤10 字），如「AI 先帮你看一眼」",
+      "时长 2–3 秒就够，钩子拖长会掉完播",
+      "不写 deco 就没有两侧漂浮小图标（不再按主题给默认图标）；要加就选和产品有关的"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      18,
+      37,
+      63
+    ]
+  },
+  "migration": {
+    "source": "brewreel/hook",
+    "sourcePath": "brewreel/template/src/shots/hook.tsx",
+    "reference": "brewreel/docs/shots/hook.md",
+    "status": "migrating"
+  }
+}

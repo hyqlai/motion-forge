@@ -1,0 +1,58 @@
+{
+  "id": "transition/card-flip-reveal",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "card-flip-reveal",
+  "summary": "功能卡 3D 翻面揭示——卡片沿 Y 轴翻 180°，正面 UI 翻到侧棱最薄处掠过一道随角度移动的受光，背面揭出大号结论数字，逐张错峰扫过整排",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"功能→成果\"的成对叙事：一排功能卡逐张翻出各自的指标/结论；元素级转场卡"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/card-flip-reveal",
+    "sourcePath": "video-shotcraft/demos/transition/card-flip-reveal/CardFlipReveal.tsx",
+    "reference": "video-shotcraft/references/shots/transition/card-flip-reveal.md",
+    "status": "ready"
+  }
+}

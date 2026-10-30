@@ -1,0 +1,58 @@
+{
+  "id": "transition/gradient-transition",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "gradient-transition",
+  "summary": "背景在 linear、radial、conic 三类 CSS 渐变间平滑过渡——角度、色标、中心、半径逐参数插值，段间交叉淡化换类型",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 200,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "氛围底/章节底色的连续变奏；给静态排版段落提供\"活着\"的背景层"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      50,
+      100,
+      170
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/gradient-transition",
+    "sourcePath": "video-shotcraft/demos/transition/gradient-transition/GradientTransition.tsx",
+    "reference": "video-shotcraft/references/shots/transition/gradient-transition.md",
+    "status": "ready"
+  }
+}

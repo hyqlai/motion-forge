@@ -1,0 +1,58 @@
+{
+  "id": "camera/graze-face-tour",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "graze-face-tour",
+  "summary": "大倾角贴面游走特写——镜头贴着 UI 表面低飞掠过（侧栏树/顶栏/列表当地形），页面文字初始悬浮在界面上空带同形软影，随镜头行进先后加速贴落回界面",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "功能区巡礼（把 UI 当地景飞掠）；配合暗场+霓虹缘光做产品\"内部世界\"段落；界面内容逐区登场"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/graze-face-tour",
+    "sourcePath": "video-shotcraft/demos/camera/graze-face-tour/GrazeFaceTour.tsx",
+    "reference": "video-shotcraft/references/shots/camera/graze-face-tour.md",
+    "status": "ready"
+  }
+}

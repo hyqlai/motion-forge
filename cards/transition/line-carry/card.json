@@ -1,0 +1,75 @@
+{
+  "id": "transition/line-carry",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "线条承接图形转场",
+  "summary": "前一镜标题下划线平滑延伸形变为下一镜外边框（图形亲缘接力），实现如电影片头般的优雅无痕转场",
+  "intents": [
+    "图形接力",
+    "招牌转场",
+    "优雅衔接",
+    "空间形变"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html",
+    "svg"
+  ],
+  "timing": {
+    "defaultInFrames": 204,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 204,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "章节 A 到章节 B 的招牌接缝（标题下划线变成下一镜卡框、进度条变坐标轴）",
+      "全片唯一的招牌图形接力转场位"
+    ],
+    "avoid": [
+      "前后两镜完全没有空间或线条亲缘",
+      "单片滥用超过2次"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/line-carry-transition",
+    "sourcePath": "video-talkcraft/template/cards/line-carry-transition.tsx",
+    "reference": "video-talkcraft/references/cards/line-carry-transition.md",
+    "status": "ready"
+  }
+}

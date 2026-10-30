@@ -1,0 +1,95 @@
+{
+  "id": "component/focus-dim-spotlight",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "聚焦压暗切换",
+  "summary": "大 spread box-shadow 聚光窗口压暗整屏非焦点区，金色发光描边在多行目标间平滑跳转，最后撑开到整卡聚焦",
+  "intents": [
+    "焦点导引",
+    "报表拆解",
+    "视线聚集",
+    "逐项分析"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 275,
+    "minimumInFrames": 120,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "dimTo",
+        "label": "压暗透明度",
+        "unit": "frames",
+        "defaultValue": 0.4,
+        "min": 0.2,
+        "max": 0.8,
+        "step": 0.05,
+        "description": "非焦点区域遮罩暗度"
+      },
+      {
+        "name": "jump",
+        "label": "焦点跳转时长",
+        "unit": "seconds",
+        "defaultValue": 0.2,
+        "min": 0.1,
+        "max": 0.6,
+        "step": 0.05,
+        "description": "聚光窗口在行间滑动的时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 275,
+        "min": 120,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播出示表格、清单或多模块版面，逐项讲这一行到下一行",
+      "信息密度极高，需要我说到哪你看哪的冷静举证"
+    ],
+    "avoid": [
+      "压暗过重（>0.7）导致周围上下文完全丧失",
+      "切黑闪烁而不是平滑滑动"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      200
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/focus-dim-spotlight",
+    "sourcePath": "video-talkcraft/template/cards/focus-dim-spotlight.tsx",
+    "reference": "video-talkcraft/references/cards/focus-dim-spotlight.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "component/spotlight-hero-card",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "spotlight-hero-card",
+  "summary": "关灯的剧场里一束钨丝聚光（带体积光柱）扫过页面锁定一张卡，斜侧推进后卡片弹起悬浮、香槟色光束沿轮廓两圈、连同 3D 注记一起贴回原位",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 172,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"单一主角\"式产品开场；把一个核心对象（卡片/条目/模块）立成全片主角"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      43,
+      86,
+      146
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/spotlight-hero-card",
+    "sourcePath": "video-shotcraft/demos/opening/spotlight-hero-card/SpotlightHeroCard.tsx",
+    "reference": "video-shotcraft/references/shots/opening/spotlight-hero-card.md",
+    "status": "ready"
+  }
+}

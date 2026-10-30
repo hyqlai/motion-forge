@@ -1,0 +1,58 @@
+{
+  "id": "media/pop-in",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "素材弹入堆叠",
+  "summary": "多张图片带白边和投影错峰弹入，旋转收正并压角堆叠",
+  "intents": [
+    "例证",
+    "列举"
+  ],
+  "genres": [
+    "explainer",
+    "story",
+    "promo"
+  ],
+  "inputs": [
+    "images"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 92,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "多张证据图、聊天记录或报道需要连续抛出",
+      "素材之间需要同屏保留前后关系"
+    ],
+    "avoid": [
+      "素材内容需要完整无遮挡阅读",
+      "只有一张素材且需要极简呈现"
+    ],
+    "pairsWith": [
+      "text/highlighter-sweep"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      28,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/media-pop-in",
+    "sourcePath": "video-talkcraft/template/cards/media-pop-in.tsx",
+    "reference": "video-talkcraft/references/cards/media-pop-in.md",
+    "status": "ready"
+  }
+}

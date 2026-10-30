@@ -1,0 +1,74 @@
+{
+  "id": "component/stack-fan-out",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "多张证据扇形展开",
+  "summary": "一摞图片先紧密成堆下坠立住，随后自底轴以圆弧扇形向外展开，各卡错峰偏转，形成丰富的证据陈列",
+  "intents": [
+    "证据陈列",
+    "汇总展开",
+    "组图呈现",
+    "案例清单"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 204,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 204,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播提到我收集了这几张、今年拍了五张候选的清单汇总展开",
+      "图片证据堆叠展开陈列"
+    ],
+    "avoid": [
+      "图片超过 6 张导致扇面过密",
+      "展开旋转轴不在卡片下方"
+    ],
+    "pairsWith": [
+      "component/card-fan"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/stack-fan-out",
+    "sourcePath": "video-talkcraft/template/cards/stack-fan-out.tsx",
+    "reference": "video-talkcraft/references/cards/stack-fan-out.md",
+    "status": "ready"
+  }
+}

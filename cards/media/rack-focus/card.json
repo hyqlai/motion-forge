@@ -1,0 +1,60 @@
+{
+  "id": "media/rack-focus",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "焦点接力",
+  "summary": "两张白边卡前后叠放，永远一清一糊，焦点在两次转移间像镜头对焦一样切换",
+  "intents": [
+    "对比",
+    "聚焦",
+    "素材"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "promo"
+  ],
+  "inputs": [
+    "images",
+    "labels"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 216,
+    "minimumInFrames": 150,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "两个对象需要被轮流强调（如新旧、纸书与电子书）",
+      "口播在两个对象之间来回指认"
+    ],
+    "avoid": [
+      "两张同时清晰（就没有焦点的语义）",
+      "对象超过两个"
+    ],
+    "pairsWith": [
+      "media/split-compare"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      75,
+      150
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/rack-focus-pair",
+    "sourcePath": "video-talkcraft/template/cards/rack-focus-pair.tsx",
+    "reference": "video-talkcraft/references/cards/rack-focus-pair.md",
+    "status": "ready"
+  }
+}

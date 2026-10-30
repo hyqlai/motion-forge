@@ -1,0 +1,58 @@
+{
+  "id": "camera/cursor-flyover",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "cursor-flyover",
+  "summary": "整页俯瞰后，相机依次飞到四个功能区 zoom-in 特写，SVG 光标先一步到位指点、点击留下涟漪并触发界面响应，最后拉回俯瞰",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 240,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "单页产品的功能巡览：一镜带观众看完四个功能区，光标当\"导游手指\""
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      60,
+      120,
+      204
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/cursor-flyover",
+    "sourcePath": "video-shotcraft/demos/camera/cursor-flyover/CursorFlyover.tsx",
+    "reference": "video-shotcraft/references/shots/camera/cursor-flyover.md",
+    "status": "ready"
+  }
+}

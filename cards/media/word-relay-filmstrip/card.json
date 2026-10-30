@@ -1,0 +1,75 @@
+{
+  "id": "media/word-relay-filmstrip",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "胶片条词图接力",
+  "summary": "水平胶片条按词图接力推进，当前格居中带高亮定格，随后平滑滑向下一格，展示多场景/多能力巡礼",
+  "intents": [
+    "能力枚举",
+    "案例流",
+    "多场景巡礼",
+    "胶片巡演"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 204,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 204,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播一个主体多项能力的枚举段（能写/能画/能剪/能发）",
+      "作品集/案例流连续巡演"
+    ],
+    "avoid": [
+      "词数超过 6 个",
+      "滑动无停顿变成滚动字幕"
+    ],
+    "pairsWith": [
+      "camera/sway-parallax"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      75,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/word-relay-filmstrip",
+    "sourcePath": "video-talkcraft/template/cards/word-relay-filmstrip.tsx",
+    "reference": "video-talkcraft/references/cards/word-relay-filmstrip.md",
+    "status": "ready"
+  }
+}

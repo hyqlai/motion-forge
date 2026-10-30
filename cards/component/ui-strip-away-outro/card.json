@@ -1,0 +1,58 @@
+{
+  "id": "component/ui-strip-away-outro",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "ui-strip-away-outro",
+  "summary": "减法式收尾——点击 Publish 后整个编辑器 UI 从外围到中心层层错峰蒸发，黑场上只剩那颗按钮滑到屏心放大，按钮再淡出交棒字标定版",
+  "intents": [
+    "outro",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 144,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"发布/完成\"语义的 outro；想讲\"一键之后一切复杂性消失\"的产品收尾"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      36,
+      72,
+      122
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/ui-strip-away-outro",
+    "sourcePath": "video-shotcraft/demos/outro/ui-strip-away-outro/UiStripAwayOutro.tsx",
+    "reference": "video-shotcraft/references/shots/outro/ui-strip-away-outro.md",
+    "status": "ready"
+  }
+}

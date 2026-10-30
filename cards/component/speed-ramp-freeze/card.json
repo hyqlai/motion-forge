@@ -1,0 +1,58 @@
+{
+  "id": "component/speed-ramp-freeze",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "speed-ramp-freeze",
+  "summary": "帧号非线性 remap 的节奏手法——定格标注（流动→定格圈注→解冻）",
+  "intents": [
+    "rhythm",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 158,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "卡片流/长横移中把一个重点\"停下给人看\"；教学解说、评审语境"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      39,
+      79,
+      134
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/speed-ramp-freeze",
+    "sourcePath": "video-shotcraft/demos/rhythm/speed-ramp-freeze/FreezeAnnotateReal.tsx",
+    "reference": "video-shotcraft/references/shots/rhythm/speed-ramp-freeze.md",
+    "status": "ready"
+  }
+}

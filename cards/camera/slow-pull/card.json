@@ -1,0 +1,93 @@
+{
+  "id": "camera/slow-pull",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "缓拉全貌",
+  "summary": "从局部细节连续缓拉到完整画面，末段速度连续收住",
+  "intents": [
+    "例证",
+    "空间叙事",
+    "揭示"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 189,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "pullDur",
+        "label": "主拉时长",
+        "unit": "seconds",
+        "defaultValue": 4.4,
+        "min": 1.5,
+        "max": 12.0,
+        "step": 0.1,
+        "description": "镜头从局部细节拉向全貌的主行程时长"
+      },
+      {
+        "name": "holdDur",
+        "label": "余量拉完",
+        "unit": "seconds",
+        "defaultValue": 1.5,
+        "min": 0.5,
+        "max": 6.0,
+        "step": 0.1,
+        "description": "主拉到位后按末端速度拉完最后一点的时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 189,
+        "min": 60,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "需要从细节揭示整体关系",
+      "开场先给局部再交代环境"
+    ],
+    "avoid": [
+      "素材分辨率不足",
+      "需要快速进入下一个重音"
+    ],
+    "pairsWith": [
+      "text/typewriter-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      90,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/slow-pull-reveal",
+    "sourcePath": "video-talkcraft/template/cards/slow-pull-reveal.tsx",
+    "reference": "video-talkcraft/references/cards/slow-pull-reveal.md",
+    "status": "ready"
+  }
+}

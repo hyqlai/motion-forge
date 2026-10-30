@@ -1,0 +1,58 @@
+{
+  "id": "transition/page-turn-transitions",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "page-turn-transitions",
+  "summary": "整页体块转场——barn-door-split 对开门裂幕（旧页裂两半滑出、新页迎上）",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "章节级换页：新旧交替的两个大段落之间的\"翻篇\"仪式；与 shot-transitions 系（镜头交棒）分工——那是\"航拍机移过去\"，这是\"页面自己是实体\""
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/page-turn-transitions",
+    "sourcePath": "video-shotcraft/demos/transition/page-turn-transitions/BarnDoorSplit.tsx",
+    "reference": "video-shotcraft/references/shots/transition/page-turn-transitions.md",
+    "status": "ready"
+  }
+}

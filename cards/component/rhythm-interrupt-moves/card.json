@@ -1,0 +1,58 @@
+{
+  "id": "component/rhythm-interrupt-moves",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "rhythm-interrupt-moves",
+  "summary": "打断节奏——jump-cut-punch-in 三级跳切推近：同构图三次无补间硬跳放大，逐级逼近目标",
+  "intents": [
+    "rhythm",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 135,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "用\"打断连续性\"本身当节奏器：顿挫推近（A）；与 beat-cut-moves（切点排布）互补"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      33,
+      67,
+      114
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/rhythm-interrupt-moves",
+    "sourcePath": "video-shotcraft/demos/rhythm/rhythm-interrupt-moves/JumpCutPunchIn.tsx",
+    "reference": "video-shotcraft/references/shots/rhythm/rhythm-interrupt-moves.md",
+    "status": "ready"
+  }
+}

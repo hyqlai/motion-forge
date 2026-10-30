@@ -1,0 +1,59 @@
+{
+  "id": "text/highlighter-sweep",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "荧光笔高亮扫过",
+  "summary": "荧光色块扫过关键句，其余文字同步压暗，关键句落定时轻微浮起",
+  "intents": [
+    "引用",
+    "强调",
+    "例证"
+  ],
+  "genres": [
+    "explainer",
+    "story",
+    "philosophy"
+  ],
+  "inputs": [
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 60,
+    "minimumInFrames": 45,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "引用报告、文献或新闻时需要锁定关键句",
+      "冷静讲解中需要一次克制的视觉强调"
+    ],
+    "avoid": [
+      "高亮半句或跨越不完整语义",
+      "深色底仍直接套用浅底 multiply 混合"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      32,
+      55
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/highlighter-sweep",
+    "sourcePath": "video-talkcraft/template/cards/highlighter-sweep.tsx",
+    "reference": "video-talkcraft/references/cards/highlighter-sweep.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "id": "transition/transition-hidden-cut",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "transition-hidden-cut",
+  "summary": "藏切点转场三式——前景遮挡隐形切、对撞开屏、暖色漏光，硬切藏进遮挡/撞击/光峰的 1-3 帧里，观众看不见剪刀",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 89,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "两镜衔接处需要\"无痕换景\"或\"仪式感开屏\"时（技法卡，与 shot-transitions 三式同层选型）"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "light-leak-burn: 胶片漏光过曝切 (默认)",
+      "versus-slam: 红蓝极速对撞切 (VersusSlam)",
+      "invisible-cut: 物体遮挡隐形切 (InvisibleCut)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      22,
+      44,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/transition-hidden-cut",
+    "sourcePath": "video-shotcraft/demos/transition/transition-hidden-cut/LightLeakBurn.tsx",
+    "reference": "video-shotcraft/references/shots/transition/transition-hidden-cut.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "light-leak-burn",
+      "label": "胶片漏光过曝切 (默认)"
+    },
+    {
+      "key": "versus-slam",
+      "label": "红蓝极速对撞切 (VersusSlam)"
+    },
+    {
+      "key": "invisible-cut",
+      "label": "物体遮挡隐形切 (InvisibleCut)"
+    }
+  ]
+}

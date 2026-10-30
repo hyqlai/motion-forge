@@ -1,0 +1,72 @@
+{
+  "id": "camera/shot-crash-zoom-punch",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "crash-zoom-punch",
+  "summary": "全景一拍急推到目标特写（6f），落位二选一——过冲回弹（弹性）或撞停震屏（重量）",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 112,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "功能段\"点名\"镜头——把观众视线一拍按到目标卡/模块上；强调级用撞停"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "crash-impact: 极限急推撞停特写 (默认)",
+      "crash-zoom-smooth: 平滑急推变焦 (CrashZoomReal)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      28,
+      56,
+      95
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/crash-zoom-punch",
+    "sourcePath": "video-shotcraft/demos/camera/crash-zoom-punch/CrashImpactReal.tsx",
+    "reference": "video-shotcraft/references/shots/camera/crash-zoom-punch.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "crash-impact",
+      "label": "极限急推撞停特写 (默认)"
+    },
+    {
+      "key": "crash-zoom-smooth",
+      "label": "平滑急推变焦 (CrashZoomReal)"
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+{
+  "id": "component/timeline-travel",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "timeline-travel",
+  "summary": "时间轴横移——镜头沿水平刻度轴加速掠过版本刻度，每过一格卡片弹立短停，末刻度急停推近",
+  "intents": [
+    "data",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 160,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "changelog/里程碑/发展史段落（\"我们一直在发货\"的另一种拍法）；与 scroll-brake-moves 分工：那卡是纵向列表急刹，本卡是横向时间旅行"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      40,
+      80,
+      136
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/timeline-travel",
+    "sourcePath": "video-shotcraft/demos/data/timeline-travel/TimelineTravel.tsx",
+    "reference": "video-shotcraft/references/shots/data/timeline-travel.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "id": "component/cred-card",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "商业镜头 · cred-card",
+  "summary": "人或荣誉的资历卡：只放能证明的资历/荣誉，用来替代「名师」「金牌」这类说法。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 90,
+    "minimumInFrames": 45,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "layout=person（讲师/手艺人：name+role+years+creds）/ honor（荣誉/证书：title+issuer+year+refs）",
+      "person.creds 每条必须逐字出自 brief 的资历字段，模型不能自己补写（credVerbatim，行业规则实现）；honor.refs 必填，指向 meta.facts",
+      "公共禁用词：医生/医师/专家/教授/主任/院长/皮肤科/名师/金牌/王牌/顶级/大咖/权威/第一，以及国家机关名称（各行业还会追加，行业规则里拦）",
+      "没有照片时：person 用首字圆标 + 对应工具图标，不用 AI 生成人脸冒充本人；honor 用徽章图形，不模仿米其林/黑珍珠等官方标识"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      45,
+      76
+    ]
+  },
+  "migration": {
+    "source": "brewreel/credCard",
+    "sourcePath": "brewreel/template/src/shots/credCard.tsx",
+    "reference": "brewreel/docs/shots/credCard.md",
+    "status": "migrating"
+  }
+}

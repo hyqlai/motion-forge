@@ -1,0 +1,64 @@
+{
+  "id": "component/features",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "商业镜头 · features",
+  "summary": "卖点卡：2–4 张带图标的卖点卡按拍依次弹入，黄色聚光框跟着「当前讲到的那张」移动。grid：2 张并排 / 3 张一横两方 / 4 张 2x2；stack：竖排横条。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 75,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "产品出场后用来讲「它能做什么」；每张卡只讲一个卖点",
+      "title ≤8 字说是什么（名词短语），desc ≤16 字说带来什么好处（用户能感到的结果）",
+      "icon 从图标清单里挑最贴切的；不同卡尽量用不同图标",
+      "3 张最好看；时长约「张数 × 1 秒 + 1.5 秒」，4 张给 5–6 秒",
+      "desc 较长、想让每条都读清楚时用 layout: stack"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "brewreel/features",
+    "sourcePath": "brewreel/template/src/shots/features.tsx",
+    "reference": "brewreel/docs/shots/features.md",
+    "status": "migrating"
+  }
+}

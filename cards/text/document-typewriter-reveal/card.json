@@ -1,0 +1,58 @@
+{
+  "id": "text/document-typewriter-reveal",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "document-typewriter-reveal",
+  "summary": "悬浮在暗场里的整页真排版文档窗口在光标后自己\"写\"出来、侧栏跟进、历史条目逐个落入轨道，相机从斜侧标题特写一路后撤到全窗",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "文档/报告/笔记类功能镜头；信息密度最高的一拍"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/document-typewriter-reveal",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/document-typewriter-reveal/DocumentTypewriterReveal.tsx",
+    "reference": "video-shotcraft/references/shots/typography/document-typewriter-reveal.md",
+    "status": "ready"
+  }
+}

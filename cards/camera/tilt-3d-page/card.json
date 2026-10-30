@@ -1,0 +1,75 @@
+{
+  "id": "camera/tilt-3d-page",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "3D 俯仰透视页面",
+  "summary": "静态页面在 3D 空间以 28° 倾角斜立，带轻微透视纵深（rotateX/Y），随后缓慢回正或平移漫游",
+  "intents": [
+    "产品立面",
+    "界面立体化",
+    "高级质感",
+    "空间漫游"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 162,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 162,
+        "min": 60,
+        "max": 360,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "把网页、落地页或 UI 界面当产品实体展示的时刻",
+      "让页面降级为有纵深的立体道具"
+    ],
+    "avoid": [
+      "倾角过大（>40°）导致内容严重形变无法阅读",
+      "快速旋转让观众头晕"
+    ],
+    "pairsWith": [
+      "camera/orbit-drift"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      60,
+      130
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/tilt-3d-page",
+    "sourcePath": "video-talkcraft/template/cards/tilt-3d-page.tsx",
+    "reference": "video-talkcraft/references/cards/tilt-3d-page.md",
+    "status": "ready"
+  }
+}

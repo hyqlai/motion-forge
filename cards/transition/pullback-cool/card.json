@@ -1,0 +1,62 @@
+{
+  "id": "transition/pullback-cool",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "后拉冷却转场",
+  "summary": "出场内容沉暗交出画面，入场以唯一 scale<1 起步的后拉落定，节奏最慢的一式",
+  "intents": [
+    "转场",
+    "收束",
+    "呼吸"
+  ],
+  "genres": [
+    "story",
+    "philosophy",
+    "explainer"
+  ],
+  "inputs": [
+    "from",
+    "to"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 104,
+    "minimumInFrames": 70,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "章节收尾后需要让观众呼吸一口",
+      "前一个段落情绪较满，需要降温再进下一段"
+    ],
+    "avoid": [
+      "需要快节奏连续推进的段落",
+      "两个高能分镜之间"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": [
+      "transition/whip-pan"
+    ]
+  },
+  "qa": {
+    "frames": [
+      10,
+      40,
+      60
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/pullback-cool-transition",
+    "sourcePath": "video-talkcraft/template/cards/pullback-cool-transition.tsx",
+    "reference": "video-talkcraft/references/cards/pullback-cool-transition.md",
+    "status": "ready"
+  }
+}

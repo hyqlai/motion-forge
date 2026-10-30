@@ -1,0 +1,74 @@
+{
+  "id": "media/bed-echo-blur",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "竖屏虚化垫底",
+  "summary": "竖屏素材（9:16）居中播放，背景使用同一素材放大至满幅铺满并叠加高斯模糊与暗度遮罩，消除横屏黑边",
+  "intents": [
+    "竖屏适配",
+    "素材垫底",
+    "背景虚化",
+    "手机录屏呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "video",
+    "image"
+  ],
+  "aspects": [
+    "16:9"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 243,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 243,
+        "min": 90,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "横屏视频中需要播放竖版手机录屏、短视频或海报截图",
+      "避免两侧丑陋的大黑边，保持画面的呼吸与质感"
+    ],
+    "avoid": [
+      "已经是 16:9 横屏的视频素材",
+      "背景模糊度过小导致画面产生视觉双重重影干扰"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/bed-echo-blur",
+    "sourcePath": "video-talkcraft/template/cards/bed-echo-blur.tsx",
+    "reference": "video-talkcraft/references/cards/bed-echo-blur.md",
+    "status": "ready"
+  }
+}

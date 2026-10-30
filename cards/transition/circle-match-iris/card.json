@@ -1,0 +1,58 @@
+{
+  "id": "transition/circle-match-iris",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "circle-match-iris",
+  "summary": "圆心匹配光圈切——光圈从页面上圆形元素的圆心炸开，圈内新页的圆形图表接在同一个圆上；匹配剪辑给光圈一个语义锚点",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 165,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "前景有圆形元素（头像/图标/圆钮）、后景有圆形主体（donut 图/圆环进度）的接缝；转场技法卡"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      41,
+      82,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/circle-match-iris",
+    "sourcePath": "video-shotcraft/demos/transition/circle-match-iris/CircleMatchIris.tsx",
+    "reference": "video-shotcraft/references/shots/transition/circle-match-iris.md",
+    "status": "ready"
+  }
+}

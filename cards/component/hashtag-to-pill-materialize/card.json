@@ -1,0 +1,58 @@
+{
+  "id": "component/hashtag-to-pill-materialize",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "hashtag-to-pill-materialize",
+  "summary": "话题词打字实体化——居中打出 \"#word\"（红实心光标恒亮），1 帧硬切变成宽大胶囊标签，hold 后缩小左移落到页面标签位，再 1 帧硬切揭示成品页；\"两次硬切一次滑动\"的节奏骨架",
+  "intents": [
+    "interaction",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "标签/分类/关键词功能的演示段（笔记 app 打 tag、话题聚合）；\"输入 → 变成 UI 实体 → 归位到成品\"的三段式叙事"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/hashtag-to-pill-materialize",
+    "sourcePath": "video-shotcraft/demos/interaction/hashtag-to-pill-materialize/HashtagToPillMaterialize.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/hashtag-to-pill-materialize.md",
+    "status": "ready"
+  }
+}

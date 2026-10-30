@@ -1,0 +1,58 @@
+{
+  "id": "component/outro-group-photo-launch",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "outro-group-photo-launch",
+  "summary": "全片元素从四面八方飞来围住字标合影，crane 落机位+舞台光+金尘做成发布会收场",
+  "intents": [
+    "outro",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 145,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "outro/品牌收尾；多功能产品的\"全家福\"式终镜"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      36,
+      72,
+      123
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/outro-group-photo-launch",
+    "sourcePath": "video-shotcraft/demos/outro/outro-group-photo-launch/OutroGroupPhotoLaunch.tsx",
+    "reference": "video-shotcraft/references/shots/outro/outro-group-photo-launch.md",
+    "status": "ready"
+  }
+}

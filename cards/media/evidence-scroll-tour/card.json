@@ -1,0 +1,74 @@
+{
+  "id": "media/evidence-scroll-tour",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "证据长图滚动巡览",
+  "summary": "超出视口的长文档/协议/README截图先静置认全貌，再匀速平滑向下滚过关键条款，终点减速并高亮核心重点",
+  "intents": [
+    "长图巡览",
+    "协议拆解",
+    "证据举证",
+    "深度复盘"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 320,
+    "minimumInFrames": 150,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 320,
+        "min": 150,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播出示文档、协议、README 或长搜索结果，需要从头看一遍重点在这一条",
+      "财经拆解、合规条款客观举证"
+    ],
+    "avoid": [
+      "滚动速度过快（导致文字产生强烈视觉频闪）",
+      "终点不减速撞停"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      25,
+      120,
+      260
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/evidence-scroll-tour",
+    "sourcePath": "video-talkcraft/template/cards/evidence-scroll-tour.tsx",
+    "reference": "video-talkcraft/references/cards/evidence-scroll-tour.md",
+    "status": "ready"
+  }
+}

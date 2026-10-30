@@ -1,0 +1,58 @@
+{
+  "id": "component/deck-deal-flyin",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "deck-deal-flyin",
+  "summary": "暗色石墨桌面上的实体牌堆特写环绕开局，灯从牌堆亮到旁边的页面板，一摞卡像发牌一样硬加速甩进网格，相机追着发牌升起后仰、落在整块满板的跑道式俯瞰上定格",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "展示\"内容量大/源源不断汇入\"的列表页与卡片墙；建立信息密度的第一印象"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/deck-deal-flyin",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/deck-deal-flyin/DeckDealFlyin.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/deck-deal-flyin.md",
+    "status": "ready"
+  }
+}

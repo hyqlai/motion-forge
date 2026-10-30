@@ -1,0 +1,58 @@
+{
+  "id": "transition/shot-transitions",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "shot-transitions",
+  "summary": "镜头交棒三式——推进流白、whip-pan 甩镜（急刹款）、mask-wipe 穿窗（纵深款），按能量落差与接缝语义选型",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 140,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "任何两镜衔接处（技法卡，分镜阶段排完镜头后逐个接缝选一式）"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      35,
+      70,
+      119
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/shot-transitions",
+    "sourcePath": "video-shotcraft/demos/transition/shot-transitions/PortalWipeV2.tsx",
+    "reference": "video-shotcraft/references/shots/transition/shot-transitions.md",
+    "status": "ready"
+  }
+}

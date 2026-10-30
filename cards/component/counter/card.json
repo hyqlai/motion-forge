@@ -1,0 +1,64 @@
+{
+  "id": "component/counter",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "商业镜头 · counter",
+  "summary": "大数字滚动：数字从 from 滚到 to（嗒嗒声 + 进度条同步走），落定那一拍弹一下 + 放射光线 + 叮，下面写这个数字的含义和口径。可选显示旧值：钱（¥/元/$）会划掉旧值并算出降幅（如 ¥199 → ¥129，↓ 35%）；其他单位（分钟、℃）不划线、不算百分比，数字下的条从旧值刷到新值。",
+  "intents": [
+    "commercial",
+    "promo",
+    "product",
+    "视觉呈现"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 90,
+    "minimumInFrames": 60,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "一镜只放一个数字；数字只能来自简报（先原样抄进 meta.facts），sub 照抄那条 fact 的 source；简报没给数字就别用 counter（标了示例数据的数字也不能当效果），改用 compare 只比做法；不要自己编「内部测试」「实测」",
+      "不要写 100%、第一 之类的极限表述",
+      "prefix/suffix 放符号或单位：¥、+、%、倍、分钟、小时",
+      "前后对比（省时间、降成本）：from 写旧值、to 写新值、showFrom 写 true，画面会划掉旧值并算出变化幅度",
+      "label 用大白话说这个数字意味着什么（如「整理一份周报」「平均看懂一条消息」）"
+    ],
+    "avoid": [
+      "参数类型错误",
+      "缺少必填字段"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      22,
+      45,
+      76
+    ]
+  },
+  "migration": {
+    "source": "brewreel/counter",
+    "sourcePath": "brewreel/template/src/shots/counter.tsx",
+    "reference": "brewreel/docs/shots/counter.md",
+    "status": "migrating"
+  }
+}

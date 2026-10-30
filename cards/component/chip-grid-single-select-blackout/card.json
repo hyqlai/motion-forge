@@ -1,0 +1,58 @@
+{
+  "id": "component/chip-grid-single-select-blackout",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "chip-grid-single-select-blackout",
+  "summary": "五个选项 chip 以 3+2 居中排布逐个淡入；选中帧先插一帧灰色按压块，紧接数帧内底色变墨黑、文字变白并做 1→1.04→1 极轻回弹，其余 chip 淡到 18% 但位置锁死；随后余项归零，黑 chip 上移收窄，下方升起结算价格",
+  "intents": [
+    "interaction",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 165,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "单选/套餐/档位选择的交互演示；\"选了它之后会怎样\"的因果镜头；价格/参数结算类链路"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      41,
+      82,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/chip-grid-single-select-blackout",
+    "sourcePath": "video-shotcraft/demos/interaction/chip-grid-single-select-blackout/ChipGridSingleSelectBlackout.tsx",
+    "reference": "video-shotcraft/references/shots/interaction/chip-grid-single-select-blackout.md",
+    "status": "ready"
+  }
+}

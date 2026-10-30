@@ -1,0 +1,74 @@
+{
+  "id": "component/chat-gpt",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "ChatGPT 对话自演",
+  "summary": "深色 ChatGPT 风格对话窗口：提示词打入，AI 思考指示器微震，随后回答以流式打字机逐字输出并带闪烁光标",
+  "intents": [
+    "AI问答",
+    "提示词测评",
+    "大模型展示",
+    "智能体交互"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 204,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 204,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播讲 AI 话题时把我是这么问的、它是这么答的演成现在进行时",
+      "提示词技巧、模型能力讨论"
+    ],
+    "avoid": [
+      "超长上下文多轮对话（本卡专为精炼一问一答设计）",
+      "回答一次性刷出失去流式生成感"
+    ],
+    "pairsWith": [
+      "component/chat-message-flow"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/chat-gpt",
+    "sourcePath": "video-talkcraft/template/cards/chat-gpt.tsx",
+    "reference": "video-talkcraft/references/cards/chat-gpt.md",
+    "status": "ready"
+  }
+}

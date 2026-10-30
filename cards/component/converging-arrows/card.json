@@ -1,0 +1,75 @@
+{
+  "id": "component/converging-arrows",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "双向箭头夹指",
+  "summary": "两侧醒目箭头从左右两个方向快速向内推进，精准夹住唯一核心结论词，视线强力汇聚",
+  "intents": [
+    "焦点夹指",
+    "双向聚焦",
+    "记住这一点",
+    "重音指认"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html",
+    "svg"
+  ],
+  "timing": {
+    "defaultInFrames": 89,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 89,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播抛出记住这几点、关键就在这里这种要观众钉住一个词的时刻",
+      "强指向性重点指认"
+    ],
+    "avoid": [
+      "同屏有多个候选词（双箭头只能夹一个目标）",
+      "箭头移动缓慢缺乏夹击力道"
+    ],
+    "pairsWith": [
+      "text/keyword-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      30,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/converging-arrows",
+    "sourcePath": "video-talkcraft/template/cards/converging-arrows.tsx",
+    "reference": "video-talkcraft/references/cards/converging-arrows.md",
+    "status": "ready"
+  }
+}

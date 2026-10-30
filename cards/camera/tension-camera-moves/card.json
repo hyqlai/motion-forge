@@ -1,0 +1,72 @@
+{
+  "id": "camera/tension-camera-moves",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "tension-camera-moves",
+  "summary": "情绪运镜两式——bullet-time 冻结环绕、pull-back 拉远孤立，相机替观众\"感受\"而非\"看\"",
+  "intents": [
+    "camera",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 170,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "情绪节点（震撼/收束）的运镜语言；与 space-camera-moves 的\"炫技大动作\"互补——这两式动作小、情绪重"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": [],
+    "styles": [
+      "bullet-time-freeze-orbit: 子弹时间冻结环绕 (默认)",
+      "pull-back-isolation: 镜头拉远孤立感 (PullBackIsolation)"
+    ]
+  },
+  "qa": {
+    "frames": [
+      42,
+      85,
+      144
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/tension-camera-moves",
+    "sourcePath": "video-shotcraft/demos/camera/tension-camera-moves/BulletTimeFreezeOrbit.tsx",
+    "reference": "video-shotcraft/references/shots/camera/tension-camera-moves.md",
+    "status": "ready"
+  },
+  "styles": [
+    {
+      "key": "bullet-time-freeze-orbit",
+      "label": "子弹时间冻结环绕 (默认)"
+    },
+    {
+      "key": "pull-back-isolation",
+      "label": "镜头拉远孤立感 (PullBackIsolation)"
+    }
+  ]
+}

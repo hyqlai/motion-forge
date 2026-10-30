@@ -1,0 +1,96 @@
+{
+  "id": "transition/particle-weld",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "粒子熔接转场",
+  "summary": "出场主体碎解为 18 颗粒子向上漂散，入场侧同 seed 粒子同向收拢凝结为新主体，产生物质跨边界连续感",
+  "intents": [
+    "形态转换",
+    "物质连续",
+    "概念到具象",
+    "诗意转场"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "philosophy",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html",
+    "canvas"
+  ],
+  "timing": {
+    "defaultInFrames": 98,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "out",
+        "label": "碎解时长",
+        "unit": "seconds",
+        "defaultValue": 0.6,
+        "min": 0.2,
+        "max": 1.2,
+        "step": 0.05,
+        "description": "出场主体化作粒子碎解的时长"
+      },
+      {
+        "name": "gather",
+        "label": "收拢时长",
+        "unit": "seconds",
+        "defaultValue": 0.7,
+        "min": 0.3,
+        "max": 1.5,
+        "step": 0.05,
+        "description": "入场侧粒子凝聚成新主体的时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 98,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "有同一事物换了形态语义的镜头边界（数据变图表、概念变实例）",
+      "两幕之间的流动衔接"
+    ],
+    "avoid": [
+      "滥用于快节奏重音段落",
+      "两组粒子更换 seed 破坏同一批粒子隐喻"
+    ],
+    "pairsWith": [
+      "environment/canvas-particles"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      42,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/particle-weld-transition",
+    "sourcePath": "video-talkcraft/template/cards/particle-weld-transition.tsx",
+    "reference": "video-talkcraft/references/cards/particle-weld-transition.md",
+    "status": "ready"
+  }
+}

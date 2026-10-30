@@ -1,0 +1,59 @@
+{
+  "id": "media/split-compare",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "对比双分屏",
+  "summary": "同构图图片由分割线滑动揭示，支持近端强调和回中比较",
+  "intents": [
+    "对比",
+    "例证"
+  ],
+  "genres": [
+    "explainer",
+    "story",
+    "promo"
+  ],
+  "inputs": [
+    "beforeImage",
+    "afterImage"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 296,
+    "minimumInFrames": 240,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "调色、改造或前后效果需要同机位比较",
+      "需要反复对照两侧细节"
+    ],
+    "avoid": [
+      "两张图构图完全不同",
+      "短片只有一两秒无法完成比较"
+    ],
+    "pairsWith": [
+      "camera/slow-pull"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      90,
+      240
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/split-compare-slider",
+    "sourcePath": "video-talkcraft/template/cards/split-compare-slider.tsx",
+    "reference": "video-talkcraft/references/cards/split-compare-slider.md",
+    "status": "ready"
+  }
+}

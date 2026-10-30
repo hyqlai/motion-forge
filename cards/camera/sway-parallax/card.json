@@ -1,0 +1,61 @@
+{
+  "id": "camera/sway-parallax",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "左右视差摇移",
+  "summary": "横向扫过宽画面并伴随轻微 rotateY 与前移，末段继续漂移",
+  "intents": [
+    "空间叙事",
+    "例证",
+    "氛围"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "promo"
+  ],
+  "inputs": [
+    "wideComponent",
+    "image",
+    "webpage"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 198,
+    "minimumInFrames": 90,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "宽页面或长图需要分区扫读",
+      "需要比纯平移更强的空间感"
+    ],
+    "avoid": [
+      "内容只有单屏宽度",
+      "需要阅读密集小字且移动过快"
+    ],
+    "pairsWith": [
+      "media/map-route"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      100,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/sway-parallax",
+    "sourcePath": "video-talkcraft/template/cards/sway-parallax.tsx",
+    "reference": "video-talkcraft/references/cards/sway-parallax.md",
+    "status": "ready"
+  }
+}

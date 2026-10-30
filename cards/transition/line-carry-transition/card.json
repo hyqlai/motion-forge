@@ -1,0 +1,58 @@
+{
+  "id": "transition/line-carry-transition",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "line-carry-transition",
+  "summary": "线条接力横移转场——场景 A 的进度条延伸出画，镜头跟线横移，线在移动中拐角围出场景 B 的卡框，全程无剪切",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 190,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "两个有图形亲缘的场景之间（进度条→卡框、下划线→图表轴）；一支片子的招牌转场位，Catch Me If You Can 片头的图形接力"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      47,
+      95,
+      161
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/line-carry-transition",
+    "sourcePath": "video-shotcraft/demos/transition/line-carry-transition/LineCarryTransition.tsx",
+    "reference": "video-shotcraft/references/shots/transition/line-carry-transition.md",
+    "status": "ready"
+  }
+}

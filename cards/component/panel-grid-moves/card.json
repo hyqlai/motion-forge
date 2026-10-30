@@ -1,0 +1,58 @@
+{
+  "id": "component/panel-grid-moves",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "panel-grid-moves",
+  "summary": "分格节奏——comic-panel-split 漫画斜格劈出同一主体的三个机位，咔咔咔三格定格后末格斜边吃屏成海报",
+  "intents": [
+    "rhythm",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 156,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "把\"格子\"当节奏器：同主体多机位定格并列，逐格踩拍劈出；吃拍点"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      39,
+      78,
+      132
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/panel-grid-moves",
+    "sourcePath": "video-shotcraft/demos/rhythm/panel-grid-moves/ComicPanelSplit.tsx",
+    "reference": "video-shotcraft/references/shots/rhythm/panel-grid-moves.md",
+    "status": "ready"
+  }
+}

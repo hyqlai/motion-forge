@@ -1,0 +1,95 @@
+{
+  "id": "transition/caret-wipe",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "光标擦除转场",
+  "summary": "以文本光标为边界的互补 clipPath 擦除转场，新场景微下沉解糊，旧场景微上浮失焦",
+  "intents": [
+    "代码/文档换页",
+    "版本更新",
+    "转折换章",
+    "边界擦除"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 103,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "holdA",
+        "label": "前镜停留",
+        "unit": "seconds",
+        "defaultValue": 0.8,
+        "min": 0.2,
+        "max": 2,
+        "step": 0.05,
+        "description": "擦除启动前的静置时间"
+      },
+      {
+        "name": "wipe",
+        "label": "扫屏时长",
+        "unit": "seconds",
+        "defaultValue": 1.33,
+        "min": 0.4,
+        "max": 3,
+        "step": 0.05,
+        "description": "光标自左向右扫完全屏时长"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 103,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "编辑器、文档、代码重构或改版的前后场景接缝",
+      "需要打字/退格隐喻的章节交接"
+    ],
+    "avoid": [
+      "连续多次滥用光标擦除",
+      "前后两镜色调极端突变造成光标不明显"
+    ],
+    "pairsWith": [
+      "text/typewriter-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      55,
+      95
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/caret-wipe-transition",
+    "sourcePath": "video-talkcraft/template/cards/caret-wipe-transition.tsx",
+    "reference": "video-talkcraft/references/cards/caret-wipe-transition.md",
+    "status": "ready"
+  }
+}

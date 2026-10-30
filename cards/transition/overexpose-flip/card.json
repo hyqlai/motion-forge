@@ -1,0 +1,61 @@
+{
+  "id": "transition/overexpose-flip",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "过曝翻页",
+  "summary": "推向证据物后过曝冲顶，下一镜从亮心拉出并沉降",
+  "intents": [
+    "转场",
+    "章节",
+    "高潮"
+  ],
+  "genres": [
+    "story",
+    "promo",
+    "launch",
+    "music-visual"
+  ],
+  "inputs": [
+    "fromScene",
+    "toScene"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 93,
+    "minimumInFrames": 70,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "章节转换需要明显仪式",
+      "音乐或叙事高潮需要光效重音"
+    ],
+    "avoid": [
+      "浅底白闪无法形成对比",
+      "需要连续克制的证据阅读"
+    ],
+    "pairsWith": [
+      "transition/push-through"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      38,
+      75
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/overexpose-flip-transition",
+    "sourcePath": "video-talkcraft/template/cards/overexpose-flip-transition.tsx",
+    "reference": "video-talkcraft/references/cards/overexpose-flip-transition.md",
+    "status": "ready"
+  }
+}

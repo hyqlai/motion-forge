@@ -1,0 +1,58 @@
+{
+  "id": "transition/white-flash-logo-simplify-cut",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "white-flash-logo-simplify-cut",
+  "summary": "液态金属质感的彩色词标静置流光，蓄力后从字心炸出一记白闪过曝，曝光回落时同一位置已是扁平版字标——一次闪白完成质感降维",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 120,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "品牌段落收束（华丽演绎→干净定妆）；情绪从炫技切换到正式宣告的转场拍"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      60,
+      102
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/white-flash-logo-simplify-cut",
+    "sourcePath": "video-shotcraft/demos/transition/white-flash-logo-simplify-cut/WhiteFlashLogoSimplifyCut.tsx",
+    "reference": "video-shotcraft/references/shots/transition/white-flash-logo-simplify-cut.md",
+    "status": "ready"
+  }
+}

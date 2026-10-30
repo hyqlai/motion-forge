@@ -1,0 +1,74 @@
+{
+  "id": "component/ui-prop-theater",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "UI控件道具剧场",
+  "summary": "开关点击切换、进度滑杆拖动、百分比数字联动跳变，将软件参数演成舞台道具交互",
+  "intents": [
+    "参数调试",
+    "微交互",
+    "功能演示",
+    "直观对比"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 179,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 179,
+        "min": 90,
+        "max": 360,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播讲到把这个参数拉满、开关打开的交互过程",
+      "SaaS 工具测评、参数调优展示"
+    ],
+    "avoid": [
+      "界面元素过多堆积成真实软件截图（破坏道具感）",
+      "滑杆拖动与数值变化不同步"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      70,
+      140
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/ui-prop-theater",
+    "sourcePath": "video-talkcraft/template/cards/ui-prop-theater.tsx",
+    "reference": "video-talkcraft/references/cards/ui-prop-theater.md",
+    "status": "ready"
+  }
+}

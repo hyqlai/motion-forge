@@ -1,0 +1,58 @@
+{
+  "id": "component/cloner-depth-echo",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "cloner-depth-echo",
+  "summary": "克隆纵队——主卡瞬间\"复印\"出 7 个半透明分身沿斜向纵深排开成队，停一拍后全体加速吸回本体合一+弹跳",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 138,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "\"多副本/多租户/规模感/批量处理\"卖点；一镜讲完\"一个=很多\""
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      34,
+      69,
+      117
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/cloner-depth-echo",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/cloner-depth-echo/ClonerDepthEcho.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/cloner-depth-echo.md",
+    "status": "ready"
+  }
+}

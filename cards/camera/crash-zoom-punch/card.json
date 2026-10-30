@@ -1,0 +1,75 @@
+{
+  "id": "camera/crash-zoom-punch",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "撞停特写按头放大",
+  "summary": "镜头以极高加速度猛然冲向目标局部特写并硬生生撞停（零回弹），把观众视线一拍按死在关键单元格上",
+  "intents": [
+    "点名镜头",
+    "硬撞停",
+    "焦点按死",
+    "重音特写"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 144,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 144,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播说到就是这一行、看这里时，一拍把视线按到目标单元格上",
+      "全片 1~2 次的重音强调"
+    ],
+    "avoid": [
+      "连续多次撞停导致晕眩",
+      "使用带回弹缓动（必须是撞停死死咬住）"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      30,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/crash-zoom-punch",
+    "sourcePath": "video-talkcraft/template/cards/crash-zoom-punch.tsx",
+    "reference": "video-talkcraft/references/cards/crash-zoom-punch.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,58 @@
+{
+  "id": "component/magician-card-flourish",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "magician-card-flourish",
+  "summary": "午夜蓝暗场上蓝色星芒闪现 0.3s（X 形针状光束旋转 90°+中心辉光放射小光芒），卡片从闪光点弹射而出——极速自旋弧线飞向镜头、自旋随靠近衰减、瞬间硬定格（卡高 86% 画高）、光脉冲 + sheen 扫光，右侧文案随后逐行揭示",
+  "intents": [
+    "opening",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 156,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "单张卡片/海报/封面的魔术性登场（片头主视觉、产品卡揭晓）；纯黑暗场；需要\"变出来\"仪式感的爆点"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      39,
+      78,
+      132
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/magician-card-flourish",
+    "sourcePath": "video-shotcraft/demos/opening/magician-card-flourish/MagicianCardFlourish.tsx",
+    "reference": "video-shotcraft/references/shots/opening/magician-card-flourish.md",
+    "status": "ready"
+  }
+}

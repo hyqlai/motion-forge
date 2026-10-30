@@ -1,0 +1,74 @@
+{
+  "id": "component/chapter-progress-list",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "章节进度列表",
+  "summary": "全片多章节列表自左向右依次亮起，当前进行中章节带高光线框与胶囊展开，建立全局脉络",
+  "intents": [
+    "全片目录",
+    "章节导航",
+    "长视频进度",
+    "分段过场"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 111,
+    "minimumInFrames": 60,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 111,
+        "min": 60,
+        "max": 300,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "长视频换段分界处（接下来第二部分、我们先说第一件事）",
+      "开场建立全片内容大纲"
+    ],
+    "avoid": [
+      "短于 60 秒的极短口播",
+      "章节数超过 5 项"
+    ],
+    "pairsWith": [
+      "component/chapter-title"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      45,
+      95
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/chapter-progress-list",
+    "sourcePath": "video-talkcraft/template/cards/chapter-progress-list.tsx",
+    "reference": "video-talkcraft/references/cards/chapter-progress-list.md",
+    "status": "ready"
+  }
+}

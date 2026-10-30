@@ -1,0 +1,74 @@
+{
+  "id": "media/gallery-wall-dolly",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "画廊横移镜头",
+  "summary": "三个平级案例卡在画廊墙上并列排布，相机逐一横移推近巡礼（停顿细看），最后拉回全景并列定格",
+  "intents": [
+    "案例巡览",
+    "多方案对比",
+    "作品集陈列",
+    "平级展示"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 258,
+    "minimumInFrames": 120,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 258,
+        "min": 120,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "接下来三个例子我们一个一个看的口播段落",
+      "三个平级案例/方案逐个点评，讲完还要看全貌"
+    ],
+    "avoid": [
+      "有先后因果时间顺序的几站（应改用 timeline-photo-strip）",
+      "卡片超过4张"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      200
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/gallery-wall-dolly",
+    "sourcePath": "video-talkcraft/template/cards/gallery-wall-dolly.tsx",
+    "reference": "video-talkcraft/references/cards/gallery-wall-dolly.md",
+    "status": "ready"
+  }
+}

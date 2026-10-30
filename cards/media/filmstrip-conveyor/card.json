@@ -1,0 +1,74 @@
+{
+  "id": "media/filmstrip-conveyor",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "胶片传送带巡览",
+  "summary": "水平胶片格如传送带般平滑滑过，在关键第 N 格精准减速悬停细看，随后再次匀速滑出，适合大批量作品集陈列",
+  "intents": [
+    "批量陈列",
+    "传送带",
+    "重点减速",
+    "长列表巡礼"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 250,
+    "minimumInFrames": 120,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 250,
+        "min": 120,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播列举超过5项且只有一项要重点说的段落（十个案例、六种解法）",
+      "盘点、回顾、片尾作品流"
+    ],
+    "avoid": [
+      "全程匀速不减速（观众不知道该看哪张）",
+      "卡片小于 4 张"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      200
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/filmstrip-conveyor",
+    "sourcePath": "video-talkcraft/template/cards/filmstrip-conveyor.tsx",
+    "reference": "video-talkcraft/references/cards/filmstrip-conveyor.md",
+    "status": "ready"
+  }
+}

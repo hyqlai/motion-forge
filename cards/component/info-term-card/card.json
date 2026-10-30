@@ -1,0 +1,60 @@
+{
+  "id": "component/info-term-card",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "名词解释悬浮卡",
+  "summary": "术语卡从屏侧滑入并过冲回稳，落位后正弦悬浮，念完释义原路收回",
+  "intents": [
+    "解释",
+    "科普",
+    "定义"
+  ],
+  "genres": [
+    "explainer",
+    "story"
+  ],
+  "inputs": [
+    "term",
+    "desc"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 197,
+    "minimumInFrames": 90,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "口播或旁白念到一个需要停下来解释的名词",
+      "定义内容不超过两行"
+    ],
+    "avoid": [
+      "名词密集出现时连续叠用",
+      "需要长段定义的内容"
+    ],
+    "pairsWith": [
+      "text/highlighter-sweep",
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      30,
+      120
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/info-term-card",
+    "sourcePath": "video-talkcraft/template/cards/info-term-card.tsx",
+    "reference": "video-talkcraft/references/cards/info-term-card.md",
+    "status": "ready"
+  }
+}

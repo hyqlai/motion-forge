@@ -1,0 +1,62 @@
+{
+  "id": "component/parallel-items-with-host",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "主体旁三项并列",
+  "summary": "主体占位左侧，右侧三项并列条目错峰横移弹入，带精致数字角标与强调色落点，最通用的科普并列镜头",
+  "intents": [
+    "三项并列",
+    "要点说明",
+    "多项枚举",
+    "方法提炼"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 663,
+    "minimumInFrames": 120,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "任何三件事、三个地方、三步、三种的并列句口播",
+      "知识、效率、生活方式类视频最高频的并列板式"
+    ],
+    "avoid": [
+      "条目超过 4 项导致右侧拥挤",
+      "三项同时入场失去节奏"
+    ],
+    "pairsWith": [
+      "component/stack-reveal"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      50,
+      200,
+      500
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/parallel-items-with-host",
+    "sourcePath": "video-talkcraft/template/cards/parallel-items-with-host.tsx",
+    "reference": "video-talkcraft/references/cards/parallel-items-with-host.md",
+    "status": "ready"
+  }
+}

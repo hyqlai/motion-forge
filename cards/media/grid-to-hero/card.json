@@ -1,0 +1,64 @@
+{
+  "id": "media/grid-to-hero",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "网格收成主角",
+  "summary": "四格网格错峰落位并列，讲到哪格它长成主图、其余收成右侧一列，讲完回到网格再一起退场",
+  "intents": [
+    "选择",
+    "对比",
+    "素材"
+  ],
+  "genres": [
+    "story",
+    "promo",
+    "launch",
+    "explainer"
+  ],
+  "inputs": [
+    "images",
+    "labels",
+    "heroIdx"
+  ],
+  "aspects": [
+    "16:9",
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 232,
+    "minimumInFrames": 180,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "从若干候选中选一个（封面、方案、产品型号）",
+      "需要保留落选者作对照，而不是让它们消失"
+    ],
+    "avoid": [
+      "候选只有两个（用 rack-focus 或 split-compare）",
+      "候选之间没有取舍关系"
+    ],
+    "pairsWith": [
+      "media/rack-focus",
+      "component/card-fan"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      90,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/grid-to-hero",
+    "sourcePath": "video-talkcraft/template/cards/grid-to-hero.tsx",
+    "reference": "video-talkcraft/references/cards/grid-to-hero.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "component/chip-grid-single-select",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "网格单选决策",
+  "summary": "多个方案或工具网格并列排布，光标扫过排查，最终锁定命中唯一胜出方案，其余方案压暗退后",
+  "intents": [
+    "方案单选",
+    "决策对比",
+    "排除法",
+    "结论聚焦"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 216,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 216,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播里 N 个方案/套餐/工具我选哪个、排除法选到最后一个的决策镜头",
+      "投票调研结果揭晓"
+    ],
+    "avoid": [
+      "选项超过 6 个",
+      "没有明显的选中与未选中对比"
+    ],
+    "pairsWith": [
+      "component/card-fan"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      180
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/chip-grid-single-select",
+    "sourcePath": "video-talkcraft/template/cards/chip-grid-single-select.tsx",
+    "reference": "video-talkcraft/references/cards/chip-grid-single-select.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "id": "camera/magnifier-detail",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "放大镜局部特写",
+  "summary": "一枚带金属质感圆环的放大镜从画外滑入目标关键数字上方，内部局部等比例高保真放大，随后平滑滑出",
+  "intents": [
+    "放大镜",
+    "局部细看",
+    "条款检视",
+    "质感特写"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 101,
+    "minimumInFrames": 45,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 101,
+        "min": 45,
+        "max": 240,
+        "step": 5,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "评测/教程说到截图里某个具体数字、小按钮、微小条款时注意看这里的时刻",
+      "信息密度高的证据截图必备"
+    ],
+    "avoid": [
+      "放大镜移动速度过快看不清内容",
+      "放大镜内部画面与底层没有对准"
+    ],
+    "pairsWith": [
+      "camera/pip-zoom-box"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      15,
+      45,
+      80
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/magnifier-detail",
+    "sourcePath": "video-talkcraft/template/cards/magnifier-detail.tsx",
+    "reference": "video-talkcraft/references/cards/magnifier-detail.md",
+    "status": "ready"
+  }
+}

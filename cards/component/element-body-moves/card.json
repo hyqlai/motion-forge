@@ -1,0 +1,58 @@
+{
+  "id": "component/element-body-moves",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "element-body-moves",
+  "summary": "元素身体感——contact-shadow-lift 接触阴影离面抬升：卡抬起时桌上的阴影同步放大变淡，纸片离桌被阴影证明",
+  "intents": [
+    "ui-entrance",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 150,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "给\"位置在变\"之外补\"身体在变\"：卡片点名给悬浮证据；配 2.5D 运镜与逐张点名"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      37,
+      75,
+      127
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/element-body-moves",
+    "sourcePath": "video-shotcraft/demos/ui-entrance/element-body-moves/ContactShadowLift.tsx",
+    "reference": "video-shotcraft/references/shots/ui-entrance/element-body-moves.md",
+    "status": "ready"
+  }
+}

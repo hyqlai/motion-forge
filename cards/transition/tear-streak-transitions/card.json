@@ -1,0 +1,58 @@
+{
+  "id": "transition/tear-streak-transitions",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "tear-streak-transitions",
+  "summary": "撕裂转场——glitch-displace 噪声撕裂（16 横条错位抖动中硬切），数字故障语义的条带级撕裂",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 135,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "高能换页：数字故障/断裂语义；页面完整性不破、能量拉满的条带级撕裂"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      33,
+      67,
+      114
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/tear-streak-transitions",
+    "sourcePath": "video-shotcraft/demos/transition/tear-streak-transitions/GlitchDisplace.tsx",
+    "reference": "video-shotcraft/references/shots/transition/tear-streak-transitions.md",
+    "status": "ready"
+  }
+}

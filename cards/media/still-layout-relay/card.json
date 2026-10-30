@@ -1,0 +1,74 @@
+{
+  "id": "media/still-layout-relay",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "定格布局接力",
+  "summary": "一主两辅画幅布局，主图带持续缓推，辅图交替切换并带聚焦高光，随后布局整体换位接力",
+  "intents": [
+    "多图证据",
+    "主辅接力",
+    "论据强化",
+    "杂志排版"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 467,
+    "minimumInFrames": 200,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 467,
+        "min": 200,
+        "max": 900,
+        "step": 30,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "论点 + 两条辅助证据（评测主图 + 两个细节切片）",
+      "三张图协同举证的高级杂志风排版"
+    ],
+    "avoid": [
+      "单屏图片超过4张",
+      "主辅图之间无明显大小主次对比"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      30,
+      150,
+      360
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/still-layout-relay",
+    "sourcePath": "video-talkcraft/template/cards/still-layout-relay.tsx",
+    "reference": "video-talkcraft/references/cards/still-layout-relay.md",
+    "status": "ready"
+  }
+}

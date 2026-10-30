@@ -1,0 +1,58 @@
+{
+  "id": "text/paper-title-card",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "paper-title-card",
+  "summary": "一句话逐词压印上纸、一个词标强调色斜体、短划线收束",
+  "intents": [
+    "typography",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 55,
+    "minimumInFrames": 27,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "章节转场/价值主张字卡；重要功能出场前的引导卡；全片呼吸位"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      13,
+      27,
+      46
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/paper-title-card",
+    "sourcePath": "video-shotcraft/demos/typography/paper-title-card/PaperTitleCard.tsx",
+    "reference": "video-shotcraft/references/shots/typography/paper-title-card.md",
+    "status": "ready"
+  }
+}

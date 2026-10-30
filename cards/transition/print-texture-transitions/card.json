@@ -1,0 +1,58 @@
+{
+  "id": "transition/print-texture-transitions",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "print-texture-transitions",
+  "summary": "印刷质感转场——ink-bleed-reveal 墨渗揭示（须状渗边洇开吃掉旧景）",
+  "intents": [
+    "transition",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 130,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "换景接缝的纸墨审美款；与交棒三式/穿越式并列的第三族——\"介质显影\"型转场"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      32,
+      65,
+      110
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/print-texture-transitions",
+    "sourcePath": "video-shotcraft/demos/transition/print-texture-transitions/InkBleedReveal.tsx",
+    "reference": "video-shotcraft/references/shots/transition/print-texture-transitions.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,10 @@
+node_modules/
+.vite/
+build/
+dist/
+output/*
+!output/.gitkeep
+docs/migration/cards.json
+docs/migration/inventory.md
+*.log
+.DS_Store

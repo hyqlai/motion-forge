@@ -1,0 +1,74 @@
+{
+  "id": "transition/long-take-world",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "一镜到底空间漫游",
+  "summary": "镜头在 3D 纵深管线中一镜到底连续穿梭，前一幕穿透出画无缝衔接下一幕，空间叙事感极强",
+  "intents": [
+    "一镜到底",
+    "空间穿梭",
+    "连续漫游",
+    "高级转场"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 213,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 213,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "有空间、流程或地图隐喻的话题（生态图景、时间管道）",
+      "想要一镜到底高级感电影叙事转场"
+    ],
+    "avoid": [
+      "用于节奏零碎的快问快答",
+      "两幕之间风格割裂过于突兀"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/long-take-world",
+    "sourcePath": "video-talkcraft/template/cards/long-take-world.tsx",
+    "reference": "video-talkcraft/references/cards/long-take-world.md",
+    "status": "ready"
+  }
+}

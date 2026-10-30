@@ -1,0 +1,74 @@
+{
+  "id": "camera/cursor-locked-zoom",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "光标锁定长行追踪",
+  "summary": "终端或编辑器长命令行输入时，镜头平滑放大并将视线焦点牢牢锁在打字光标上，随打字向右动态跟拍",
+  "intents": [
+    "命令行跟拍",
+    "焦点锁死",
+    "终端特写",
+    "动态跟随"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 192,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 192,
+        "min": 90,
+        "max": 450,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "竖屏/小屏里念一条超长命令或路径（你要跑的是这一条）",
+      "相机紧咬移动光标的跟拍特写"
+    ],
+    "avoid": [
+      "跟拍速度滞后产生拖曳眩晕",
+      "放大倍率过大"
+    ],
+    "pairsWith": [
+      "component/terminal-typing-log"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      80,
+      160
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/cursor-locked-zoom",
+    "sourcePath": "video-talkcraft/template/cards/cursor-locked-zoom.tsx",
+    "reference": "video-talkcraft/references/cards/cursor-locked-zoom.md",
+    "status": "ready"
+  }
+}

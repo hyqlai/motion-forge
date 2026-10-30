@@ -1,0 +1,45 @@
+import React from 'react';
+import {AbsoluteFill, useVideoConfig} from 'remotion';
+import {IconFlipBloomLogo} from '../../_shotcraft_demos/outro/ui-to-brand-morph/IconFlipBloomLogo';
+import {InputMorphsIntoLogo} from '../../_shotcraft_demos/outro/ui-to-brand-morph/InputMorphsIntoLogo';
+import type {Theme} from '../../../core/schema';
+
+export type UiToBrandMorphStyle = 'icon-flip-bloom' | 'input-morph-assemble';
+
+export type UiToBrandMorphProps = {
+  style?: UiToBrandMorphStyle;
+  theme?: Theme;
+  durationInFrames?: number;
+};
+
+export const UiToBrandMorph: React.FC<UiToBrandMorphProps> = ({style = 'icon-flip-bloom'}) => {
+  const {width, height} = useVideoConfig();
+  const scale = Math.min(width / 1920, height / 1080);
+
+  const renderVariant = () => {
+    switch (style) {
+    case 'icon-flip-bloom':
+      return <IconFlipBloomLogo />;
+    case 'input-morph-assemble':
+      return <InputMorphsIntoLogo />;
+    default:
+      return <IconFlipBloomLogo />;
+    }
+  };
+
+  return (
+    <AbsoluteFill style={{overflow: 'hidden', background: '#0b0e14'}}>
+      <div style={{
+        width: 1920,
+        height: 1080,
+        position: 'absolute',
+        left: '50%',
+        top: '50%',
+        transform: `translate(-50%, -50%) scale(${scale})`,
+        transformOrigin: '50% 50%',
+      }}>
+        {renderVariant()}
+      </div>
+    </AbsoluteFill>
+  );
+};

@@ -1,0 +1,75 @@
+{
+  "id": "camera/stage-keyframe-tour",
+  "version": "1.0.0",
+  "kind": "camera",
+  "title": "长图多站巡礼",
+  "summary": "超宽或超高长图（落地页、长报表、管线流程图）按口播节奏讲到哪停到哪，带焦点框与慢速滑动过渡",
+  "intents": [
+    "长图漫游",
+    "多站停靠",
+    "全局巡礼",
+    "产品全景"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image",
+    "video"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 275,
+    "minimumInFrames": 120,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 275,
+        "min": 120,
+        "max": 600,
+        "step": 15,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "讲一张超出画幅的长页面（长落地页、长架构图、长报表）",
+      "讲到哪儿镜头停到哪儿的结构化巡礼"
+    ],
+    "avoid": [
+      "单站停留过短（<0.8s 无法看清细节）",
+      "移动速度过快让观众眩晕"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      90,
+      210
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/stage-keyframe-tour",
+    "sourcePath": "video-talkcraft/template/cards/stage-keyframe-tour.tsx",
+    "reference": "video-talkcraft/references/cards/stage-keyframe-tour.md",
+    "status": "ready"
+  }
+}

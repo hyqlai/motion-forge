@@ -1,0 +1,58 @@
+{
+  "id": "component/icon-performance-moves",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "icon-performance-moves",
+  "summary": "图标表演——attention-bounce 求关注弹跳（图标连跳递增+落地压扁+镜头被吸引）",
+  "intents": [
+    "effects",
+    "视觉呈现",
+    "动态设计"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "text",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "low",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 156,
+    "minimumInFrames": 30,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "半屏级 icon 特写段落；新功能引出"
+    ],
+    "avoid": [
+      "过度堆砌破坏排版秩序"
+    ],
+    "pairsWith": [],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      39,
+      78,
+      132
+    ]
+  },
+  "migration": {
+    "source": "video-shotcraft/icon-performance-moves",
+    "sourcePath": "video-shotcraft/demos/effects/icon-performance-moves/AttentionBounce.tsx",
+    "reference": "video-shotcraft/references/shots/effects/icon-performance-moves.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "id": "transition/push-through",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "推穿转场",
+  "summary": "出场加速推近，入场从模糊高位同向沉降，两侧运动连续",
+  "intents": [
+    "转场",
+    "递进",
+    "空间叙事"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "promo",
+    "launch"
+  ],
+  "inputs": [
+    "fromScene",
+    "toScene"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 95,
+    "minimumInFrames": 75,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "从概念进入证据",
+      "从全景进入细节且需要保持运动连续性"
+    ],
+    "avoid": [
+      "需要突然黑场或硬切制造断裂",
+      "前后场景没有足够画幅余量"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      38,
+      70
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/push-through-transition",
+    "sourcePath": "video-talkcraft/template/cards/push-through-transition.tsx",
+    "reference": "video-talkcraft/references/cards/push-through-transition.md",
+    "status": "ready"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "id": "text/keyword-reveal",
+  "version": "1.0.0",
+  "kind": "text",
+  "title": "关键词揭示",
+  "summary": "标题逐行升起，重点词以主题色落定",
+  "intents": ["钩子", "标题", "金句"],
+  "genres": ["story", "explainer", "promo", "launch", "philosophy"],
+  "inputs": ["text"],
+  "aspects": ["any"],
+  "energy": "medium",
+  "renderers": ["html"],
+  "timing": {"defaultInFrames": 90, "minimumInFrames": 45, "stretchableHold": true},
+  "usage": {
+    "when": ["开场需要快速建立主题", "结论或金句需要唯一视觉主角"],
+    "avoid": ["大段跟读字幕", "同屏已有多个高能量主体"],
+    "pairsWith": ["camera/slow-push"],
+    "conflictsWith": []
+  },
+  "qa": {"frames": [0, 18, 60]}
+}

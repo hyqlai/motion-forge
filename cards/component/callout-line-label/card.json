@@ -1,0 +1,95 @@
+{
+  "id": "component/callout-line-label",
+  "version": "1.0.0",
+  "kind": "component",
+  "title": "标注引出线",
+  "summary": "目标点弹出圆点与扩散涟漪，折线生长引出文字标签，并在结束后反向平滑收回",
+  "intents": [
+    "产品解构",
+    "参数指认",
+    "细节说明",
+    "证据标注"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "launch",
+    "promo"
+  ],
+  "inputs": [
+    "component",
+    "image"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "medium",
+  "renderers": [
+    "html",
+    "svg"
+  ],
+  "timing": {
+    "defaultInFrames": 148,
+    "minimumInFrames": 90,
+    "stretchableHold": true,
+    "params": [
+      {
+        "name": "hold",
+        "label": "就位停留",
+        "unit": "seconds",
+        "defaultValue": 1.6,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1,
+        "description": "全部标注到位后的停留阅读秒数"
+      },
+      {
+        "name": "stagger",
+        "label": "多项错峰",
+        "unit": "seconds",
+        "defaultValue": 0.8,
+        "min": 0.3,
+        "max": 2,
+        "step": 0.1,
+        "description": "第2个标注相对第1个的延迟"
+      },
+      {
+        "name": "totalFrames",
+        "label": "总时长 (帧)",
+        "unit": "frames",
+        "defaultValue": 148,
+        "min": 90,
+        "max": 360,
+        "step": 10,
+        "description": "全卡总帧数"
+      }
+    ]
+  },
+  "usage": {
+    "when": [
+      "口播念到细节部件、硬件参数或界面关键区域",
+      "冷静客观的产品拆解说明"
+    ],
+    "avoid": [
+      "同屏标注超过3个导致画面线段交错打架",
+      "两根线同时出来缺乏次序感"
+    ],
+    "pairsWith": [
+      "camera/slow-push"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      20,
+      65,
+      120
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/callout-line-label",
+    "sourcePath": "video-talkcraft/template/cards/callout-line-label.tsx",
+    "reference": "video-talkcraft/references/cards/callout-line-label.md",
+    "status": "ready"
+  }
+}

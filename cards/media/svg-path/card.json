@@ -1,0 +1,21 @@
+{
+  "id": "media/svg-path",
+  "version": "1.0.0",
+  "kind": "media",
+  "title": "路径生长叙事",
+  "summary": "SVG 路径依次绘制，节点随路径点亮",
+  "intents": ["步骤", "机制", "空间叙事"],
+  "genres": ["story", "explainer", "promo", "philosophy"],
+  "inputs": ["steps", "text"],
+  "aspects": ["any"],
+  "energy": "medium",
+  "renderers": ["svg"],
+  "timing": {"defaultInFrames": 120, "minimumInFrames": 60, "stretchableHold": true},
+  "usage": {
+    "when": ["过程、旅程或因果关系需要连续视觉路径", "希望用矢量图形代替静态流程图"],
+    "avoid": ["没有顺序关系的并列清单", "需要展示真实人物表演"],
+    "pairsWith": ["text/keyword-reveal"],
+    "conflictsWith": []
+  },
+  "qa": {"frames": [0, 55, 110]}
+}

@@ -1,0 +1,61 @@
+{
+  "id": "transition/whip-pan",
+  "version": "1.0.0",
+  "kind": "transition",
+  "title": "横甩转场",
+  "summary": "出场横向甩出，入场同向滑回并二段刹车回稳",
+  "intents": [
+    "转场",
+    "并列",
+    "节奏切换"
+  ],
+  "genres": [
+    "story",
+    "explainer",
+    "promo",
+    "music-visual"
+  ],
+  "inputs": [
+    "fromScene",
+    "toScene"
+  ],
+  "aspects": [
+    "any"
+  ],
+  "energy": "high",
+  "renderers": [
+    "html"
+  ],
+  "timing": {
+    "defaultInFrames": 84,
+    "minimumInFrames": 65,
+    "stretchableHold": true
+  },
+  "usage": {
+    "when": [
+      "并列场景或地点需要快速切换",
+      "音乐重音需要一次明确横扫"
+    ],
+    "avoid": [
+      "需要克制连续的缓慢叙事",
+      "前后主体必须保持精确位置连续"
+    ],
+    "pairsWith": [
+      "environment/flying-words"
+    ],
+    "conflictsWith": []
+  },
+  "qa": {
+    "frames": [
+      0,
+      36,
+      70
+    ]
+  },
+  "migration": {
+    "source": "video-talkcraft/whip-pan-transition",
+    "sourcePath": "video-talkcraft/template/cards/whip-pan-transition.tsx",
+    "reference": "video-talkcraft/references/cards/whip-pan-transition.md",
+    "status": "ready"
+  }
+}
