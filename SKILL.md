@@ -1,11 +1,11 @@
 ---
 name: motion-forge
-description: Use when creating or revising code-driven videos (Remotion + React + Three.js + SVG + Canvas) from a URL, instrumental audio, song, theme, or mixed assets (images/video/narration). Supports documentaries, science explainers, music stories, product launches, promos, and philosophical essays. Enforces G1 storyboard/design review and G2 sample-scene review gates, provides an open catalog of 261 motion cards without restricting creative combination, modular scenario pipelines, and outputs editable Remotion projects with browser workbench.
+description: Use when creating or revising code-driven videos (Remotion + React 19 + Three.js + SVG + Canvas 2D) from a URL, instrumental audio, song, theme, or mixed assets (images/video/narration). Supports documentaries, science explainers, music stories, product launches, promos, and philosophical essays. Enforces G1 storyboard/design review and G2 sample-scene review gates, provides an open catalog of 265 motion cards across 9 specialized domains without restricting creative combination, modular scenario pipelines, and outputs editable Remotion projects with browser workbench.
 ---
 
 # Motion Forge: Code-to-Video (Code2Video) 工业级制作技能主指南
 
-本技能为 AI Agent 及人类视频工程师提供一套端到端、工业级规范的**代码驱动视频生成（Code-to-Video / Code2Video）制作流程**。本系统基于 **Remotion 4.x + React 19 + TypeScript + Three.js + Canvas 2D + SVG** 统一内核，内置 **261 张原子解耦动效卡**、可视化本地调试工作台与严格的 **G1/G2 两道质量确认门禁**。
+本项目本身即为一个完全自包含、可独立分发的 **Code-to-Video 工业级 Skill**。系统基于 **Remotion 4.x + React 19 + TypeScript + Three.js (@remotion/three) + Canvas 2D + SVG** 统一多技术栈内核，内置 **265 张原子解耦动效卡**（划分为 9 大专业领域）、底层视觉基座（`_shared/`）、可视化本地调试工作台与严格的 **G1/G2 两道质量确认门禁**。
 
 ---
 
@@ -13,9 +13,9 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 1. [核心架构与四大技术铁律](#一核心架构与四大技术铁律)
 2. [两道质量确认门禁标准作业程序 (G1 & G2 Gates SOP)](#二两道质量确认门禁标准作业程序-g1--g2-gates-sop)
 3. [多场景独立流水线体系 (Scenario Pipelines)](#三多场景独立流水线体系-scenario-pipelines)
-4. [261 张动效卡全景资产与导演决策心法 (Creative & Open Motion Design)](#四261-张动效卡全景资产与导演决策心法-creative--open-motion-design)
+4. [265 张动效卡全景资产与导演决策心法 (Creative & Open Motion Design)](#四265-张动效卡全景资产与导演决策心法-creative--open-motion-design)
    - [开放式选型原则：不设限的艺术想象力](#1-开放式选型原则不设限的艺术想象力)
-   - [八大动效分类资产全景](#2-八大动效分类资产全景)
+   - [九大领域动效分类资产全景 (265 张卡)](#2-九大领域动效分类资产全景-265-张卡)
    - [六大片种经典灵感组合范式 (仅供启发，自由创新)](#3-六大片种经典灵感组合范式-仅供启发自由创新)
    - [四槽位装配规范与客观质量红线](#4-四槽位装配规范与客观质量红线)
 5. [Film IR 分镜协议与多技术栈渲染规范](#五film-ir-分镜协议与多技术栈渲染规范)
@@ -26,15 +26,15 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 
 ## 一、核心架构与四大技术铁律
 
-在编写任何视频分镜或渲染代码前，Agent 必须刻下以下四条不可妥协的设计纪律：
+在编写任何视频分镜或渲染代码前，Agent 必须坚守以下四条不可妥协的设计纪律：
 
 1. **绝对解耦与局部时钟原则（Local Frame Only）**：
-   - 每个分镜（Scene）使用局部帧号（`frame 0` 到 `durationInFrames`），严禁在分镜代码中硬编码全片绝对时间戳（`absoluteFrame` 或 `from`）。全片时钟由 Core 层通过时间线累加编译；
+   - 每个分镜（Scene）只使用局部帧号（`frame 0` 到 `durationInFrames`），严禁在分镜内部硬编码全片绝对时间戳（`absoluteFrame` 或 `from`）。全片绝对时钟由 Core 层通过时间线累加编译；
    - 分镜之间**严禁跨模块互相 `import` 内部组件**。所有分镜共享的状态必须通过 `Film IR` 的 `props` 传入；
    - 动效卡（Cards）只承载运动数学与视觉逻辑，严禁将项目专有的具体文案或业务图片路径写死在卡片内部。
 
 2. **纯函数帧时钟确定性（Frame-Deterministic Execution）**：
-   - 所有的动画变形、物体位移、透明度变换必须是当前帧 `frame` 的纯数学计算函数：$Value = f(frame)$；
+   - 所有的动画变形、物体位移、透明度变换必须是当前局部帧 `frame` 的纯数学计算函数：$Value = f(frame)$；
    - **严禁**使用浏览器的 `requestAnimationFrame`、`setInterval`、`setTimeout` 或外部自运行时间线；
    - **严禁**使用未置种子的无参 `Math.random()`（必须使用 Remotion 内置带种子的 `random(seed)`），确保同一帧无论何时 seek 渲染，画面像素 100% 幂等一致。
 
@@ -82,8 +82,8 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 
 | 分镜序号 | 镜头名称 | 叙事目的与语义 (Semantic) | 实际上屏文字 (On-Screen Text) | 画面布局与元素 | 主动效卡 (Primary) | 运镜卡 (Camera) | 转场卡 (Transition) | 局部时长 (Frames/Sec) |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| S01 | 开篇破局 | Hook 钩子：制造悬念 | "为什么 90% 的企业AI转型以失败告终？" | 居中巨大高对比标题 + 红色告警发光底板 | `text/halation-bloom` | `camera/slow-push` | `transition/cube-rotate` | 90f (3.0s) |
-| S02 | 数据展示 | Data 证明：给出惨烈统计 | "78% 停留在玩具阶段<br>12% 产生负向ROI" | 左右双列对比面板 + 动态数字与落砂图表 | `component/particle-sand-fill` | 无 | `transition/whip-pan` | 150f (5.0s) |
+| S01 | 开篇破局 | Hook 钩子：制造悬念 | "为什么 90% 的企业AI转型以失败告终？" | 居中巨大高对比标题 + 红色告警发光底板 | `typography/halation-bloom` | `camera/slow-push` | `transition/cube-rotate` | 90f (3.0s) |
+| S02 | 数据展示 | Data 证明：给出惨烈统计 | "78% 停留在玩具阶段<br>12% 产生负向ROI" | 左右双列对比面板 + 动态数字与落砂图表 | `data/particle-sand-fill` | 无 | `transition/whip-pan` | 150f (5.0s) |
 
 - **Agent 交互动作**：向用户展示完毕后，**主动停下提问用户是否同意分镜规划**。
 - **通过信号**：用户确认后，Agent 在命令行运行：
@@ -111,31 +111,31 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
 
 ## 三、多场景独立流水线体系 (Scenario Pipelines)
 
-为便于长期演进与独立定制，系统将不同输入类型的端到端处理逻辑拆分为独立的指导文件。Agent 应根据用户输入的实际类型，阅读对应的详细指南：
+不同输入类型的端到端处理逻辑拆分为独立的指导文件，存放于 `pipelines/` 目录下。Agent 应根据用户输入的实际类型查阅对应指南：
 
 | 场景类型 | 适用输入与片种 | 对应独立 Pipeline 指南文件 |
 | :--- | :--- | :--- |
-| **场景 1：URL 链接成片** | 博客、公众号、SaaS Landing Page、技术文档、新闻发布 | [`skill/pipelines/url-to-video.md`](pipelines/url-to-video.md) |
-| **场景 2：纯音乐音频成片** | 纯乐器、电子乐、史诗配乐；哲理片、卡点快闪、意境散文 | [`skill/pipelines/instrumental-to-video.md`](pipelines/instrumental-to-video.md) |
-| **场景 3：歌曲带人声成片** | 完整歌曲（演唱+伴奏）；动态歌词 MV、音乐叙事故事短片 | [`skill/pipelines/song-to-video.md`](pipelines/song-to-video.md) |
-| **场景 4：纯主题自主规划成片** | 一句话主题/命题；深度科普、人文哲学、商业洞察、通识短片 | [`skill/pipelines/theme-to-video.md`](pipelines/theme-to-video.md) |
-| **场景 5：用户多模态素材混剪** | 用户自有图片、截屏、短视频片段、口播录音；产品演示、Vlog | [`skill/pipelines/assets-to-video.md`](pipelines/assets-to-video.md) |
-| **场景扩展指南** | 如何扩展新的输入（如表格、PPT、双人播客等） | [`skill/pipelines/extending-pipeline.md`](pipelines/extending-pipeline.md) |
+| **场景 1：URL 链接成片** | 博客、公众号、SaaS Landing Page、技术文档、新闻发布 | [`pipelines/url-to-video.md`](pipelines/url-to-video.md) |
+| **场景 2：纯音乐音频成片** | 纯乐器、电子乐、史诗配乐；哲理片、卡点快闪、意境散文 | [`pipelines/instrumental-to-video.md`](pipelines/instrumental-to-video.md) |
+| **场景 3：歌曲带人声成片** | 完整歌曲（演唱+伴奏）；动态歌词 MV、音乐叙事故事短片 | [`pipelines/song-to-video.md`](pipelines/song-to-video.md) |
+| **场景 4：纯主题自主规划成片** | 一句话主题/命题；深度科普、人文哲学、商业洞察、通识短片 | [`pipelines/theme-to-video.md`](pipelines/theme-to-video.md) |
+| **场景 5：用户多模态素材混剪** | 用户自有图片、截屏、短视频片段、口播录音；产品演示、Vlog | [`pipelines/assets-to-video.md`](pipelines/assets-to-video.md) |
+| **场景扩展指南** | 如何扩展新的输入（如表格、PPT、双人播客等） | [`pipelines/extending-pipeline.md`](pipelines/extending-pipeline.md) |
 
 ---
 
-## 四、261 张动效卡全景资产与导演决策心法 (Creative & Open Motion Design)
+## 四、265 张动效卡全景资产与导演决策心法 (Creative & Open Motion Design)
 
-系统内建的 **261 张原子动效卡** 是 Agent 创作视频的视觉画笔。
+系统内建的 **265 张原子动效卡** 是 Agent 创作视频的视觉画笔。
 
 ### 1. 开放式选型原则：不设限的艺术想象力
 - **严禁生搬硬套与教条限制**：本系统**绝不限定**“某种片种必须使用某些卡片”。相反，我们鼓励 Agent 依据文案的情感张力、叙事悬念、听觉节拍自主搭配与创新；
-- **Agent 是真正的视觉导演**：动效卡是一套模块化积木。你可以用原本用于科技产品的 `component/command-palette-summon` 来表达古代思想家的“知识检索”；也可以用机场机械翻牌 `text/split-flap-flip` 展现时空穿越或生命倒计时；
+- **Agent 是真正的视觉导演**：动效卡是一套模块化积木。你可以用原本用于科技产品的 `interaction/command-palette-summon` 来表达古代思想家的“知识检索”；也可以用机场机械翻牌 `typography/split-flap-flip` 展现时空穿越或生命倒计时；
 - **自由调节无级参数**：每张卡片均暴露了丰富的参数（如弹簧硬度、重力大小、模糊半径、粒子数量等），Agent 可在 `film.json` 的 `params` 中自由定制个性化运动手感。
 
 ---
 
-### 2. 九大领域动效分类资产全景
+### 2. 九大领域动效分类资产全景 (265 张卡)
 
 所有 265 张卡片已完成规范化封装，支持横竖屏双模自适应，按领域完全内聚解耦：
 
@@ -150,6 +150,8 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
 | **`commercial` (商业镜头)** | `cards/commercial/` (43张) | 产品宣讲镜头、品牌片头片尾、开场引题、最终落版 | `hook` (痛点钩子镜头), `price-card` (定价与方案卡), `features` (特性清单流), `store-card` (门店与位置指引), `fact-sheet` (事实说明清单), `brand-ink-open` (墨水扩散片头), `logo-shrink-wordmark-lockup` (Logo 收缩落版), `ui-to-brand-morph` (界面变异为品牌标志) |
 | **`transition` (镜头转场)** | `cards/transition/` (26张) | 镜头边界处的时空变换与视线过渡，消除生硬跳切 | `cube-rotate` (3D 立方体多维翻转), `clock-wipe` (时钟指针擦除), `bubble-swarm-takeover` (气泡群聚遮罩), `color-block-step-wipe` (色块步进擦除), `paper-plane-messenger` (纸飞机穿梭), `push-through` (穿透推进), `whip-pan` (高速甩镜头模糊), `dark-tunnel` (暗调隧道穿梭) |
 | **`media` (多媒体展示)** | `cards/media/` (15张) | 外部图片、视频片段的入场构图与画中画对比 | `media-pop-in` (轻快弹入), `split-compare` (左右分屏滑块对比), `svg-path` (矢量路径延展), `video-pip-float` (悬浮画中画), `photo-polaroid-scatter` (拍立得照片散落) |
+
+> **底层基座 (`cards/_shared/`)**：提供全库通用的渲染原语（如 `SpeedBlur` 动态模糊、`softShadow` 双层物理柔阴影、`Stage` 舞台光源反光板）与商业排版字号自适应计算，不作为独立卡片对外暴露。
 
 ---
 
@@ -179,8 +181,8 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
 {
   "motion": {
     "camera": { "cardId": "camera/slow-push", "params": { "scale": 1.15 } },
-    "primary": { "cardId": "component/particle-sand-fill", "params": { "gravity": 1.2 } },
-    "text": { "cardId": "text/halation-bloom", "params": { "bloomIntensity": 0.8 } },
+    "primary": { "cardId": "data/particle-sand-fill", "params": { "gravity": 1.2 } },
+    "text": { "cardId": "typography/halation-bloom", "params": { "bloomIntensity": 0.8 } },
     "transitionOut": { "cardId": "transition/cube-rotate", "params": { "direction": "left" } }
   }
 }
@@ -228,8 +230,8 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
       "sceneComponent": "scene/stack-explainer",
       "motion": {
         "camera": { "cardId": "camera/slow-push" },
-        "primary": { "cardId": "component/stack-reveal" },
-        "text": { "cardId": "text/scramble-decode" },
+        "primary": { "cardId": "interaction/stack-reveal" },
+        "text": { "cardId": "typography/scramble-decode" },
         "transitionOut": { "cardId": "transition/cube-rotate" }
       },
       "props": {},
@@ -275,12 +277,12 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **3. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，生成 `sample.mp4` 供视听质感确认 |
 | **4. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
 | **5. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出最终 `film.mp4` 视频 |
-| **6. 动效全量验收** | `npm run validate` | 静态门禁：校验 261 张动效卡与 Film IR 协议规范 |
+| **6. 动效全量验收** | `npm run validate` | 静态门禁：校验 265 张动效卡与 Film IR 协议规范 |
 | **7. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动浏览器工作台（默认端口 5178），进行实时可视化交互调试 |
 
 ### 2. 本地工作台 (Workbench) 核心功能
 访问 `http://127.0.0.1:5178/`：
-- **🎴 动效卡库 Gallery**：全量 261 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
+- **🎴 动效卡库 Gallery**：全量 265 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
 - **🎬 分镜制作工作台**：实时播放整片或单镜，修改文案实时热重载。
 
 ---
@@ -293,7 +295,7 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 - [ ] **本地素材包**：`assets.json` 中素材已全部保存在本地；
 - [ ] **审批状态记录**：`project.json` 中 `designApproved` 与 `sampleApproved` 均为 `true`；
 - [ ] **独立运行验证**：`npm run build` 编译通过；
-- [ ] **提供工作台链接**：向用户汇报本地可视化调试地址。
+- [ ] **提供工作台链接**：向用户汇报本地可视化调试地址（如 `http://127.0.0.1:5178/`）。
 
 ### 2. 常见故障排查
 - **黑屏或丢帧**：检查 `sceneComponent` 是否已在注册表中声明，Three.js 是否置于 Remotion 纯帧时钟下；
