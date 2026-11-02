@@ -56,7 +56,7 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 
    **新项目初始化（输入：项目绝对路径与输入素材；输出：可独立安装依赖的工程骨架）**：
    1. 将项目绝对路径记为 `PROJECT_ROOT`。若当前目录就是用户项目，则使用当前目录；否则在用户指定位置新建目录。`PROJECT_ROOT` 不得位于技能目录内；
-   2. 从技能模板真实拷贝 `core/`、`cards/`、`providers/`、`scenes/`、`scripts/`、`workbench/`、`public/`，以及 `package.json`、`package-lock.json`、`tsconfig.json`、`remotion.config.ts` 到 `PROJECT_ROOT`；不拷贝技能示例的 `output/`、`examples/`、`docs/`、`SKILL.md` 与 `pipelines/`；
+   2. 从技能模板真实拷贝 `core/`、`cards/`、`providers/`、`scenes/`、`scripts/`、`workbench/`、`public/`、`examples/`，以及 `package.json`、`package-lock.json`、`tsconfig.json`、`remotion.config.ts` 到 `PROJECT_ROOT`；其中 `examples/` 包含当前渲染入口、卡片预览和校验脚本需要的默认 Film，不能遗漏。不拷贝技能仓库的 `output/`、`docs/`、`SKILL.md` 与 `pipelines/`；
    3. 对已有工程只合并缺失的运行时文件，不覆盖用户已有代码、配置或素材；合并后更新项目自己的依赖、注册表和脚本；
    4. 后续所有命令先执行 `cd <PROJECT_ROOT>`，再运行 `npm ci` 和项目内脚本。项目数据统一放在 `PROJECT_ROOT/output/projects/<id>/`，渲染产物与评审记录不得写回技能目录；
    5. 技能目录仅在初始化时作为只读模板来源。初始化完成后，项目中的 import、npm 依赖、脚本和素材引用不得再指向该目录。
