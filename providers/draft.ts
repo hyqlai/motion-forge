@@ -41,7 +41,7 @@ const makeScenes = (
       renderer: 'html',
       sceneComponent: 'scene/kinetic-title',
       motion: {
-        primary: {cardId: 'text/keyword-reveal', params: {}},
+        primary: {cardId: 'typography/keyword-reveal', params: {}},
         camera: {cardId: 'camera/slow-push', params: {zoomTo: 1.04}},
       },
       props: {text: genreByKind.message, eyebrow: genreByKind.eyebrow},
@@ -57,7 +57,7 @@ const makeScenes = (
       layout: {kind: kind === 'instrumental' ? 'full-bleed' : 'stack', options: {}},
       renderer: kind === 'instrumental' ? 'canvas' : 'html',
       sceneComponent: kind === 'instrumental' ? 'scene/canvas-music' : 'scene/stack-explainer',
-      motion: {primary: {cardId: kind === 'instrumental' ? 'environment/canvas-particles' : 'component/stack-reveal', params: {}}},
+      motion: {primary: {cardId: kind === 'instrumental' ? 'effects/canvas-particles' : 'interaction/stack-reveal', params: {}}},
       props: kind === 'instrumental'
         ? {text: '节拍 · 段落 · 能量'}
         : {title: '内容草案，等待设计确认', items: ['核心内容', '视觉证据', '叙事推进']},
@@ -73,7 +73,7 @@ const makeScenes = (
       layout: {kind: 'hero-3d', options: {}},
       renderer: 'mixed',
       sceneComponent: 'scene/three-launch',
-      motion: {primary: {cardId: 'component/three-crystal', params: {}}},
+      motion: {primary: {cardId: 'effects/three-crystal', params: {}}},
       props: {text: '让内容留下画面'},
     },
   ];

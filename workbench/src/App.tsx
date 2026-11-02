@@ -98,6 +98,35 @@ export const App: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState('');
   // 维护当前动效卡的用户微调参数（时长、节拍、式样变体等）
   const [paramOverrides, setParamOverrides] = useState<Record<string, any>>({});
+  const [projectId] = useState(() => new URLSearchParams(window.location.search).get('project'));
+  const [isProjectLoading, setIsProjectLoading] = useState(Boolean(projectId));
+  const [projectLoadError, setProjectLoadError] = useState('');
+  const [isSaving, setIsSaving] = useState(false);
+  const [saveMessage, setSaveMessage] = useState('');
+
+  useEffect(() => {
+    if (!projectId) return;
+    const controller = new AbortController();
+    setIsProjectLoading(true);
+    setProjectLoadError('');
+    const loadProject = async (): Promise<void> => {
+      try {
+        const response = await fetch(`/api/projects/${encodeURIComponent(projectId)}/film`, {signal: controller.signal});
+        const body = await response.json();
+        if (!response.ok) throw new Error(body.error ?? '项目加载失败');
+        const nextFilm = body as FilmSpec;
+        setFilm(nextFilm);
+        setSceneId(nextFilm.scenes[0].id);
+      } catch (error) {
+        if (error instanceof DOMException && error.name === 'AbortError') return;
+        setProjectLoadError(error instanceof Error ? error.message : '项目加载失败');
+      } finally {
+        if (!controller.signal.aborted) setIsProjectLoading(false);
+      }
+    };
+    void loadProject();
+    return () => controller.abort();
+  }, [projectId]);
 
   const timeline = useMemo(() => compileTimeline(film), [film]);
   const scene = film.scenes.find((item) => item.id === sceneId) ?? film.scenes[0];
@@ -162,6 +191,34 @@ export const App: React.FC = () => {
     setViewMode('studio');
   };
 
+  const saveProject = async (): Promise<void> => {
+    if (!projectId) return;
+    setIsSaving(true);
+    setSaveMessage('');
+    try {
+      const response = await fetch(`/api/projects/${encodeURIComponent(projectId)}/film`, {
+        method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify(film),
+      });
+      const body = await response.json();
+      if (!response.ok) throw new Error(body.error ?? '保存失败');
+      setFilm(body.film as FilmSpec);
+      setSaveMessage(body.approvalReset ? '已保存；设计已变更，G1/G2 需重新确认' : 'Film IR 已保存');
+    } catch (error) {
+      setSaveMessage(error instanceof Error ? error.message : '保存失败');
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  if (projectId && isProjectLoading) {
+    return <main className="app-shell" style={{padding: 32}}>正在加载项目 {projectId}…</main>;
+  }
+  if (projectId && projectLoadError) {
+    return <main className="app-shell" style={{padding: 32}} role="alert">无法加载项目 {projectId}：{projectLoadError}</main>;
+  }
+
   return (
     <main className="app-shell">
       <header className="topbar">
@@ -183,8 +240,13 @@ export const App: React.FC = () => {
           >
             🎬 分镜制作工作台
           </button>
+          {projectId && (
+            <button className="nav-tab" onClick={() => void saveProject()} disabled={isSaving}>
+              {isSaving ? '保存中…' : '保存 Film IR'}
+            </button>
+          )}
         </div>
-        <div className="topbar-meta">G1 设计确认 · G2 样板镜确认 · 本地工程</div>
+        <div className="topbar-meta">{saveMessage || (projectId ? `项目 ${projectId} · 修改后需重新确认` : 'G1 设计确认 · G2 样板镜确认 · 内置示例')}</div>
       </header>
 
       {viewMode === 'gallery' ? (
@@ -471,7 +533,7 @@ export const App: React.FC = () => {
               <span>主动效</span><strong>{scene.motion.primary?.cardId}</strong>
               <span>运镜</span><strong>{scene.motion.camera?.cardId ?? '无'}</strong>
             </div>
-            <div className="approval-note">修改仅写入当前 Film IR 状态；其他分镜模块不受影响。</div>
+            <div className="approval-note">修改写入项目 Film IR 后会使既有审批失效；其他分镜模块不受影响。</div>
 
             <div className="panel-heading card-inspector-heading">动效参考卡</div>
             <div className="card-preview">

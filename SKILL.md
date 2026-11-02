@@ -50,16 +50,16 @@ description: Use when creating or revising code-driven videos (Remotion + React 
    - 所有技术路线统一服从 Remotion 的 `useCurrentFrame()` 帧同步时钟。
 
 5. **项目工程独立化原则（Standalone Project）**：
-   - 本技能目录只承载流程规范、动效卡参考与通用运行时模板；**用户项目的全部内容**（`core/`、`scenes/`、`public/` 素材、`film.json`、`package.json`、渲染产出）必须落位在用户项目自己的目录中，独立 `npm install`、独立渲染（`npx remotion render`），可脱离技能目录运行；
-   - 严禁把项目专属代码/素材写进技能目录，也严禁用软链接把项目内容挂回技能目录——运行时模板（`core/` 中的 schema/timeline/motion/scene/Film 等通用文件）以**拷贝**方式落入项目，项目专属分镜组件直接写在项目的 `scenes/` 下；
+   - 本技能目录只承载流程规范、动效卡参考、通用运行时模板和 `forge create` 工程生成器；**用户项目的全部内容**（`core/`、`cards/`、`scenes/`、`public/` 素材、`film.json`、`package.json`、工作台与渲染产出）必须落位在用户项目自己的目录中，独立 `npm ci`、独立校验和渲染，可脱离技能目录运行；
+   - 严禁把项目专属代码/素材写进技能目录，也严禁用软链接把项目内容挂回技能目录——`forge create` 将运行时、动效卡和默认 Film 以真实文件拷贝到项目，项目专属分镜组件直接写在项目的 `scenes/` 下；
    - 技能目录内 `output/projects/` 与 CLI 的门禁流程仅适用于技能自带示例；真实项目的 G1/G2 评审记录保存在项目目录内。
 
    **新项目初始化（输入：项目绝对路径与输入素材；输出：可独立安装依赖的工程骨架）**：
-   1. 将项目绝对路径记为 `PROJECT_ROOT`。若当前目录就是用户项目，则使用当前目录；否则在用户指定位置新建目录。`PROJECT_ROOT` 不得位于技能目录内；
-   2. 从技能模板真实拷贝 `core/`、`cards/`、`providers/`、`scenes/`、`scripts/`、`workbench/`、`public/`、`examples/`，以及 `package.json`、`package-lock.json`、`tsconfig.json`、`remotion.config.ts` 到 `PROJECT_ROOT`；其中 `examples/` 包含当前渲染入口、卡片预览和校验脚本需要的默认 Film，不能遗漏。不拷贝技能仓库的 `output/`、`docs/`、`SKILL.md` 与 `pipelines/`；
-   3. 对已有工程只合并缺失的运行时文件，不覆盖用户已有代码、配置或素材；合并后更新项目自己的依赖、注册表和脚本；
-   4. 后续所有命令先执行 `cd <PROJECT_ROOT>`，再运行 `npm ci` 和项目内脚本。项目数据统一放在 `PROJECT_ROOT/output/projects/<id>/`，渲染产物与评审记录不得写回技能目录；
-   5. 技能目录仅在初始化时作为只读模板来源。初始化完成后，项目中的 import、npm 依赖、脚本和素材引用不得再指向该目录。
+   1. 在模板目录运行 `npm run forge -- create --dir /absolute/project --input <输入> [--audio-kind song|instrumental] [--name <id>]`。目标必须是模板之外的空目录，命令会生成完整运行时副本、复制本地素材到 `public/assets/<id>/` 并创建项目草稿；
+   2. 初始化完成后进入 `PROJECT_ROOT`，执行 `npm ci`、`npm run validate -- --project <id>`。真实项目的代码、素材、Film IR、审批状态和输出都由 `PROJECT_ROOT/output/projects/<id>/` 与 `PROJECT_ROOT/public/` 自包含；
+   3. 本地素材只使用 `public/` 下的相对路径；远程来源仅作为来源元数据记录，不进入渲染引用。缺素材立即停止，不能让项目以绝对路径或外部软链接冒充独立工程；
+   4. 后续所有命令先执行 `cd <PROJECT_ROOT>`，再运行项目内脚本。渲染产物与评审记录不得写回模板目录；
+   5. 模板目录仅在 `create` 时作为只读来源。生成后，项目中的 import、npm 依赖、脚本和素材引用不得再指向该目录。
 
 ### 失败分支与恢复路径
 
@@ -295,22 +295,24 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 ### 1. 生命周期命令对照表
 
-下表命令的工作目录必须是 `PROJECT_ROOT`，不是技能目录；`<id>` 只作为 `PROJECT_ROOT/output/projects/<id>/` 内的项目标识。若已有工程没有这些脚本，先把技能模板中的对应脚本拷贝并接入项目，再执行命令。
+创建命令在模板目录运行；下表其余命令的工作目录必须是 `PROJECT_ROOT`。`<id>` 只作为 `PROJECT_ROOT/output/projects/<id>/` 内的项目标识。
 
 | 步骤 | CLI 命令 | 说明与前置条件 |
 | :--- | :--- | :--- |
-| **1. 草稿初始化** | `npm run forge -- init --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 在项目内生成 `output/projects/<id>/film.json` 与 `design-review.md` 草稿 |
-| **2. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
-| **3. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4` |
-| **4. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
-| **5. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4` |
-| **6. 动效与目标项目验收** | `npm run validate` | 校验动效卡与目标 `output/projects/<id>/film.json`；若项目脚本仍只读取 `examples/theme-demo/film`，先改为接收目标 Film 路径或补充等价校验，不能用内置示例通过代替目标项目检查 |
-| **7. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
+| **1. 独立工程生成** | `npm run forge -- create --dir <absolute-project> --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 在模板目录生成独立工程，拷贝完整运行时，本地化素材并创建 `output/projects/<id>/film.json` 草稿 |
+| **2. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
+| **3. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
+| **4. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
+| **5. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
+| **6. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；可传 `--browser-executable` 与 `--gl` 诊断渲染环境 |
+| **7. 工程构建验收** | `npm run build` | TypeScript 与工作台构建均通过；不替代目标 Film 校验或真实渲染 |
+| **8. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
 
 ### 2. 本地工作台 (Workbench) 核心功能
-访问 `http://127.0.0.1:5178/`：
+项目工作台地址为 `http://127.0.0.1:5178/?project=<id>`；不带 `project` 参数时只显示内置示例：
 - **🎴 动效卡库 Gallery**：全量 265 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
-- **🎬 分镜制作工作台**：实时播放整片或单镜，修改文案实时热重载。
+- **🎬 分镜制作工作台**：加载 `output/projects/<id>/film.json`，实时播放整片或单镜；修改文案和卡片后点击“保存 Film IR”写回项目；
+- **审批重置**：工作台保存会改变已审批设计时，将项目退回 `design-review` 并使既有 G1/G2 结论失效。
 
 ---
 
@@ -321,9 +323,9 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 - [ ] **分镜事实源**：`PROJECT_ROOT/output/projects/<id>/film.json` 与视频分镜完全对应；
 - [ ] **本地素材包**：`assets.json` 中素材已全部保存在项目内，渲染时不请求远程素材；
 - [ ] **审批状态记录**：`project.json` 的 `status` 为 `production` 或 `delivered`，且 `designApprovedAt`、`sampleApprovedAt` 均有有效时间戳；
-- [ ] **项目内验证**：在 `PROJECT_ROOT` 执行 `npm run validate` 与 `npm run build`，目标项目校验和编译均通过；
-- [ ] **独立渲染验证**：在不包含 `node_modules/`、`.git/`、`build/` 的临时干净副本中重新执行 `npm ci`、`npm run validate`、`npm run build` 和 `npm run forge -- render --project <id> --scope film`；扫描确认无技能目录绝对路径、`file:` 依赖或外部软链接，并将验证日志保存到 `PROJECT_ROOT/output/projects/<id>/verification/`；
-- [ ] **可编辑工程交付**：项目包含运行时代码、动效卡、分镜、本地素材、锁文件和渲染脚本；只有实际启动工作台后才提供 `http://127.0.0.1:5178/` 链接。
+- [ ] **项目内验证**：在 `PROJECT_ROOT` 执行 `npm run validate -- --project <id>` 与 `npm run build`，目标项目校验和编译均通过；
+- [ ] **独立渲染验证**：项目由 `forge create` 生成并在干净副本中重新执行 `npm ci`、`npm run validate -- --project <id>`、`npm run build` 和 `npm run forge -- render --project <id> --scope film`；扫描确认无模板目录绝对路径、`file:` 依赖或外部软链接，并将验证日志保存到 `PROJECT_ROOT/output/projects/<id>/verification/`；
+- [ ] **可编辑工程交付**：项目包含运行时代码、动效卡、分镜、本地素材、锁文件和渲染脚本；只有实际启动工作台后才提供 `http://127.0.0.1:5178/?project=<id>` 链接。
 
 仅通过 `npm run build` 或 import 检查不算独立渲染验证；最终 MP4、可编辑工程和验证记录必须全部从项目目录交付。
 

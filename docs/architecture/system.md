@@ -7,17 +7,18 @@ Motion Forge 是“Agent Skill + 本地制作内核 + 动效卡库 + 浏览器�
 ## 2. 主链
 
 ```text
-输入适配器
+独立工程生成（forge create）
+  → 输入适配与素材本地化
   → brief.json / assets.json / analysis/
   → 内容与视觉导演
   → film.json
-  → 卡片选择、布局和局部时间线
+  → 目标 Film 校验、卡片选择、布局和局部时间线
   → Remotion 合成与渲染
   → 内容、画面、声音、同步验收
-  → MP4 + 独立工程 + 工作台
+  → MP4 + 自包含工程 + 项目工作台
 ```
 
-链接、纯音乐、歌曲、主题和混合素材只在输入适配器与主时钟选择上不同，后续共用同一条制作链。
+链接、纯音乐、歌曲、主题和混合素材只在输入适配器与主时钟选择上不同，后续共用同一条制作链。真实项目由 `forge create` 在模板目录之外生成，持有 `core/`、`cards/`、`scenes/`、`providers/`、`scripts/`、`workbench/`、`examples/`、锁文件、配置和素材的完整副本；生成后不再引用模板/技能目录。
 
 ## 3. 模块边界
 
@@ -39,11 +40,11 @@ Motion Forge 是“Agent Skill + 本地制作内核 + 动效卡库 + 浏览器�
 
 ### providers
 
-链接抓取、免费图片/视频/UI/音频检索、TTS、ASR 和可选 AI 生成都通过 provider 接口接入。下载后的资源进入项目本地，渲染不依赖远程 URL。
+链接抓取、免费图片/视频/UI/音频检索、TTS、ASR 和可选 AI 生成都通过 provider 接口接入。初始化把用户本地素材真实复制到项目 `public/assets/<id>/`，Film IR 和 assets.json 只登记 `public/` 下的相对路径；渲染不依赖远程 URL、外部绝对路径或软链接。
 
 ### workbench
 
-直接读取同一份 Film IR、卡片清单和场景组件，不维护第二份时间线。支持全片与单镜预览、参数调整、换卡和局部导出。复杂画面仍可回到独立分镜代码修改。
+直接读取同一份 Film IR、卡片清单和场景组件，不维护第二份时间线。支持全片与单镜预览、参数调整、换卡、本地导出和 Film IR 写回；写回会校验目标 Film 并在设计变化时重置 G1/G2 状态。复杂画面仍可回到独立分镜代码修改。
 
 ## 4. 渲染技术路线
 
@@ -54,7 +55,7 @@ Remotion 统一负责帧时钟、图层、音视频和输出。
 - Canvas 2D：粒子、纹理和大量程序绘制。
 - Three.js：模型、材质、灯光、空间运镜和 Shader。
 
-所有动画只由当前帧计算，禁止自运行 `requestAnimationFrame` 时间线、无种子随机和依赖渲染顺序的隐藏状态。Three.js 使用 Remotion 官方桥接，Chromium OpenGL 使用 ANGLE。
+所有动画只由当前帧计算，禁止自运行 `requestAnimationFrame` 时间线、无种子随机和依赖渲染顺序的隐藏状态。Three.js 使用 Remotion 官方桥接；Chromium OpenGL 默认使用 ANGLE，渲染命令允许用 `--browser-executable` 和 `--gl` 覆盖以便诊断本机 WebGL 环境。
 
 ## 5. 两道确认闸
 
@@ -69,8 +70,10 @@ Remotion 统一负责帧时钟、图层、音视频和输出。
 状态机固定为：
 
 ```text
-draft → design-review → sample-review → production → delivered
+design-review → sample-review → production → delivered
 ```
+
+工作台或其他设计修改使已审批内容发生变化时，项目退回 `design-review`，旧 G1/G2 结论失效，必须重新确认。
 
 ## 6. 独立修改与增量渲染
 

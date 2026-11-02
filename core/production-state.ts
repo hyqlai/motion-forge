@@ -1,4 +1,4 @@
-import type {ProductionState} from './schema';
+import type {ProductionState} from './schema.ts';
 
 export const createProductionState = (): ProductionState => ({
   status: 'design-review',
@@ -18,6 +18,11 @@ export const approveSample = (state: ProductionState, at: string): ProductionSta
   }
   return {...state, status: 'production', sampleApprovedAt: at};
 };
+
+export const resetForDesignRevision = (state: ProductionState, note: string): ProductionState => ({
+  status: 'design-review',
+  notes: [...state.notes, note],
+});
 
 export const assertRenderAllowed = (
   state: ProductionState,

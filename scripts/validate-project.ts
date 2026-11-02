@@ -1,22 +1,25 @@
+import {readFile} from 'node:fs/promises';
+import path from 'node:path';
 import {sampleFilm} from '../examples/theme-demo/film';
 import {filmSchema} from '../core/schema';
 import {compileTimeline} from '../core/timeline';
 import {approveDesign, approveSample, assertRenderAllowed, createProductionState} from '../core/production-state';
 import {classifyInput} from '../providers/input';
-import {cardRegistry} from '../cards/registry';
-import {sceneRegistry} from '../scenes/registry';
+import {validateFilm} from './film-validation';
 
-const film = filmSchema.parse(sampleFilm);
+const args = process.argv.slice(2);
+const projectFlag = args.indexOf('--project');
+const projectId = projectFlag >= 0 ? args[projectFlag + 1] : undefined;
+if (projectFlag >= 0 && (!projectId || !/^[a-z0-9-]+$/.test(projectId))) {
+  throw new Error('--project requires a valid project id');
+}
+const film = projectId
+  ? filmSchema.parse(JSON.parse(await readFile(path.join('output', 'projects', projectId, 'film.json'), 'utf8')))
+  : filmSchema.parse(sampleFilm);
+await validateFilm(film, {publicRoot: path.resolve('public')});
 const timeline = compileTimeline(film);
-const expectedDuration = film.scenes.reduce((total, scene) => total + scene.durationInFrames, 0);
-if (timeline.durationInFrames !== expectedDuration) throw new Error('Timeline duration mismatch');
-if (timeline.durationInFrames !== film.output.fps * 16) throw new Error('Demo film must be 16 seconds');
-
-for (const scene of film.scenes) {
-  if (!sceneRegistry.has(scene.sceneComponent)) throw new Error(`Missing scene component: ${scene.sceneComponent}`);
-  for (const motion of [scene.motion.primary, scene.motion.camera, scene.motion.text, scene.motion.transitionOut]) {
-    if (motion && !cardRegistry.has(motion.cardId)) throw new Error(`Missing card: ${motion.cardId}`);
-  }
+if (!projectId && timeline.durationInFrames !== film.output.fps * 16) {
+  throw new Error('Demo film must be 16 seconds');
 }
 
 const kinds = [
@@ -41,6 +44,6 @@ assertRenderAllowed(sampleState, 'sample');
 const productionState = approveSample(sampleState, new Date().toISOString());
 assertRenderAllowed(productionState, 'film');
 
-console.log(`Validated Film IR: ${film.scenes.length} scenes, ${timeline.durationInFrames} frames`);
+console.log(`Validated ${projectId ? `project ${projectId}` : 'template Film IR'}: ${film.scenes.length} scenes, ${timeline.durationInFrames} frames`);
 console.log(`Validated input routes: ${kinds}`);
 console.log('Validated G1/G2 render gates');
