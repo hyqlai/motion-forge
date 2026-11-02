@@ -54,6 +54,13 @@ description: Use when creating or revising code-driven videos (Remotion + React 
    - 严禁把项目专属代码/素材写进技能目录，也严禁用软链接把项目内容挂回技能目录——运行时模板（`core/` 中的 schema/timeline/motion/scene/Film 等通用文件）以**拷贝**方式落入项目，项目专属分镜组件直接写在项目的 `scenes/` 下；
    - 技能目录内 `output/projects/` 与 CLI 的门禁流程仅适用于技能自带示例；真实项目的 G1/G2 评审记录保存在项目目录内。
 
+   **新项目初始化（输入：项目绝对路径与输入素材；输出：可独立安装依赖的工程骨架）**：
+   1. 将项目绝对路径记为 `PROJECT_ROOT`。若当前目录就是用户项目，则使用当前目录；否则在用户指定位置新建目录。`PROJECT_ROOT` 不得位于技能目录内；
+   2. 从技能模板真实拷贝 `core/`、`cards/`、`providers/`、`scenes/`、`scripts/`、`workbench/`、`public/`，以及 `package.json`、`package-lock.json`、`tsconfig.json`、`remotion.config.ts` 到 `PROJECT_ROOT`；不拷贝技能示例的 `output/`、`examples/`、`docs/`、`SKILL.md` 与 `pipelines/`；
+   3. 对已有工程只合并缺失的运行时文件，不覆盖用户已有代码、配置或素材；合并后更新项目自己的依赖、注册表和脚本；
+   4. 后续所有命令先执行 `cd <PROJECT_ROOT>`，再运行 `npm ci` 和项目内脚本。项目数据统一放在 `PROJECT_ROOT/output/projects/<id>/`，渲染产物与评审记录不得写回技能目录；
+   5. 技能目录仅在初始化时作为只读模板来源。初始化完成后，项目中的 import、npm 依赖、脚本和素材引用不得再指向该目录。
+
 ### 失败分支与恢复路径
 
 | 触发条件 | 一线处理 | 仍失败或需要变更时 |
@@ -287,15 +294,17 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 ### 1. 生命周期命令对照表
 
+下表命令的工作目录必须是 `PROJECT_ROOT`，不是技能目录；`<id>` 只作为 `PROJECT_ROOT/output/projects/<id>/` 内的项目标识。若已有工程没有这些脚本，先把技能模板中的对应脚本拷贝并接入项目，再执行命令。
+
 | 步骤 | CLI 命令 | 说明与前置条件 |
 | :--- | :--- | :--- |
-| **1. 草稿初始化** | `npm run forge -- init --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 生成 `film.json` 与 `design-review.md` 草稿 |
+| **1. 草稿初始化** | `npm run forge -- init --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 在项目内生成 `output/projects/<id>/film.json` 与 `design-review.md` 草稿 |
 | **2. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
-| **3. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，生成 `sample.mp4` 供视听质感确认 |
+| **3. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4` |
 | **4. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
-| **5. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出最终 `film.mp4` 视频 |
-| **6. 动效全量验收** | `npm run validate` | 静态门禁：校验 265 张动效卡与 Film IR 协议规范 |
-| **7. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动浏览器工作台（默认端口 5178），进行实时可视化交互调试 |
+| **5. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4` |
+| **6. 动效全量验收** | `npm run validate` | 在项目内校验动效卡与 Film IR 协议规范；不能用内置示例通过代替目标项目检查 |
+| **7. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
 
 ### 2. 本地工作台 (Workbench) 核心功能
 访问 `http://127.0.0.1:5178/`：
@@ -306,13 +315,16 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 ## 七、最终交付与故障排查清单
 
-### 1. 交付完整性六项检查
-- [ ] **最终视频**：`output/projects/<id>/film.mp4` 正常播放、声音清晰；
-- [ ] **分镜事实源**：`film.json` 与视频分镜完全对应；
-- [ ] **本地素材包**：`assets.json` 中素材已全部保存在本地；
-- [ ] **审批状态记录**：`project.json` 中 `designApproved` 与 `sampleApproved` 均为 `true`；
-- [ ] **独立运行验证**：`npm run build` 编译通过；
-- [ ] **提供工作台链接**：向用户汇报本地可视化调试地址（如 `http://127.0.0.1:5178/`）。
+### 1. 交付完整性检查
+- [ ] **最终视频**：`PROJECT_ROOT/output/projects/<id>/film.mp4` 正常播放、声音清晰；
+- [ ] **分镜事实源**：`PROJECT_ROOT/output/projects/<id>/film.json` 与视频分镜完全对应；
+- [ ] **本地素材包**：`assets.json` 中素材已全部保存在项目内，渲染时不请求远程素材；
+- [ ] **审批状态记录**：`project.json` 的 `status` 为 `production` 或 `delivered`，且 `designApprovedAt`、`sampleApprovedAt` 均有有效时间戳；
+- [ ] **项目内验证**：在 `PROJECT_ROOT` 执行 `npm run validate` 与 `npm run build`，目标项目校验和编译均通过；
+- [ ] **独立渲染验证**：在不包含 `node_modules/`、`.git/`、`build/` 的临时干净副本中重新执行 `npm ci`、`npm run validate`、`npm run build` 和 `npm run forge -- render --project <id> --scope film`；扫描确认无技能目录绝对路径、`file:` 依赖或外部软链接，并将验证日志保存到 `PROJECT_ROOT/output/projects/<id>/verification/`；
+- [ ] **可编辑工程交付**：项目包含运行时代码、动效卡、分镜、本地素材、锁文件和渲染脚本；只有实际启动工作台后才提供 `http://127.0.0.1:5178/` 链接。
+
+仅通过 `npm run build` 或 import 检查不算独立渲染验证；最终 MP4、可编辑工程和验证记录必须全部从项目目录交付。
 
 ### 2. 常见故障排查
 - **黑屏或丢帧**：检查 `sceneComponent` 是否已在注册表中声明，Three.js 是否置于 Remotion 纯帧时钟下；
