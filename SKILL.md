@@ -86,11 +86,11 @@ description: Use when creating or revising code-driven videos (Remotion + React 
    ↓
 [编写 Film IR 草稿] 
    ↓
-【G1 门禁：分镜与设计确认】 → 向用户呈现排版清晰的剧本与视觉表，等待批准
+【🔴 CHECKPOINT G1：分镜与设计确认】 → 向用户呈现排版清晰的剧本与视觉表，STOP 等待批准
    ↓ (用户确认通过后执行 npm run forge -- approve-design)
 [制作真实有声样板镜] 
    ↓
-【G2 门禁：有声样板镜确认】 → 渲染代表镜视频，用户审查真实视听质感与音画对齐
+【🔴 CHECKPOINT G2：有声样板镜确认】 → 渲染代表镜视频，用户审查真实视听质感与音画对齐，STOP 等待批准
    ↓ (用户确认通过后执行 npm run forge -- approve-sample)
 [全片代码装配与批量渲染]
    ↓
@@ -109,8 +109,8 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 | S01 | 开篇破局 | Hook 钩子：制造悬念 | "为什么 90% 的企业AI转型以失败告终？" | 居中巨大高对比标题 + 红色告警发光底板 | `typography/halation-bloom` | `camera/slow-push` | `transition/cube-rotate` | 90f (3.0s) |
 | S02 | 数据展示 | Data 证明：给出惨烈统计 | "78% 停留在玩具阶段<br>12% 产生负向ROI" | 左右双列对比面板 + 动态数字与落砂图表 | `data/particle-sand-fill` | 无 | `transition/whip-pan` | 150f (5.0s) |
 
-- **Agent 交互动作**：向用户展示完毕后，**主动停下提问用户是否同意分镜规划**。
-- **通过信号**：用户确认后，Agent 在命令行运行：
+- **🔴 CHECKPOINT · STOP**：向用户展示完毕后，必须结束本轮并询问是否同意分镜规划；不得在同一轮执行审批、制作样板镜或渲染全片。
+- **通过信号**：只有用户在后续回复中明确确认 G1 后，Agent 才在 `PROJECT_ROOT` 运行：
   ```bash
   npm run forge -- approve-design --project <project-id>
   ```
@@ -125,7 +125,8 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
   - 音画是否精确同步？字幕是否在发音开始前 1~2 帧入场？
   - 画面文字是否存在遮挡、折行破坏、超出安全区？
   - 动效速度与音乐情绪是否匹配？是否给人呼吸感？
-- **通过信号**：提供视频给用户审查，用户确认质感满意后，运行：
+- **🔴 CHECKPOINT · STOP**：提供真实样板镜视频与质检结果后，必须结束本轮并等待用户审查；不得自行代替用户批准 G2。
+- **通过信号**：只有用户明确确认样板镜后，才在 `PROJECT_ROOT` 运行：
   ```bash
   npm run forge -- approve-sample --project <project-id>
   ```
