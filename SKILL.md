@@ -10,7 +10,7 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 ---
 
 ## 目录
-1. [核心架构与四大技术铁律](#一核心架构与四大技术铁律)
+1. [核心架构与五大技术铁律](#一核心架构与五大技术铁律)
 2. [两道质量确认门禁标准作业程序 (G1 & G2 Gates SOP)](#二两道质量确认门禁标准作业程序-g1--g2-gates-sop)
 3. [多场景独立流水线体系 (Scenario Pipelines)](#三多场景独立流水线体系-scenario-pipelines)
 4. [265 张动效卡全景资产与导演决策心法 (Creative & Open Motion Design)](#四265-张动效卡全景资产与导演决策心法-creative--open-motion-design)
@@ -24,9 +24,9 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 
 ---
 
-## 一、核心架构与四大技术铁律
+## 一、核心架构与五大技术铁律
 
-在编写任何视频分镜或渲染代码前，Agent 必须坚守以下四条不可妥协的设计纪律：
+在编写任何视频分镜或渲染代码前，Agent 必须坚守以下五条不可妥协的设计纪律：
 
 1. **绝对解耦与局部时钟原则（Local Frame Only）**：
    - 每个分镜（Scene）只使用局部帧号（`frame 0` 到 `durationInFrames`），严禁在分镜内部硬编码全片绝对时间戳（`absoluteFrame` 或 `from`）。全片绝对时钟由 Core 层通过时间线累加编译；
@@ -304,7 +304,7 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **3. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4` |
 | **4. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
 | **5. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4` |
-| **6. 动效全量验收** | `npm run validate` | 在项目内校验动效卡与 Film IR 协议规范；不能用内置示例通过代替目标项目检查 |
+| **6. 动效与目标项目验收** | `npm run validate` | 校验动效卡与目标 `output/projects/<id>/film.json`；若项目脚本仍只读取 `examples/theme-demo/film`，先改为接收目标 Film 路径或补充等价校验，不能用内置示例通过代替目标项目检查 |
 | **7. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
 
 ### 2. 本地工作台 (Workbench) 核心功能
