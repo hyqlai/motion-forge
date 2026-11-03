@@ -48,9 +48,9 @@
 - [x] 新增目标 Film 校验，渲染前检查卡片、场景、素材和音频路径。
 - [x] `forge render` 流式输出 Remotion 日志，并支持 `--browser-executable`、`--gl` 环境诊断。
 - [x] 通过 npm overrides 消除 Remotion 嵌套 Zod 漏洞，`npm audit --omit=dev` 为零告警。
-- [ ] 在 WebGL 可用环境完成默认 Film 的 3D S05 全片复验。
+- [x] 修复 3D 场景 WebGL 渲染：默认使用 `swangle`（SwiftShader via ANGLE）软件渲染后端，不依赖 GPU 即可创建 WebGL 上下文。
 
-验收：真实项目在模板之外生成并独立安装、校验、构建；非法卡片、越界素材和跳过门禁会在浏览器启动前失败。3D 全片当前仍受本机 Chrome WebGL 环境阻塞，不能标记完成。
+验收：真实项目在模板之外生成并独立安装、校验、构建；非法卡片、越界素材和跳过门禁会在浏览器启动前失败。3D 全片（含 `effects/three-crystal` Three.js 场景）通过 `swangle` 渲染 120/120 帧零错误。
 
 ## 阶段 4：全量卡片迁移
 

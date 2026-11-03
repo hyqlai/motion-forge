@@ -304,7 +304,7 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **3. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
 | **4. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
 | **5. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
-| **6. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；可传 `--browser-executable` 与 `--gl` 诊断渲染环境 |
+| **6. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
 | **7. 工程构建验收** | `npm run build` | TypeScript 与工作台构建均通过；不替代目标 Film 校验或真实渲染 |
 | **8. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
 

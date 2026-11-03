@@ -55,7 +55,7 @@ Remotion 统一负责帧时钟、图层、音视频和输出。
 - Canvas 2D：粒子、纹理和大量程序绘制。
 - Three.js：模型、材质、灯光、空间运镜和 Shader。
 
-所有动画只由当前帧计算，禁止自运行 `requestAnimationFrame` 时间线、无种子随机和依赖渲染顺序的隐藏状态。Three.js 使用 Remotion 官方桥接；Chromium OpenGL 默认使用 ANGLE，渲染命令允许用 `--browser-executable` 和 `--gl` 覆盖以便诊断本机 WebGL 环境。
+所有动画只由当前帧计算，禁止自运行 `requestAnimationFrame` 时间线、无种子随机和依赖渲染顺序的隐藏状态。Three.js 使用 Remotion 官方桥接；Chromium OpenGL 默认使用 `swangle`（SwiftShader via ANGLE，纯软件渲染，不依赖 GPU），渲染命令允许用 `--browser-executable` 和 `--gl` 覆盖以便在有 GPU 的环境使用硬件加速。
 
 ## 5. 两道确认闸
 

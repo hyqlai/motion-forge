@@ -219,9 +219,9 @@ const render = async (): Promise<void> => {
     output, `--props=${propsFile}`, '--concurrency=2',
   ];
   const browserExecutable = flag('--browser-executable');
-  const gl = flag('--gl');
+  const gl = flag('--gl') ?? 'swangle';
   if (browserExecutable) remotionArgs.push(`--browser-executable=${browserExecutable}`);
-  if (gl) remotionArgs.push(`--gl=${gl}`);
+  remotionArgs.push(`--gl=${gl}`);
   await runRemotion(remotionArgs);
   console.log(`Rendered ${output}`);
 };
@@ -235,7 +235,7 @@ try {
   else {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
-    console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl angle|swiftshader]');
+    console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
   }
 } catch (error) {
   console.error(error instanceof Error ? error.message : error);
