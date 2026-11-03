@@ -6,5 +6,6 @@ output/*
 !output/.gitkeep
 docs/migration/cards.json
 docs/migration/inventory.md
+.agents/
 *.log
 .DS_Store
