@@ -55,30 +55,34 @@
 ## 阶段 4：全量卡片迁移
 
 - [x] 建立来源追踪、独立渲染、视觉批准和状态回写闭环。
-- [x] 前十三批迁移并验收 110 张来源卡，其中 video-talkcraft 全部 108 张卡已实现 100% 全量满贯迁移！
+- [x] 分批迁移并验收全部 260 张来源卡（video-talkcraft 108 张、video-shotcraft 与 brewreel 152 张），`docs/migration/ready.json` 记录 261 条验收证据。
 - [x] 修复相机卡（slow-pull / slow-push）零差异运动曲线，末速非零且永不停死。
-- [x] 建立来源对照渲染管线（npm run cards:compare），完成 110 张卡并排对照回归（输出到 output/card-compare/）。
-- [x] 扩充全部 114 张注册卡的 README.md 为完整参考文档（包含意图/动效核心/参数表/已知坑/复用指引/动效范围）。
+- [x] 建立来源对照渲染管线（`npm run cards:compare`），完成并排对照回归（输出到 `output/card-compare/`）。
+- [x] 扩充全部 265 张注册卡的 README.md 为完整参考文档（包含意图/动效核心/参数表/已知坑/复用指引/动效范围）。
 - [x] 构建浏览器工作台纯代码实时 Live Player Gallery 动效网格，零视频文件，视口感知自播放。
 - [x] 动效时长与关键节拍参数化（timingParams），并在工作台检查器提供实时滑杆调节与一键应用到分镜。
-- [ ] 继续分批迁移其余 142 张来源卡（video-shotcraft 与 brewreel）。
 
-验收：清单中的每张卡都有明确状态和验收证据；未验收卡不能标记 ready。当前为 252 张来源卡中 110 张 ready、注册卡总数 114，video-talkcraft 已全部收敛。
+验收：迁移卡 260/260 全部 ready；注册卡总数 265（含 5 张内建代表卡 `typography/keyword-reveal`、`interaction/stack-reveal`、`effects/canvas-particles`、`effects/three-crystal`、`media/svg-path`，无需迁移追踪）。`npm run cards:validate` 全量通过。
 
 ## 阶段 5：高级能力与完整片种
 
 - [ ] 自动内容策划、歌词对齐、音乐结构驱动和音乐故事。
 - [ ] 一镜到底、复杂 SVG 形变、角色和高级 Three.js 场景。
-- [ ] 真实免费资源 provider、TTS/ASR 和音频混合。
-- [ ] 工作台多轨编辑与导出、项目文件写回。
+- [ ] 真实免费资源 provider 实现（Pexels/Unsplash 图片、Free Music Archive BGM 等）、TTS/ASR 和音频混合。
+- [ ] 工作台多轨音频编辑与项目导出（Film IR 写回已在阶段 3 完成）。
 - [ ] 单镜及受影响边界的增量渲染、最终 QA 和导出。
 
 验收：五类真实输入均完成端到端样片，所有高级能力以实际产物验证。
 
-## 本次验证产物
+## 验证产物
 
+### 技术路线样片（阶段 3）
 - `output/film.mp4`：16 秒、五镜、含 BGM 的技术路线样片。
 - `output/contact-sheet.jpg`：全片抽帧接触表。
 - `output/final-frame.jpg`：末帧检查。
 - `output/workbench.png`：工作台浏览器实测截图。
+
+### 独立工程与框架验证（阶段 3.5）
+- `output/skill-optimization/framework-e2e/`：独立工程端到端验证日志（create、目标校验、负向门禁、G1/G2、有声样板镜、工作台写回/审批重置/安全拦截、3D 全片渲染）。
+- `output/skill-optimization/3d-fix-logs/`：3D 场景 WebGL 渲染修复验证（`swangle` 渲染 120/120 帧、ffprobe、抽帧）。
 - `output/projects/`：五类输入草案及 G1/G2 验证项目。
