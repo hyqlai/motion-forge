@@ -9,6 +9,7 @@ import {classifyInput, clockForInput, type ClassifiedInput} from '../providers/i
 import {createDraft} from '../providers/draft';
 import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
+import {runBgmCommand} from './forge-bgm';
 import {validateFilm} from './film-validation';
 import {fetchImageCommand, searchImagesCommand} from './image-assets';
 import {generateNarration} from './tts-command';
@@ -253,6 +254,7 @@ try {
   else if (command === 'render') await render();
   else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
   else if (command === 'fetch-image') await fetchImageCommand(projectRoot, args);
+  else if (command === 'bgm') await runBgmCommand(projectRoot, args.slice(1));
   else if (command === 'tts') await tts();
   else {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
@@ -260,6 +262,7 @@ try {
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
     console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
     console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
+    console.log('       npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop|--no-loop] [--search-only]');
     console.log('       npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3|wav|pcm|opus] [--out <public/relative/path>] [--provider fish-audio] [--model s2.1-pro]');
   }
 } catch (error) {

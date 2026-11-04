@@ -14,6 +14,11 @@
 - [Film IR 分镜协议](contracts/film.md)：输入、素材、分镜、时间锚、声音和验收数据契约。
 - [动效卡协议](contracts/motion-card.md)：卡片分类、使用场景、props、时间、预览、注册和验收契约。
 
+## Provider
+
+- [Pexels 图片 Provider 契约](contracts/resource-provider.md)：搜索、下载、元数据、环境变量、错误分类和 mock 验收。
+- [Pixabay Music BGM Provider](providers/pixabay-music.md)：BGM 搜索、下载落盘、来源与授权元数据、环境变量和 mock 验收。
+
 ## 迁移
 
 - [现有能力与迁移策略](migration/sources.md)：五个源项目的特点、迁移范围、去重和验收原则。

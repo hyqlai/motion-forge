@@ -79,3 +79,14 @@ npm run forge -- tts --project gravity --scene S01-opening \
 ```
 
 音频写入项目 `public/` 下并由 `film.json` 的 `assets` 登记，命令结束前会自动执行目标 Film 校验。
+
+## 从 Pixabay Music 获取 BGM
+
+在独立项目内，用环境变量提供密钥并搜索、下载 BGM：
+
+```bash
+PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
+  --query "calm cinematic piano" --volume 0.2 --loop
+```
+
+下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
