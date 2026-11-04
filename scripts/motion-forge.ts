@@ -11,6 +11,7 @@ import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
 import {validateFilm} from './film-validation';
 import {fetchImageCommand, searchImagesCommand} from './image-assets';
+import {generateNarration} from './tts-command';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const standaloneMarker = 'motion-forge-project.json';
@@ -227,6 +228,23 @@ const render = async (): Promise<void> => {
   console.log(`Rendered ${output}`);
 };
 
+const tts = async (): Promise<void> => {
+  const id = flag('--project');
+  const sceneId = flag('--scene');
+  if (!id || !sceneId) throw new Error('tts requires --project <id> --scene <sceneId>');
+  await generateNarration({
+    projectRoot,
+    projectId: id,
+    sceneId,
+    providerId: flag('--provider'),
+    text: flag('--text'),
+    voice: flag('--voice'),
+    format: flag('--format'),
+    model: flag('--model'),
+    output: flag('--out'),
+  });
+};
+
 try {
   if (command === 'create') await create();
   else if (command === 'init') await init(projectRoot, {allowTemplateExample: args.includes('--allow-template-example')});
@@ -235,12 +253,14 @@ try {
   else if (command === 'render') await render();
   else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
   else if (command === 'fetch-image') await fetchImageCommand(projectRoot, args);
+  else if (command === 'tts') await tts();
   else {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
     console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
     console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
+    console.log('       npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3|wav|pcm|opus] [--out <public/relative/path>] [--provider fish-audio] [--model s2.1-pro]');
   }
 } catch (error) {
   console.error(error instanceof Error ? error.message : error);
