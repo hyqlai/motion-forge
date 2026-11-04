@@ -40,7 +40,7 @@ Motion Forge 是“Agent Skill + 本地制作内核 + 动效卡库 + 浏览器�
 
 ### providers
 
-链接抓取、免费图片/视频/UI/音频检索、TTS、ASR 和可选 AI 生成都通过 provider 接口接入。初始化把用户本地素材真实复制到项目 `public/assets/<id>/`，Film IR 和 assets.json 只登记 `public/` 下的相对路径；渲染不依赖远程 URL、外部绝对路径或软链接。
+链接抓取、免费图片/视频/UI/音频检索、TTS、ASR 和可选 AI 生成都通过 provider 接口接入。初始化把用户本地素材真实复制到项目 `public/assets/<id>/`，Film IR 和 assets.json 只登记 `public/` 下的相对路径；渲染不依赖远程 URL、外部绝对路径或软链接。外部素材检索必须显式执行 `search-images` / `fetch-image` 子命令：未配置 `PEXELS_API_KEY` 时 Provider 在发起请求前报错，常规创建、校验和渲染流程保持纯本地。Pexels 检索结果先保存到项目 `image-search.json`，下载后才登记为 Film 素材，来源页与 License 仅保留在元数据中。
 
 ### workbench
 

@@ -16,6 +16,7 @@
 
 ## Provider
 
+- [Pexels 图片 Provider 契约](contracts/resource-provider.md)：搜索、下载、元数据、环境变量、错误分类和 mock 验收。
 - [Pixabay Music BGM Provider](providers/pixabay-music.md)：BGM 搜索、下载落盘、来源与授权元数据、环境变量和 mock 验收。
 
 ## 迁移
