@@ -301,6 +301,8 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | 步骤 | CLI 命令 | 说明与前置条件 |
 | :--- | :--- | :--- |
 | **1. 独立工程生成** | `npm run forge -- create --dir <absolute-project> --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 在模板目录生成独立工程，拷贝完整运行时，本地化素材并创建 `output/projects/<id>/film.json` 草稿 |
+| **1a 歌曲转写（可选）** | `npm run forge -- transcribe --project <id> [--language zh]` | 仅歌曲项目；从 `FISH_API_KEY` 读取密钥调用 Fish Audio ASR，逐行歌词写入 `analysis/lyrics.json`；失败显式退出，不生成占位歌词 |
+| **1b 歌词草案（可选）** | `npm run forge -- lyrics-draft --project <id>` | 复用 `analysis/lyrics.json` 生成歌词镜头与间奏留白，不重复转写；写回后退回 `design-review`，仍须重新通过 G1 |
 | **2. 内容策划工作单** | `npm run forge -- plan --project <id>` | 在项目内生成 `content-plan.template.json`、`content-plan.md`；URL 项目复用 `source.json`。Agent 用自身 LLM 填写 `content-plan.json` |
 | **3. 应用内容策划** | `npm run forge -- apply-plan --project <id> [--file content-plan.json]` | 校验叙事弧线、时长、Film Schema、场景/卡片注册、素材和 URL 事实追溯，通过后写入 `film.json` 与 `design-review.md`；项目停留在 `design-review` |
 | **4. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
@@ -326,15 +328,19 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 完整字段约束与样本见 [`pipelines/content-planning.md`](pipelines/content-planning.md)。
 
-### 3. 图片素材（可选）
+### 3. 歌曲歌词（可选）
+
+歌曲项目在 G1 前用 `transcribe` 调用 Fish Audio ASR，逐行歌词写入 `analysis/lyrics.json`；`lyrics-draft` 复用该分析结果生成歌词镜头与间奏留白，不重复转写。写回 Film IR 后项目退回 `design-review`，仍需重新通过 G1。`npm run check:asr` 用固定词级时间戳样本验证逐行分组，不需要真实歌曲或网络。
+
+### 4. 图片素材（可选）
 
 图片检索与本地化由显式 `search-images` / `fetch-image` 子命令触发，需 `PEXELS_API_KEY`。下载后写入 `public/assets/<id>/` 并登记 Film assets，远程地址只保留为来源元数据；素材变化会使已审批设计退回 G1。完整契约见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)。
 
-### 4. 旁白生成（可选）
+### 5. 旁白生成（可选）
 
 TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会自动调用外部服务。密钥仅从 `FISH_API_KEY` 读取；认证失败、余额不足、限流和服务端错误分别归类，只有限流、服务端错误和网络错误会执行有限退避。`npm run tts:verify` 用本地 mock HTTP 验证成功与失败行为，不需要真实密钥或网络。
 
-### 5. 本地工作台 (Workbench) 核心功能
+### 6. 本地工作台 (Workbench) 核心功能
 项目工作台地址为 `http://127.0.0.1:5178/?project=<id>`；不带 `project` 参数时只显示内置示例：
 - **🎴 动效卡库 Gallery**：全量 265 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
 - **🎬 分镜制作工作台**：加载 `output/projects/<id>/film.json`，实时播放整片或单镜；修改文案和卡片后点击“保存 Film IR”写回项目；
