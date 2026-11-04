@@ -38,7 +38,7 @@
 1. **公版免费资源检索（Zero-Copyright Assets）**：
    - **高清写实画面/纹理**：自动通过 Pexels / Unsplash 免费 API 检索 1080p/4K 无版权素材，并由 `providers/resources.ts` 规范下载落盘至项目本地；
    - **矢量图标与符号**：按需匹配简洁的 SVG 几何图形，保证在各种画幅下矢量无损；
-   - **背景垫乐 (BGM)**：根据主题气质匹配无版权背景音乐（科技沉思类选 Minimal Ambient，热血科普类选 Percussion Pulse）。
+   - **背景垫乐 (BGM)**：根据主题气质匹配无版权背景音乐（科技沉思类选 Minimal Ambient，热血科普类选 Percussion Pulse）。通过 `npm run forge -- bgm --project <id> --query "..."` 从 Pixabay Music 检索并下载到项目 `public/`，未配置 `PIXABAY_API_KEY` 时不发起外部请求。
 2. **语音合成与时钟锚定 (TTS Pipeline)**：
    - 将撰写打磨后的文案送入语音模型（如 Fish Audio TTS），生成质感沉稳专业的配音；
    - 提取字级（Word-level）时间戳，作为整个视频的绝对时钟锚点。

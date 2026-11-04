@@ -50,6 +50,10 @@
 
 屏上文字、数据、引用和素材 ID 都必须可追溯到 brief、用户素材或来源记录。科普与产品数据不得为了填空而编造。素材缺失必须显式标记，不能用静默占位冒充完成。`assets.json.path` 与 `audio.bgm.src` 必须是 `public/` 下项目相对路径，不得使用绝对路径、远程 URL、`..` 越界或外部软链接；原始绝对路径和来源 URL 只允许保存在 `source`/输入元数据中。
 
+通过外部 Provider 获取的 BGM 还必须在对应 asset 的 `metadata` 中保留 `provider`、`sourceUrl`、`license`、`licenseUrl`，且 `audio.bgm.src` 必须与该 asset 的 `path` 一致；未成功下载并验证为可解码音频的曲目不得写入 Film IR。
+
+通过 `forge tts` 生成的旁白音频写入 `public/assets/<id>/`，以 `kind: voice`、`role: narration` 的 asset 登记，并在对应分镜的 `assetIds` 中引用。`metadata` 记录 provider、model、format 和 voice 等生成参数；不得记录 API key 或远程临时地址。生成结束前会执行目标 Film 校验，校验失败不得更新 `film.json`。
+
 ## 6. 工作台
 
 工作台通过 `?project=<id>` 读取 `output/projects/<id>/film.json`，编辑 Film IR 和公开 props 后写回同一文件；写回请求必须通过 Project ID、请求体大小、同源和 Film Schema 校验。设计内容发生变化时状态退回 `design-review`，旧 G1/G2 结论失效。原合成与工作台拆解合成必须做同帧一致性检查。
