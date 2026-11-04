@@ -1,16 +1,38 @@
 import {spawn} from 'node:child_process';
 import {constants} from 'node:fs';
-import {access, copyFile, cp, mkdir, readFile, readdir, realpath, stat, writeFile} from 'node:fs/promises';
+import {access, copyFile, cp, mkdir, readFile, readdir, realpath, rename, stat, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {
+  createLyricsAnalysis,
+  draftLyricFilm,
+  parseLyricsAnalysis,
+  type LyricsAnalysis,
+} from '../core/lyrics';
 import {filmSchema, productionStateSchema, type FilmSpec} from '../core/schema';
-import {approveDesign, approveSample, assertRenderAllowed, createProductionState} from '../core/production-state';
+import {
+  approveDesign,
+  approveSample,
+  assertRenderAllowed,
+  createProductionState,
+  resetForDesignRevision,
+} from '../core/production-state';
+import {
+  asrProviderIds,
+  DEFAULT_ASR_PROVIDER_ID,
+  getASRProvider,
+  registerASRProvider,
+} from '../providers/asr';
+import {createFishAudioASR} from '../providers/fish-audio-asr';
 import {classifyInput, clockForInput, type ClassifiedInput} from '../providers/input';
 import {createDraft} from '../providers/draft';
 import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
+import {applyContentPlan, createPlanningWorkspace} from './content-plan';
+import {designReviewMarkdown} from './design-review';
 import {runBgmCommand} from './forge-bgm';
 import {validateFilm} from './film-validation';
+import {fetchImageCommand, searchImagesCommand} from './image-assets';
 import {generateNarration} from './tts-command';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -49,16 +71,15 @@ const writeJson = async (file: string, value: unknown): Promise<void> => {
   await writeFile(file, `${JSON.stringify(value, null, 2)}\n`);
 };
 
-const readJson = async (file: string): Promise<unknown> => {
-  return JSON.parse(await readFile(file, 'utf8'));
+// 分析产物与 Film 写回先落临时文件再替换，失败时不留下半截事实源。
+const writeJsonAtomic = async (file: string, value: unknown): Promise<void> => {
+  const temporary = `${file}.${process.pid}.tmp`;
+  await writeJson(temporary, value);
+  await rename(temporary, file);
 };
 
-const reviewMarkdown = (film: FilmSpec): string => {
-  const rows = film.scenes.map((scene) => {
-    const camera = scene.motion.camera?.cardId ?? '无';
-    return `| ${scene.id} | ${scene.intent} | ${scene.onScreenText.join('<br>')} | ${scene.layout.kind} | ${scene.motion.primary?.cardId ?? '无'} | ${camera} |`;
-  }).join('\n');
-  return `# 《${film.title}》G1 分镜与视觉设计确认\n\n- 片种：${film.genre}\n- 目标：${film.brief.goal}\n- 画幅：${film.output.width}×${film.output.height} @ ${film.output.fps}fps\n- 风格：背景 ${film.theme.background}，前景 ${film.theme.foreground}，强调 ${film.theme.accent}\n- 字体：${film.theme.fontFamily}\n\n| 分镜 | 叙事目的 | 实际上屏文字 | 布局 | 主动效 | 运镜 |\n|---|---|---|---|---|---|\n${rows}\n\n确认设计后运行：\n\n\`\`\`bash\nnpm run forge -- approve-design --project ${film.id}\n\`\`\`\n`;
+const readJson = async (file: string): Promise<unknown> => {
+  return JSON.parse(await readFile(file, 'utf8'));
 };
 
 const assertInputFiles = async (input: ClassifiedInput): Promise<void> => {
@@ -88,15 +109,17 @@ const localizeAssets = async (root: string, id: string, film: FilmSpec): Promise
 };
 
 const assertStandaloneProject = async (root: string, allowTemplateExample: boolean): Promise<void> => {
+  try {
+    await access(path.join(root, standaloneMarker));
+    return;
+  } catch {
+    // 继续判断是否为模板目录
+  }
   if (root === projectRoot) {
     if (allowTemplateExample) return;
     throw new Error('Refusing to initialize a real project inside the template; use create --dir or --allow-template-example');
   }
-  try {
-    await access(path.join(root, standaloneMarker));
-  } catch {
-    throw new Error(`Not a standalone Motion Forge project: ${root}`);
-  }
+  throw new Error(`Not a standalone Motion Forge project: ${root}`);
 };
 
 const init = async (root: string, options: {allowTemplateExample?: boolean} = {}): Promise<void> => {
@@ -135,7 +158,10 @@ const init = async (root: string, options: {allowTemplateExample?: boolean} = {}
   await writeJson(path.join(directory, 'assets.json'), {assets: film.assets});
   await writeJson(path.join(directory, 'film.json'), film);
   await writeJson(path.join(directory, 'project.json'), createProductionState());
-  await writeFile(path.join(directory, 'design-review.md'), reviewMarkdown(film));
+  await writeFile(path.join(directory, 'design-review.md'), designReviewMarkdown(film, {
+    source: {kind: input.kind, value: input.value, title},
+    clock: clockForInput(input.kind),
+  }));
   if (webpage) await writeJson(path.join(directory, 'source.json'), webpage);
   if (audio) await writeJson(path.join(directory, 'audio-probe.json'), audio);
   console.log(`Created ${input.kind} draft: ${directory}`);
@@ -228,6 +254,109 @@ const render = async (): Promise<void> => {
   console.log(`Rendered ${output}`);
 };
 
+const transcribe = async (): Promise<void> => {
+  const id = flag('--project');
+  if (!id) throw new Error('transcribe requires --project <id>');
+  const directory = projectDirectory(projectRoot, id);
+  try {
+    await access(directory);
+  } catch {
+    throw new Error(`Project not found: ${id}`);
+  }
+  const input = await readJson(path.join(directory, 'input.json')) as ClassifiedInput;
+  if (input.kind !== 'song') {
+    throw new Error('transcribe requires a song project created with --audio-kind song');
+  }
+  const film = filmSchema.parse(await readJson(path.join(directory, 'film.json')));
+  await validateFilm(film, {publicRoot: path.join(projectRoot, 'public')});
+  const songAsset = film.assets.find((asset) => asset.role === 'song')
+    ?? film.assets.find((asset) => asset.kind === 'audio');
+  if (!songAsset) throw new Error(`Project ${id} has no local song asset to transcribe`);
+
+  const providerId = flag('--provider') ?? DEFAULT_ASR_PROVIDER_ID;
+  if (providerId === DEFAULT_ASR_PROVIDER_ID && !asrProviderIds().includes(providerId)) {
+    registerASRProvider(createFishAudioASR());
+  }
+  const provider = getASRProvider(providerId);
+  const language = flag('--language');
+  const audioPath = path.join(projectRoot, 'public', ...songAsset.path.split('/'));
+  const transcription = await provider.transcribe(audioPath, {language, timestamps: true});
+  const analysis = createLyricsAnalysis({
+    provider: transcription.provider,
+    model: transcription.model,
+    language: transcription.language,
+    audio: {assetId: songAsset.id, path: songAsset.path},
+    text: transcription.text,
+    durationSeconds: transcription.durationSeconds,
+    segments: transcription.segments,
+  });
+
+  const analysisDirectory = path.join(directory, 'analysis');
+  const analysisFile = path.join(analysisDirectory, 'lyrics.json');
+  await mkdir(analysisDirectory, {recursive: true});
+  await writeJsonAtomic(analysisFile, analysis);
+
+  const assetsFile = path.join(directory, 'assets.json');
+  const assetsValue = await readJson(assetsFile).catch(() => undefined);
+  if (assetsValue && typeof assetsValue === 'object' && Array.isArray((assetsValue as {assets?: unknown}).assets)) {
+    const document = assetsValue as {assets: {id?: string; metadata?: Record<string, unknown>}[]};
+    for (const asset of document.assets) {
+      if (asset.id !== songAsset.id) continue;
+      asset.metadata = {
+        ...asset.metadata,
+        analysisStatus: 'ready',
+        analysisPath: 'analysis/lyrics.json',
+      };
+    }
+    await writeJsonAtomic(assetsFile, document);
+  }
+
+  console.log(`Wrote lyric analysis: ${analysisFile}`);
+  console.log(`Provider: ${transcription.provider}${transcription.model ? ` (${transcription.model})` : ''}; ${analysis.lines.length} lines; ${transcription.durationSeconds}s`);
+  console.log(`Run: npm run forge -- lyrics-draft --project ${id}`);
+};
+
+const applyLyricDraft = async (directory: string, id: string, film: FilmSpec, analysis: LyricsAnalysis): Promise<void> => {
+  const songAsset = film.assets.find((asset) => asset.id === analysis.audio.assetId);
+  if (!songAsset) {
+    throw new Error(`Lyrics analysis references a missing song asset: ${analysis.audio.assetId}`);
+  }
+  const withAnalysis = {
+    ...film,
+    assets: film.assets.map((asset) => asset.id === songAsset.id
+      ? {...asset, metadata: {...asset.metadata, analysisStatus: 'ready', analysisPath: 'analysis/lyrics.json'}}
+      : asset),
+  };
+  const updated = draftLyricFilm(withAnalysis, analysis);
+  await validateFilm(updated, {publicRoot: path.join(projectRoot, 'public')});
+  await writeJsonAtomic(path.join(directory, 'film.json'), updated);
+  const state = productionStateSchema.parse(await readJson(path.join(directory, 'project.json')));
+  await writeJsonAtomic(
+    path.join(directory, 'project.json'),
+    resetForDesignRevision(state, `歌词草案已更新（${analysis.lines.length} 行），需要重新确认 G1`),
+  );
+  await writeFile(path.join(directory, 'design-review.md'), designReviewMarkdown(updated));
+  console.log(`Lyric scenes written to film.json: ${analysis.lines.length} lines from ${id}`);
+  console.log('Review design-review.md and approve G1 again.');
+};
+
+const lyricsDraft = async (): Promise<void> => {
+  const id = flag('--project');
+  if (!id) throw new Error('lyrics-draft requires --project <id>');
+  const directory = projectDirectory(projectRoot, id);
+  try {
+    await access(directory);
+  } catch {
+    throw new Error(`Project not found: ${id}`);
+  }
+  const film = filmSchema.parse(await readJson(path.join(directory, 'film.json')));
+  const analysisValue = await readJson(path.join(directory, 'analysis', 'lyrics.json')).catch(() => {
+    throw new Error(`Lyrics analysis not found for project ${id}; run transcribe first`);
+  });
+  const analysis = parseLyricsAnalysis(analysisValue);
+  await applyLyricDraft(directory, id, film, analysis);
+};
+
 const tts = async (): Promise<void> => {
   const id = flag('--project');
   const sceneId = flag('--scene');
@@ -248,17 +377,44 @@ const tts = async (): Promise<void> => {
 try {
   if (command === 'create') await create();
   else if (command === 'init') await init(projectRoot, {allowTemplateExample: args.includes('--allow-template-example')});
-  else if (command === 'approve-design') await updateApproval('design');
+  else if (command === 'transcribe') await transcribe();
+  else if (command === 'lyrics-draft') await lyricsDraft();
+  else if (command === 'plan') {
+    await createPlanningWorkspace({
+      root: projectRoot,
+      projectId: flag('--project'),
+      values: flagValues('--input'),
+      name: flag('--name'),
+      title: flag('--title'),
+      allowTemplateExample: args.includes('--allow-template-example'),
+    });
+  } else if (command === 'apply-plan') {
+    await applyContentPlan({
+      root: projectRoot,
+      projectId: flag('--project') ?? '',
+      file: flag('--file'),
+      allowTemplateExample: args.includes('--allow-template-example'),
+    });
+  } else if (command === 'approve-design') await updateApproval('design');
   else if (command === 'approve-sample') await updateApproval('sample');
   else if (command === 'render') await render();
+  else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
+  else if (command === 'fetch-image') await fetchImageCommand(projectRoot, args);
   else if (command === 'bgm') await runBgmCommand(projectRoot, args.slice(1));
   else if (command === 'tts') await tts();
   else {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
+    console.log('       npm run forge -- transcribe --project <id> [--provider fish-audio] [--language zh]');
+    console.log('       npm run forge -- lyrics-draft --project <id>');
+    console.log('       npm run forge -- plan --input <theme|url> [--name id] [--title ...] | plan --project <id>');
+    console.log('       npm run forge -- apply-plan --project <id> [--file content-plan.json]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
+    console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
+    console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
     console.log('       npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop|--no-loop] [--search-only]');
     console.log('       npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3|wav|pcm|opus] [--out <public/relative/path>] [--provider fish-audio] [--model s2.1-pro]');
+    if (command) throw new Error(`Unknown command: ${command}`);
   }
 } catch (error) {
   console.error(error instanceof Error ? error.message : error);

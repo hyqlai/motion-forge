@@ -39,7 +39,9 @@ npm run build
 npm run audio:verify
 npm run audio:verify:workbench
 npm run audio:verify:render
+npm run check:asr
 npm run tts:verify
+npm run test:pexels
 npm run studio
 npm run workbench
 npm run render
@@ -54,6 +56,10 @@ npm run forge -- create --dir /absolute/path/gravity-video \
   --input "重力的作用" --name gravity --title "重力如何塑造世界"
 cd /absolute/path/gravity-video
 npm ci
+# 生成结构化内容策划工作单，由 Agent 自身 LLM 填写 content-plan.json
+npm run forge -- plan --project gravity
+# 填写完成后校验并转换为 Film IR
+npm run forge -- apply-plan --project gravity
 npm run validate -- --project gravity
 ```
 
@@ -68,6 +74,17 @@ npm run forge -- approve-sample --project gravity
 npm run forge -- render --project gravity --scope film
 npm run workbench -- --host 0.0.0.0
 # 浏览器打开 http://127.0.0.1:5178/?project=gravity
+```
+
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。主题与 URL 输入可先通过 `plan --project <id>` 生成结构化策划模板，再由 Agent 自身 LLM 填写 `content-plan.json` 并用 `apply-plan` 转换为 Film IR；该流程不调用外部 LLM API，应用后仍停留在 G1 等待用户确认。图片素材可通过显式 `search-images` / `fetch-image` 子命令从 Pexels 检索并下载到项目本地（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。渲染产物统一写入项目内 `output/projects/<id>/`。
+
+歌曲项目在 G1 之前先做 ASR 歌词对齐：
+
+```bash
+export FISH_API_KEY="<fish-audio-api-key>"
+npm run forge -- transcribe --project song-visual --language zh
+npm run forge -- lyrics-draft --project song-visual
+# lyrics-draft 会把项目退回 design-review，需重新确认 G1
 ```
 
 旁白音频通过 Fish Audio 生成，密钥只从 `FISH_API_KEY` 读取；未配置密钥时命令直接报错，不会发起外部请求：
@@ -104,4 +121,4 @@ npm run audio:verify:workbench  # 工作台 PUT、三轨校验与 G1/G2 重置
 npm run audio:verify:render     # 生成三轨 fixture，真实渲染 MP4 并用 ffprobe/ffmpeg 抽查时序
 ```
 
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案，不代表自动内容策划、歌词对齐或免费资源 provider 已完成。渲染产物统一写入项目内 `output/projects/<id>/`。
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与时间区间，旁白可用 `tts`，BGM 可用 `bgm`，图片可通过 `search-images` / `fetch-image` 从 Pexels 检索并下载（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。所有外部 provider 需要相应密钥，最终仍须通过 G1/G2。渲染产物统一写入项目内 `output/projects/<id>/`。

@@ -1,0 +1,222 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "ready",
+  "source": {
+    "kind": "url",
+    "value": "http://127.0.0.1:4173/source-page.html",
+    "title": "潮汐浮标：把海洋变成实时数据"
+  },
+  "title": "潮汐浮标：把海洋变成实时数据",
+  "genre": "explainer",
+  "brief": {
+    "goal": "用一组可核对的来源事实解释潮汐浮标网络如何把海洋观测变成实时数据",
+    "audience": "关注海洋科技与基础设施的普通观众",
+    "language": "zh-CN"
+  },
+  "clock": "reading",
+  "output": {
+    "width": 960,
+    "height": 540,
+    "fps": 30
+  },
+  "theme": {
+    "background": "#04121a",
+    "foreground": "#e9f7ff",
+    "accent": "#2ec4b6",
+    "muted": "#6f8b9a",
+    "fontFamily": "Noto Sans SC, Microsoft YaHei, sans-serif"
+  },
+  "totalDurationSeconds": 24,
+  "narrativeArc": [
+    {
+      "id": "A01",
+      "phase": "hook",
+      "purpose": "用已部署规模制造规模感，引出实时观测网",
+      "sceneIds": ["S01"]
+    },
+    {
+      "id": "A02",
+      "phase": "setup",
+      "purpose": "说明浮标的工作方式与采样频率",
+      "sceneIds": ["S02"]
+    },
+    {
+      "id": "A03",
+      "phase": "development",
+      "purpose": "用续航天数和回传延迟解释实时性",
+      "sceneIds": ["S03"]
+    },
+    {
+      "id": "A04",
+      "phase": "resolution",
+      "purpose": "用成本下降收束，指向长期连续观测的意义",
+      "sceneIds": ["S04"]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "南海的实时观测网",
+      "intent": "用部署规模建立画面钩子",
+      "semantic": "钩子",
+      "arcId": "A01",
+      "durationSeconds": 6,
+      "narration": "首批二十四台浮标，已经把南海变成一张实时观测网。",
+      "onScreenText": ["24 台浮标", "南海实时观测网"],
+      "visual": {
+        "description": "深青海面背景，数字 24 作为主视觉放大，地图轮廓以细线勾勒，标题从下方推入",
+        "layoutKind": "hero",
+        "options": {}
+      },
+      "renderer": "html",
+      "sceneComponent": "scene/kinetic-title",
+      "motion": {
+        "primary": {"cardId": "typography/keyword-reveal", "params": {}},
+        "camera": {"cardId": "camera/slow-push", "params": {"zoomTo": 1.05}},
+        "transitionOut": {"cardId": "transition/wipe-transitions", "params": {}}
+      },
+      "props": {
+        "text": "24 台浮标\n南海实时观测网",
+        "eyebrow": "OCEAN DATA",
+        "accentWord": "实时"
+      },
+      "assetIds": [],
+      "factIds": ["F04"],
+      "qa": {
+        "frames": [0, 30, 160],
+        "checkpoints": ["数字 24 是唯一视觉焦点", "标题不压住地图轮廓"]
+      }
+    },
+    {
+      "id": "S02",
+      "title": "每十五分钟一次采样",
+      "intent": "解释浮标不是一次性调查，而是连续采样",
+      "semantic": "定义",
+      "arcId": "A02",
+      "durationSeconds": 6,
+      "narration": "它不是一次性采样，而是每十五分钟上传一次海面温度和盐度。",
+      "onScreenText": ["每 15 分钟", "温度与盐度"],
+      "visual": {
+        "description": "左侧标题，右侧两条并排数据条，时间刻度以 15 分钟为间隔循环推进",
+        "layoutKind": "stack",
+        "options": {}
+      },
+      "renderer": "html",
+      "sceneComponent": "scene/stack-explainer",
+      "motion": {
+        "primary": {"cardId": "interaction/stack-reveal", "params": {}},
+        "transitionOut": {"cardId": "transition/whip-pan", "params": {}}
+      },
+      "props": {
+        "title": "不是一次性采样",
+        "items": ["每 15 分钟上传", "海面温度", "盐度"]
+      },
+      "assetIds": [],
+      "factIds": ["F01"],
+      "qa": {
+        "frames": [0, 45, 160],
+        "checkpoints": ["15 分钟刻度清晰", "三条信息按顺序落位"]
+      }
+    },
+    {
+      "id": "S03",
+      "title": "卫星回传与续航",
+      "intent": "用延迟和续航两个指标解释实时性",
+      "semantic": "论据",
+      "arcId": "A03",
+      "durationSeconds": 6,
+      "narration": "卫星回传把延迟压到五分钟以内，单次布放还能连续工作十二个月。",
+      "onScreenText": ["延迟 < 5 分钟", "连续工作 12 个月"],
+      "visual": {
+        "description": "浮标到卫星的两段路径依次生长，先点亮延迟指标，再点亮续航指标",
+        "layoutKind": "journey",
+        "options": {}
+      },
+      "renderer": "svg",
+      "sceneComponent": "scene/svg-journey",
+      "motion": {
+        "primary": {"cardId": "media/svg-path", "params": {}},
+        "transitionOut": {"cardId": "transition/cube-rotate", "params": {}}
+      },
+      "props": {
+        "title": "实时，来自两段路径",
+        "steps": ["浮标", "卫星回传 < 5 分钟", "连续工作 12 个月"]
+      },
+      "assetIds": [],
+      "factIds": ["F02", "F03"],
+      "qa": {
+        "frames": [0, 55, 160],
+        "checkpoints": ["路径生长先后顺序正确", "两个指标不同时出现"]
+      }
+    },
+    {
+      "id": "S04",
+      "title": "成本下降之后",
+      "intent": "把技术指标收束为长期观测的意义",
+      "semantic": "结尾",
+      "arcId": "A04",
+      "durationSeconds": 6,
+      "narration": "当运维成本下降百分之六十，长期、连续地看见海洋才真正成为可能。",
+      "onScreenText": ["运维成本 -60%", "长期看见海洋"],
+      "visual": {
+        "description": "三维网格海面缓慢起伏，成本数字从高处落到稳定位置，结尾标题居中停留",
+        "layoutKind": "hero-3d",
+        "options": {}
+      },
+      "renderer": "mixed",
+      "sceneComponent": "scene/three-launch",
+      "motion": {
+        "primary": {"cardId": "effects/three-crystal", "params": {}},
+        "camera": {"cardId": "camera/orbit-drift", "params": {}},
+        "transitionOut": {"cardId": "transition/black-slam", "params": {}}
+      },
+      "props": {
+        "text": "长期看见海洋\n才真正成为可能"
+      },
+      "assetIds": [],
+      "factIds": ["F05"],
+      "qa": {
+        "frames": [0, 50, 160],
+        "checkpoints": ["三维主体不黑屏", "成本数字与标题不重叠"]
+      }
+    }
+  ],
+  "facts": [
+    {
+      "id": "F01",
+      "statement": "浮标以 15 分钟为周期上传海面温度与盐度数据",
+      "quote": "浮标每 15 分钟上传一次海面温度与盐度数据",
+      "sourceUrl": "http://127.0.0.1:4173/source-page.html",
+      "sceneIds": ["S02"]
+    },
+    {
+      "id": "F02",
+      "statement": "单次布放可以连续工作 12 个月",
+      "quote": "单次布放可连续工作 12 个月",
+      "sourceUrl": "http://127.0.0.1:4173/source-page.html",
+      "sceneIds": ["S03"]
+    },
+    {
+      "id": "F03",
+      "statement": "数据通过卫星回传，延迟低于 5 分钟",
+      "quote": "数据通过卫星回传，延迟低于 5 分钟",
+      "sourceUrl": "http://127.0.0.1:4173/source-page.html",
+      "sceneIds": ["S03"]
+    },
+    {
+      "id": "F04",
+      "statement": "首批 24 台浮标已部署在南海",
+      "quote": "首批 24 台浮标已部署在南海",
+      "sourceUrl": "http://127.0.0.1:4173/source-page.html",
+      "sceneIds": ["S01"]
+    },
+    {
+      "id": "F05",
+      "statement": "与传统调查船相比，浮标网络年度运维成本下降 60%",
+      "quote": "年度运维成本下降了 60%",
+      "sourceUrl": "http://127.0.0.1:4173/source-page.html",
+      "sceneIds": ["S04"]
+    }
+  ],
+  "assets": []
+}

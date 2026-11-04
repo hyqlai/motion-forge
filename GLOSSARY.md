@@ -10,7 +10,11 @@
 
 ### ASR Provider
 
-语音识别（Automatic Speech Recognition）能力的提供方。输入音频文件路径，输出带词级时间戳的转写结果。首个实现为 Fish Audio。
+语音识别（Automatic Speech Recognition）能力的提供方。输入音频文件路径，输出带词级时间戳的转写结果。首个实现为 Fish Audio，密钥只从 `FISH_API_KEY` 读取，默认模型 `transcribe-1-pro`。
+
+### 歌词对齐 (Lyric Alignment)
+
+把 ASR 词级 segments 按停顿、行时长、行字数和文本边界组合为逐行歌词，保留每行起止时间。结果写入项目 `analysis/lyrics.json`，歌曲分镜可据此生成上屏文字与时间区间，无需重复转写。
 
 ### Resource Provider
 

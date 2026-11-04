@@ -1,0 +1,186 @@
+{
+  "schemaVersion": "1.0.0",
+  "status": "ready",
+  "source": {
+    "kind": "theme",
+    "value": "为什么人类需要睡眠",
+    "title": "为什么人类需要睡眠"
+  },
+  "title": "为什么人类需要睡眠",
+  "genre": "explainer",
+  "brief": {
+    "goal": "用反常识开场解释睡眠的主动维护功能，改变把睡眠当作浪费时间的态度",
+    "audience": "长期熬夜、对睡眠科学好奇的普通观众",
+    "language": "zh-CN"
+  },
+  "clock": "reading",
+  "output": {
+    "width": 960,
+    "height": 540,
+    "fps": 30
+  },
+  "theme": {
+    "background": "#070d1a",
+    "foreground": "#eef4ff",
+    "accent": "#4cc9f0",
+    "muted": "#7b8aa5",
+    "fontFamily": "Noto Sans SC, Microsoft YaHei, sans-serif"
+  },
+  "totalDurationSeconds": 24,
+  "narrativeArc": [
+    {
+      "id": "A01",
+      "phase": "hook",
+      "purpose": "用清醒时的代价制造认知缺口，让观众愿意继续看",
+      "sceneIds": ["S01"]
+    },
+    {
+      "id": "A02",
+      "phase": "setup",
+      "purpose": "纠正睡眠等于关机的直觉，建立主动维护的框架",
+      "sceneIds": ["S02"]
+    },
+    {
+      "id": "A03",
+      "phase": "development",
+      "purpose": "用脑脊液清理机制给出可理解的科学解释",
+      "sceneIds": ["S03"]
+    },
+    {
+      "id": "A04",
+      "phase": "resolution",
+      "purpose": "把科学解释收束为可执行的生活态度",
+      "sceneIds": ["S04"]
+    }
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "title": "熬夜的代价",
+      "intent": "在开场三秒内制造反常识冲击",
+      "semantic": "钩子",
+      "arcId": "A01",
+      "durationSeconds": 6,
+      "narration": "你熬的不是夜，是大脑每天一次的清理窗口。",
+      "onScreenText": ["你熬的不是夜", "是大脑的清理窗口"],
+      "visual": {
+        "description": "深蓝近黑背景，巨大标题居中，关键词用青色高亮，画面边缘保留呼吸空间",
+        "layoutKind": "hero",
+        "options": {}
+      },
+      "renderer": "html",
+      "sceneComponent": "scene/kinetic-title",
+      "motion": {
+        "primary": {"cardId": "typography/keyword-reveal", "params": {}},
+        "camera": {"cardId": "camera/slow-push", "params": {"zoomTo": 1.04}},
+        "transitionOut": {"cardId": "transition/wipe-transitions", "params": {}}
+      },
+      "props": {
+        "text": "你熬的不是夜\n是大脑的清理窗口",
+        "eyebrow": "SLEEP SCIENCE",
+        "accentWord": "清理窗口"
+      },
+      "assetIds": [],
+      "factIds": [],
+      "qa": {
+        "frames": [0, 30, 150],
+        "checkpoints": ["主标题完整出现", "强调词使用青色", "文字不越出安全区"]
+      }
+    },
+    {
+      "id": "S02",
+      "title": "睡眠不是关机",
+      "intent": "把观众的直觉从关机切换为主动维护",
+      "semantic": "定义",
+      "arcId": "A02",
+      "durationSeconds": 7,
+      "narration": "睡眠不是关机，而是大脑切换到另一套工作模式。",
+      "onScreenText": ["睡眠不是关机", "而是另一套工作模式"],
+      "visual": {
+        "description": "左侧保留标题，右侧三张信息卡依次落位，卡片之间以细线连接",
+        "layoutKind": "stack",
+        "options": {}
+      },
+      "renderer": "html",
+      "sceneComponent": "scene/stack-explainer",
+      "motion": {
+        "primary": {"cardId": "interaction/stack-reveal", "params": {}},
+        "transitionOut": {"cardId": "transition/whip-pan", "params": {}}
+      },
+      "props": {
+        "title": "睡眠不是关机",
+        "items": ["切换工作模式", "清理代谢废物", "巩固记忆"]
+      },
+      "assetIds": [],
+      "factIds": [],
+      "qa": {
+        "frames": [0, 45, 180],
+        "checkpoints": ["三张信息卡按顺序落位", "标题与卡片不重叠"]
+      }
+    },
+    {
+      "id": "S03",
+      "title": "脑内清理系统",
+      "intent": "用可理解的机制解释睡眠的必要性",
+      "semantic": "论据",
+      "arcId": "A03",
+      "durationSeconds": 6,
+      "narration": "深睡时，脑脊液流动加快，带走白天积累的代谢废物。",
+      "onScreenText": ["深睡期", "脑脊液流量上升", "代谢废物被带走"],
+      "visual": {
+        "description": "路径从左下向右上生长，三个节点依次点亮，背景有缓慢漂移的微粒",
+        "layoutKind": "journey",
+        "options": {}
+      },
+      "renderer": "svg",
+      "sceneComponent": "scene/svg-journey",
+      "motion": {
+        "primary": {"cardId": "media/svg-path", "params": {}},
+        "transitionOut": {"cardId": "transition/cube-rotate", "params": {}}
+      },
+      "props": {
+        "title": "深睡时，大脑在清理",
+        "steps": ["深睡期", "脑脊液流量上升", "代谢废物被带走"]
+      },
+      "assetIds": [],
+      "factIds": [],
+      "qa": {
+        "frames": [0, 60, 150],
+        "checkpoints": ["路径生长与节点点亮同步", "文字与路径不重叠"]
+      }
+    },
+    {
+      "id": "S04",
+      "title": "把睡眠还给身体",
+      "intent": "把科学解释收束成行动态度",
+      "semantic": "结尾",
+      "arcId": "A04",
+      "durationSeconds": 5,
+      "narration": "所以，睡眠不是可以随意透支的时间，而是身体每天一次的必要维护。",
+      "onScreenText": ["睡眠", "是每天一次的必要维护"],
+      "visual": {
+        "description": "三维晶体缓慢旋转并逐渐稳定，标题从画面下方升起，整体色调转为安静的暖白",
+        "layoutKind": "hero-3d",
+        "options": {}
+      },
+      "renderer": "mixed",
+      "sceneComponent": "scene/three-launch",
+      "motion": {
+        "primary": {"cardId": "effects/three-crystal", "params": {}},
+        "camera": {"cardId": "camera/orbit-drift", "params": {}},
+        "transitionOut": {"cardId": "transition/cube-rotate", "params": {}}
+      },
+      "props": {
+        "text": "睡眠\n是每天一次的必要维护"
+      },
+      "assetIds": [],
+      "factIds": [],
+      "qa": {
+        "frames": [0, 45, 120],
+        "checkpoints": ["三维主体不黑屏", "标题完整出现", "结尾停留足够阅读"]
+      }
+    }
+  ],
+  "facts": [],
+  "assets": []
+}
