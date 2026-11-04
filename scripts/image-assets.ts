@@ -1,4 +1,4 @@
-import {access, mkdir, readFile, rename, rm, writeFile} from 'node:fs/promises';
+import {access, mkdir, readFile, realpath, rename, rm, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {z} from 'zod';
 import {filmSchema, productionStateSchema, type Asset, type FilmSpec} from '../core/schema';
@@ -54,6 +54,14 @@ const writeJsonAtomic = async (file: string, value: unknown): Promise<void> => {
 };
 
 const readJson = async (file: string): Promise<unknown> => JSON.parse(await readFile(file, 'utf8'));
+
+const assertInsidePublicRoot = async (publicRoot: string, directory: string): Promise<void> => {
+  const [realPublicRoot, realDirectory] = await Promise.all([realpath(publicRoot), realpath(directory)]);
+  const relative = path.relative(realPublicRoot, realDirectory);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) {
+    throw new Error(`Asset destination escapes the project public directory: ${directory}`);
+  }
+};
 
 const projectPaths = (root: string, id: string): {directory: string; filmFile: string; assetsFile: string; stateFile: string; publicRoot: string} => {
   if (!projectIdPattern.test(id)) throw new Error('Invalid project id');
@@ -206,6 +214,7 @@ export const fetchPexelsImage = async (
   }
 
   await mkdir(path.dirname(destination), {recursive: true});
+  await assertInsidePublicRoot(paths.publicRoot, path.dirname(destination));
   const provider = createProvider(dependencies);
   try {
     await provider.download(candidate, destination);
