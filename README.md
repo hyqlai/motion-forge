@@ -71,6 +71,8 @@ npm run workbench -- --host 0.0.0.0
 # 浏览器打开 http://127.0.0.1:5178/?project=gravity
 ```
 
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。主题与 URL 输入可先通过 `plan --project <id>` 生成结构化策划模板，再由 Agent 自身 LLM 填写 `content-plan.json` 并用 `apply-plan` 转换为 Film IR；该流程不调用外部 LLM API，应用后仍停留在 G1 等待用户确认。图片素材可通过显式 `search-images` / `fetch-image` 子命令从 Pexels 检索并下载到项目本地（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。歌词对齐尚未包含在本次流程中。渲染产物统一写入项目内 `output/projects/<id>/`。
+
 旁白音频通过 Fish Audio 生成，密钥只从 `FISH_API_KEY` 读取；未配置密钥时命令直接报错，不会发起外部请求：
 
 ```bash
@@ -92,5 +94,3 @@ PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
 ```
 
 下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
-
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。主题与 URL 输入可先通过 `plan --project <id>` 生成结构化策划模板，再由 Agent 自身 LLM 填写 `content-plan.json` 并用 `apply-plan` 转换为 Film IR；该流程不调用外部 LLM API，应用后仍停留在 G1 等待用户确认。歌词对齐尚未包含在本次流程中。渲染产物统一写入项目内 `output/projects/<id>/`。

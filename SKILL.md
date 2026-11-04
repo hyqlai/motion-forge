@@ -304,13 +304,15 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **2. 内容策划工作单** | `npm run forge -- plan --project <id>` | 在项目内生成 `content-plan.template.json`、`content-plan.md`；URL 项目复用 `source.json`。Agent 用自身 LLM 填写 `content-plan.json` |
 | **3. 应用内容策划** | `npm run forge -- apply-plan --project <id> [--file content-plan.json]` | 校验叙事弧线、时长、Film Schema、场景/卡片注册、素材和 URL 事实追溯，通过后写入 `film.json` 与 `design-review.md`；项目停留在 `design-review` |
 | **4. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
-| **5. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段；应用新策划会重置为 `design-review` |
-| **6. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/` 并登记到 `film.json`，未配置密钥时拒绝发起外部请求 |
-| **7. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
-| **8. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
-| **9. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
-| **10. 工程构建验收** | `npm run build` | TypeScript 与工作台构建均通过；不替代目标 Film 校验或真实渲染 |
-| **11. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
+| **5. 图片检索（可选）** | `npm run forge -- search-images --project <id> --query "<主题>" [--scene S01-opening] [--count 15] [--aspect 16:9]` | 显式调用 Pexels；需设置 `PEXELS_API_KEY`，未配置时在请求前报错；结果写入 `output/projects/<id>/image-search.json` |
+| **6. 图片本地化（可选）** | `npm run forge -- fetch-image --project <id> --candidate <pexels-id> [--scene S01-opening] [--role reference]` | 下载到 `public/assets/<id>/` 并登记 Film assets，远程地址只留作来源元数据；素材变化会退回 G1 |
+| **7. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段；应用新策划会重置为 `design-review` |
+| **8. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/` 并登记到 `film.json`，未配置密钥时拒绝发起外部请求 |
+| **9. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
+| **10. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
+| **11. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
+| **12. 工程构建验收** | `npm run build` | TypeScript 与工作台构建均通过；不替代目标 Film 校验或真实渲染 |
+| **13. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
 
 ### 2. 内容策划工作流
 
@@ -324,11 +326,15 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 完整字段约束与样本见 [`pipelines/content-planning.md`](pipelines/content-planning.md)。
 
-### 3. 旁白生成（可选）
+### 3. 图片素材（可选）
+
+图片检索与本地化由显式 `search-images` / `fetch-image` 子命令触发，需 `PEXELS_API_KEY`。下载后写入 `public/assets/<id>/` 并登记 Film assets，远程地址只保留为来源元数据；素材变化会使已审批设计退回 G1。完整契约见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)。
+
+### 4. 旁白生成（可选）
 
 TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会自动调用外部服务。密钥仅从 `FISH_API_KEY` 读取；认证失败、余额不足、限流和服务端错误分别归类，只有限流、服务端错误和网络错误会执行有限退避。`npm run tts:verify` 用本地 mock HTTP 验证成功与失败行为，不需要真实密钥或网络。
 
-### 4. 本地工作台 (Workbench) 核心功能
+### 5. 本地工作台 (Workbench) 核心功能
 项目工作台地址为 `http://127.0.0.1:5178/?project=<id>`；不带 `project` 参数时只显示内置示例：
 - **🎴 动效卡库 Gallery**：全量 265 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
 - **🎬 分镜制作工作台**：加载 `output/projects/<id>/film.json`，实时播放整片或单镜；修改文案和卡片后点击“保存 Film IR”写回项目；
