@@ -66,7 +66,8 @@
 
 ## 阶段 5：高级能力与完整片种
 
-- [ ] 自动内容策划、歌词对齐、音乐结构驱动和音乐故事。
+- [x] 歌曲 ASR 歌词对齐：`transcribe` 写入 `analysis/lyrics.json`，`lyrics-draft` 复用产物生成逐行歌词分镜并退回 G1。
+- [ ] 自动内容策划、音乐结构驱动和音乐故事。
 - [ ] 一镜到底、复杂 SVG 形变、角色和高级 Three.js 场景。
 - [ ] 真实免费资源 provider 实现（Pexels/Unsplash 图片、Free Music Archive BGM 等）、TTS/ASR 和音频混合。
 - [ ] 工作台多轨音频编辑与项目导出（Film IR 写回已在阶段 3 完成）。

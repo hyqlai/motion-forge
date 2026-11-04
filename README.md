@@ -36,6 +36,7 @@ SKILL.md       Agent 制作流程、动效设计思路与质量门禁
 npm ci
 npm run validate
 npm run build
+npm run check:asr
 npm run studio
 npm run workbench
 npm run render
@@ -66,4 +67,13 @@ npm run workbench -- --host 0.0.0.0
 # 浏览器打开 http://127.0.0.1:5178/?project=gravity
 ```
 
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案，不代表自动内容策划、TTS、歌词对齐或免费资源 provider 已完成。渲染产物统一写入项目内 `output/projects/<id>/`。
+歌曲项目在 G1 之前先做 ASR 歌词对齐：
+
+```bash
+export FISH_API_KEY="<fish-audio-api-key>"
+npm run forge -- transcribe --project song-visual --language zh
+npm run forge -- lyrics-draft --project song-visual
+# lyrics-draft 会把项目退回 design-review，需重新确认 G1
+```
+
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与对应时间区间，但仍须经过 G1。自动内容策划、TTS 和免费资源 provider 属于后续阶段。渲染产物统一写入项目内 `output/projects/<id>/`。

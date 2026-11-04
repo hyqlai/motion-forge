@@ -17,6 +17,7 @@
     "cards:docs": "tsx scripts/enrich-card-docs.ts",
     "cards:approve": "tsx scripts/approve-cards.ts",
     "cards:compare": "tsx scripts/compare-cards.ts",
+    "check:asr": "tsx scripts/asr-check.ts",
     "validate": "npm run cards:validate && tsx scripts/validate-project.ts",
     "forge": "tsx scripts/motion-forge.ts"
   },

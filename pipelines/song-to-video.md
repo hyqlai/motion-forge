@@ -56,24 +56,38 @@
 
 1. **草稿初始化**：
    ```bash
-   npm run forge -- init --input "/path/to/song.mp3" --audio-kind song --name "song-visual"
+   npm run forge -- create --dir /absolute/song-visual \
+     --input "/path/to/song.mp3" --audio-kind song --name "song-visual"
+   cd /absolute/song-visual
    ```
-   系统会分析歌曲音频信息，并生成曲式结构与分镜草稿。
-2. **细化歌词分镜并呈递 G1 评审**：
-   - 在 `film.json` 中配置每段歌词对应的实际上屏文案与选型动效；
-   - 呈报 `design-review.md`，重点向用户汇报副歌与高潮镜头的视听设计；
-   - 用户确认后执行：
+   系统会分析歌曲音频信息，并生成待确认的初始草案。
+2. **ASR 转写与歌词分析**：
+   ```bash
+   export FISH_API_KEY="<fish-audio-api-key>"
+   npm run forge -- transcribe --project song-visual --language zh
+   ```
+   - 读取项目内已本地化的歌曲，调用 Fish Audio ASR（默认模型 `transcribe-1-pro`，默认请求词级时间戳）；
+   - 逐行歌词按停顿、行时长/字数和文本边界从词级 segments 分组；
+   - 结果写入 `output/projects/song-visual/analysis/lyrics.json`，后续可复用，无需重复转写；
+   - 未配置密钥、转写失败或时间戳缺失时命令失败退出，不会生成占位歌词。
+3. **生成歌词分镜草案并呈递 G1 评审**：
+   ```bash
+   npm run forge -- lyrics-draft --project song-visual
+   ```
+   - 从 `lyrics.json` 生成逐行歌词镜头，`props.lyric` 保留每行起止时间；间奏与尾奏用留白镜头补齐时间线；
+   - 草案写回后项目退回 `design-review`，不会自动通过 G1；
+   - 在 `design-review.md` 中重点向用户汇报副歌与高潮镜头的视听设计，确认后执行：
      ```bash
-     npm run forge -- approve-design --project <id>
+     npm run forge -- approve-design --project song-visual
      ```
-3. **渲染 G2 样板镜（重点检查歌词音画咬合度）**：
+4. **渲染 G2 样板镜（重点检查歌词音画咬合度）**：
    - 挑选副歌第一句或最激昂的一句作为 sample 渲染：
      ```bash
-     npm run forge -- render --project <id> --scope sample
+     npm run forge -- render --project song-visual --scope sample
      ```
    - 检查文字是在发音前 1 帧启动，还是声音结束后才出来（确保绝无延迟）。
-4. **全片合成与交付**：
+5. **全片合成与交付**：
    ```bash
-   npm run forge -- approve-sample --project <id>
-   npm run forge -- render --project <id> --scope film
+   npm run forge -- approve-sample --project song-visual
+   npm run forge -- render --project song-visual --scope film
    ```
