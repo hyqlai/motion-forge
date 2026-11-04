@@ -8,7 +8,7 @@ Motion Forge 是一个本地运行的通用 AI 视频制作系统：用自然语
 - 片种：故事、科普、音乐故事、产品宣传、产品发布、哲理短片等。
 - 流程：独立工程创建 → 分镜与视觉设计确认 → 有声样板镜确认 → 自动完成全片。
 - 素材：初始化时复制到项目 `public/assets/<id>/`，以项目内相对路径注册；缺失素材立即报错。
-- 音频：单曲/纯音乐自动接入 Film BGM；其他旁白与资源在设计阶段本地化。
+- 音频：单曲/纯音乐自动接入 Film BGM；旁白可在设计阶段通过 Fish Audio TTS 生成，并作为项目本地 Voice 素材登记。
 - 交付：MP4、自包含可编辑工程、可加载目标项目并写回 Film IR 的浏览器工作台。
 - 架构：统一 Remotion 内核，独立分镜模块，可插拔动效卡，单镜及局部重渲。
 
@@ -37,6 +37,7 @@ npm ci
 npm run validate
 npm run build
 npm run check:asr
+npm run tts:verify
 npm run studio
 npm run workbench
 npm run render
@@ -76,4 +77,26 @@ npm run forge -- lyrics-draft --project song-visual
 # lyrics-draft 会把项目退回 design-review，需重新确认 G1
 ```
 
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与对应时间区间，但仍须经过 G1。自动内容策划、TTS 和免费资源 provider 属于后续阶段。渲染产物统一写入项目内 `output/projects/<id>/`。
+旁白音频通过 Fish Audio 生成，密钥只从 `FISH_API_KEY` 读取；未配置密钥时命令直接报错，不会发起外部请求：
+
+```bash
+export FISH_API_KEY=<your-key>
+npm run forge -- tts --project gravity --scene S01-opening \
+  --voice <reference-id> --format mp3
+# 也可用 --text "旁白文本" 覆盖 scene.narration，用 --out assets/gravity/voice.mp3 指定落盘路径
+```
+
+音频写入项目 `public/` 下并由 `film.json` 的 `assets` 登记，命令结束前会自动执行目标 Film 校验。
+
+## 从 Pixabay Music 获取 BGM
+
+在独立项目内，用环境变量提供密钥并搜索、下载 BGM：
+
+```bash
+PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
+  --query "calm cinematic piano" --volume 0.2 --loop
+```
+
+下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
+
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与时间区间，旁白可用 `tts`，BGM 可用 `bgm`。所有外部 provider 需要相应密钥，最终仍须通过 G1/G2。渲染产物统一写入项目内 `output/projects/<id>/`。
