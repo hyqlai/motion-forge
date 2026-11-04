@@ -52,6 +52,8 @@
 
 通过外部 Provider 获取的 BGM 还必须在对应 asset 的 `metadata` 中保留 `provider`、`sourceUrl`、`license`、`licenseUrl`，且 `audio.bgm.src` 必须与该 asset 的 `path` 一致；未成功下载并验证为可解码音频的曲目不得写入 Film IR。
 
+通过 `forge tts` 生成的旁白音频写入 `public/assets/<id>/`，以 `kind: voice`、`role: narration` 的 asset 登记，并在对应分镜的 `assetIds` 中引用。`metadata` 记录 provider、model、format 和 voice 等生成参数；不得记录 API key 或远程临时地址。生成结束前会执行目标 Film 校验，校验失败不得更新 `film.json`。
+
 ## 6. 工作台
 
 工作台通过 `?project=<id>` 读取 `output/projects/<id>/film.json`，编辑 Film IR 和公开 props 后写回同一文件；写回请求必须通过 Project ID、请求体大小、同源和 Film Schema 校验。设计内容发生变化时状态退回 `design-review`，旧 G1/G2 结论失效。原合成与工作台拆解合成必须做同帧一致性检查。
