@@ -8,7 +8,7 @@ Motion Forge 是一个本地运行的通用 AI 视频制作系统：用自然语
 - 片种：故事、科普、音乐故事、产品宣传、产品发布、哲理短片等。
 - 流程：独立工程创建 → 分镜与视觉设计确认 → 有声样板镜确认 → 自动完成全片。
 - 素材：初始化时复制到项目 `public/assets/<id>/`，以项目内相对路径注册；缺失素材立即报错。
-- 音频：单曲/纯音乐自动接入 Film BGM；旁白可在设计阶段通过 Fish Audio TTS 生成，并作为项目本地 Voice 素材登记。
+- 音频：BGM、Voice、SFX 三轨统一写在 Film IR；单曲/纯音乐自动接入 BGM，旁白通过 Fish Audio TTS 生成并登记为 Voice，音效按场景局部帧触发。旧版仅 BGM 项目保持兼容。
 - 交付：MP4、自包含可编辑工程、可加载目标项目并写回 Film IR 的浏览器工作台。
 - 架构：统一 Remotion 内核，独立分镜模块，可插拔动效卡，单镜及局部重渲。
 
@@ -36,6 +36,9 @@ SKILL.md       Agent 制作流程、动效设计思路与质量门禁
 npm ci
 npm run validate
 npm run build
+npm run audio:verify
+npm run audio:verify:workbench
+npm run audio:verify:render
 npm run check:asr
 npm run tts:verify
 npm run test:pexels
@@ -105,4 +108,17 @@ PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
 ```
 
 下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
+
+## 三轨音频与工作台编辑
+
+Film IR 的 `audio` 同时描述 BGM、Voice、SFX 三条轨道。Voice segment 使用 `sceneId/start/end/text`，起止帧是场景局部帧；SFX event 使用 `sceneId/frame/kind`，`kind` 指向 `kind: audio`、`role: sfx` 的本地音频资产。旧版只有 `audio.bgm` 的 `film.json` 无需迁移，解析时自动补齐空 Voice/SFX 轨道。
+
+工作台的分镜制作页新增“音频三轨”面板：可调整 BGM 音量与循环、增删改 Voice segment 和 SFX event，并复用“保存 Film IR”写回与审批重置。保存前会拒绝未知场景、越界帧、缺音源和外部路径；已审批项目保存任何音频变化后退回 `design-review`。
+
+```bash
+npm run audio:verify            # Schema、局部帧换算、路径/文件/场景引用拒绝
+npm run audio:verify:workbench  # 工作台 PUT、三轨校验与 G1/G2 重置
+npm run audio:verify:render     # 生成三轨 fixture，真实渲染 MP4 并用 ffprobe/ffmpeg 抽查时序
+```
+
 音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与时间区间，旁白可用 `tts`，BGM 可用 `bgm`，图片可通过 `search-images` / `fetch-image` 从 Pexels 检索并下载（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。所有外部 provider 需要相应密钥，最终仍须通过 G1/G2。渲染产物统一写入项目内 `output/projects/<id>/`。

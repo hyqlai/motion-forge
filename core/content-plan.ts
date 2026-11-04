@@ -294,7 +294,7 @@ export const contentPlanToFilm = (
     output: plan.output,
     theme: plan.theme,
     assets,
-    audio: options.existing?.audio ?? {},
+    audio: options.existing?.audio ?? {voice: {segments: []}, sfx: {events: []}},
     scenes,
   };
 };

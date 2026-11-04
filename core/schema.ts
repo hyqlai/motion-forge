@@ -71,6 +71,33 @@ export const sceneSchema = z.object({
   }),
 }).strict();
 
+export const voiceSegmentSchema = z.object({
+  sceneId: z.string().regex(/^S\d{2}[-a-z0-9]*$/),
+  start: z.number().int().nonnegative(),
+  end: z.number().int().positive(),
+  text: z.string().min(1),
+}).strict();
+
+export const sfxEventSchema = z.object({
+  sceneId: z.string().regex(/^S\d{2}[-a-z0-9]*$/),
+  frame: z.number().int().nonnegative(),
+  kind: z.string().min(1),
+}).strict();
+
+export const audioSchema = z.object({
+  bgm: z.object({
+    src: z.string().min(1),
+    volume: z.number().min(0).max(1).default(0.2),
+    loop: z.boolean().default(false),
+  }).optional(),
+  voice: z.object({
+    segments: z.array(voiceSegmentSchema).default([]),
+  }).strict().default({segments: []}),
+  sfx: z.object({
+    events: z.array(sfxEventSchema).default([]),
+  }).strict().default({events: []}),
+}).strict().default({voice: {segments: []}, sfx: {events: []}});
+
 export const filmSchema = z.object({
   schemaVersion: z.literal('1.0.0'),
   id: z.string().min(1),
@@ -88,13 +115,7 @@ export const filmSchema = z.object({
   }),
   theme: themeSchema,
   assets: z.array(assetSchema).default([]),
-  audio: z.object({
-    bgm: z.object({
-      src: z.string().min(1),
-      volume: z.number().min(0).max(1).default(0.2),
-      loop: z.boolean().default(false),
-    }).optional(),
-  }).default({}),
+  audio: audioSchema,
   scenes: z.array(sceneSchema).min(1),
 }).strict();
 
@@ -155,6 +176,9 @@ export type Renderer = z.infer<typeof rendererSchema>;
 export type CardKind = z.infer<typeof cardKindSchema>;
 export type Theme = z.infer<typeof themeSchema>;
 export type Asset = z.infer<typeof assetSchema>;
+export type VoiceSegment = z.infer<typeof voiceSegmentSchema>;
+export type SfxEvent = z.infer<typeof sfxEventSchema>;
+export type AudioTracks = z.infer<typeof audioSchema>;
 export type MotionUse = z.infer<typeof motionUseSchema>;
 export type SceneSpec = z.infer<typeof sceneSchema>;
 export type FilmSpec = z.infer<typeof filmSchema>;

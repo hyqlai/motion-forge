@@ -1,18 +1,13 @@
 import {access, stat} from 'node:fs/promises';
 import path from 'node:path';
 import {cardRegistry} from '../cards/registry';
+import {assertLocalPublicPath, validateAudioTracks} from '../core/audio';
 import type {FilmSpec} from '../core/schema';
 import {compileTimeline} from '../core/timeline';
 import {sceneRegistry} from '../scenes/registry';
 
 const assertPublicFile = async (publicRoot: string, value: string, label: string): Promise<void> => {
-  if (path.isAbsolute(value) || /^[a-z][a-z\d+.-]*:/i.test(value)) {
-    throw new Error(`${label} must be a project-local public path: ${value}`);
-  }
-  const normalized = path.posix.normalize(value.replace(/\\/g, '/'));
-  if (normalized === '..' || normalized.startsWith('../') || normalized.startsWith('/')) {
-    throw new Error(`${label} escapes the project public directory: ${value}`);
-  }
+  const normalized = assertLocalPublicPath(value, label);
   const file = path.resolve(publicRoot, ...normalized.split('/'));
   const relative = path.relative(path.resolve(publicRoot), file);
   if (relative.startsWith('..') || path.isAbsolute(relative)) {
@@ -55,5 +50,17 @@ export const validateFilm = async (
   for (const asset of film.assets) {
     await assertPublicFile(options.publicRoot, asset.path, `Asset ${asset.id}`);
   }
-  if (film.audio.bgm) await assertPublicFile(options.publicRoot, film.audio.bgm.src, 'Background audio');
+
+  const tracks = validateAudioTracks(film, timeline);
+  if (tracks.bgm) await assertPublicFile(options.publicRoot, tracks.bgm.src, 'BGM source');
+  for (const segment of tracks.voice) {
+    await assertPublicFile(
+      options.publicRoot,
+      segment.src,
+      `Voice segment ${segment.sceneId} [${segment.start}-${segment.end}]`,
+    );
+  }
+  for (const event of tracks.sfx) {
+    await assertPublicFile(options.publicRoot, event.src, `SFX event ${event.sceneId}@${event.frame}`);
+  }
 };

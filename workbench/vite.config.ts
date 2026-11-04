@@ -5,6 +5,7 @@ import {readFile, rename, writeFile} from 'node:fs/promises';
 import type {IncomingMessage, ServerResponse} from 'node:http';
 import {defineConfig, type Plugin} from 'vite';
 import react from '@vitejs/plugin-react';
+import {validateAudioTracks} from '../core/audio.ts';
 import {filmSchema, productionStateSchema} from '../core/schema.ts';
 import {resetForDesignRevision} from '../core/production-state.ts';
 
@@ -79,6 +80,8 @@ const projectApiPlugin = (): Plugin => ({
           }
           const film = filmSchema.parse(await readJsonBody(req));
           if (film.id !== id) throw new Error('Film id must match the project id');
+          // 三轨音频与 CLI 共用同一结构校验；写回失败不得改动 Film IR 或审批状态。
+          validateAudioTracks(film);
           const current = filmSchema.parse(JSON.parse(await readFile(filmFile, 'utf8')));
           if (JSON.stringify(current) === JSON.stringify(film)) {
             sendJson(res, 200, {film, approvalReset: false});

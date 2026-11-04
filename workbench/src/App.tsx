@@ -7,6 +7,7 @@ import type {MotionCardDefinition} from '../../core/card';
 import {sampleFilm} from '../../examples/theme-demo/film';
 import {cardDefinitions} from '../../cards/registry';
 import {CardPreview} from '../../cards/CardPreview';
+import {AudioTrackEditor} from './AudioTracks';
 
 const updateSceneContent = (scene: SceneSpec, value: string): SceneSpec => {
   const lines = value.split('\n').filter(Boolean);
@@ -520,6 +521,7 @@ export const App: React.FC = () => {
                 >{item.id} · {item.title}</button>
               ))}
             </div>
+            <AudioTrackEditor film={film} scene={scene} onChange={setFilm} />
           </section>
 
           <aside className="inspector-panel">

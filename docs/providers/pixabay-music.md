@@ -41,7 +41,7 @@ PIXABAY_API_KEY=... npm run forge -- bgm \
 1. 下载到 `public/assets/<project-id>/bgm-<pixabay-id>.<ext>`。
 2. 用 `ffprobe` 验证下载文件确实是可解码音频；验证失败会删除文件并报错。
 3. 登记 `assets.json`：`kind: audio`、`role: bgm`，保留 `source`、`pixabayId`、作者、时长、`license: Pixabay Content License`、许可证地址和 probe 结果。
-4. 写回 `audio.bgm = {src, volume, loop}`，`src` 是 `public/` 下的项目相对路径。
+4. 写回 `audio.bgm = {src, volume, loop}`，`src` 是 `public/` 下的项目相对路径；已有 `audio.voice` 与 `audio.sfx` 三轨内容保持不变。
 5. 若项目此前已通过 G1/G2，状态退回 `design-review`，旧审批失效。
 
 ## 错误

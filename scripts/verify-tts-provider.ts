@@ -244,7 +244,8 @@ const runScript = async (
 
 type FilmFixture = {
   assets: {id: string; kind: string; path: string; role: string; metadata: Record<string, unknown>}[];
-  scenes: {id: string; assetIds: string[]}[];
+  audio: {voice: {segments: {sceneId: string; start: number; end: number; text: string}[]}};
+  scenes: {id: string; durationInFrames: number; assetIds: string[]}[];
 };
 
 const projectId = `tts-verify-${process.pid}-${Date.now().toString(36)}`;
@@ -295,7 +296,14 @@ try {
   assert.equal(asset.role, 'narration');
   assert.equal(asset.path, `assets/${projectId}/voice-S01-opening.mp3`);
   assert.equal(asset.metadata.provider, FISH_AUDIO_PROVIDER_ID);
-  assert.ok(film.scenes.find((scene) => scene.id === 'S01-opening')?.assetIds.includes('voice-S01-opening'));
+  const scene = film.scenes.find((item) => item.id === 'S01-opening');
+  assert.ok(scene, 'Scene fixture must exist');
+  assert.ok(scene.assetIds.includes('voice-S01-opening'));
+  const voiceSegment = film.audio.voice.segments.find((item) => item.sceneId === 'S01-opening');
+  assert.ok(voiceSegment, 'TTS output must be registered on the Voice track');
+  assert.equal(voiceSegment.text, '这是旁白验证');
+  assert.equal(voiceSegment.start, 0);
+  assert.ok(voiceSegment.end > 0 && voiceSegment.end <= scene.durationInFrames);
   const assetsFile = JSON.parse(await readFile(path.join(projectDirectory, 'assets.json'), 'utf8')) as {assets: FilmFixture['assets']};
   assert.ok(assetsFile.assets.some((item) => item.id === 'voice-S01-opening'));
 

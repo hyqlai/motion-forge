@@ -26,15 +26,19 @@ Film IR 中的音频由三个独立轨道组成，各自有独立的音量、时
 
 ### BGM
 
-背景音乐轨道。持续播放，支持 loop 和音量控制。通过 `audio.bgm` 声明。
+背景音乐轨道。持续播放，支持 loop 和音量控制。通过 `audio.bgm` 声明，`src` 是 `public/` 下的项目相对路径；旧版仅 BGM 的 Film IR 保持兼容。
 
 ### Voice
 
-旁白/配音轨道。按场景对齐，每个 segment 关联一个 sceneId 和时间区间。通过 `audio.voice.segments` 声明。
+旁白/配音轨道。按场景对齐，每个 segment 包含 `sceneId`、`start`、`end` 和 `text`，起止帧都是场景局部帧。旁白音源取该分镜 `assetIds` 中唯一的 `kind: voice` 资产。通过 `audio.voice.segments` 声明。
 
 ### SFX
 
-音效轨道。按帧触发，每个 event 关联一个 sceneId 和帧号。通过 `audio.sfx.events` 声明。
+音效轨道。按帧触发，每个 event 包含 `sceneId`、`frame` 和 `kind`；`frame` 是场景局部帧，`kind` 指向 `film.assets` 中 `kind: audio`、`role: sfx` 的资产 ID。通过 `audio.sfx.events` 声明。
+
+### 三轨时序
+
+Voice/SFX 在 Film IR 中使用场景局部帧，渲染器按 `compileTimeline` 生成的全片时间线换算为绝对帧；分镜组件本身仍只读取局部帧。三轨的本地路径、时间区间、场景引用和文件存在性由目标 Film 校验统一检查。
 
 ## 增量渲染
 
