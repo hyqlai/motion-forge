@@ -7,5 +7,6 @@ output/*
 docs/migration/cards.json
 docs/migration/inventory.md
 .agents/
+.worktree/
 *.log
 .DS_Store
