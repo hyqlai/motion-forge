@@ -28,6 +28,8 @@ import {classifyInput, clockForInput, type ClassifiedInput} from '../providers/i
 import {createDraft} from '../providers/draft';
 import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
+import {applyContentPlan, createPlanningWorkspace} from './content-plan';
+import {designReviewMarkdown} from './design-review';
 import {runBgmCommand} from './forge-bgm';
 import {validateFilm} from './film-validation';
 import {fetchImageCommand, searchImagesCommand} from './image-assets';
@@ -80,14 +82,6 @@ const readJson = async (file: string): Promise<unknown> => {
   return JSON.parse(await readFile(file, 'utf8'));
 };
 
-const reviewMarkdown = (film: FilmSpec): string => {
-  const rows = film.scenes.map((scene) => {
-    const camera = scene.motion.camera?.cardId ?? '无';
-    return `| ${scene.id} | ${scene.intent} | ${scene.onScreenText.join('<br>')} | ${scene.layout.kind} | ${scene.motion.primary?.cardId ?? '无'} | ${camera} |`;
-  }).join('\n');
-  return `# 《${film.title}》G1 分镜与视觉设计确认\n\n- 片种：${film.genre}\n- 目标：${film.brief.goal}\n- 画幅：${film.output.width}×${film.output.height} @ ${film.output.fps}fps\n- 风格：背景 ${film.theme.background}，前景 ${film.theme.foreground}，强调 ${film.theme.accent}\n- 字体：${film.theme.fontFamily}\n\n| 分镜 | 叙事目的 | 实际上屏文字 | 布局 | 主动效 | 运镜 |\n|---|---|---|---|---|---|\n${rows}\n\n确认设计后运行：\n\n\`\`\`bash\nnpm run forge -- approve-design --project ${film.id}\n\`\`\`\n`;
-};
-
 const assertInputFiles = async (input: ClassifiedInput): Promise<void> => {
   if (input.kind === 'theme' || input.kind === 'url') return;
   await Promise.all(input.values.map(async (value) => {
@@ -115,15 +109,17 @@ const localizeAssets = async (root: string, id: string, film: FilmSpec): Promise
 };
 
 const assertStandaloneProject = async (root: string, allowTemplateExample: boolean): Promise<void> => {
+  try {
+    await access(path.join(root, standaloneMarker));
+    return;
+  } catch {
+    // 继续判断是否为模板目录
+  }
   if (root === projectRoot) {
     if (allowTemplateExample) return;
     throw new Error('Refusing to initialize a real project inside the template; use create --dir or --allow-template-example');
   }
-  try {
-    await access(path.join(root, standaloneMarker));
-  } catch {
-    throw new Error(`Not a standalone Motion Forge project: ${root}`);
-  }
+  throw new Error(`Not a standalone Motion Forge project: ${root}`);
 };
 
 const init = async (root: string, options: {allowTemplateExample?: boolean} = {}): Promise<void> => {
@@ -162,7 +158,10 @@ const init = async (root: string, options: {allowTemplateExample?: boolean} = {}
   await writeJson(path.join(directory, 'assets.json'), {assets: film.assets});
   await writeJson(path.join(directory, 'film.json'), film);
   await writeJson(path.join(directory, 'project.json'), createProductionState());
-  await writeFile(path.join(directory, 'design-review.md'), reviewMarkdown(film));
+  await writeFile(path.join(directory, 'design-review.md'), designReviewMarkdown(film, {
+    source: {kind: input.kind, value: input.value, title},
+    clock: clockForInput(input.kind),
+  }));
   if (webpage) await writeJson(path.join(directory, 'source.json'), webpage);
   if (audio) await writeJson(path.join(directory, 'audio-probe.json'), audio);
   console.log(`Created ${input.kind} draft: ${directory}`);
@@ -336,7 +335,7 @@ const applyLyricDraft = async (directory: string, id: string, film: FilmSpec, an
     path.join(directory, 'project.json'),
     resetForDesignRevision(state, `歌词草案已更新（${analysis.lines.length} 行），需要重新确认 G1`),
   );
-  await writeFile(path.join(directory, 'design-review.md'), reviewMarkdown(updated));
+  await writeFile(path.join(directory, 'design-review.md'), designReviewMarkdown(updated));
   console.log(`Lyric scenes written to film.json: ${analysis.lines.length} lines from ${id}`);
   console.log('Review design-review.md and approve G1 again.');
 };
@@ -380,7 +379,23 @@ try {
   else if (command === 'init') await init(projectRoot, {allowTemplateExample: args.includes('--allow-template-example')});
   else if (command === 'transcribe') await transcribe();
   else if (command === 'lyrics-draft') await lyricsDraft();
-  else if (command === 'approve-design') await updateApproval('design');
+  else if (command === 'plan') {
+    await createPlanningWorkspace({
+      root: projectRoot,
+      projectId: flag('--project'),
+      values: flagValues('--input'),
+      name: flag('--name'),
+      title: flag('--title'),
+      allowTemplateExample: args.includes('--allow-template-example'),
+    });
+  } else if (command === 'apply-plan') {
+    await applyContentPlan({
+      root: projectRoot,
+      projectId: flag('--project') ?? '',
+      file: flag('--file'),
+      allowTemplateExample: args.includes('--allow-template-example'),
+    });
+  } else if (command === 'approve-design') await updateApproval('design');
   else if (command === 'approve-sample') await updateApproval('sample');
   else if (command === 'render') await render();
   else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
@@ -391,6 +406,8 @@ try {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
     console.log('       npm run forge -- transcribe --project <id> [--provider fish-audio] [--language zh]');
     console.log('       npm run forge -- lyrics-draft --project <id>');
+    console.log('       npm run forge -- plan --input <theme|url> [--name id] [--title ...] | plan --project <id>');
+    console.log('       npm run forge -- apply-plan --project <id> [--file content-plan.json]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
     console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');

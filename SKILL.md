@@ -104,10 +104,10 @@ description: Use when creating or revising code-driven videos (Remotion + React 
 - **主时钟选型**：口播语音对齐 / 歌曲歌词对齐 / 纯音乐节拍网格 / 文本阅读时长；
 - **分镜剧本详表**（必须严格按照下表格式向用户呈现）：
 
-| 分镜序号 | 镜头名称 | 叙事目的与语义 (Semantic) | 实际上屏文字 (On-Screen Text) | 画面布局与元素 | 主动效卡 (Primary) | 运镜卡 (Camera) | 转场卡 (Transition) | 局部时长 (Frames/Sec) |
-| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
-| S01 | 开篇破局 | Hook 钩子：制造悬念 | "为什么 90% 的企业AI转型以失败告终？" | 居中巨大高对比标题 + 红色告警发光底板 | `typography/halation-bloom` | `camera/slow-push` | `transition/cube-rotate` | 90f (3.0s) |
-| S02 | 数据展示 | Data 证明：给出惨烈统计 | "78% 停留在玩具阶段<br>12% 产生负向ROI" | 左右双列对比面板 + 动态数字与落砂图表 | `data/particle-sand-fill` | 无 | `transition/whip-pan` | 150f (5.0s) |
+| 分镜序号 | 镜头名称 | 叙事目的与语义 (Semantic) | 旁白 | 实际上屏文字 (On-Screen Text) | 画面描述 | 主动效卡 (Primary) | 运镜卡 (Camera) | 转场卡 (Transition) | 局部时长 (Frames/Sec) |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| S01 | 开篇破局 | Hook 钩子：制造悬念 | 为什么九成的企业 AI 转型，最后都停在演示阶段？ | "为什么 90% 的企业AI转型以失败告终？" | 居中巨大高对比标题 + 红色告警发光底板 | `typography/halation-bloom` | `camera/slow-push` | `transition/cube-rotate` | 90f (3.0s) |
+| S02 | 数据展示 | Data 证明：给出惨烈统计 | 先看两组数字：七成八停在玩具阶段，一成二产生负向回报。 | "78% 停留在玩具阶段<br>12% 产生负向ROI" | 左右双列对比面板 + 动态数字与落砂图表 | `data/particle-sand-fill` | 无 | `transition/whip-pan` | 150f (5.0s) |
 
 - **🔴 CHECKPOINT · STOP**：向用户展示完毕后，必须结束本轮并询问是否同意分镜规划；不得在同一轮执行审批、制作样板镜或渲染全片。
 - **通过信号**：只有用户在后续回复中明确确认 G1 后，Agent 才在 `PROJECT_ROOT` 运行：
@@ -145,6 +145,7 @@ G1 确认通过后，**不得立刻渲染全片**。必须挑选全片最具代�
 | **场景 3：歌曲带人声成片** | 完整歌曲（演唱+伴奏）；动态歌词 MV、音乐叙事故事短片 | [`pipelines/song-to-video.md`](pipelines/song-to-video.md) |
 | **场景 4：纯主题自主规划成片** | 一句话主题/命题；深度科普、人文哲学、商业洞察、通识短片 | [`pipelines/theme-to-video.md`](pipelines/theme-to-video.md) |
 | **场景 5：用户多模态素材混剪** | 用户自有图片、截屏、短视频片段、口播录音；产品演示、Vlog | [`pipelines/assets-to-video.md`](pipelines/assets-to-video.md) |
+| **内容策划通用规范** | 主题/URL 的结构化策划、叙事弧线、事实追溯与 Film IR 转换 | [`pipelines/content-planning.md`](pipelines/content-planning.md) |
 | **场景扩展指南** | 如何扩展新的输入（如表格、PPT、双人播客等） | [`pipelines/extending-pipeline.md`](pipelines/extending-pipeline.md) |
 
 ---
@@ -302,20 +303,44 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **1. 独立工程生成** | `npm run forge -- create --dir <absolute-project> --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 在模板目录生成独立工程，拷贝完整运行时，本地化素材并创建 `output/projects/<id>/film.json` 草稿 |
 | **1a 歌曲转写（可选）** | `npm run forge -- transcribe --project <id> [--language zh]` | 仅歌曲项目；从 `FISH_API_KEY` 读取密钥调用 Fish Audio ASR，逐行歌词写入 `analysis/lyrics.json`；失败显式退出，不生成占位歌词 |
 | **1b 歌词草案（可选）** | `npm run forge -- lyrics-draft --project <id>` | 复用 `analysis/lyrics.json` 生成歌词镜头与间奏留白，不重复转写；写回后退回 `design-review`，仍须重新通过 G1 |
-| **2. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
-| **2a. 图片检索（可选）** | `npm run forge -- search-images --project <id> --query "<主题>" [--scene S01-opening] [--count 15] [--aspect 16:9]` | 显式调用 Pexels；需设置 `PEXELS_API_KEY`，未配置时在请求前报错；结果写入 `output/projects/<id>/image-search.json` |
-| **2b. 图片本地化（可选）** | `npm run forge -- fetch-image --project <id> --candidate <pexels-id> [--scene S01-opening] [--role reference]` | 下载到 `public/assets/<id>/` 并登记 Film assets，远程地址只留作来源元数据；素材变化会退回 G1 |
-| **3. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
-| **3b. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/` 并登记到 `film.json`，未配置密钥时拒绝发起外部请求 |
-| **4. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
-| **5. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
-| **6. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
-| **7. 工程构建验收** | `npm run build` | TypeScript 与工作台构建均通过；不替代目标 Film 校验或真实渲染 |
-| **8. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
+| **2. 内容策划工作单** | `npm run forge -- plan --project <id>` | 在项目内生成 `content-plan.template.json`、`content-plan.md`；URL 项目复用 `source.json`。Agent 用自身 LLM 填写 `content-plan.json` |
+| **3. 应用内容策划** | `npm run forge -- apply-plan --project <id> [--file content-plan.json]` | 校验叙事弧线、时长、Film Schema、场景/卡片注册、素材和 URL 事实追溯，通过后写入 `film.json` 与 `design-review.md`；项目停留在 `design-review` |
+| **4. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
+| **5. 图片检索（可选）** | `npm run forge -- search-images --project <id> --query "<主题>" [--scene S01-opening] [--count 15] [--aspect 16:9]` | 显式调用 Pexels；需设置 `PEXELS_API_KEY`，未配置时在请求前报错；结果写入 `output/projects/<id>/image-search.json` |
+| **6. 图片本地化（可选）** | `npm run forge -- fetch-image --project <id> --candidate <pexels-id> [--scene S01-opening] [--role reference]` | 下载到 `public/assets/<id>/` 并登记 Film assets，远程地址只留作来源元数据；素材变化会退回 G1 |
+| **7. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段；应用新策划会重置为 `design-review` |
+| **8. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/` 并登记到 `film.json`，未配置密钥时拒绝发起外部请求 |
+| **9. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
+| **10. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
+| **11. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
+| **12. 工程构建验收** | `npm run build` | TypeScript 与工作台构建均通过；不替代目标 Film 校验或真实渲染 |
+| **13. 本地工作台** | `npm run workbench -- --host 0.0.0.0` | 启动项目内浏览器工作台（默认端口 5178） |
+
+### 2. 内容策划工作流
+
+主题与 URL 输入使用同一套结构化策划模板，由 Agent 自身 LLM 填写，不调用外部 LLM API（ADR-0002）：
+
+1. `plan --project <id>` 生成 `content-plan.template.json` 与 `content-plan.md`；模板强制叙事弧线（至少 3 幕，首幕 `hook`、末幕 `resolution`）、每镜旁白、上屏文字、视觉描述、动效建议和时长分配；
+2. Agent 填写 `content-plan.json`，把 `status` 改为 `ready` 并替换全部占位符；
+3. `apply-plan` 校验通过后才写 `film.json`，随后把 `design-review.md` 呈报用户；命令不会自动批准 G1/G2；
+4. 已审批项目再次应用策划时，状态退回 `design-review`，原审批时间戳清空，必须重新走 G1/G2；
+5. URL 策划的每条事实必须包含 `source.json` 正文中的逐字 `quote` 和已抓取来源 URL，且每个分镜至少引用一条事实。
+
+完整字段约束与样本见 [`pipelines/content-planning.md`](pipelines/content-planning.md)。
+
+### 3. 歌曲歌词（可选）
+
+歌曲项目在 G1 前用 `transcribe` 调用 Fish Audio ASR，逐行歌词写入 `analysis/lyrics.json`；`lyrics-draft` 复用该分析结果生成歌词镜头与间奏留白，不重复转写。写回 Film IR 后项目退回 `design-review`，仍需重新通过 G1。`npm run check:asr` 用固定词级时间戳样本验证逐行分组，不需要真实歌曲或网络。
+
+### 4. 图片素材（可选）
+
+图片检索与本地化由显式 `search-images` / `fetch-image` 子命令触发，需 `PEXELS_API_KEY`。下载后写入 `public/assets/<id>/` 并登记 Film assets，远程地址只保留为来源元数据；素材变化会使已审批设计退回 G1。完整契约见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)。
+
+### 5. 旁白生成（可选）
 
 TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会自动调用外部服务。密钥仅从 `FISH_API_KEY` 读取；认证失败、余额不足、限流和服务端错误分别归类，只有限流、服务端错误和网络错误会执行有限退避。`npm run tts:verify` 用本地 mock HTTP 验证成功与失败行为，不需要真实密钥或网络。
 
-### 2. 本地工作台 (Workbench) 核心功能
+### 6. 本地工作台 (Workbench) 核心功能
 项目工作台地址为 `http://127.0.0.1:5178/?project=<id>`；不带 `project` 参数时只显示内置示例：
 - **🎴 动效卡库 Gallery**：全量 265 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
 - **🎬 分镜制作工作台**：加载 `output/projects/<id>/film.json`，实时播放整片或单镜；修改文案和卡片后点击“保存 Film IR”写回项目；
