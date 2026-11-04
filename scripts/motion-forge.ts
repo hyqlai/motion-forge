@@ -10,6 +10,7 @@ import {createDraft} from '../providers/draft';
 import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
 import {validateFilm} from './film-validation';
+import {fetchImageCommand, searchImagesCommand} from './image-assets';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const standaloneMarker = 'motion-forge-project.json';
@@ -232,10 +233,14 @@ try {
   else if (command === 'approve-design') await updateApproval('design');
   else if (command === 'approve-sample') await updateApproval('sample');
   else if (command === 'render') await render();
+  else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
+  else if (command === 'fetch-image') await fetchImageCommand(projectRoot, args);
   else {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
+    console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
+    console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
   }
 } catch (error) {
   console.error(error instanceof Error ? error.message : error);

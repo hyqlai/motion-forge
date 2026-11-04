@@ -66,4 +66,4 @@ npm run workbench -- --host 0.0.0.0
 # 浏览器打开 http://127.0.0.1:5178/?project=gravity
 ```
 
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案，不代表自动内容策划、TTS、歌词对齐或免费资源 provider 已完成。渲染产物统一写入项目内 `output/projects/<id>/`。
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案，不代表自动内容策划、TTS 或歌词对齐已完成；图片素材可通过显式 `search-images` / `fetch-image` 子命令从 Pexels 检索并下载到项目本地（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。渲染产物统一写入项目内 `output/projects/<id>/`。
