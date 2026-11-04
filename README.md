@@ -67,3 +67,14 @@ npm run workbench -- --host 0.0.0.0
 ```
 
 音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案，不代表自动内容策划、TTS、歌词对齐或免费资源 provider 已完成。渲染产物统一写入项目内 `output/projects/<id>/`。
+
+## 从 Pixabay Music 获取 BGM
+
+在独立项目内，用环境变量提供密钥并搜索、下载 BGM：
+
+```bash
+PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
+  --query "calm cinematic piano" --volume 0.2 --loop
+```
+
+下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
