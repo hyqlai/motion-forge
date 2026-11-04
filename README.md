@@ -38,6 +38,7 @@ npm run validate
 npm run build
 npm run check:asr
 npm run tts:verify
+npm run test:pexels
 npm run studio
 npm run workbench
 npm run render
@@ -98,5 +99,4 @@ PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
 ```
 
 下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
-
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与时间区间，旁白可用 `tts`，BGM 可用 `bgm`。所有外部 provider 需要相应密钥，最终仍须通过 G1/G2。渲染产物统一写入项目内 `output/projects/<id>/`。
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与时间区间，旁白可用 `tts`，BGM 可用 `bgm`，图片可通过 `search-images` / `fetch-image` 从 Pexels 检索并下载（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。所有外部 provider 需要相应密钥，最终仍须通过 G1/G2。渲染产物统一写入项目内 `output/projects/<id>/`。

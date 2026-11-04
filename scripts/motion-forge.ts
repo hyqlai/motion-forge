@@ -30,6 +30,7 @@ import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
 import {runBgmCommand} from './forge-bgm';
 import {validateFilm} from './film-validation';
+import {fetchImageCommand, searchImagesCommand} from './image-assets';
 import {generateNarration} from './tts-command';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -382,6 +383,8 @@ try {
   else if (command === 'approve-design') await updateApproval('design');
   else if (command === 'approve-sample') await updateApproval('sample');
   else if (command === 'render') await render();
+  else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
+  else if (command === 'fetch-image') await fetchImageCommand(projectRoot, args);
   else if (command === 'bgm') await runBgmCommand(projectRoot, args.slice(1));
   else if (command === 'tts') await tts();
   else {
@@ -390,6 +393,8 @@ try {
     console.log('       npm run forge -- lyrics-draft --project <id>');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
+    console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
+    console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
     console.log('       npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop|--no-loop] [--search-only]');
     console.log('       npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3|wav|pcm|opus] [--out <public/relative/path>] [--provider fish-audio] [--model s2.1-pro]');
     if (command) throw new Error(`Unknown command: ${command}`);

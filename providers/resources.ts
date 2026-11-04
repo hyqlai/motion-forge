@@ -5,6 +5,7 @@ export type ResourceQuery = {
   query: string;
   sceneId: string;
   aspect?: string;
+  count?: number;
   minimumDurationSeconds?: number;
   style?: string;
 };

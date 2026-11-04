@@ -19,6 +19,7 @@
     "cards:compare": "tsx scripts/compare-cards.ts",
     "check:asr": "tsx scripts/asr-check.ts",
     "validate": "npm run cards:validate && tsx scripts/validate-project.ts",
+    "test:pexels": "tsx scripts/check-pexels-provider.ts",
     "tts:verify": "tsx scripts/verify-tts-provider.ts",
     "forge": "tsx scripts/motion-forge.ts"
   },

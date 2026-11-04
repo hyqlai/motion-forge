@@ -303,6 +303,8 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **1a 歌曲转写（可选）** | `npm run forge -- transcribe --project <id> [--language zh]` | 仅歌曲项目；从 `FISH_API_KEY` 读取密钥调用 Fish Audio ASR，逐行歌词写入 `analysis/lyrics.json`；失败显式退出，不生成占位歌词 |
 | **1b 歌词草案（可选）** | `npm run forge -- lyrics-draft --project <id>` | 复用 `analysis/lyrics.json` 生成歌词镜头与间奏留白，不重复转写；写回后退回 `design-review`，仍须重新通过 G1 |
 | **2. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
+| **2a. 图片检索（可选）** | `npm run forge -- search-images --project <id> --query "<主题>" [--scene S01-opening] [--count 15] [--aspect 16:9]` | 显式调用 Pexels；需设置 `PEXELS_API_KEY`，未配置时在请求前报错；结果写入 `output/projects/<id>/image-search.json` |
+| **2b. 图片本地化（可选）** | `npm run forge -- fetch-image --project <id> --candidate <pexels-id> [--scene S01-opening] [--role reference]` | 下载到 `public/assets/<id>/` 并登记 Film assets，远程地址只留作来源元数据；素材变化会退回 G1 |
 | **3. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
 | **3b. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/` 并登记到 `film.json`，未配置密钥时拒绝发起外部请求 |
 | **4. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
