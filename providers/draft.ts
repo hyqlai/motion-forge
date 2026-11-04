@@ -111,7 +111,7 @@ export const createDraft = (
       fontFamily: 'Noto Sans SC, Microsoft YaHei, sans-serif',
     },
     assets: [],
-    audio: {},
+    audio: {voice: {segments: []}, sfx: {events: []}},
     scenes: makeScenes(input.kind, options.title, totalDuration),
   };
   const assets: Asset[] = input.kind === 'theme' || input.kind === 'url'

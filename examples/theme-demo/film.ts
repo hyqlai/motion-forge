@@ -21,7 +21,11 @@ export const sampleFilm: FilmSpec = {
   output: {width: 960, height: 540, fps: 30},
   theme: demoTheme,
   assets: [],
-  audio: {bgm: {src: 'audio/music.wav', volume: 0.18, loop: true}},
+  audio: {
+    bgm: {src: 'audio/music.wav', volume: 0.18, loop: true},
+    voice: {segments: []},
+    sfx: {events: []},
+  },
   scenes: [
     {
       id: 'S01-opening',

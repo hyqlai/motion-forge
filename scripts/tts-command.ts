@@ -1,6 +1,7 @@
 import {mkdir, readFile, rename, stat, unlink, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {filmSchema} from '../core/schema';
+import {probeAudio} from '../providers/audio';
 import {createFishAudioTTSProvider, FISH_AUDIO_PROVIDER_ID} from '../providers/fish-audio';
 import {
   getTTSProvider,
@@ -140,6 +141,16 @@ export const generateNarration = async (
     });
   }
   if (!scene.assetIds.includes(assetId)) scene.assetIds.push(assetId);
+
+  // TTS 产物同时登记到 Voice 轨道；音频探测失败时按整镜时长兜底，避免校验因非音频 fixture 中断。
+  const audioFrames = await probeAudio(destination)
+    .then((probe) => Math.max(1, Math.round(probe.durationSeconds * film.output.fps)))
+    .catch(() => scene.durationInFrames);
+  const end = Math.min(scene.durationInFrames, audioFrames);
+  film.audio.voice.segments = [
+    ...film.audio.voice.segments.filter((segment) => segment.sceneId !== scene.id),
+    {sceneId: scene.id, start: 0, end, text},
+  ];
 
   const updated = filmSchema.parse(film);
   try {

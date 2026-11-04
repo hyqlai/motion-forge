@@ -11,7 +11,7 @@
 
 ## 协议
 
-- [Film IR 分镜协议](contracts/film.md)：输入、素材、分镜、时间锚、声音和验收数据契约。
+- [Film IR 分镜协议](contracts/film.md)：输入、素材、分镜、时间锚、BGM/Voice/SFX 三轨音频和验收数据契约。
 - [动效卡协议](contracts/motion-card.md)：卡片分类、使用场景、props、时间、预览、注册和验收契约。
 
 ## Provider

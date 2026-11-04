@@ -302,7 +302,7 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **1. 独立工程生成** | `npm run forge -- create --dir <absolute-project> --input <输入> [--audio-kind song\|instrumental] [--name <id>]` | 在模板目录生成独立工程，拷贝完整运行时，本地化素材并创建 `output/projects/<id>/film.json` 草稿 |
 | **2. 目标项目校验** | `npm run validate -- --project <id>` | 在项目内校验目标 Film IR、卡片、场景、素材和输入路由；不能用内置示例通过代替目标项目检查 |
 | **3. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段 |
-| **3b. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/` 并登记到 `film.json`，未配置密钥时拒绝发起外部请求 |
+| **3b. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/`，登记为 Voice 素材并同时写入 `audio.voice.segments`，未配置密钥时拒绝发起外部请求 |
 | **4. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
 | **5. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
 | **6. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
@@ -311,11 +311,14 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会自动调用外部服务。密钥仅从 `FISH_API_KEY` 读取；认证失败、余额不足、限流和服务端错误分别归类，只有限流、服务端错误和网络错误会执行有限退避。`npm run tts:verify` 用本地 mock HTTP 验证成功与失败行为，不需要真实密钥或网络。
 
+Film IR 的 `audio` 同时支持 BGM、Voice、SFX 三轨：Voice segment 使用 `sceneId/start/end/text`（场景局部帧），SFX event 使用 `sceneId/frame/kind`（`kind` 指向 `role: sfx` 的本地音频资产）。三轨路径、时间区间、场景引用和文件存在性由 `npm run validate -- --project <id>` 统一检查；旧版仅 BGM 的 Film IR 保持兼容。`npm run audio:verify` 覆盖三轨结构与拒绝路径，`npm run audio:verify:render` 用真实三轨 MP4 解码抽查时序。
+
 ### 2. 本地工作台 (Workbench) 核心功能
 项目工作台地址为 `http://127.0.0.1:5178/?project=<id>`；不带 `project` 参数时只显示内置示例：
 - **🎴 动效卡库 Gallery**：全量 265 张卡片纯代码循环实时运行，支持搜索、右侧滑杆无级调节参数并一键写入当前分镜；
 - **🎬 分镜制作工作台**：加载 `output/projects/<id>/film.json`，实时播放整片或单镜；修改文案和卡片后点击“保存 Film IR”写回项目；
-- **审批重置**：工作台保存会改变已审批设计时，将项目退回 `design-review` 并使既有 G1/G2 结论失效。
+- **🎵 音频三轨**：在分镜时间线下方查看和编辑 BGM 音量/循环、Voice segment（场景局部起止帧与文本）和 SFX event（场景局部帧与音效类型）；所有修改复用同一 Film IR 写回接口，不另存音频配置；
+- **审批重置**：工作台保存会改变已审批设计时，将项目退回 `design-review` 并使既有 G1/G2 结论失效；音频三轨写入前会先拒绝未知场景、越界帧和缺音源。
 
 ---
 
@@ -324,6 +327,7 @@ TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会�
 ### 1. 交付完整性检查
 - [ ] **最终视频**：`PROJECT_ROOT/output/projects/<id>/film.mp4` 正常播放、声音清晰；
 - [ ] **分镜事实源**：`PROJECT_ROOT/output/projects/<id>/film.json` 与视频分镜完全对应；
+- [ ] **三轨音频**：BGM、Voice、SFX 的路径均为项目本地路径，Voice/SFX 时序落在对应场景范围内，最终 MP4 能解码出音轨且抽听无错位；
 - [ ] **本地素材包**：`assets.json` 中素材已全部保存在项目内，渲染时不请求远程素材；
 - [ ] **审批状态记录**：`project.json` 的 `status` 为 `production` 或 `delivered`，且 `designApprovedAt`、`sampleApprovedAt` 均有有效时间戳；
 - [ ] **项目内验证**：在 `PROJECT_ROOT` 执行 `npm run validate -- --project <id>` 与 `npm run build`，目标项目校验和编译均通过；

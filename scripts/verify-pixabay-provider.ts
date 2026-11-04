@@ -158,7 +158,7 @@ const runCliChecks = async (baseUrl: string, requests: string[]): Promise<void> 
   await mkdir(projectDirectory, {recursive: true});
   const film = JSON.parse(JSON.stringify(sampleFilm)) as typeof sampleFilm;
   film.id = projectId;
-  film.audio = {};
+  film.audio = {voice: {segments: []}, sfx: {events: []}};
   film.assets = [];
   await writeFile(path.join(projectDirectory, 'film.json'), `${JSON.stringify(film, null, 2)}\n`);
   await writeFile(path.join(projectDirectory, 'assets.json'), `${JSON.stringify({assets: []}, null, 2)}\n`);

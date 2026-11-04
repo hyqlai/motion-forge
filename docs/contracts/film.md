@@ -44,7 +44,7 @@
 
 ## 4. 时间
 
-场景实现只读取局部帧。核心按分镜顺序累加局部时长生成全片时间线，字幕、配音、BGM、SFX 和转场从同一时间线派生。音频分析保留浮点秒，只在渲染边界转换为帧。
+场景实现只读取局部帧。核心按分镜顺序累加局部时长生成全片时间线，字幕、配音、BGM、SFX 和转场从同一时间线派生。音频分析保留浮点秒，只在渲染边界转换为帧。Voice segment 的 `start`/`end` 与 SFX event 的 `frame` 都使用场景局部帧，渲染器通过 `compileTimeline` 加上场景起点换算为全片绝对帧。
 
 ## 5. 素材与内容
 
@@ -52,7 +52,39 @@
 
 通过外部 Provider 获取的 BGM 还必须在对应 asset 的 `metadata` 中保留 `provider`、`sourceUrl`、`license`、`licenseUrl`，且 `audio.bgm.src` 必须与该 asset 的 `path` 一致；未成功下载并验证为可解码音频的曲目不得写入 Film IR。
 
-通过 `forge tts` 生成的旁白音频写入 `public/assets/<id>/`，以 `kind: voice`、`role: narration` 的 asset 登记，并在对应分镜的 `assetIds` 中引用。`metadata` 记录 provider、model、format 和 voice 等生成参数；不得记录 API key 或远程临时地址。生成结束前会执行目标 Film 校验，校验失败不得更新 `film.json`。
+通过 `forge tts` 生成的旁白音频写入 `public/assets/<id>/`，以 `kind: voice`、`role: narration` 的 asset 登记，并在对应分镜的 `assetIds` 中引用。`metadata` 记录 provider、model、format 和 voice 等生成参数；不得记录 API key 或远程临时地址。生成结束前会执行目标 Film 校验，校验失败不得更新 `film.json`。生成成功后同时把该分镜的 Voice segment 写入 `audio.voice.segments`，文本与生成文本一致，结束帧取音频时长与该镜时长的较小值。
+
+### 5.1 三轨音频
+
+`audio` 同时描述 BGM、Voice、SFX 三条轨道；只有 `audio.bgm` 的旧版 Film IR 继续合法，Voice 与 SFX 缺省为空数组。
+
+```json
+{
+  "audio": {
+    "bgm": {"src": "assets/demo/bgm.wav", "volume": 0.2, "loop": true},
+    "voice": {"segments": [{"sceneId": "S01-opening", "start": 0, "end": 60, "text": "开场旁白"}]},
+    "sfx": {"events": [{"sceneId": "S02-content", "frame": 24, "kind": "whoosh-fast"}]}
+  }
+}
+```
+
+Voice：
+
+- `sceneId` 必须指向现有分镜；`start`/`end` 是该分镜的局部帧，满足 `0 <= start < end <= scene.durationInFrames`，同一分镜内的 segment 不得重叠。
+- 旁白音源取该分镜 `assetIds` 中唯一的 `kind: voice` 资产；没有 voice 资产或存在多个时校验失败。渲染器把 segment 放到 `scene.from + start`，并从音源的 `start` 帧开始截取。
+- `text` 是这段旁白的可编辑文本，也是工作台编辑与人工核对的事实源。
+
+SFX：
+
+- `sceneId` 必须指向现有分镜；`frame` 是该分镜的局部帧，必须满足 `0 <= frame < scene.durationInFrames`。
+- `kind` 指向 `film.assets` 中 `kind: audio`、`role: sfx` 的资产 ID；同一音效类型可被多个 event 复用。渲染器把 event 放到 `scene.from + frame`。
+- 未知场景、越界帧或找不到对应 SFX 资产时校验失败。
+
+三轨共同约束：
+
+- `audio.bgm.src`、Voice 音源和 SFX 音源都必须是 `public/` 下项目相对路径，不得使用绝对路径、远程 URL、`..` 越界或外部软链接；目标 Film 校验同时检查文件真实存在。
+- 工作台通过同一 Film IR 写回接口编辑 BGM 音量/循环、Voice segment 和 SFX event；写回前执行三轨结构校验，任何音频变化都会让已审批项目退回 `design-review`。
+- 校验与结构换算共用 `core/audio.ts`，CLI、渲染器与工作台不得各自维护第二份音频事实源。
 
 ## 6. 工作台
 
