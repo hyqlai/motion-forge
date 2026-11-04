@@ -50,6 +50,10 @@ npm run forge -- create --dir /absolute/path/gravity-video \
   --input "重力的作用" --name gravity --title "重力如何塑造世界"
 cd /absolute/path/gravity-video
 npm ci
+# 生成结构化内容策划工作单，由 Agent 自身 LLM 填写 content-plan.json
+npm run forge -- plan --project gravity
+# 填写完成后校验并转换为 Film IR
+npm run forge -- apply-plan --project gravity
 npm run validate -- --project gravity
 ```
 
@@ -66,4 +70,4 @@ npm run workbench -- --host 0.0.0.0
 # 浏览器打开 http://127.0.0.1:5178/?project=gravity
 ```
 
-音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案，不代表自动内容策划、TTS、歌词对齐或免费资源 provider 已完成。渲染产物统一写入项目内 `output/projects/<id>/`。
+音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。主题与 URL 输入可先通过 `plan --project <id>` 生成结构化策划模板，再由 Agent 自身 LLM 填写 `content-plan.json` 并用 `apply-plan` 转换为 Film IR；该流程不调用外部 LLM API，应用后仍停留在 G1 等待用户确认。TTS、歌词对齐和免费资源 provider 尚未包含在本次流程中。渲染产物统一写入项目内 `output/projects/<id>/`。

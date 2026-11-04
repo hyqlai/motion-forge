@@ -79,11 +79,21 @@
 
 ## 五、CLI 操作指引
 
-1. **草稿初始化**：
+完整字段约束与 URL 事实追溯规则见 [`pipelines/content-planning.md`](content-planning.md)。
+
+1. **建立独立工程并生成内容策划工作单**：
    ```bash
-   npm run forge -- init --input "为什么人类需要睡眠" --title "Why We Sleep" --name "sleep-science"
+   # 在技能/template 目录生成独立工程
+   npm run forge -- create --dir /absolute/project --input "为什么人类需要睡眠" --name "sleep-science"
+   # 进入 PROJECT_ROOT 后生成结构化策划模板
+   npm run forge -- plan --project "sleep-science"
    ```
-2. **打磨文案与分镜，呈报 G1 评审**：
+   Agent 用自身 LLM 填写 `output/projects/sleep-science/content-plan.json`，替换全部 `<填写：…>` 占位符并把 `status` 改为 `ready`。
+2. **校验并转换为 Film IR，呈报 G1 评审**：
+   ```bash
+   npm run forge -- apply-plan --project "sleep-science"
+   ```
+   命令会校验叙事弧线、时长分配、Film Schema、场景/卡片注册与素材；通过后写入 `film.json` 和 `design-review.md`，项目停留在 `design-review`。
    - 在 `design-review.md` 中向用户呈报文案、上屏金句与动效选型；
    - 待用户确认后执行：
      ```bash

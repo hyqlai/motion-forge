@@ -9,6 +9,8 @@ import {classifyInput, clockForInput, type ClassifiedInput} from '../providers/i
 import {createDraft} from '../providers/draft';
 import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
+import {applyContentPlan, createPlanningWorkspace} from './content-plan';
+import {designReviewMarkdown} from './design-review';
 import {validateFilm} from './film-validation';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -51,14 +53,6 @@ const readJson = async (file: string): Promise<unknown> => {
   return JSON.parse(await readFile(file, 'utf8'));
 };
 
-const reviewMarkdown = (film: FilmSpec): string => {
-  const rows = film.scenes.map((scene) => {
-    const camera = scene.motion.camera?.cardId ?? '无';
-    return `| ${scene.id} | ${scene.intent} | ${scene.onScreenText.join('<br>')} | ${scene.layout.kind} | ${scene.motion.primary?.cardId ?? '无'} | ${camera} |`;
-  }).join('\n');
-  return `# 《${film.title}》G1 分镜与视觉设计确认\n\n- 片种：${film.genre}\n- 目标：${film.brief.goal}\n- 画幅：${film.output.width}×${film.output.height} @ ${film.output.fps}fps\n- 风格：背景 ${film.theme.background}，前景 ${film.theme.foreground}，强调 ${film.theme.accent}\n- 字体：${film.theme.fontFamily}\n\n| 分镜 | 叙事目的 | 实际上屏文字 | 布局 | 主动效 | 运镜 |\n|---|---|---|---|---|---|\n${rows}\n\n确认设计后运行：\n\n\`\`\`bash\nnpm run forge -- approve-design --project ${film.id}\n\`\`\`\n`;
-};
-
 const assertInputFiles = async (input: ClassifiedInput): Promise<void> => {
   if (input.kind === 'theme' || input.kind === 'url') return;
   await Promise.all(input.values.map(async (value) => {
@@ -86,15 +80,17 @@ const localizeAssets = async (root: string, id: string, film: FilmSpec): Promise
 };
 
 const assertStandaloneProject = async (root: string, allowTemplateExample: boolean): Promise<void> => {
+  try {
+    await access(path.join(root, standaloneMarker));
+    return;
+  } catch {
+    // 继续判断是否为模板目录
+  }
   if (root === projectRoot) {
     if (allowTemplateExample) return;
     throw new Error('Refusing to initialize a real project inside the template; use create --dir or --allow-template-example');
   }
-  try {
-    await access(path.join(root, standaloneMarker));
-  } catch {
-    throw new Error(`Not a standalone Motion Forge project: ${root}`);
-  }
+  throw new Error(`Not a standalone Motion Forge project: ${root}`);
 };
 
 const init = async (root: string, options: {allowTemplateExample?: boolean} = {}): Promise<void> => {
@@ -133,7 +129,10 @@ const init = async (root: string, options: {allowTemplateExample?: boolean} = {}
   await writeJson(path.join(directory, 'assets.json'), {assets: film.assets});
   await writeJson(path.join(directory, 'film.json'), film);
   await writeJson(path.join(directory, 'project.json'), createProductionState());
-  await writeFile(path.join(directory, 'design-review.md'), reviewMarkdown(film));
+  await writeFile(path.join(directory, 'design-review.md'), designReviewMarkdown(film, {
+    source: {kind: input.kind, value: input.value, title},
+    clock: clockForInput(input.kind),
+  }));
   if (webpage) await writeJson(path.join(directory, 'source.json'), webpage);
   if (audio) await writeJson(path.join(directory, 'audio-probe.json'), audio);
   console.log(`Created ${input.kind} draft: ${directory}`);
@@ -229,11 +228,29 @@ const render = async (): Promise<void> => {
 try {
   if (command === 'create') await create();
   else if (command === 'init') await init(projectRoot, {allowTemplateExample: args.includes('--allow-template-example')});
-  else if (command === 'approve-design') await updateApproval('design');
+  else if (command === 'plan') {
+    await createPlanningWorkspace({
+      root: projectRoot,
+      projectId: flag('--project'),
+      values: flagValues('--input'),
+      name: flag('--name'),
+      title: flag('--title'),
+      allowTemplateExample: args.includes('--allow-template-example'),
+    });
+  } else if (command === 'apply-plan') {
+    await applyContentPlan({
+      root: projectRoot,
+      projectId: flag('--project') ?? '',
+      file: flag('--file'),
+      allowTemplateExample: args.includes('--allow-template-example'),
+    });
+  } else if (command === 'approve-design') await updateApproval('design');
   else if (command === 'approve-sample') await updateApproval('sample');
   else if (command === 'render') await render();
   else {
     console.log('Usage: npm run forge -- create --dir /absolute/project --input <value> [--input ...] [--audio-kind song|instrumental] [--name id]');
+    console.log('       npm run forge -- plan --input <theme|url> [--name id] [--title ...] | plan --project <id>');
+    console.log('       npm run forge -- apply-plan --project <id> [--file content-plan.json]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
     console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
   }
