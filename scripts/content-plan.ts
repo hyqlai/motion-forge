@@ -11,7 +11,7 @@ import {
   type ContentPlan,
 } from '../core/content-plan';
 import {createProductionState, resetForDesignRevision} from '../core/production-state';
-import {productionStateSchema} from '../core/schema';
+import {filmSchema, productionStateSchema, type FilmSpec} from '../core/schema';
 import {buildContentPlanGuide, buildContentPlanTemplate} from '../providers/content-plan-template';
 import {classifyInput, clockForInput, type ClassifiedInput} from '../providers/input';
 import {fetchWebpage, type WebpageSnapshot} from '../providers/url';
@@ -62,11 +62,11 @@ const assertStandaloneProject = async (root: string, allowTemplateExample: boole
   throw new Error(`Not a standalone Motion Forge project: ${root}`);
 };
 
-const formatPlanError = (error: unknown): Error => {
+const formatZodError = (error: unknown, label: string): Error => {
   if (error && typeof error === 'object' && 'issues' in error) {
     const issues = (error as {issues: {path: (string | number)[]; message: string}[]}).issues;
     const details = issues.map((issue) => `- ${issue.path.join('.') || '(root)'}: ${issue.message}`).join('\n');
-    return new Error(`Invalid content plan:\n${details}`);
+    return new Error(`${label}:\n${details}`);
   }
   return error instanceof Error ? error : new Error(String(error));
 };
@@ -188,7 +188,7 @@ export const applyContentPlan = async (options: ApplyContentPlanOptions): Promis
     if ((error as NodeJS.ErrnoException).code === 'ENOENT') {
       throw new Error(`Content plan not found: ${planFile}`);
     }
-    throw formatPlanError(error);
+    throw formatZodError(error, 'Invalid content plan');
   }
 
   assertContentPlanStructure(plan);
@@ -202,7 +202,16 @@ export const applyContentPlan = async (options: ApplyContentPlanOptions): Promis
   }
 
   // 只有全部策划约束、Film Schema、注册表和素材校验都通过后才写 film.json。
-  const film = contentPlanToFilm(plan, {id: options.projectId});
+  const existingFilmRaw = await readOptionalJson(path.join(directory, 'film.json'));
+  let existingFilm: FilmSpec | undefined;
+  if (existingFilmRaw !== undefined) {
+    try {
+      existingFilm = filmSchema.parse(existingFilmRaw);
+    } catch (error) {
+      throw formatZodError(error, 'Existing film.json is invalid; refusing to apply to avoid losing audio/assets');
+    }
+  }
+  const film = contentPlanToFilm(plan, {id: options.projectId, existing: existingFilm});
   await validateFilm(film, {publicRoot: path.join(options.root, 'public')});
 
   const stateFile = path.join(directory, 'project.json');

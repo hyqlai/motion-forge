@@ -255,7 +255,16 @@ export const assertContentPlanTraceability = (
 };
 
 // 策划只作为 G1 前的输入，转换结果仍需通过 Film Schema、注册表和素材校验。
-export const contentPlanToFilm = (plan: ContentPlan, options: {id: string}): FilmSpec => {
+// 已有 Film 的音频与未在策划中重声明的素材会被保留，避免重跑策划时静默丢失 BGM/旁白。
+export const contentPlanToFilm = (
+  plan: ContentPlan,
+  options: {id: string; existing?: FilmSpec},
+): FilmSpec => {
+  const declaredAssetIds = new Set(plan.assets.map((asset) => asset.id));
+  const assets = [
+    ...plan.assets,
+    ...(options.existing?.assets ?? []).filter((asset) => !declaredAssetIds.has(asset.id)),
+  ];
   const scenes: SceneSpec[] = plan.scenes.map((scene) => ({
     id: scene.id,
     title: scene.title,
@@ -284,8 +293,8 @@ export const contentPlanToFilm = (plan: ContentPlan, options: {id: string}): Fil
     brief: plan.brief,
     output: plan.output,
     theme: plan.theme,
-    assets: plan.assets,
-    audio: {},
+    assets,
+    audio: options.existing?.audio ?? {},
     scenes,
   };
 };
