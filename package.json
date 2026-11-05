@@ -22,6 +22,7 @@
     "audio:verify": "tsx scripts/verify-three-track-audio.ts",
     "audio:verify:workbench": "tsx scripts/verify-workbench-audio.ts",
     "audio:verify:render": "tsx scripts/verify-three-track-render.ts",
+    "incremental:verify": "tsx scripts/verify-incremental-render.ts",
     "test:pexels": "tsx scripts/check-pexels-provider.ts",
     "tts:verify": "tsx scripts/verify-tts-provider.ts",
     "forge": "tsx scripts/motion-forge.ts"

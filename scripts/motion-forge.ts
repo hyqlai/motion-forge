@@ -33,6 +33,7 @@ import {designReviewMarkdown} from './design-review';
 import {runBgmCommand} from './forge-bgm';
 import {validateFilm} from './film-validation';
 import {fetchImageCommand, searchImagesCommand} from './image-assets';
+import {renderFilmIncrementally} from './incremental-render';
 import {generateNarration} from './tts-command';
 
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
@@ -230,26 +231,42 @@ const runRemotion = async (remotionArgs: string[]): Promise<void> => {
 const render = async (): Promise<void> => {
   const id = flag('--project');
   const scope = flag('--scope') as 'sample' | 'film' | undefined;
+  const incremental = args.includes('--incremental');
   if (!id || !scope || !['sample', 'film'].includes(scope)) {
     throw new Error('render requires --project <id> --scope sample|film');
+  }
+  if (incremental && scope !== 'film') {
+    throw new Error('--incremental is only supported with --scope film');
   }
   const directory = projectDirectory(projectRoot, id);
   const film = filmSchema.parse(await readJson(path.join(directory, 'film.json')));
   const state = productionStateSchema.parse(await readJson(path.join(directory, 'project.json')));
   assertRenderAllowed(state, scope);
   await validateFilm(film, {publicRoot: path.join(projectRoot, 'public')});
+  const browserExecutable = flag('--browser-executable');
+  const gl = flag('--gl') ?? 'swangle';
+  const remotionFlags = ['--concurrency=2'];
+  if (browserExecutable) remotionFlags.push(`--browser-executable=${browserExecutable}`);
+  remotionFlags.push(`--gl=${gl}`);
+  if (incremental) {
+    await renderFilmIncrementally({
+      projectRoot,
+      projectDirectory: directory,
+      film,
+      remotionFlags,
+      runRemotion,
+    });
+    console.log(`Rendered ${path.join(directory, 'film.mp4')}`);
+    return;
+  }
   const props = scope === 'sample' ? {film, sceneId: film.scenes[0].id} : {film};
   const propsFile = path.join(directory, `render-${scope}-props.json`);
   await writeJson(propsFile, props);
   const output = path.join(directory, `${scope}.mp4`);
   const remotionArgs = [
     'remotion', 'render', 'core/index.ts', scope === 'sample' ? 'SampleScene' : 'Film',
-    output, `--props=${propsFile}`, '--concurrency=2',
+    output, `--props=${propsFile}`, ...remotionFlags,
   ];
-  const browserExecutable = flag('--browser-executable');
-  const gl = flag('--gl') ?? 'swangle';
-  if (browserExecutable) remotionArgs.push(`--browser-executable=${browserExecutable}`);
-  remotionArgs.push(`--gl=${gl}`);
   await runRemotion(remotionArgs);
   console.log(`Rendered ${output}`);
 };
@@ -409,7 +426,8 @@ try {
     console.log('       npm run forge -- plan --input <theme|url> [--name id] [--title ...] | plan --project <id>');
     console.log('       npm run forge -- apply-plan --project <id> [--file content-plan.json]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
-    console.log('       npm run forge -- render --project <id> --scope sample|film [--browser-executable path] [--gl swangle|angle|swiftshader]');
+    console.log('       npm run forge -- render --project <id> --scope sample|film [--incremental] [--browser-executable path] [--gl swangle|angle|swiftshader]');
+    console.log('       --incremental 仅用于 --scope film：按场景内容哈希复用帧缓存，输出完整 film.mp4；不指定时保持全量渲染');
     console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
     console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
     console.log('       npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop|--no-loop] [--search-only]');

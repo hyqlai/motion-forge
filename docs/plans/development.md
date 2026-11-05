@@ -71,7 +71,8 @@
 - [ ] 一镜到底、复杂 SVG 形变、角色和高级 Three.js 场景。
 - [ ] 真实免费资源 provider 实现（Pexels/Unsplash 图片、Free Music Archive BGM 等）、TTS/ASR 和音频混合。
 - [ ] 工作台多轨音频编辑与项目导出（Film IR 写回已在阶段 3 完成）。
-- [ ] 单镜及受影响边界的增量渲染、最终 QA 和导出。
+- [x] 单镜及受影响转场边界的增量渲染（见 [`docs/architecture/incremental-rendering.md`](../architecture/incremental-rendering.md)）。
+- [ ] 最终 QA 和导出。
 
 验收：五类真实输入均完成端到端样片，所有高级能力以实际产物验证。
 

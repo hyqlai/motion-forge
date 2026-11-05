@@ -71,10 +71,15 @@ npm run forge -- approve-design --project gravity
 npm run forge -- render --project gravity --scope sample
 # 检查有声样板镜后确认 G2
 npm run forge -- approve-sample --project gravity
+# 全量渲染；首次渲染建立 .render-cache 基线
 npm run forge -- render --project gravity --scope film
+# 后续修改单镜后按场景内容哈希增量重渲，仍输出完整 film.mp4
+npm run forge -- render --project gravity --scope film --incremental
 npm run workbench -- --host 0.0.0.0
 # 浏览器打开 http://127.0.0.1:5178/?project=gravity
 ```
+
+增量渲染只用于全片渲染，仍会经过 G1/G2、目标 Film 校验与全片完整性校验；日志列出复用和重渲的分镜及转场边界。详见 [`docs/architecture/incremental-rendering.md`](docs/architecture/incremental-rendering.md)。
 
 音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。主题与 URL 输入可先通过 `plan --project <id>` 生成结构化策划模板，再由 Agent 自身 LLM 填写 `content-plan.json` 并用 `apply-plan` 转换为 Film IR；该流程不调用外部 LLM API，应用后仍停留在 G1 等待用户确认。图片素材可通过显式 `search-images` / `fetch-image` 子命令从 Pexels 检索并下载到项目本地（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。渲染产物统一写入项目内 `output/projects/<id>/`。
 
