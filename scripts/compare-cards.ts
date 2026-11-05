@@ -13,7 +13,7 @@ import {cardDefinitions} from '../cards/registry';
 
 const execFileAsync = promisify(execFile);
 const projectRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-// 来源仓库与本项目同级（/mnt/sda4/motion/my-self/<repo>/...）
+// 来源仓库与本项目同级；交付包不携带迁移来源仓库。
 const sourcesRoot = path.resolve(projectRoot, '..');
 const stagingRoot = path.join(projectRoot, 'output', 'card-compare', '_staging');
 const entriesRoot = path.join(projectRoot, 'output', 'card-compare', '_entries');
