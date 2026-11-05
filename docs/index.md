@@ -3,6 +3,7 @@
 ## 架构
 
 - [系统架构](architecture/system.md)：最终产品形态、模块边界、渲染技术路线、两道确认闸和独立修改原则。
+- [增量渲染](architecture/incremental-rendering.md)：场景内容哈希、帧缓存、渲染基线、转场边界与完整全片合成。
 
 ## 领域模型
 
