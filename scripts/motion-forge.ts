@@ -30,6 +30,7 @@ import {fetchWebpage} from '../providers/url';
 import {probeAudio} from '../providers/audio';
 import {applyContentPlan, createPlanningWorkspace} from './content-plan';
 import {designReviewMarkdown} from './design-review';
+import {exportProject} from './export-project';
 import {runBgmCommand} from './forge-bgm';
 import {validateFilm} from './film-validation';
 import {fetchImageCommand, searchImagesCommand} from './image-assets';
@@ -245,8 +246,13 @@ const render = async (): Promise<void> => {
   await validateFilm(film, {publicRoot: path.join(projectRoot, 'public')});
   const browserExecutable = flag('--browser-executable');
   const gl = flag('--gl') ?? 'swangle';
+  const bundleCache = flag('--bundle-cache');
+  if (bundleCache && !['true', 'false'].includes(bundleCache)) {
+    throw new Error('--bundle-cache must be true or false');
+  }
   const remotionFlags = ['--concurrency=2'];
   if (browserExecutable) remotionFlags.push(`--browser-executable=${browserExecutable}`);
+  if (bundleCache) remotionFlags.push(`--bundle-cache=${bundleCache}`);
   remotionFlags.push(`--gl=${gl}`);
   if (incremental) {
     await renderFilmIncrementally({
@@ -415,6 +421,18 @@ try {
   } else if (command === 'approve-design') await updateApproval('design');
   else if (command === 'approve-sample') await updateApproval('sample');
   else if (command === 'render') await render();
+  else if (command === 'export') {
+    const id = flag('--project');
+    if (!id || !/^[a-z0-9-]+$/.test(id)) throw new Error('export requires --project <id>');
+    const output = flag('--out');
+    await exportProject({
+      projectRoot,
+      projectId: id,
+      outputDirectory: output
+        ? path.resolve(projectRoot, output)
+        : path.join(projectRoot, 'output', 'deliveries', id),
+    });
+  }
   else if (command === 'search-images') await searchImagesCommand(projectRoot, args);
   else if (command === 'fetch-image') await fetchImageCommand(projectRoot, args);
   else if (command === 'bgm') await runBgmCommand(projectRoot, args.slice(1));
@@ -426,8 +444,9 @@ try {
     console.log('       npm run forge -- plan --input <theme|url> [--name id] [--title ...] | plan --project <id>');
     console.log('       npm run forge -- apply-plan --project <id> [--file content-plan.json]');
     console.log('       npm run forge -- approve-design|approve-sample --project <id>');
-    console.log('       npm run forge -- render --project <id> --scope sample|film [--incremental] [--browser-executable path] [--gl swangle|angle|swiftshader]');
+    console.log('       npm run forge -- render --project <id> --scope sample|film [--incremental] [--browser-executable path] [--gl swangle|angle|swiftshader] [--bundle-cache true|false]');
     console.log('       --incremental 仅用于 --scope film：按场景内容哈希复用帧缓存，输出完整 film.mp4；不指定时保持全量渲染');
+    console.log('       npm run forge -- export --project <id> [--out <directory>]');
     console.log('       npm run forge -- search-images --project <id> --query <text> [--scene <scene-id>] [--count 1-80] [--aspect 16:9|9:16|1:1]');
     console.log('       npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> [--scene <scene-id>] [--role reference] [--asset-id id]');
     console.log('       npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop|--no-loop] [--search-only]');

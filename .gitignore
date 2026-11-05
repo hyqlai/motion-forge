@@ -4,6 +4,7 @@ build/
 dist/
 output/*
 !output/.gitkeep
+public/assets/export-*/
 docs/migration/cards.json
 docs/migration/inventory.md
 .agents/

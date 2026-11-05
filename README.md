@@ -81,6 +81,18 @@ npm run workbench -- --host 0.0.0.0
 
 增量渲染只用于全片渲染，仍会经过 G1/G2、目标 Film 校验与全片完整性校验；日志列出复用和重渲的分镜及转场边界。详见 [`docs/architecture/incremental-rendering.md`](docs/architecture/incremental-rendering.md)。
 
+## QA 与完整交付包
+
+全片渲染并通过 G1/G2 后，用一个命令生成 QA 报告和自包含交付包：
+
+```bash
+npm run forge -- export --project gravity
+# 默认写入 output/deliveries/gravity；也可用 --out <directory> 指定一个不存在的新目录
+npm run export:verify
+```
+
+导出依次检查 Film Schema、目标 Film、场景/卡片注册、素材本地化、三轨音频、总帧数、G1/G2、视频 ffprobe、完整解码和交付安全；任一失败均非零退出，并在 `output/projects/gravity/qa/` 留下带证据的 JSON 与 Markdown 报告。交付包包含 `video/film.mp4`、完整可编辑工程、QA 报告和素材 SHA-256 清单，不携带密钥、缓存、外部绝对路径或技能目录依赖。原项目 Film/输入元数据不被改写，导出副本中的本机路径会替换为来源标记。接收方按包内中文 `README.md` 即可独立执行 `npm ci`、目标校验、构建和真实渲染。详见 [`docs/contracts/delivery.md`](docs/contracts/delivery.md)。
+
 音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。主题与 URL 输入可先通过 `plan --project <id>` 生成结构化策划模板，再由 Agent 自身 LLM 填写 `content-plan.json` 并用 `apply-plan` 转换为 Film IR；该流程不调用外部 LLM API，应用后仍停留在 G1 等待用户确认。图片素材可通过显式 `search-images` / `fetch-image` 子命令从 Pexels 检索并下载到项目本地（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。渲染产物统一写入项目内 `output/projects/<id>/`。
 
 歌曲项目在 G1 之前先做 ASR 歌词对齐：
