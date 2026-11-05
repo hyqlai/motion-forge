@@ -29,6 +29,10 @@
 - `inventory.md`：由同一命令生成的人类可读清单。
 - `ready.json`：仅有完整验收证据的迁移卡状态。
 
+## 制作指引
+
+- [高级场景制作与验收](../pipelines/advanced-scenes.md)：一镜到底、复杂 SVG 路径动画和 Three.js 的选卡、实际能力边界、视觉/性能约束、G1/G2、QA 与独立交付验证。
+
 ## 开发计划
 
 - [分阶段开发计划](plans/development.md)：实施顺序、阶段产物、验收标准和当前状态。
