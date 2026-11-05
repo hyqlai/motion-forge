@@ -1,0 +1,74 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "advanced-three-crystal",
+  "title": "高级 Three.js 晶体场景验收",
+  "genre": "launch",
+  "brief": {
+    "goal": "通过完整 Film 和 swangle 验证程序化三维晶体、空间灯光与 HTML 标题合成",
+    "audience": "Motion Forge 制作与验收人员",
+    "language": "zh-CN"
+  },
+  "output": {
+    "width": 640,
+    "height": 360,
+    "fps": 30
+  },
+  "theme": {
+    "background": "#080b18",
+    "foreground": "#f4f0e8",
+    "accent": "#64d2ff",
+    "muted": "#8291a7",
+    "fontFamily": "Noto Sans SC, Microsoft YaHei, sans-serif"
+  },
+  "assets": [],
+  "audio": {
+    "voice": {
+      "segments": []
+    },
+    "sfx": {
+      "events": []
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01-three-crystal",
+      "title": "三维晶体揭示",
+      "intent": "以低面数晶体和空间灯光形成产品发布高潮",
+      "semantic": "高潮",
+      "durationInFrames": 120,
+      "onScreenText": [
+        "为想法建立空间"
+      ],
+      "assetIds": [],
+      "layout": {
+        "kind": "hero-3d",
+        "options": {}
+      },
+      "renderer": "mixed",
+      "sceneComponent": "scene/three-launch",
+      "motion": {
+        "primary": {
+          "cardId": "effects/three-crystal",
+          "params": {}
+        }
+      },
+      "props": {
+        "text": "为想法建立空间"
+      },
+      "qa": {
+        "frames": [
+          0,
+          45,
+          100,
+          119
+        ],
+        "checkpoints": [
+          "ThreeCanvas 在 swangle 下创建 WebGL 上下文，无 GPU 环境不阻塞",
+          "晶体几何与三类灯光完整可见，帧间旋转确定且非空",
+          "HTML 标题始终位于晶体下层画布之上且不被裁切",
+          "末帧完整，Film 总帧数严格为 120"
+        ]
+      }
+    }
+  ]
+}

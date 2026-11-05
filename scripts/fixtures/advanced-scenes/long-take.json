@@ -1,0 +1,75 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "advanced-long-take",
+  "title": "一镜到底空间漫游验收",
+  "genre": "story",
+  "brief": {
+    "goal": "通过完整 Film 验证固定两幕纵深穿透长镜头的连续运动与交付能力",
+    "audience": "Motion Forge 制作与验收人员",
+    "language": "zh-CN"
+  },
+  "output": {
+    "width": 640,
+    "height": 360,
+    "fps": 30
+  },
+  "theme": {
+    "background": "#070a10",
+    "foreground": "#f4f0e8",
+    "accent": "#ffb703",
+    "muted": "#8291a7",
+    "fontFamily": "Noto Sans SC, Microsoft YaHei, sans-serif"
+  },
+  "assets": [],
+  "audio": {
+    "voice": {
+      "segments": []
+    },
+    "sfx": {
+      "events": []
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01-long-take",
+      "title": "连续空间穿透",
+      "intent": "在一次连续运镜中从概念推进到终局",
+      "semantic": "空间叙事",
+      "durationInFrames": 120,
+      "onScreenText": [
+        "一切逻辑始于最初的设想",
+        "一镜到底穿透至最终事实"
+      ],
+      "assetIds": [],
+      "layout": {
+        "kind": "long-take-world",
+        "options": {}
+      },
+      "renderer": "html",
+      "sceneComponent": "scene/kinetic-title",
+      "motion": {
+        "primary": {
+          "cardId": "transition/long-take-world",
+          "params": {}
+        }
+      },
+      "props": {
+        "text": "连续空间穿透"
+      },
+      "qa": {
+        "frames": [
+          0,
+          60,
+          96,
+          119
+        ],
+        "checkpoints": [
+          "首幕在第 0 帧已可见，运动从第 36 帧开始",
+          "第 60 帧处于连续穿透中段，没有场景切换或黑帧",
+          "第 96 帧完成推进，第二幕完整落位",
+          "末帧保持第二幕且 Film 总帧数严格为 120"
+        ]
+      }
+    }
+  ]
+}

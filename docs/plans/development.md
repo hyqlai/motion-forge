@@ -66,15 +66,17 @@
 
 ## 阶段 5：高级能力与完整片种
 
+- [x] Fish Audio TTS Provider 与项目内旁白生成，密钥只从环境变量读取。
 - [x] 歌曲 ASR 歌词对齐：`transcribe` 写入 `analysis/lyrics.json`，`lyrics-draft` 复用产物生成逐行歌词分镜并退回 G1。
-- [ ] 自动内容策划、音乐结构驱动和音乐故事。
-- [ ] 一镜到底、复杂 SVG 形变、角色和高级 Three.js 场景。
-- [ ] 真实免费资源 provider 实现（Pexels/Unsplash 图片、Free Music Archive BGM 等）、TTS/ASR 和音频混合。
-- [ ] 工作台多轨音频编辑与项目导出（Film IR 写回已在阶段 3 完成）。
+- [x] Pexels 图片与 Pixabay Music BGM Provider，下载后进入项目本地素材和目标 Film 校验。
+- [x] Agent 自身 LLM 内容策划：`plan` 生成结构化工作单，`apply-plan` 校验并写入 Film IR；不调用外部 LLM API。
+- [x] BGM/Voice/SFX 三轨音频、场景局部帧换算和工作台编辑写回。
 - [x] 单镜及受影响转场边界的增量渲染（见 [`docs/architecture/incremental-rendering.md`](../architecture/incremental-rendering.md)）。
-- [ ] 最终 QA 和导出。
+- [x] 最终 QA 与完整交付包：帧数/时长/完整解码、G1/G2、安全扫描、可编辑工程和干净副本独立渲染。
+- [x] 一镜到底、复杂 SVG 路径动画和高级 Three.js 场景验收：复用现有卡片与 `MotionStage`，经过完整 Film、G1/G2、真实 MP4、导出及干净副本编辑后重渲染；具体能力边界见 [`pipelines/advanced-scenes.md`](../../pipelines/advanced-scenes.md)。
+- [ ] 音乐结构驱动、角色场景和音乐故事完整片种。
 
-验收：五类真实输入均完成端到端样片，所有高级能力以实际产物验证。
+验收：上述已勾选项均有对应 CLI、校验或真实渲染产物。五类输入的草案与既有技术样片不等于所有完整片种均已完成；音乐结构驱动、角色场景和音乐故事仍不计入已验收能力。
 
 ## 验证产物
 
@@ -88,3 +90,8 @@
 - `output/skill-optimization/framework-e2e/`：独立工程端到端验证日志（create、目标校验、负向门禁、G1/G2、有声样板镜、工作台写回/审批重置/安全拦截、3D 全片渲染）。
 - `output/skill-optimization/3d-fix-logs/`：3D 场景 WebGL 渲染修复验证（`swangle` 渲染 120/120 帧、ffprobe、抽帧）。
 - `output/projects/`：五类输入草案及 G1/G2 验证项目。
+
+### 高级场景（阶段 5）
+- `output/advanced-scenes/<run-id>/verification.json` 与 `verification.md`：三类完整 Film 的 G1/G2、帧数、时长、非空像素、完整解码、导出 QA 和干净副本编辑后重渲染证据。
+- `output/advanced-scenes/<run-id>/<scenario>/`：长镜头、SVG、Three.js 各自的抽帧、接触表、ffprobe 和分阶段日志。
+- `output/advanced-scenes/<run-id>/deliveries/`：三类场景的完整可编辑交付包。运行 `npm run advanced:verify` 可重新生成。

@@ -1,0 +1,81 @@
+{
+  "schemaVersion": "1.0.0",
+  "id": "advanced-svg-trace",
+  "title": "复杂 SVG 路径形变验收",
+  "genre": "launch",
+  "brief": {
+    "goal": "通过完整 Film 验证圆角闭合路径、弧长笔头与手绘曲线路径的生长和交棒",
+    "audience": "Motion Forge 制作与验收人员",
+    "language": "zh-CN"
+  },
+  "output": {
+    "width": 640,
+    "height": 360,
+    "fps": 30
+  },
+  "theme": {
+    "background": "#f4f0e8",
+    "foreground": "#17191f",
+    "accent": "#f2674f",
+    "muted": "#77736b",
+    "fontFamily": "Noto Sans SC, Microsoft YaHei, sans-serif"
+  },
+  "assets": [],
+  "audio": {
+    "voice": {
+      "segments": []
+    },
+    "sfx": {
+      "events": []
+    }
+  },
+  "scenes": [
+    {
+      "id": "S01-svg-trace",
+      "title": "路径描绘与形态交棒",
+      "intent": "用闭合轮廓和曲线下划线完成复杂 SVG 路径动画",
+      "semantic": "视觉论证",
+      "durationInFrames": 132,
+      "onScreenText": [
+        "Cuts on the beat",
+        "100%"
+      ],
+      "assetIds": [],
+      "layout": {
+        "kind": "svg-trace",
+        "options": {}
+      },
+      "renderer": "svg",
+      "sceneComponent": "scene/svg-journey",
+      "motion": {
+        "primary": {
+          "cardId": "interaction/draw-svg-trace",
+          "params": {}
+        }
+      },
+      "props": {
+        "title": "路径描绘与形态交棒",
+        "steps": [
+          "起笔",
+          "闭合",
+          "交棒",
+          "定格"
+        ]
+      },
+      "qa": {
+        "frames": [
+          10,
+          50,
+          92,
+          131
+        ],
+        "checkpoints": [
+          "圆角矩形 pathLength 归一化描边与弧长笔头位置一致",
+          "第 50 帧闭合加粗后由卡片真实边框接棒，不出现双重轮廓",
+          "第 92 帧曲线 underline 完成，路径端点与文字区域无异常裁切",
+          "末帧内容完整，Film 总帧数严格为 132"
+        ]
+      }
+    }
+  ]
+}
