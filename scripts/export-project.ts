@@ -1,5 +1,4 @@
-import {execFile} from 'node:child_process';
-import {lstat, mkdir, readFile, realpath, rename, rm, stat, writeFile} from 'node:fs/promises';
+import {lstat, mkdir, readFile, realpath, rename, rm, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {cardRegistry} from '../cards/registry';
 import {assertLocalPublicPath, validateAudioTracks} from '../core/audio';
@@ -9,6 +8,7 @@ import {compileTimeline} from '../core/timeline';
 import {sceneRegistry} from '../scenes/registry';
 import {createDeliveryCopy, sanitizeDeliveryText, scanDelivery} from './delivery-security';
 import {validateFilm} from './film-validation';
+import {decodeFinalFilm, probeFinalFilm} from './final-media-validation';
 
 type QaCheck = {
   id: string;
@@ -26,23 +26,6 @@ type QaReport = {
 };
 
 const errorEvidence = (error: unknown): string => sanitizeDeliveryText(error instanceof Error ? error.message : String(error));
-
-const runTool = async (command: string, args: string[]): Promise<string> => new Promise((resolve, reject) => {
-  execFile(command, args, {maxBuffer: 40 * 1024 * 1024}, (error, stdout, stderr) => {
-    if (!error) {
-      resolve(stdout);
-      return;
-    }
-    reject(new Error(`${path.basename(command)} ${args.join(' ')} failed: ${stderr || stdout || error.message}`));
-  });
-});
-
-const assertVideoFile = async (file: string, label: string): Promise<void> => {
-  const info = await stat(file).catch(() => {
-    throw new Error(`Final video does not exist: ${label}`);
-  });
-  if (!info.isFile() || info.size === 0) throw new Error(`Final video is empty or not a file: ${label}`);
-};
 
 const check = async (id: string, title: string, run: () => Promise<string[]> | string[]): Promise<QaCheck> => {
   try {
@@ -161,60 +144,11 @@ export const exportProject = async (options: {
   const videoFile = path.join(projectDirectory, 'film.mp4');
   const videoLabel = `output/projects/${projectId}/film.mp4`;
   checks.push(await check('video-ffprobe', '最终视频 ffprobe', async () => {
-    await assertVideoFile(videoFile, videoLabel);
-    const output = await runTool(process.env.FFPROBE_PATH ?? 'ffprobe', [
-      '-v', 'error',
-      '-show_entries', 'format=duration:stream=codec_type,codec_name,width,height,nb_frames,duration,avg_frame_rate',
-      '-of', 'json',
-      videoFile,
-    ]);
-    const probe = JSON.parse(output) as {
-      format?: {duration?: string};
-      streams?: {
-        codec_type?: string;
-        codec_name?: string;
-        width?: number;
-        height?: number;
-        nb_frames?: string;
-        avg_frame_rate?: string;
-      }[];
-    };
-    const video = probe.streams?.find((stream) => stream.codec_type === 'video');
-    const audio = probe.streams?.find((stream) => stream.codec_type === 'audio');
-    if (!video) throw new Error(`Final video has no video stream: ${videoLabel}`);
-    if (video.codec_name !== 'h264') throw new Error(`Final video codec must be h264, got ${video.codec_name ?? 'unknown'}`);
-    if (film && expectedFrames !== undefined) {
-      if (Number(video.nb_frames) !== expectedFrames) {
-        throw new Error(`Final video has ${video.nb_frames ?? 'unknown'} frames, expected ${expectedFrames}`);
-      }
-      if (video.width !== film.output.width || video.height !== film.output.height) {
-        throw new Error(`Final video dimensions ${video.width}x${video.height}, expected ${film.output.width}x${film.output.height}`);
-      }
-      const [fpsNumerator, fpsDenominator] = (video.avg_frame_rate ?? '').split('/').map(Number);
-      const actualFps = fpsNumerator / fpsDenominator;
-      if (!Number.isFinite(actualFps) || Math.abs(actualFps - film.output.fps) > 0.001) {
-        throw new Error(`Final video fps ${video.avg_frame_rate ?? 'unknown'}, expected ${film.output.fps}`);
-      }
-      const duration = Number(probe.format?.duration);
-      if (!Number.isFinite(duration) || Math.abs(duration - expectedFrames / film.output.fps) > 0.1) {
-        throw new Error(`Final video duration ${probe.format?.duration ?? 'unknown'}s, expected ${expectedFrames / film.output.fps}s`);
-      }
-      if (expectsAudio && !audio) throw new Error('Final video is missing the declared BGM/Voice/SFX audio mix');
-      if (!expectsAudio && audio) throw new Error('Final video unexpectedly contains an audio stream');
-    }
-    return [
-      `file=${videoLabel}`,
-      `actualFrames=${video.nb_frames ?? 'unknown'}; expectedFrames=${expectedFrames ?? 'unknown'}`,
-      `video=${video.codec_name} ${video.width}x${video.height}@${video.avg_frame_rate ?? 'unknown'}`,
-      `audio=${audio?.codec_name ?? (expectsAudio ? 'missing' : 'none')}`,
-      `ffprobe=${JSON.stringify(probe)}`,
-    ];
+    if (!film || expectedFrames === undefined) throw new Error('Film 或时间线校验未通过，无法校验最终视频');
+    return probeFinalFilm({file: videoFile, label: videoLabel, film, expectedFrames, hasAudio: expectsAudio});
   }));
   checks.push(await check('video-decode', '最终视频完整解码', async () => {
-    await assertVideoFile(videoFile, videoLabel);
-    await runTool(process.env.FFMPEG_PATH ?? 'ffmpeg', [
-      '-v', 'error', '-xerror', '-i', videoFile, '-f', 'null', '-',
-    ]);
+    await decodeFinalFilm(videoFile, videoLabel);
     return [`ffmpeg -xerror 完整解码通过：${videoLabel}`];
   }));
   checks.push(await check('approval-gates', 'G1/G2 审批状态', async () => {

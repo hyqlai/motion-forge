@@ -11,7 +11,7 @@ export type AudioProbe = {
 };
 
 export const probeAudio = async (filePath: string): Promise<AudioProbe> => {
-  const {stdout} = await execFileAsync('ffprobe', [
+  const {stdout} = await execFileAsync(process.env.FFPROBE_PATH ?? 'ffprobe', [
     '-v', 'error',
     '-show_entries', 'format=duration,format_name:stream=sample_rate,channels',
     '-of', 'json',
@@ -25,6 +25,9 @@ export const probeAudio = async (filePath: string): Promise<AudioProbe> => {
   if (!Number.isFinite(durationSeconds) || durationSeconds <= 0) {
     throw new Error(`Unable to determine audio duration: ${filePath}`);
   }
+  await execFileAsync(process.env.FFMPEG_PATH ?? 'ffmpeg', [
+    '-v', 'error', '-xerror', '-i', filePath, '-f', 'null', '-',
+  ]);
   return {
     durationSeconds,
     format: data.format?.format_name ?? 'unknown',

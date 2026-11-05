@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
-import {mkdtemp, readFile, rm, stat, symlink} from 'node:fs/promises';
+import {lstat, mkdtemp, readFile, rm, stat} from 'node:fs/promises';
 import {createServer, type IncomingMessage, type ServerResponse} from 'node:http';
 import type {AddressInfo} from 'node:net';
 import os from 'node:os';
@@ -51,12 +51,13 @@ const sendJson = (res: ServerResponse, status: number, value: unknown): void => 
   res.end(body);
 };
 
-const runCommand = (
+const runProcess = (
+  command: string,
   args: string[],
   cwd: string,
   env: Record<string, string> = {},
 ): Promise<{code: number | null; stdout: string; stderr: string}> => new Promise((resolve, reject) => {
-  const child = spawn(tsxBinary, args, {cwd, env: {...process.env, ...env}});
+  const child = spawn(command, args, {cwd, env: {...process.env, ...env}});
   let stdout = '';
   let stderr = '';
   child.stdout.setEncoding('utf8').on('data', (chunk: string) => {
@@ -68,6 +69,15 @@ const runCommand = (
   child.once('error', reject);
   child.once('close', (code) => resolve({code, stdout, stderr}));
 });
+
+const runCommand = (
+  args: string[],
+  cwd: string,
+  env: Record<string, string> = {},
+): Promise<{code: number | null; stdout: string; stderr: string}> => {
+  const executable = cwd === templateRoot ? tsxBinary : path.join(cwd, 'node_modules', '.bin', 'tsx');
+  return runProcess(executable, args, cwd, env);
+};
 
 const photoFixture = (origin: string) => ({
   page: 1,
@@ -268,7 +278,8 @@ test('download failure is reported without writing a placeholder', async () => {
 
 test('forge search-images and fetch-image localize a Pexels image in a standalone project', async () => {
   const imageBytes = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0xaa, 0xbb, 0xcc]);
-  const workspace = await mkdtemp(path.join(os.tmpdir(), 'pexels-cli-'));
+  // 独立安装需要真实磁盘空间；模板同级短路径避开 tmpfs 配额，仍位于模板目录之外。
+  const workspace = await mkdtemp(path.join(path.dirname(templateRoot), '.pexels-cli-'));
   const projectDirectory = path.join(workspace, 'project');
   try {
     const created = await runCommand([
@@ -276,8 +287,13 @@ test('forge search-images and fetch-image localize a Pexels image in a standalon
       'create', '--dir', projectDirectory, '--input', '海洋', '--name', 'demo', '--title', 'Demo',
     ], templateRoot);
     assert.equal(created.code, 0, created.stderr);
-    // 生成的检查用工程不在本测试里跑 npm ci，借用模板依赖以避免网络安装。
-    await symlink(path.join(templateRoot, 'node_modules'), path.join(projectDirectory, 'node_modules'), 'dir');
+    const installed = await runProcess('npm', ['ci'], projectDirectory);
+    assert.equal(installed.code, 0, installed.stderr || installed.stdout);
+    const dependencyDirectory = await lstat(path.join(projectDirectory, 'node_modules'));
+    assert.ok(dependencyDirectory.isDirectory() && !dependencyDirectory.isSymbolicLink(),
+      'standalone project must install its own real node_modules directory');
+    const built = await runProcess('npm', ['run', 'build'], projectDirectory);
+    assert.equal(built.code, 0, built.stderr || built.stdout);
     const projectScript = path.join(projectDirectory, 'scripts', 'motion-forge.ts');
 
     await withServer((req, res) => {

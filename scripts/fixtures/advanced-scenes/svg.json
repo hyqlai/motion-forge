@@ -1,10 +1,10 @@
 {
   "schemaVersion": "1.0.0",
-  "id": "advanced-svg-trace",
+  "id": "advanced-svg-morph",
   "title": "复杂 SVG 路径形变验收",
   "genre": "launch",
   "brief": {
-    "goal": "通过完整 Film 验证圆角闭合路径、弧长笔头与手绘曲线路径的生长和交棒",
+    "goal": "通过完整 Film 验证同一条闭合 SVG 路径从圆角母体到多瓣曲线的逐帧几何插值与粘连滤镜",
     "audience": "Motion Forge 制作与验收人员",
     "language": "zh-CN"
   },
@@ -31,49 +31,49 @@
   },
   "scenes": [
     {
-      "id": "S01-svg-trace",
-      "title": "路径描绘与形态交棒",
-      "intent": "用闭合轮廓和曲线下划线完成复杂 SVG 路径动画",
+      "id": "S01-svg-morph",
+      "title": "母体曲线形变与分裂",
+      "intent": "用真实路径插值把单一母体转变为多瓣结构并分裂为并列证据",
       "semantic": "视觉论证",
-      "durationInFrames": 132,
+      "durationInFrames": 120,
       "onScreenText": [
-        "Cuts on the beat",
-        "100%"
+        "One form, many signals",
+        "MORPH"
       ],
       "assetIds": [],
       "layout": {
-        "kind": "svg-trace",
+        "kind": "svg-morph",
         "options": {}
       },
       "renderer": "svg",
       "sceneComponent": "scene/svg-journey",
       "motion": {
         "primary": {
-          "cardId": "interaction/draw-svg-trace",
+          "cardId": "interaction/gooey-morph",
           "params": {}
         }
       },
       "props": {
-        "title": "路径描绘与形态交棒",
+        "title": "One form, many signals",
         "steps": [
-          "起笔",
-          "闭合",
-          "交棒",
-          "定格"
+          "PLAN",
+          "PROOF",
+          "BUILD",
+          "SHIP"
         ]
       },
       "qa": {
         "frames": [
-          10,
-          50,
-          92,
-          131
+          0,
+          48,
+          84,
+          119
         ],
         "checkpoints": [
-          "圆角矩形 pathLength 归一化描边与弧长笔头位置一致",
-          "第 50 帧闭合加粗后由卡片真实边框接棒，不出现双重轮廓",
-          "第 92 帧曲线 underline 完成，路径端点与文字区域无异常裁切",
-          "末帧内容完整，Film 总帧数严格为 132"
+          "第 0 帧为圆角母体，同一路径元素包含至少 8 段三次贝塞尔曲线",
+          "第 48 帧的 d 与首尾均不同，确认发生几何插值而非描边生长或整体位移",
+          "第 84 帧形成多瓣闭合轮廓，feColorMatrix 粘连滤镜与分裂卡片无异常裁切",
+          "末帧保持最终形状，Film 总帧数严格为 120"
         ]
       }
     }

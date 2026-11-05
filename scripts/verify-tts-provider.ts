@@ -1,6 +1,6 @@
 import assert from 'node:assert/strict';
 import {spawn} from 'node:child_process';
-import {access, readFile, rm} from 'node:fs/promises';
+import {access, mkdir, readFile, rm, symlink, writeFile} from 'node:fs/promises';
 import {createServer} from 'node:http';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -73,7 +73,13 @@ const withApiKey = async (run: () => Promise<void>): Promise<void> => {
   }
 };
 
-const audioBytes = Buffer.from('ID3-fake-mp3-audio');
+const audioBytes = await readFile(path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..',
+  'public',
+  'audio',
+  'click-camera.mp3',
+));
 
 await withApiKey(() => withMockServer(
   (request) => {
@@ -263,7 +269,12 @@ try {
   await withMockServer(
     (request) => {
       assert.equal(request.headers.authorization, `Bearer ${fixtureApiKey}`);
-      return {status: 200, headers: {'content-type': 'audio/mpeg'}, body: audioBytes};
+      const text = (JSON.parse(request.body) as {text: string}).text;
+      return {
+        status: 200,
+        headers: {'content-type': 'audio/mpeg'},
+        body: text === '坏音频' ? Buffer.from('not-decodable-audio') : audioBytes,
+      };
     },
     async (baseUrl, requests) => {
       const baseEnv: NodeJS.ProcessEnv = {...process.env, FISH_AUDIO_BASE_URL: baseUrl};
@@ -277,6 +288,15 @@ try {
       assert.match(blocked.stderr, /FISH_API_KEY/);
       assert.equal(requests.length, 0);
 
+      const stateFile = path.join(projectDirectory, 'project.json');
+      const approvedState = {
+        status: 'production',
+        designApprovedAt: '2026-01-01T00:00:00.000Z',
+        sampleApprovedAt: '2026-01-01T00:01:00.000Z',
+        notes: ['已审批基线'],
+      };
+      const approvedStateBytes = Buffer.from(`${JSON.stringify(approvedState, null, 2)}\n`);
+      await writeFile(stateFile, approvedStateBytes);
       const generated = await runScript(
         'scripts/motion-forge.ts',
         ['tts', '--project', projectId, '--scene', 'S01-opening', '--text', '这是旁白验证', '--voice', 'voice-1'],
@@ -284,6 +304,55 @@ try {
       );
       assert.equal(generated.code, 0, generated.stderr || generated.stdout);
       assert.equal(requests.length, 1);
+      const changedState = JSON.parse(await readFile(stateFile, 'utf8')) as {status: string; notes: string[]};
+      assert.equal(changedState.status, 'design-review', 'new narration must invalidate approved G1/G2 state');
+      assert.ok(changedState.notes.some((note) => /TTS|旁白/.test(note)));
+
+      await writeFile(stateFile, approvedStateBytes);
+      const repeated = await runScript(
+        'scripts/motion-forge.ts',
+        ['tts', '--project', projectId, '--scene', 'S01-opening', '--text', '这是旁白验证', '--voice', 'voice-1'],
+        {...baseEnv, FISH_API_KEY: fixtureApiKey},
+      );
+      assert.equal(repeated.code, 0, repeated.stderr || repeated.stdout);
+      assert.deepEqual(await readFile(stateFile), approvedStateBytes, 'identical narration must not reset approvals again');
+      assert.equal(requests.length, 2);
+
+      const filmFile = path.join(projectDirectory, 'film.json');
+      const assetsFile = path.join(projectDirectory, 'assets.json');
+      const beforeInvalidFilm = await readFile(filmFile);
+      const beforeInvalidAssets = await readFile(assetsFile);
+      const invalid = await runScript(
+        'scripts/motion-forge.ts',
+        [
+          'tts', '--project', projectId, '--scene', 'S01-opening', '--text', '坏音频',
+          '--out', `assets/${projectId}/broken.mp3`,
+        ],
+        {...baseEnv, FISH_API_KEY: fixtureApiKey},
+      );
+      assert.notEqual(invalid.code, 0, 'undecodable TTS output must fail explicitly');
+      assert.match(invalid.stderr, /audio|音频|probe|decode/i);
+      assert.deepEqual(await readFile(filmFile), beforeInvalidFilm, 'failed TTS must not register Film assets');
+      assert.deepEqual(await readFile(assetsFile), beforeInvalidAssets, 'failed TTS must not rewrite assets.json');
+      await assert.rejects(access(path.join(projectPublicDirectory, 'broken.mp3')), 'invalid audio must not remain as a local asset');
+      assert.equal(requests.length, 3);
+
+      const outsideDirectory = path.join(projectRoot, 'output', `${projectId}-outside`);
+      await mkdir(outsideDirectory, {recursive: true});
+      await symlink(outsideDirectory, path.join(projectPublicDirectory, 'escape'), 'dir');
+      const escaped = await runScript(
+        'scripts/motion-forge.ts',
+        [
+          'tts', '--project', projectId, '--scene', 'S01-opening', '--text', '越界不应写入',
+          '--out', `assets/${projectId}/escape/voice.mp3`,
+        ],
+        {...baseEnv, FISH_API_KEY: fixtureApiKey},
+      );
+      assert.notEqual(escaped.code, 0, 'a parent-directory symlink must not escape public/');
+      assert.match(escaped.stderr, /public|escapes|越界/i);
+      await assert.rejects(access(path.join(outsideDirectory, 'voice.mp3')), 'escaped output must not be written');
+      assert.deepEqual(await readFile(filmFile), beforeInvalidFilm, 'rejected output must not change Film IR');
+      assert.equal(requests.length, 3, 'path rejection must happen before the paid provider call');
     },
   );
 
@@ -317,6 +386,7 @@ try {
 } finally {
   await rm(projectDirectory, {recursive: true, force: true});
   await rm(projectPublicDirectory, {recursive: true, force: true});
+  await rm(path.join(projectRoot, 'output', `${projectId}-outside`), {recursive: true, force: true});
 }
 
 console.log('TTS provider verification passed');

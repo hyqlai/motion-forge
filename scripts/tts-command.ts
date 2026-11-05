@@ -1,6 +1,7 @@
-import {mkdir, readFile, rename, stat, unlink, writeFile} from 'node:fs/promises';
+import {readFile, rename, unlink, writeFile} from 'node:fs/promises';
 import path from 'node:path';
-import {filmSchema} from '../core/schema';
+import {resetForDesignRevision} from '../core/production-state';
+import {filmSchema, productionStateSchema} from '../core/schema';
 import {probeAudio} from '../providers/audio';
 import {createFishAudioTTSProvider, FISH_AUDIO_PROVIDER_ID} from '../providers/fish-audio';
 import {
@@ -13,6 +14,7 @@ import {
   type TTSResult,
 } from '../providers/tts';
 import {validateFilm} from './film-validation';
+import {preparePublicAssetDestination} from './public-asset-path';
 
 export type GenerateNarrationOptions = {
   projectRoot: string;
@@ -67,6 +69,7 @@ export const generateNarration = async (
   const publicRoot = path.join(options.projectRoot, 'public');
   const filmFile = path.join(projectDirectory, 'film.json');
   const film = filmSchema.parse(JSON.parse(await readFile(filmFile, 'utf8')));
+  const previousFilm = JSON.stringify(film);
   const scene = film.scenes.find((item) => item.id === options.sceneId);
   if (!scene) throw new Error(`Unknown scene: ${options.sceneId}`);
 
@@ -77,11 +80,11 @@ export const generateNarration = async (
   const format = resolveFormat(options.format, outputPath ?? '');
   const relativePath = outputPath
     ?? path.posix.join('assets', options.projectId, `voice-${scene.id}.${format}`);
-  const destination = path.resolve(publicRoot, ...relativePath.split('/'));
-  const relativeToPublic = path.relative(publicRoot, destination);
-  if (relativeToPublic.startsWith('..') || path.isAbsolute(relativeToPublic)) {
-    throw new Error(`Output escapes the project public directory: ${relativePath}`);
-  }
+  const destination = await preparePublicAssetDestination({
+    projectRoot: options.projectRoot,
+    publicRoot,
+    relativePath,
+  });
 
   ensureDefaultTTSProviders();
   const provider = getTTSProvider(options.providerId ?? FISH_AUDIO_PROVIDER_ID);
@@ -102,16 +105,21 @@ export const generateNarration = async (
     throw error;
   }
 
-  const existed = await stat(destination).then(() => true).catch(() => false);
-  await mkdir(path.dirname(destination), {recursive: true});
+  const previousAudio = await readFile(destination).catch((error: NodeJS.ErrnoException) => {
+    if (error.code === 'ENOENT') return undefined;
+    throw error;
+  });
   const temporary = `${destination}.tmp-${process.pid}`;
+  let probe;
   try {
     await writeFile(temporary, result.audio);
+    probe = await probeAudio(temporary);
     await rename(temporary, destination);
   } catch (error) {
     await unlink(temporary).catch(() => undefined);
-    throw error;
+    throw new Error(`Generated narration is not decodable audio: ${relativePath} (${error instanceof Error ? error.message : error})`);
   }
+  await preparePublicAssetDestination({projectRoot: options.projectRoot, publicRoot, relativePath});
 
   const assetId = `voice-${scene.id}`;
   const metadata = {
@@ -142,10 +150,8 @@ export const generateNarration = async (
   }
   if (!scene.assetIds.includes(assetId)) scene.assetIds.push(assetId);
 
-  // TTS 产物同时登记到 Voice 轨道；音频探测失败时按整镜时长兜底，避免校验因非音频 fixture 中断。
-  const audioFrames = await probeAudio(destination)
-    .then((probe) => Math.max(1, Math.round(probe.durationSeconds * film.output.fps)))
-    .catch(() => scene.durationInFrames);
+  // Voice 区间只使用已成功探测的真实音频时长；坏音频在写回 Film 前已经失败。
+  const audioFrames = Math.max(1, Math.round(probe.durationSeconds * film.output.fps));
   const end = Math.min(scene.durationInFrames, audioFrames);
   film.audio.voice.segments = [
     ...film.audio.voice.segments.filter((segment) => segment.sceneId !== scene.id),
@@ -156,11 +162,25 @@ export const generateNarration = async (
   try {
     await validateFilm(updated, {publicRoot});
   } catch (error) {
-    if (!existed) await unlink(destination).catch(() => undefined);
+    if (previousAudio) await writeFile(destination, previousAudio);
+    else await unlink(destination).catch(() => undefined);
     throw error;
   }
   await writeJson(filmFile, updated);
   await writeJson(path.join(projectDirectory, 'assets.json'), {assets: updated.assets});
+
+  const contentChanged = previousFilm !== JSON.stringify(updated)
+    || previousAudio === undefined
+    || !previousAudio.equals(result.audio);
+  if (contentChanged) {
+    const state = productionStateSchema.parse(JSON.parse(
+      await readFile(path.join(projectDirectory, 'project.json'), 'utf8'),
+    ));
+    if (state.status !== 'design-review') {
+      const revised = resetForDesignRevision(state, `TTS 旁白已更新（${scene.id}），原 G1/G2 审批失效`);
+      await writeJson(path.join(projectDirectory, 'project.json'), revised);
+    }
+  }
 
   console.log(`Generated narration for ${scene.id} via ${result.provider} (${result.model ?? 'default model'}): public/${relativePath}`);
   console.log(`Registered asset ${assetId} in film.json`);

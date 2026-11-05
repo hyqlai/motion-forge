@@ -2,11 +2,12 @@ import assert from 'node:assert/strict';
 import {createServer, type IncomingMessage, type ServerResponse} from 'node:http';
 import type {AddressInfo} from 'node:net';
 import {spawn} from 'node:child_process';
-import {mkdir, readFile, rm, stat, writeFile} from 'node:fs/promises';
+import {mkdir, mkdtemp, readFile, rm, stat, symlink, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {sampleFilm} from '../examples/theme-demo/film';
 import {createPixabayMusicProvider} from '../providers/pixabay-music';
+import {runBgmCommand} from './forge-bgm';
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const fixture = path.join(root, 'public', 'audio', 'music.wav');
@@ -197,6 +198,68 @@ const runCliChecks = async (baseUrl: string, requests: string[]): Promise<void> 
   await rm(publicDirectory, {recursive: true, force: true});
 };
 
+const runPathBoundaryChecks = async (baseUrl: string): Promise<void> => {
+  const workspace = await mkdtemp(path.join(root, 'output', 'bgm-path-'));
+  const environmentNames = ['PIXABAY_API_KEY', 'PIXABAY_MUSIC_ENABLED', 'PIXABAY_API_BASE_URL'] as const;
+  const previousEnvironment = Object.fromEntries(environmentNames.map((name) => [name, process.env[name]]));
+  Object.assign(process.env, {
+    PIXABAY_API_KEY: apiKey,
+    PIXABAY_MUSIC_ENABLED: 'true',
+    PIXABAY_API_BASE_URL: baseUrl,
+  });
+  try {
+    for (const mode of ['public-root', 'parent-directory'] as const) {
+      const projectId = `pixabay-path-${mode}`;
+      const projectRoot = path.join(workspace, mode);
+      const projectDirectory = path.join(projectRoot, 'output', 'projects', projectId);
+      const outside = path.join(workspace, `${mode}-outside`);
+      await mkdir(projectDirectory, {recursive: true});
+      await mkdir(outside, {recursive: true});
+      const film = JSON.parse(JSON.stringify(sampleFilm)) as typeof sampleFilm;
+      film.id = projectId;
+      film.audio = {voice: {segments: []}, sfx: {events: []}};
+      film.assets = [];
+      film.scenes = film.scenes.map((scene) => ({...scene, assetIds: []}));
+      const filmFile = path.join(projectDirectory, 'film.json');
+      const stateFile = path.join(projectDirectory, 'project.json');
+      await writeFile(filmFile, `${JSON.stringify(film, null, 2)}\n`);
+      await writeFile(path.join(projectDirectory, 'assets.json'), '{"assets":[]}\n');
+      await writeFile(stateFile, `${JSON.stringify({
+        status: 'production',
+        designApprovedAt: '2026-01-01T00:00:00.000Z',
+        sampleApprovedAt: '2026-01-01T00:01:00.000Z',
+        notes: [],
+      }, null, 2)}\n`);
+      if (mode === 'public-root') {
+        await symlink(outside, path.join(projectRoot, 'public'), 'dir');
+      } else {
+        await mkdir(path.join(projectRoot, 'public', 'assets'), {recursive: true});
+        await symlink(outside, path.join(projectRoot, 'public', 'assets', projectId), 'dir');
+      }
+      const beforeFilm = await readFile(filmFile);
+      const beforeState = await readFile(stateFile);
+      await assert.rejects(
+        runBgmCommand(projectRoot, ['--project', projectId, '--query', 'calm']),
+        /public|escapes|越界/i,
+        `${mode} must reject a public/ symlink escape`,
+      );
+      const escapedFile = mode === 'public-root'
+        ? path.join(outside, 'assets', projectId, 'bgm-4242.wav')
+        : path.join(outside, 'bgm-4242.wav');
+      await assert.rejects(stat(escapedFile), 'rejected BGM must not be downloaded outside public/');
+      assert.deepEqual(await readFile(filmFile), beforeFilm);
+      assert.deepEqual(await readFile(stateFile), beforeState);
+    }
+  } finally {
+    for (const name of environmentNames) {
+      const value = previousEnvironment[name];
+      if (value === undefined) delete process.env[name];
+      else process.env[name] = value;
+    }
+    await rm(workspace, {recursive: true, force: true});
+  }
+};
+
 const main = async (): Promise<void> => {
   const portFlag = process.argv.indexOf('--port');
   const port = portFlag >= 0 ? Number(process.argv[portFlag + 1]) : 0;
@@ -214,6 +277,8 @@ const main = async (): Promise<void> => {
     console.log('Pixabay Music provider download checks passed');
     await runCliChecks(server.baseUrl, server.requests);
     console.log('Pixabay Music CLI attach checks passed');
+    await runPathBoundaryChecks(server.baseUrl);
+    console.log('Pixabay Music public path boundary checks passed');
   } finally {
     await server.close();
   }

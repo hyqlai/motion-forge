@@ -113,7 +113,7 @@ npm run forge -- tts --project gravity --scene S01-opening \
 # 也可用 --text "旁白文本" 覆盖 scene.narration，用 --out assets/gravity/voice.mp3 指定落盘路径
 ```
 
-音频写入项目 `public/` 下并由 `film.json` 的 `assets` 登记，命令结束前会自动执行目标 Film 校验。
+音频只有在临时文件探测成功后才写入项目 `public/` 并登记到 `film.json`；坏音频显式失败，不使用整镜时长兜底。命令会拒绝经 `public/` 根或父目录软链逃逸的输出，并在结束前执行目标 Film 校验。内容或音频字节实际变化时原 G1/G2 失效，完全相同的重复生成不会重复重置审批。
 
 ## 从 Pixabay Music 获取 BGM
 
@@ -124,7 +124,7 @@ PIXABAY_API_KEY=... npm run forge -- bgm --project gravity \
   --query "calm cinematic piano" --volume 0.2 --loop
 ```
 
-下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
+下载文件写入 `public/assets/<id>/bgm-<pixabay-id>.<ext>`，Film IR 只登记项目相对路径，`assets.json` 保留来源、作者和 Pixabay Content License。下载前后都校验 `public/` 根、目标目录与 realpath，父目录软链逃逸会显式失败且不改 Film/审批。多条结果时用 `--candidate <id>` 明确选择；`--search-only` 只看候选不落盘。未配置 `PIXABAY_API_KEY` 或设置 `PIXABAY_MUSIC_ENABLED=false` 时不会发起外部请求。详见 [Pixabay Music BGM Provider](docs/providers/pixabay-music.md)。
 
 ## 三轨音频与工作台编辑
 

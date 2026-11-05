@@ -6,9 +6,10 @@ import path from 'node:path';
 import {compileAudioTracks} from '../core/audio';
 import type {Asset, FilmSpec, SceneSpec} from '../core/schema';
 import {compileTimeline, type TimelineScene} from '../core/timeline';
+import {validateFinalFilm} from './final-media-validation';
 
 const CACHE_VERSION = 2;
-const HASH_VERSION = 3;
+const HASH_VERSION = 4;
 const VIDEO_DIRECTORY = 'video';
 const AUDIO_DIRECTORY = 'audio';
 const TEMP_DIRECTORY = 'tmp';
@@ -16,17 +17,17 @@ const RUNTIME_DIRECTORIES = ['core', 'cards', 'scenes'];
 const RUNTIME_PUBLIC_DIRECTORIES = ['public/textures', 'public/legacy-textures', 'public/audio', 'public/photos'];
 const RUNTIME_FILES = [
   'remotion.config.ts', 'package.json', 'package-lock.json',
-  'scripts/incremental-render.ts', 'scripts/motion-forge.ts',
+  'scripts/incremental-render.ts', 'scripts/final-media-validation.ts', 'scripts/motion-forge.ts',
 ];
 const RUNTIME_EXTENSIONS = new Set([
   '.ts', '.tsx', '.json', '.png', '.jpg', '.jpeg', '.svg', '.webp',
   '.mp3', '.wav', '.mp4', '.webm', '.woff', '.woff2', '.ttf', '.glsl', '.glb', '.hdr',
 ]);
-// downloadedAt 等生成元数据与临时路径不参与画面，进入哈希前统一剔除。
+// 仅剔除明确不参与画面的时间戳与临时路径；metadata 内的视觉参数必须保留。
 const UNSTABLE_HASH_KEYS = new Set([
-  'metadata', 'downloadedat', 'createdat', 'updatedat', 'renderedat', 'generatedat',
+  'downloadedat', 'createdat', 'updatedat', 'renderedat', 'generatedat',
   'transcribedat', 'timestamp', 'expiresat', 'temppath', 'temporarypath', 'tmppath',
-  'tmpdir', 'tempdir', 'cachepath', 'cachedirectory', 'sourcepath', 'sourceurl',
+  'tmpdir', 'tempdir', 'cachepath', 'cachedirectory', 'sourcepath',
 ]);
 const FFMPEG = process.env.FFMPEG_PATH ?? 'ffmpeg';
 const FFPROBE = process.env.FFPROBE_PATH ?? 'ffprobe';
@@ -129,14 +130,19 @@ const hashFile = (file: string): Promise<string> => new Promise((resolve, reject
   stream.once('end', () => resolve(hash.digest('hex')));
 });
 
+const OMIT_FROM_HASH = Symbol('omit-from-hash');
+
 // 哈希输入必须与对象键顺序、JSON 格式和临时 metadata 无关；下载时间、生成时间与临时路径不参与内容版本。
 const canonicalize = (value: unknown): unknown => {
-  if (Array.isArray(value)) return value.map(canonicalize);
+  if (Array.isArray(value)) return value.map(canonicalize).filter((entry) => entry !== OMIT_FROM_HASH);
   if (value && typeof value === 'object') {
-    return Object.fromEntries(Object.keys(value as Record<string, unknown>)
+    const entries = Object.keys(value as Record<string, unknown>)
       .sort()
       .filter((key) => !UNSTABLE_HASH_KEYS.has(key.toLowerCase()))
-      .map((key) => [key, canonicalize((value as Record<string, unknown>)[key])]));
+      .map((key) => [key, canonicalize((value as Record<string, unknown>)[key])] as const)
+      .filter((entry) => entry[1] !== OMIT_FROM_HASH);
+    if (entries.length === 0 && Object.keys(value as Record<string, unknown>).length > 0) return OMIT_FROM_HASH;
+    return Object.fromEntries(entries);
   }
   return value;
 };
@@ -517,26 +523,13 @@ const verifyFinalFilm = async (
   durationInFrames: number,
   hasAudio: boolean,
 ): Promise<void> => {
-  const probe = await probeMedia(file);
-  const video = probe.streams?.find((stream) => stream.codec_type === 'video');
-  const audio = probe.streams?.find((stream) => stream.codec_type === 'audio');
-  if (!video) throw new Error('Final incremental film has no video stream');
-  if (video.codec_name !== 'h264') throw new Error(`Final incremental film uses ${video.codec_name}, expected h264`);
-  if (video.width !== film.output.width || video.height !== film.output.height) {
-    throw new Error('Final incremental film dimensions do not match the film output');
-  }
-  const frames = Number(video.nb_frames);
-  if (!Number.isFinite(frames) || Math.abs(frames - durationInFrames) > 1) {
-    throw new Error(`Final incremental film has ${video.nb_frames} frames, expected ${durationInFrames}`);
-  }
-  if (hasAudio && !audio) throw new Error('Final incremental film is missing its audio track');
-  if (!hasAudio && audio) throw new Error('Final incremental film unexpectedly contains an audio track');
-  const duration = Number(probe.format?.duration);
-  if (!Number.isFinite(duration) || Math.abs(duration - durationInFrames / film.output.fps) > 0.1) {
-    throw new Error(`Final incremental film duration ${duration}s does not match ${durationInFrames / film.output.fps}s`);
-  }
-  // ffprobe 只能说明封装结构，完整解码才能确认全片每一帧都可播放。
-  await decodeMedia(file);
+  await validateFinalFilm({
+    file,
+    label: 'Final incremental film',
+    film,
+    expectedFrames: durationInFrames,
+    hasAudio,
+  });
 };
 
 const writeManifest = async (file: string, manifest: RenderManifest): Promise<void> => {

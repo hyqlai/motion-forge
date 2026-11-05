@@ -31,7 +31,7 @@
 
 ## 制作指引
 
-- [高级场景制作与验收](../pipelines/advanced-scenes.md)：一镜到底、复杂 SVG 路径动画和 Three.js 的选卡、实际能力边界、视觉/性能约束、G1/G2、QA 与独立交付验证。
+- [高级场景制作与验收](../pipelines/advanced-scenes.md)：一镜到底、复杂 SVG 闭合路径几何形变和 Three.js 的选卡、实际能力边界、视觉/性能约束、G1/G2、QA 与独立交付验证。
 
 ## 开发计划
 

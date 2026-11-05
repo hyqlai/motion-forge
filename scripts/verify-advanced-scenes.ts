@@ -4,6 +4,9 @@ import {existsSync} from 'node:fs';
 import {cp, mkdir, mkdtemp, readFile, readdir, rm, writeFile} from 'node:fs/promises';
 import path from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createElement} from 'react';
+import {renderToStaticMarkup} from 'react-dom/server';
+import {GooeyMorphFrame} from '../cards/interaction/gooey-morph';
 import {filmSchema, type FilmSpec} from '../core/schema';
 
 type ScenarioKey = 'long-take' | 'svg' | 'three';
@@ -45,12 +48,13 @@ type ScenarioResult = {
   independentEdit: string;
   independentVideo: Probe;
   independentFullDecode: 'passed';
+  pathMorph?: {frames: number[]; uniquePaths: number; cubicSegments: number[]};
 };
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const scenarios: Scenario[] = [
   {key: 'long-take', title: '一镜到底', cardId: 'transition/long-take-world'},
-  {key: 'svg', title: '复杂 SVG 路径形变', cardId: 'interaction/draw-svg-trace'},
+  {key: 'svg', title: '复杂 SVG 路径形变', cardId: 'interaction/gooey-morph'},
   {key: 'three', title: '高级 Three.js', cardId: 'effects/three-crystal'},
 ];
 const onlyIndex = process.argv.indexOf('--only');
@@ -267,6 +271,35 @@ const writeReport = async (status: 'running' | 'passed' | 'failed', error?: unkn
   await writeFile(path.join(evidenceDirectory, 'verification.md'), lines.join('\n'));
 };
 
+const inspectSvgPathMorph = (film: FilmSpec): {frames: number[]; uniquePaths: number; cubicSegments: number[]} => {
+  const scene = film.scenes[0];
+  const paths = scene.qa.frames.map((frame) => {
+    const markup = renderToStaticMarkup(createElement(GooeyMorphFrame, {
+      frame,
+      width: film.output.width,
+      height: film.output.height,
+      durationInFrames: scene.durationInFrames,
+      theme: film.theme,
+      title: String(scene.props.title ?? scene.title),
+      steps: Array.isArray(scene.props.steps) ? scene.props.steps.map(String) : [],
+    }));
+    const tag = markup.match(/<path\b[^>]*data-gooey-morph-path[^>]*>/)?.[0];
+    const d = tag?.match(/\bd="([^"]+)"/)?.[1];
+    assert.ok(d, `QA frame ${frame} must render the same gooey SVG path element`);
+    assert.ok((d.match(/\bC\b/g) ?? []).length >= 8, `QA frame ${frame} must contain a complex cubic closed path`);
+    assert.ok(/\bZ\b/.test(d), `QA frame ${frame} path must remain closed`);
+    return d;
+  });
+  const uniquePaths = new Set(paths).size;
+  assert.ok(uniquePaths >= 3, 'gooey start, interpolation and settled frames must have different path d values');
+  assert.notEqual(paths[0], paths.at(-1), 'morph must change geometry rather than only translate or reveal a stroke');
+  return {
+    frames: scene.qa.frames,
+    uniquePaths,
+    cubicSegments: paths.map((d) => (d.match(/\bC\b/g) ?? []).length),
+  };
+};
+
 const loadFixture = async (scenario: Scenario): Promise<FilmSpec> => {
   const file = path.join(sourceProject, 'scripts', 'fixtures', 'advanced-scenes', `${scenario.key}.json`);
   const film = filmSchema.parse(JSON.parse(await readFile(file, 'utf8')));
@@ -280,6 +313,7 @@ const verifyScenario = async (scenario: Scenario): Promise<void> => {
   console.log(`\n[${scenario.key}] 目标 Film 与 G1/G2`);
   const film = await loadFixture(scenario);
   const scene = film.scenes[0];
+  const pathMorph = scenario.key === 'svg' ? inspectSvgPathMorph(film) : undefined;
   const projectId = film.id;
   const projectDirectory = path.join(sourceProject, 'output', 'projects', projectId);
   const scenarioEvidence = path.join(evidenceDirectory, scenario.key);
@@ -406,6 +440,7 @@ const verifyScenario = async (scenario: Scenario): Promise<void> => {
     independentEdit: '场景时长增加 15 帧；重新通过 G1、样板镜、G2 和 swangle 全片渲染',
     independentVideo,
     independentFullDecode: 'passed',
+    pathMorph,
   });
   await writeReport('running');
   console.log(`[${scenario.key}] 通过：${scene.durationInFrames} 帧，${visual.maximumDifference} 最大帧间差，QA ${qa.checks.length} 项`);

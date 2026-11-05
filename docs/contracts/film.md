@@ -52,7 +52,9 @@
 
 通过外部 Provider 获取的 BGM 还必须在对应 asset 的 `metadata` 中保留 `provider`、`sourceUrl`、`license`、`licenseUrl`，且 `audio.bgm.src` 必须与该 asset 的 `path` 一致；未成功下载并验证为可解码音频的曲目不得写入 Film IR。
 
-通过 `forge tts` 生成的旁白音频写入 `public/assets/<id>/`，以 `kind: voice`、`role: narration` 的 asset 登记，并在对应分镜的 `assetIds` 中引用。`metadata` 记录 provider、model、format 和 voice 等生成参数；不得记录 API key 或远程临时地址。生成结束前会执行目标 Film 校验，校验失败不得更新 `film.json`。生成成功后同时把该分镜的 Voice segment 写入 `audio.voice.segments`，文本与生成文本一致，结束帧取音频时长与该镜时长的较小值。
+通过 `forge tts` 生成的旁白音频写入 `public/assets/<id>/`，以 `kind: voice`、`role: narration` 的 asset 登记，并在对应分镜的 `assetIds` 中引用。`metadata` 记录 provider、model、format 和 voice 等生成参数；不得记录 API key 或远程临时地址。Provider 返回后先在临时文件上探测真实音频，无法探测或解码必须非零失败、删除临时产物，不登记素材，也不得以整镜时长兜底。落盘前与落盘后都必须确认 `public/` 根、目标目录及目标 realpath 未通过软链逃出项目 `public/`。
+
+生成成功后同时把该分镜的 Voice segment 写入 `audio.voice.segments`，文本与生成文本一致，结束帧取真实音频时长与该镜时长的较小值，并在写回前执行目标 Film 校验。只有 Film/Voice 内容或音频字节实际变化时才复用 `resetForDesignRevision` 让已审批项目退回 `design-review`；相同文本、参数与音频的重复生成不得重复清空 G1/G2。
 
 ### 5.1 三轨音频
 

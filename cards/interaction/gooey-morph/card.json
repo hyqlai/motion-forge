@@ -1,9 +1,9 @@
 {
   "id": "interaction/gooey-morph",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "kind": "interaction",
-  "title": "液态粘连展开",
-  "summary": "中心母体卡分裂出多张并列卡片，借助 SVG feColorMatrix 粘连滤镜产生如水滴融合分离的弹性张力",
+  "title": "液态路径形变展开",
+  "summary": "同一闭合 SVG 路径从圆角母体逐帧插值为多瓣曲线，配合 feColorMatrix 粘连滤镜分裂出多张并列卡片",
   "intents": [
     "证据裂变",
     "多项并列",

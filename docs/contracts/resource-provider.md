@@ -123,4 +123,4 @@ npm run forge -- fetch-image --project <id> --candidate <pexels-photo-id> \
 npm run test:pexels
 ```
 
-该检查会在临时目录运行 `forge create` 生成独立工程，再执行 `search-images`、`fetch-image` 和 `validate --project`，确认素材落盘、Film IR 相对路径、审批重置与错误报告。
+该检查会在模板同级的临时目录运行 `forge create` 生成独立工程，在工程内真实执行 `npm ci` 与 `npm run build`，再使用工程自己的 `tsx` 执行 `search-images`、`fetch-image` 和 `validate --project`，确认素材落盘、Film IR 相对路径、审批重置与错误报告。验证不得借用模板 `node_modules`、创建依赖软链或以模板运行时代替独立安装。

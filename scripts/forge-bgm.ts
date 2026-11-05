@@ -6,6 +6,7 @@ import {probeAudio} from '../providers/audio';
 import {createPixabayMusicProvider, PixabayMusicError} from '../providers/pixabay-music';
 import type {ResourceCandidate} from '../providers/resources';
 import {validateFilm} from './film-validation';
+import {preparePublicAssetDestination} from './public-asset-path';
 
 type BgmCommandOptions = {
   projectId: string;
@@ -113,12 +114,20 @@ const attachBgm = async (
   const assetId = `bgm-${pixabayId}`;
   const filename = `${assetId}${extensionFor(candidate)}`;
   const relativePath = path.posix.join('assets', film.id, filename);
-  const destination = path.join(root, 'public', 'assets', film.id, filename);
+  const publicRoot = path.join(root, 'public');
+  const destination = await preparePublicAssetDestination({projectRoot: root, publicRoot, relativePath});
   const previousBgm = film.audio.bgm;
+  const previousIsLocalBgm = previousBgm
+    && previousBgm.src.startsWith(`assets/${film.id}/`)
+    && !previousBgm.src.split('/').includes('..');
+  const previousDestination = previousBgm && previousIsLocalBgm
+    ? await preparePublicAssetDestination({projectRoot: root, publicRoot, relativePath: previousBgm.src})
+    : undefined;
 
   const provider = createPixabayMusicProvider();
   try {
     await provider.download(candidate, destination);
+    await preparePublicAssetDestination({projectRoot: root, publicRoot, relativePath});
   } catch (error) {
     throw formatError(error);
   }
@@ -133,13 +142,10 @@ const attachBgm = async (
 
   const previousAsset = previousBgm ? film.assets.find((asset) => asset.path === previousBgm.src) : undefined;
   const previousInUse = previousAsset ? film.scenes.some((scene) => scene.assetIds.includes(previousAsset.id)) : false;
-  const previousIsLocalBgm = previousBgm
-    && previousBgm.src.startsWith(`assets/${film.id}/`)
-    && !previousBgm.src.split('/').includes('..');
   if (previousAsset && previousAsset.id !== assetId && !previousInUse) {
     film.assets = film.assets.filter((asset) => asset !== previousAsset);
-    if (previousAsset.id.startsWith('bgm-') && previousIsLocalBgm && previousBgm.src !== relativePath) {
-      await rm(path.join(root, 'public', previousBgm.src), {force: true}).catch(() => undefined);
+    if (previousAsset.id.startsWith('bgm-') && previousBgm && previousDestination && previousBgm.src !== relativePath) {
+      await rm(previousDestination, {force: true}).catch(() => undefined);
     }
   }
 

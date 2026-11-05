@@ -194,6 +194,29 @@ try {
   assert.deepEqual(manifest.assets.map((asset) => asset.id), ['bgm-fixture', 'voice-S01-opening', 'sfx-fixture']);
   assert.ok(manifest.assets.every((asset) => /^[a-f0-9]{64}$/.test(asset.sha256)));
 
+  await runCommand('ffmpeg', [
+    '-v', 'error',
+    '-f', 'lavfi', '-i', 'color=c=black:s=320x180:r=30',
+    '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100:duration=0.8',
+    '-frames:v', '23', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac',
+    '-t', '0.8', '-y', path.join(projectDirectory, 'film.mp4'),
+  ]);
+  const frameFailureDirectory = `${exportDirectory}-frame-failure`;
+  const frameFailure = await runForge(['export', '--project', projectId, '--out', frameFailureDirectory]);
+  assert.notEqual(frameFailure.code, 0, 'even a one-frame mismatch must reject export');
+  const frameFailureReport = JSON.parse(await readFile(qaJsonFile, 'utf8')) as typeof report;
+  const frameCheck = frameFailureReport.checks.find((check) => check.id === 'video-ffprobe');
+  assert.equal(frameCheck?.status, 'failed');
+  assert.ok(frameCheck?.evidence.some((line) => /23 frames, expected 24/.test(line)));
+  assert.equal(existsSync(frameFailureDirectory), false);
+  await runCommand('ffmpeg', [
+    '-v', 'error',
+    '-f', 'lavfi', '-i', 'color=c=black:s=320x180:r=30',
+    '-f', 'lavfi', '-i', 'sine=frequency=440:sample_rate=44100:duration=0.8',
+    '-frames:v', '24', '-c:v', 'libx264', '-pix_fmt', 'yuv420p', '-c:a', 'aac',
+    '-t', '0.8', '-y', path.join(projectDirectory, 'film.mp4'),
+  ]);
+
   const decodeFailureDirectory = `${exportDirectory}-decode-failure`;
   const decodeFailure = await runForge(
     ['export', '--project', projectId, '--out', decodeFailureDirectory],
@@ -339,6 +362,7 @@ try {
     for (const directory of [
       exportDirectory,
       `${exportDirectory}-decode-failure`,
+      `${exportDirectory}-frame-failure`,
       `${exportDirectory}-sanitized`,
       `${exportDirectory}-secret`,
       `${exportDirectory}-absolute-import`,

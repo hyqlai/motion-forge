@@ -229,7 +229,7 @@ try {
       : asset),
     scenes: film.scenes.map((scene) => {
       if (scene.id === 'S02-content') {
-        return {...scene, props: {...scene.props, title: '修改后的第二镜', metadata: {downloadedAt: '2026-11-05T00:00:00.000Z'}}};
+        return {...scene, props: {...scene.props, metadata: {visualWeight: 'emphasis'}}};
       }
       if (scene.id === 'S03-closing') {
         return {...scene, props: {...scene.props, metadata: {downloadedAt: '2026-11-05T00:00:00.000Z'}}};

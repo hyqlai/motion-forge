@@ -38,11 +38,12 @@ PIXABAY_API_KEY=... npm run forge -- bgm \
 
 成功后的行为：
 
-1. 下载到 `public/assets/<project-id>/bgm-<pixabay-id>.<ext>`。
-2. 用 `ffprobe` 验证下载文件确实是可解码音频；验证失败会删除文件并报错。
+1. 下载到 `public/assets/<project-id>/bgm-<pixabay-id>.<ext>`；下载前检查 `public/` 根本身、最近的已存在祖先和目标目录，下载后再次检查目标 realpath，任何软链逃逸都显式失败。
+2. 用 `ffprobe` 读取真实时长，再用 `ffmpeg -xerror` 完整解码；任一失败都会删除文件并报错。
 3. 登记 `assets.json`：`kind: audio`、`role: bgm`，保留 `source`、`pixabayId`、作者、时长、`license: Pixabay Content License`、许可证地址和 probe 结果。
 4. 写回 `audio.bgm = {src, volume, loop}`，`src` 是 `public/` 下的项目相对路径；已有 `audio.voice` 与 `audio.sfx` 三轨内容保持不变。
 5. 若项目此前已通过 G1/G2，状态退回 `design-review`，旧审批失效。
+6. 路径或音频校验失败不得下载到 `public/` 外，也不得改写 Film IR 与审批；旧 BGM 清理只能使用通过同一边界检查的 realpath。
 
 ## 错误
 
@@ -67,7 +68,7 @@ PIXABAY_API_KEY=... npm run forge -- bgm \
 npx tsx scripts/verify-pixabay-provider.ts
 ```
 
-该脚本覆盖：缺密钥/禁用时不发请求、搜索成功与空结果、401、429、下载落盘字节一致、下载失败不留残文件、CLI 搜索并接入 `audio.bgm`。
+该脚本覆盖：缺密钥/禁用时不发请求、搜索成功与空结果、401、429、下载落盘字节一致、下载失败不留残文件、CLI 搜索并接入 `audio.bgm`，以及 `public/` 根软链和项目素材父目录软链两类越界拒绝。
 
 真实渲染验收使用项目内音频 fixture 作为 mock 下载内容，启动本地 mock 服务后在独立项目中执行 `forge bgm`，再渲染样板镜；用 `ffprobe` 确认 MP4 同时包含 H.264 视频流和 AAC 音频流，且 `ffmpeg volumedetect` 不是静音。
 

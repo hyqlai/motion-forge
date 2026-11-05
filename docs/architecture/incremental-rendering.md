@@ -17,7 +17,7 @@ npm run incremental:verify
 
 ## 门禁与校验
 
-增量模式沿用 `assertRenderAllowed` 和 `validateFilm`：G1/G2 状态、场景注册、动效卡、本地素材、三轨音频引用和目标 Film 校验都不会被跳过。缓存命中只影响是否需要重新渲染帧，不影响校验结果。最终 MP4 必须同时通过 ffprobe 结构检查（帧数、时长、画幅、编码、音视频流）和 ffmpeg 完整解码检查。
+增量模式沿用 `assertRenderAllowed` 和 `validateFilm`：G1/G2 状态、场景注册、动效卡、本地素材、三轨音频引用和目标 Film 校验都不会被跳过。缓存命中只影响是否需要重新渲染帧，不影响校验结果。最终 MP4 与导出共用 `scripts/final-media-validation.ts`：ffprobe 必须确认 H.264、画幅、FPS、精确帧数（容差 0）、时长（容差 0.1 秒）和音视频流，ffmpeg `-xerror` 必须完整解码全片。
 
 ## 场景内容哈希
 
@@ -26,7 +26,7 @@ npm run incremental:verify
 - `videoHash`：分镜结构、动效槽位、公开 props、关联素材文件哈希、相邻转场关系、全局主题、输出规格、渲染设置和渲染器内容版本。
 - `sceneHash`：在 `videoHash` 输入上追加 BGM、Voice、SFX 三轨音频引用（路径、音量、循环、局部帧、文本和音源文件哈希）。
 
-哈希输入统一按键名排序并剔除 `metadata` 容器、`downloadedAt`、生成时间、时间戳、临时路径等不稳定字段；渲染设置只保留 `--gl`、并发值和浏览器可执行文件名，浏览器绝对路径不进入哈希。`from`、`end` 等全片绝对帧不进入分镜视觉哈希，避免前一镜时长变化导致后续所有画面无谓重渲。三轨音频的绝对帧换算进入独立的音频轨道哈希。
+哈希输入统一按键名排序，只剔除 `downloadedAt`、生成时间、时间戳、临时路径等明确不稳定字段；`props.metadata` 及其他可能影响画面的字段全部保留，视觉 metadata 变化必须触发重渲。若剔除后只剩空容器，则省略该容器，避免新增一个仅含 `downloadedAt` 的 metadata 被误判为视觉变化。渲染设置只保留 `--gl`、并发值和浏览器可执行文件名，浏览器绝对路径不进入哈希。`from`、`end` 等全片绝对帧不进入分镜视觉哈希，避免前一镜时长变化导致后续所有画面无谓重渲。三轨音频的绝对帧换算进入独立的音频轨道哈希。
 
 ## 缓存与渲染基线
 
@@ -52,7 +52,7 @@ npm run incremental:verify
 
 ## 渲染器内容版本
 
-渲染器内容版本覆盖 `core/`、`cards/`、`scenes/` 的运行时代码与资源、`public/textures`、`public/legacy-textures`、`public/audio`、`public/photos` 等全局静态素材，以及 `remotion.config.ts`、`package.json`、`package-lock.json`、`scripts/incremental-render.ts` 和 `scripts/motion-forge.ts`。版本变化会使全部帧缓存失效。`public/assets/<project-id>/` 是项目自有素材，由 Film 素材哈希和音频哈希精确覆盖，不进入全局渲染器指纹，避免一镜素材变化让整片缓存失效。
+渲染器内容版本覆盖 `core/`、`cards/`、`scenes/` 的运行时代码与资源、`public/textures`、`public/legacy-textures`、`public/audio`、`public/photos` 等全局静态素材，以及 `remotion.config.ts`、`package.json`、`package-lock.json`、`scripts/incremental-render.ts`、`scripts/final-media-validation.ts` 和 `scripts/motion-forge.ts`。版本变化会使全部帧缓存失效。`public/assets/<project-id>/` 是项目自有素材，由 Film 素材哈希和音频哈希精确覆盖，不进入全局渲染器指纹，避免一镜素材变化让整片缓存失效。
 
 ## 合成策略
 
@@ -60,6 +60,6 @@ npm run incremental:verify
 
 ## 验证与限制
 
-`scripts/verify-incremental-render.ts` 在临时独立项目中通过 CLI 验证：G1/G2 与目标 Film 校验、首次建立缓存、修改单镜后仅重渲该镜与必要转场边界、不稳定 metadata 不触发重渲、失败不更新基线、恢复后基线更新、全量渲染仍可用，以及最终 MP4 的帧数、时长、编码和完整解码。
+`scripts/verify-incremental-render.ts` 在临时项目中通过 CLI 验证：G1/G2 与目标 Film 校验、首次建立缓存、视觉 `props.metadata` 变化触发重渲、`downloadedAt` 不触发重渲、必要转场边界、失败不更新基线、恢复后基线更新、全量渲染仍可用，以及最终 MP4 的 FPS、精确帧数、时长、编码和完整解码。
 
 增量缓存属于项目本地渲染中间件，不纳入交付包，也不依赖技能目录。当前实现按分镜顺序拼接，不跨项目共享缓存；若手动删除或篡改 `.render-cache/` 中的文件，下一次增量渲染会按缓存失效策略重新渲染受影响分镜。

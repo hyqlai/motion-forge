@@ -27,8 +27,8 @@ npm run forge -- export --project <id>
 | `asset-localization` | 所有素材均为 `public/` 内真实普通文件，不允许外部路径和软链接。 |
 | `total-frames` | 编译时间线等于分镜帧数之和，记录每镜起点、总帧数、帧率和预期时长。 |
 | `audio-tracks` | BGM、Voice、SFX 的本地音源、场景引用、局部帧和全片换算合法。 |
-| `video-ffprobe` | 最终 MP4 存在且非空；H.264 视频的帧数、宽高、帧率、时长与 Film 一致，音轨存在性与三轨声明一致。 |
-| `video-decode` | 使用 `ffmpeg -xerror` 完整解码全片，不只读取封装信息。 |
+| `video-ffprobe` | 与增量渲染共用最终片校验：最终 MP4 存在且非空；H.264 视频的宽高、FPS（容差 0.001）、精确帧数（容差 0）、时长（容差 0.1 秒）与 Film 一致，音轨存在性与三轨声明一致。 |
+| `video-decode` | 与增量渲染共用同一完整解码函数，使用 `ffmpeg -xerror` 解码全片，不只读取封装信息。 |
 | `approval-gates` | 状态机允许全片生产，且 G1/G2 审批时间均存在。 |
 | `delivery-hygiene` | 交付副本不含密钥、凭据文件、本机绝对路径、外部源码 import、本地 npm 依赖、软链接、依赖目录、版本库和渲染缓存。 |
 
@@ -85,6 +85,6 @@ npm run export:verify
 验证脚本沿用 `tsx`、CLI、ffprobe/ffmpeg 和真实 Remotion 渲染，不引入测试框架。它使用 320×180、24 帧的三轨 fixture，覆盖：
 
 - 正常导出及 JSON/Markdown QA、素材哈希和包结构。
-- 未批准、缺少视频、完整解码失败的非零拒绝。
+- 未批准、缺少视频、仅少 1 帧、完整解码失败的非零拒绝。
 - 密钥拒绝、本机路径副本脱敏、原事实源不变，以及绝对/越界相对源码 import 拒绝。
 - 干净副本独立 `npm ci`、目标 Film 校验、TypeScript/工作台构建和 swangle 真实渲染，最后再次检查帧数、音轨与完整解码。

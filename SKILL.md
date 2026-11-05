@@ -309,8 +309,8 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 | **5. 图片检索（可选）** | `npm run forge -- search-images --project <id> --query "<主题>" [--scene S01-opening] [--count 15] [--aspect 16:9]` | 显式调用 Pexels；需设置 `PEXELS_API_KEY`，未配置时在请求前报错；结果写入 `output/projects/<id>/image-search.json` |
 | **6. 图片本地化（可选）** | `npm run forge -- fetch-image --project <id> --candidate <pexels-id> [--scene S01-opening] [--role reference]` | 下载到 `public/assets/<id>/` 并登记 Film assets，远程地址只留作来源元数据；素材变化会退回 G1 |
 | **7. G1 设计审批** | `npm run forge -- approve-design --project <id>` | 用户确认分镜方案后执行，推进至 `sample-review` 阶段；应用新策划会重置为 `design-review` |
-| **8. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；音频写入项目 `public/`，登记为 Voice 素材并同时写入 `audio.voice.segments`，未配置密钥时拒绝发起外部请求 |
-| **8b. BGM 接入（可选）** | `npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop\|--no-loop]` | 需设置 `PIXABAY_API_KEY`；下载到 `public/assets/<id>/` 并写回 `audio.bgm`，保留已有 Voice/SFX 轨道 |
+| **8. 旁白生成（可选）** | `npm run forge -- tts --project <id> --scene <sceneId> [--text <text>] [--voice <id>] [--format mp3\|wav\|pcm\|opus] [--out assets/<id>/voice.mp3]` | 需设置 `FISH_API_KEY`；探测成功的音频才写入项目 `public/` 并登记 Voice，坏音频与 realpath 越界显式失败；实际变化才重置 G1/G2 |
+| **8b. BGM 接入（可选）** | `npm run forge -- bgm --project <id> --query "<terms>" [--candidate id] [--volume 0.2] [--loop\|--no-loop]` | 需设置 `PIXABAY_API_KEY`；下载到 `public/assets/<id>/` 并写回 `audio.bgm`，保留已有 Voice/SFX；`public/` 根或父目录软链越界必须拒绝 |
 | **9. 样板镜渲染** | `npm run forge -- render --project <id> --scope sample` | 渲染代表性分镜，在项目内生成 `output/projects/<id>/sample.mp4`；渲染前自动重验目标 Film |
 | **10. G2 样板镜审批** | `npm run forge -- approve-sample --project <id>` | 用户确认样板镜质感后执行，推进至 `production` 阶段 |
 | **11. 全片最终渲染** | `npm run forge -- render --project <id> --scope film` | 解锁全片合成，输出 `output/projects/<id>/film.mp4`；默认 `swangle` 软件渲染（含 Three.js 3D 场景），可传 `--gl angle` 启用 GPU 加速 |
@@ -340,7 +340,7 @@ export const AdaptiveStage: React.FC<{ children: React.ReactNode }> = ({ childre
 
 ### 5. 旁白生成（可选）
 
-TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会自动调用外部服务。密钥仅从 `FISH_API_KEY` 读取；认证失败、余额不足、限流和服务端错误分别归类，只有限流、服务端错误和网络错误会执行有限退避。`npm run tts:verify` 用本地 mock HTTP 验证成功与失败行为，不需要真实密钥或网络。
+TTS 只由显式 `tts` 子命令触发，`create`/`init` 及普通校验不会自动调用外部服务。密钥仅从 `FISH_API_KEY` 读取；认证失败、余额不足、限流和服务端错误分别归类，只有限流、服务端错误和网络错误会执行有限退避。返回音频必须先在临时文件探测成功，坏音频不得登记或用整镜时长兜底；输出路径的 `public/` 根、父目录与 realpath 不得逃逸。只有实际内容变化才重置 G1/G2，完全相同的重复生成保留审批。`npm run tts:verify` 用真实音频 fixture 和本地 mock HTTP 验证上述行为，不需要真实密钥或网络。
 
 ### 6. 三轨音频（BGM / Voice / SFX）
 
