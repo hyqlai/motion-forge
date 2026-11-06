@@ -19,3 +19,7 @@ Issue 以本地 markdown 文件形式存放在 `.scratch/` 目录下。详见 `d
 ### Domain docs
 
 单上下文布局（根目录 `GLOSSARY.md` + `docs/adr/`）。详见 `docs/agents/domain.md`。
+
+### Secret scanning
+
+提交前用 gitleaks 扫描暂存区，阻止密钥进入历史。启用与误报处理见 `docs/agents/secret-scanning.md`。

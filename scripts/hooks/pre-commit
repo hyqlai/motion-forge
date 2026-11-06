@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+# 提交前用 gitleaks 扫描暂存区内容，阻止密钥、授权码等敏感信息进入提交历史。
+# 启用方式见 docs/agents/secret-scanning.md。
+set -euo pipefail
+
+if ! command -v gitleaks >/dev/null 2>&1; then
+  cat >&2 <<'EOF'
+[secret-scan] 未找到 gitleaks，无法扫描暂存区，已阻止本次提交。
+  安装：https://github.com/gitleaks/gitleaks#installing
+  临时跳过：git commit --no-verify
+EOF
+  exit 1
+fi
+
+# 用 --staged 而非 --pre-commit：本版本的 --pre-commit 只读工作区 diff，扫不到暂存区内容
+if ! gitleaks git --staged --redact --no-banner; then
+  cat >&2 <<'EOF'
+
+[secret-scan] 暂存区命中疑似密钥，提交已阻止（命中值已在上面脱敏输出）。
+  确认是误报时，可在该行末尾加 `gitleaks:allow` 注释，或临时用 git commit --no-verify。
+EOF
+  exit 1
+fi
