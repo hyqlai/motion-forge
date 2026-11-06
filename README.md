@@ -139,3 +139,11 @@ npm run audio:verify:render     # 生成三轨 fixture，真实渲染 MP4 并用
 ```
 
 音频输入用 `--audio-kind song` 指定歌曲，不指定时按纯音乐处理。混合素材重复传入多个 `--input`。当前生成的是待创意确认的草案；歌曲项目可通过 `transcribe`/`lyrics-draft` 生成逐行歌词与时间区间，旁白可用 `tts`，BGM 可用 `bgm`，图片可通过 `search-images` / `fetch-image` 从 Pexels 检索并下载（需 `PEXELS_API_KEY`，详见 [`docs/contracts/resource-provider.md`](docs/contracts/resource-provider.md)）。所有外部 provider 需要相应密钥，最终仍须通过 G1/G2。渲染产物统一写入项目内 `output/projects/<id>/`。
+
+## 许可
+
+本项目采用 [PolyForm Noncommercial License 1.0.0](LICENSE)：允许任何非商业用途，商业使用需另行授权。
+
+`cards/_shared/shotcraft/`、`cards/_shared/brewreel/` 及标注 `source: video-shotcraft/`、`source: brewreel/` 的动效卡来自 Apache-2.0 许可的上游项目，不受上述非商业限制，仍按 Apache-2.0 分发。来源、版权与改动说明见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
+
+注意：本项目依赖 Remotion，Remotion 有独立的商业许可条款；使用本项目不构成对 Remotion 的授权。
